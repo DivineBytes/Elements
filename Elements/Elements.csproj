@@ -116,6 +116,7 @@
     <Compile Include="InteropServices\Modules\TEXTMETRIC.cs" />
     <Compile Include="InteropServices\Modules\TEXTMETRICA.cs" />
     <Compile Include="InteropServices\Modules\WM.cs" />
+    <Compile Include="Library.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
