@@ -104,6 +104,7 @@
     <Compile Include="Dialogs\IconPickerDialog.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Dialogs\ProgressDialog.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\PropertyGridExtensions.cs" />
     <Compile Include="InteropServices\ExternalDLL.cs" />

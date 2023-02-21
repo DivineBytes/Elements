@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Elements.Dialogs;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
 namespace Elements.Test
@@ -9,7 +10,8 @@ namespace Elements.Test
         [TestMethod]
         public void TestMethod1()
         {
-
+            
+            
             Assert.AreEqual(1, 1);
         }
     }
