@@ -17,8 +17,8 @@ using System.Windows.Forms;
 
 namespace Elements.Controls
 {
-    [ToolboxBitmap(typeof(TabControlEx), "TabControl.bmp")]
-    public class TabControlEx : System.Windows.Forms.TabControl
+    [ToolboxBitmap(typeof(TabControl), "TabControl.bmp")]
+    public class TabControl : System.Windows.Forms.TabControl
     {
         #region String formatting
 
@@ -63,7 +63,7 @@ namespace Elements.Controls
 
         #region Construction
 
-        public TabControlEx()
+        public TabControl()
         {
             SetStyle(
                 ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint | ControlStyles.Opaque |

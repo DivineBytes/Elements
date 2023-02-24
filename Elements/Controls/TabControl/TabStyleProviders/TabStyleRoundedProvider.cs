@@ -12,7 +12,7 @@ namespace Elements.Controls
     [ToolboxItem(false)]
     public class TabStyleRoundedProvider : TabStyleProvider
     {
-        public TabStyleRoundedProvider(TabControlEx tabControl) : base(tabControl)
+        public TabStyleRoundedProvider(TabControl tabControl) : base(tabControl)
         {
             _Radius = 10;
             // Must set after the _Radius as this is used in the calculations of the actual padding

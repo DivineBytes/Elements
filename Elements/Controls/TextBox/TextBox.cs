@@ -6,7 +6,7 @@ using System.Windows.Forms;
 namespace Elements.Controls
 {
     /// <summary>
-    /// The <see cref="TextBoxEx"/> class.
+    /// The <see cref="TextBox"/> class.
     /// </summary>
     /// <seealso cref="System.Windows.Forms.TextBox"/>
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
@@ -14,26 +14,45 @@ namespace Elements.Controls
     [DefaultEvent("TextChanged")]
     [DefaultProperty("Text")]
     [Description("The TextBox")]
-    [Designer(typeof(TextBoxExDesigner))]
-    [ToolboxBitmap(typeof(TextBoxEx), "TextBoxEx.bmp")]
+    [Designer(typeof(TextBoxDesigner))]
+    [ToolboxBitmap(typeof(TextBox), "TextBoxEx.bmp")]
     [ToolboxItem(true)]
-    public class TextBoxEx : TextBox
+    public class TextBox : System.Windows.Forms.TextBox
     {
         private const int WM_KILLFOCUS = 0x0008;
         private const int WM_PAINT = 0x000F;
 
         private string watermarkText;
 
-        public TextBoxEx()
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TextBox"/> class.
+        /// </summary>
+        public TextBox()
         {
             WatermarkColor = Color.Gray;
             WatermarkFont = DefaultFont;
         }
 
+        /// <summary>
+        /// Gets or sets the color of the watermark.
+        /// </summary>
+        /// <value>
+        /// The color of the watermark.
+        /// </value>
         public Color WatermarkColor { get; set; }
 
+        /// <summary>
+        /// Gets or sets the watermark font.
+        /// </summary>
+        /// <value>
+        /// The watermark font.
+        /// </value>
         public Font WatermarkFont { get; set; }
 
+        /// <summary>
+        /// WNDs the proc.
+        /// </summary>
+        /// <param name="m">The m.</param>
         protected override void WndProc(ref Message m)
         {
             base.WndProc(ref m);
@@ -80,7 +99,7 @@ namespace Elements.Controls
         }
 
         /// <summary>
-        /// Draws the Watermark Text in the client area of the <see cref="TextBox"/> using the
+        /// Draws the Watermark Text in the client area of the <see cref="System.Windows.Forms.TextBox"/> using the
         /// default font and color.
         /// </summary>
         private void DrawWatermarkText(Graphics graphics)
@@ -134,6 +153,11 @@ namespace Elements.Controls
             TextRenderer.DrawText(graphics, WatermarkText, WatermarkFont, rectangle, WatermarkColor, BackColor, flags);
         }
 
+        /// <summary>
+        /// Shoulds the render place holder text.
+        /// </summary>
+        /// <param name="m">The m.</param>
+        /// <returns>The <see cref="bool"/>.</returns>
         private bool ShouldRenderPlaceHolderText(in Message m)
         {
             return !string.IsNullOrEmpty(WatermarkText) &&

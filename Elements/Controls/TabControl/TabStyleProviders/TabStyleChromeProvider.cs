@@ -13,7 +13,7 @@ namespace Elements.Controls
     [ToolboxItem(false)]
     public class TabStyleChromeProvider : TabStyleProvider
     {
-        public TabStyleChromeProvider(TabControlEx tabControl) : base(tabControl)
+        public TabStyleChromeProvider(TabControl tabControl) : base(tabControl)
         {
             _Overlap = 16;
             _Radius = 16;

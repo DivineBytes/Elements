@@ -4,7 +4,7 @@ using System.Windows.Forms.Design;
 
 namespace Elements.Controls
 {
-    internal class TextBoxExDesigner : ControlDesigner
+    internal class TextBoxDesigner : ControlDesigner
     {
         private DesignerActionListCollection _actionListCollection;
 
@@ -17,7 +17,7 @@ namespace Elements.Controls
             {
                 if (_actionListCollection == null)
                 {
-                    _actionListCollection = new DesignerActionListCollection { new TextBoxExActionList(Component) };
+                    _actionListCollection = new DesignerActionListCollection { new TextBoxActionList(Component) };
                 }
 
                 return _actionListCollection;

@@ -12,7 +12,7 @@ namespace Elements.Controls
     [ToolboxItem(false)]
     public class TabStyleVS2010Provider : TabStyleRoundedProvider
     {
-        public TabStyleVS2010Provider(TabControlEx tabControl) : base(tabControl)
+        public TabStyleVS2010Provider(TabControl tabControl) : base(tabControl)
         {
             _Radius = 3;
             _ShowTabCloser = true;

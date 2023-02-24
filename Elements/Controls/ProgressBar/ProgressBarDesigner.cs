@@ -9,9 +9,7 @@ using System.Windows.Forms.Design.Behavior;
 
 namespace Elements.Controls
 {
-    /* Implements the design mode behavior for the ProgressBarEx class. */
-
-    internal class ProgressBarExDesigner : ControlDesigner
+    internal class ProgressBarDesigner : ControlDesigner
     {
         /* Gets a list of System.Windows.Forms.Design.Behavior.SnapLine
         objects, representing alignment points for the edited control. */

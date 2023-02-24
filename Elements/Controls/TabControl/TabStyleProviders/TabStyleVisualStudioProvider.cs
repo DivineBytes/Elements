@@ -12,7 +12,7 @@ namespace Elements.Controls
     [ToolboxItem(false)]
     public class TabStyleVisualStudioProvider : TabStyleProvider
     {
-        public TabStyleVisualStudioProvider(TabControlEx tabControl) : base(tabControl)
+        public TabStyleVisualStudioProvider(TabControl tabControl) : base(tabControl)
         {
             _ImageAlign = ContentAlignment.MiddleRight;
             _Overlap = 7;

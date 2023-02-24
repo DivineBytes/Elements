@@ -4,14 +4,14 @@ using System.Drawing.Design;
 
 namespace Elements.Controls
 {
-    internal class TextBoxExActionList : DesignerActionList
+    internal class TextBoxActionList : DesignerActionList
     {
-        private TextBoxEx _control;
+        private TextBox _control;
         private DesignerActionUIService _designerService;
 
-        public TextBoxExActionList(IComponent component) : base(component)
+        public TextBoxActionList(IComponent component) : base(component)
         {
-            _control = (TextBoxEx)component;
+            _control = (TextBox)component;
             _designerService = (DesignerActionUIService)GetService(typeof(DesignerActionUIService));
         }
 

@@ -19,9 +19,9 @@ namespace Mycelial.Forms.Controls
     [DefaultProperty("Orientation")]
     [Description("The Separator")]
     [Designer(typeof(SeparatorDesigner))]
-    [ToolboxBitmap(typeof(SeparatorEx), "Separator.bmp")]
+    [ToolboxBitmap(typeof(Separator), "Separator.bmp")]
     [ToolboxItem(true)]
-    public class SeparatorEx : Control
+    public class Separator : Control
     {
         #region Fields
 
@@ -35,9 +35,9 @@ namespace Mycelial.Forms.Controls
         #region Constructors and Destructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SeparatorEx"/> class.
+        /// Initializes a new instance of the <see cref="Separator"/> class.
         /// </summary>
-        public SeparatorEx()
+        public Separator()
         {
             Size = new Size(75, 4);
             _orientation = Orientation.Horizontal;

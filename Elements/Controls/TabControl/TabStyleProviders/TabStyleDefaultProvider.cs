@@ -12,7 +12,7 @@ namespace Elements.Controls
     [ToolboxItem(false)]
     public class TabStyleDefaultProvider : TabStyleProvider
     {
-        public TabStyleDefaultProvider(TabControlEx tabControl) : base(tabControl)
+        public TabStyleDefaultProvider(TabControl tabControl) : base(tabControl)
         {
             _FocusTrack = true;
             _Radius = 2;

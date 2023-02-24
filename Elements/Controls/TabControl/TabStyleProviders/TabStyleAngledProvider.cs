@@ -12,7 +12,7 @@ namespace Elements.Controls
     [ToolboxItem(false)]
     public class TabStyleAngledProvider : TabStyleProvider
     {
-        public TabStyleAngledProvider(TabControlEx tabControl) : base(tabControl)
+        public TabStyleAngledProvider(TabControl tabControl) : base(tabControl)
         {
             _ImageAlign = ContentAlignment.MiddleRight;
             _Overlap = 7;

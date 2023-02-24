@@ -11,7 +11,7 @@ namespace Elements.Controls
     [ToolboxItem(false)]
     public class TabStyleNoneProvider : TabStyleProvider
     {
-        public TabStyleNoneProvider(TabControlEx tabControl) : base(tabControl)
+        public TabStyleNoneProvider(TabControl tabControl) : base(tabControl)
         {
         }
 

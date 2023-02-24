@@ -16,7 +16,7 @@ namespace Elements.Controls
     {
         #region Constructor
 
-        protected TabStyleProvider(TabControlEx tabControl)
+        protected TabStyleProvider(TabControl tabControl)
         {
             _TabControl = tabControl;
 
@@ -43,7 +43,7 @@ namespace Elements.Controls
 
         #region Factory Methods
 
-        public static TabStyleProvider CreateProvider(TabControlEx tabControl)
+        public static TabStyleProvider CreateProvider(TabControl tabControl)
         {
             TabStyleProvider provider;
 
@@ -111,7 +111,7 @@ namespace Elements.Controls
         #region Protected variables
 
         [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")]
-        protected TabControlEx _TabControl;
+        protected TabControl _TabControl;
 
         [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")] protected Point _Padding;
 

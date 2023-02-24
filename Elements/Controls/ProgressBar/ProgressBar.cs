@@ -10,49 +10,49 @@ using System.Windows.Forms;
 namespace Elements.Controls
 {
     /// <summary>
-    /// Represents a Windows progress bar control which displays its <see cref="ProgressBar.Value"/>
+    /// Represents a Windows progress bar control which displays its <see cref="System.Windows.Forms.ProgressBar.Value"/>
     /// as text on a faded background.
     /// </summary>
     /// <remarks>
-    /// ProgressBarEx is a specialized type of <see cref="ProgressBar"/>, which it extends to fade
-    /// its background colors and to display its <see cref="ProgressBarEx.Text"/>.
+    /// ProgressBarEx is a specialized type of <see cref="System.Windows.Forms.ProgressBar"/>, which it extends to fade
+    /// its background colors and to display its <see cref="ProgressBar.Text"/>.
     /// <para>
     /// You can manipulate the background fading intensity by changing the value of property <see
-    /// cref="ProgressBarEx.Fade"/> which accepts values between 0 and 255. Lower values make the
+    /// cref="ProgressBar.Fade"/> which accepts values between 0 and 255. Lower values make the
     /// background darker; higher values make the background lighter.
     /// </para>
     /// <para>
-    /// The current <see cref="ProgressBar.Text"/> is displayed using the values of properties <see
-    /// cref="ProgressBarEx.Font"/> and <see cref="ProgressBarEx.ForeColor"/>.
+    /// The current <see cref="System.Windows.Forms.ProgressBar.Text"/> is displayed using the values of properties <see
+    /// cref="ProgressBar.Font"/> and <see cref="ProgressBar.ForeColor"/>.
     /// </para>
     /// <para>
     /// <note type="inherit"> When you derive from ProgressBarEx, adding new functionality to the
     /// derived class, if your derived class references objects that must be disposed of before an
     /// instance of your class is destroyed, you must override the <see
-    /// cref="ProgressBarEx.Dispose(System.Boolean)"/> method, and call <see
+    /// cref="ProgressBar.Dispose(System.Boolean)"/> method, and call <see
     /// cref="System.ComponentModel.Component.Dispose()">Dispose()</see> on all objects that are
     /// referenced in your class, before calling <c>Dispose(disposing)</c> on the base class. </note>
     /// </para>
     /// </remarks>
     [Description("Provides a ProgressBar which displays its Value as text on a faded background.")]
-    [Designer(typeof(ProgressBarExDesigner))]
-    [ToolboxBitmap(typeof(ProgressBarEx), "ProgressBar.bmp")]
-    public class ProgressBarEx : System.Windows.Forms.ProgressBar
+    [Designer(typeof(ProgressBarDesigner))]
+    [ToolboxBitmap(typeof(ProgressBar), "ProgressBar.bmp")]
+    public class ProgressBar : System.Windows.Forms.ProgressBar
     {
         private int _Fade;
         private SolidBrush _FadeBrush;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProgressBarEx"/> class.
+        /// Initializes a new instance of the <see cref="ProgressBar"/> class.
         /// </summary>
-        public ProgressBarEx()
+        public ProgressBar()
         {
             base.ForeColor = SystemColors.ControlText;
             _FadeBrush = new SolidBrush(Color.FromArgb(Fade, Color.White));
         }
 
         /// <summary>
-        /// Releases the unmanaged resources used by the <see cref="ProgressBarEx"/> and optionally
+        /// Releases the unmanaged resources used by the <see cref="ProgressBar"/> and optionally
         /// releases the managed resources.
         /// </summary>
         /// <param name="disposing">
@@ -76,7 +76,7 @@ namespace Elements.Controls
         /// </para>
         /// </remarks>
         /// <overloads>
-        /// Releases all resources used by the <see cref="ProgressBarEx"/>.
+        /// Releases all resources used by the <see cref="ProgressBar"/>.
         /// <para>
         /// This member is overloaded. For complete information about this member, click a name in
         /// the overload list.
@@ -97,11 +97,11 @@ namespace Elements.Controls
         }
 
         /// <summary>
-        /// Returns the parameters used to create the window for the <see cref="ProgressBarEx"/> control.
+        /// Returns the parameters used to create the window for the <see cref="ProgressBar"/> control.
         /// </summary>
         /// <value>
         /// A <see cref="System.Windows.Forms.CreateParams"/> object that contains the required
-        /// creation parameters for the <see cref="ProgressBarEx"/> control.
+        /// creation parameters for the <see cref="ProgressBar"/> control.
         /// </value>
         /// <remarks>
         /// The information returned by the CreateParams property is used to pass information about
@@ -128,7 +128,7 @@ namespace Elements.Controls
 
         /// <summary>
         /// Gets or sets the opacity of the white overlay brush which fades the background colors of
-        /// the <see cref="ProgressBarEx"/>.
+        /// the <see cref="ProgressBar"/>.
         /// </summary>
         /// <value>
         /// An <see cref="System.Int32"/> representing the alpha value of the overlay color. The
@@ -137,8 +137,8 @@ namespace Elements.Controls
         /// <remarks>
         /// You can use this property to manipulate the density of the background coloring of this
         /// control, to allow for better readability of any text within the <see
-        /// cref="ProgressBarEx"/>. You can use the <see cref="ProgressBarEx.Font"/> and <see
-        /// cref="ProgressBarEx.ForeColor"/> properties to further optimize the display of text.
+        /// cref="ProgressBar"/>. You can use the <see cref="ProgressBar.Font"/> and <see
+        /// cref="ProgressBar.ForeColor"/> properties to further optimize the display of text.
         /// <para>
         /// Acceptable values for this property are between 0 and 255 inclusive. The default is 150;
         /// lower values make the background darker; higher values make the background lighter.
@@ -183,7 +183,7 @@ namespace Elements.Controls
         }
 
         /// <summary>
-        /// Gets or sets the <see cref="System.Drawing.Font"/> of the text displayed by the <see cref="ProgressBarEx"/>.
+        /// Gets or sets the <see cref="System.Drawing.Font"/> of the text displayed by the <see cref="ProgressBar"/>.
         /// </summary>
         /// <value>
         /// The <see cref="System.Drawing.Font"/> to apply to the text displayed by the control.
@@ -191,7 +191,7 @@ namespace Elements.Controls
         /// <remarks>
         /// You can use the Font property to change the <see cref="System.Drawing.Font"/> to use
         /// when drawing text. To change the text <see cref="Color"/>, use the <see
-        /// cref="ProgressBarEx.ForeColor"/> property.
+        /// cref="ProgressBar.ForeColor"/> property.
         /// <para>
         /// The Font property is an ambient property. An ambient property is a control property
         /// that, if not set, is retrieved from the parent control.
@@ -223,16 +223,16 @@ namespace Elements.Controls
         }
 
         /// <summary>
-        /// Gets or sets the color of the text displayed by <see cref="ProgressBarEx"/>.
+        /// Gets or sets the color of the text displayed by <see cref="ProgressBar"/>.
         /// </summary>
         /// <value>
         /// A <see cref="Color"/> that represents the control's foreground color. The default is <b>ControlText</b>.
         /// </value>
         /// <remarks>
         /// You can use the ForeColor property to change the color of the text within the <see
-        /// cref="ProgressBarEx"/> to match the text of other controls on your form. To change the
+        /// cref="ProgressBar"/> to match the text of other controls on your form. To change the
         /// <see cref="System.Drawing.Font"/> to use when drawing text, use the <see
-        /// cref="ProgressBarEx.Font">ProgressBarEx.Font</see> property.
+        /// cref="ProgressBar.Font">ProgressBarEx.Font</see> property.
         /// <para>
         /// <note type="inherit"> When overriding the ForeColor property in a derived class, use the
         /// base class's ForeColor property to extend the base implementation. Otherwise, you must
@@ -254,15 +254,15 @@ namespace Elements.Controls
         }
 
         /// <summary>
-        /// Gets the text associated with this <see cref="ProgressBarEx"/>.
+        /// Gets the text associated with this <see cref="ProgressBar"/>.
         /// </summary>
         /// <value>A <see cref="string"/> representing the text displayed in the control.</value>
         /// <remarks>
-        /// The <see cref="ProgressBarEx"/> control supports display of a single line of text,
-        /// consisting of the <see cref="ProgressBar.Value"/> followed by a percent sign.
+        /// The <see cref="ProgressBar"/> control supports display of a single line of text,
+        /// consisting of the <see cref="System.Windows.Forms.ProgressBar.Value"/> followed by a percent sign.
         /// <para>
-        /// The text is displayed using the values of properties <see cref="ProgressBarEx.Font"/>
-        /// and <see cref="ProgressBarEx.ForeColor"/>.
+        /// The text is displayed using the values of properties <see cref="ProgressBar.Font"/>
+        /// and <see cref="ProgressBar.ForeColor"/>.
         /// </para>
         /// </remarks>
         [Browsable(false)]
@@ -303,7 +303,7 @@ namespace Elements.Controls
         }
 
         /// <summary>
-        /// Returns a string representation for this <see cref="ProgressBarEx"/>.
+        /// Returns a string representation for this <see cref="ProgressBar"/>.
         /// </summary>
         /// <returns>A <see cref="string"/> that describes this control.</returns>
         public override string ToString()
