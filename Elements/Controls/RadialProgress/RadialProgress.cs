@@ -86,7 +86,7 @@ namespace Elements.Controls.RadialProgress
         /// <value><c>true</c> if [back circle visible]; otherwise, <c>false</c>.</value>
         [DefaultValue(true)]
         [Category(PropertyCategory.Appearance)]
-        [Description("Visible")]
+        [Description("Back circle visible")]
         public bool BackCircleVisible
         {
             get
@@ -127,7 +127,7 @@ namespace Elements.Controls.RadialProgress
         /// <value><c>true</c> if [fore circle visible]; otherwise, <c>false</c>.</value>
         [DefaultValue(true)]
         [Category(PropertyCategory.Appearance)]
-        [Description("Visible")]
+        [Description("Fore circle visible")]
         public bool ForeCircleVisible
         {
             get
@@ -405,7 +405,6 @@ namespace Elements.Controls.RadialProgress
                 {
                     _value = Value.ToString("0");
                 }
-                
             }
 
             SizeF _textSize = StringUtilities.MeasureTextF(_value, Font, graphics);
