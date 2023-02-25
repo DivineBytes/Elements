@@ -39,8 +39,8 @@ namespace Elements.Controls
     [ToolboxBitmap(typeof(ProgressBar), "ProgressBar.bmp")]
     public class ProgressBar : System.Windows.Forms.ProgressBar
     {
-        private int _Fade;
-        private SolidBrush _FadeBrush;
+        private int _fade;
+        private SolidBrush _fadeBrush;
         private bool _progressVisible;
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace Elements.Controls
         public ProgressBar()
         {
             base.ForeColor = SystemColors.ControlText;
-            _FadeBrush = new SolidBrush(Color.FromArgb(Fade, Color.White));
+            _fadeBrush = new SolidBrush(Color.FromArgb(Fade, Color.White));
             _progressVisible = true;
         }
 
@@ -109,10 +109,10 @@ namespace Elements.Controls
         {
             if (disposing)
             {
-                if (_FadeBrush != null)
+                if (_fadeBrush != null)
                 {
-                    _FadeBrush.Dispose();
-                    _FadeBrush = null;
+                    _fadeBrush.Dispose();
+                    _fadeBrush = null;
                 }
             }
 
@@ -177,7 +177,7 @@ namespace Elements.Controls
         {
             get
             {
-                return _Fade;
+                return _fade;
             }
 
             set
@@ -190,15 +190,15 @@ namespace Elements.Controls
                             "A value of '{0}' is not valid for 'Fade'. 'Fade' must be between 0 and 255.", str));
                 }
 
-                _Fade = value;
+                _fade = value;
 
                 // Clean up previous brush
-                if (_FadeBrush != null)
+                if (_fadeBrush != null)
                 {
-                    _FadeBrush.Dispose();
+                    _fadeBrush.Dispose();
                 }
 
-                _FadeBrush = new SolidBrush(Color.FromArgb(value, Color.White));
+                _fadeBrush = new SolidBrush(Color.FromArgb(value, Color.White));
 
                 Invalidate();
             }
@@ -350,10 +350,10 @@ namespace Elements.Controls
             {
                 Rectangle rect = ClientRectangle;
 
-                if (_FadeBrush != null)
+                if (_fadeBrush != null)
                 {
                     // Paint a translucent white layer on top, to fade the colors a bit
-                    graphics.FillRectangle(_FadeBrush, rect);
+                    graphics.FillRectangle(_fadeBrush, rect);
                 }
 
                 if (ProgressVisible)
