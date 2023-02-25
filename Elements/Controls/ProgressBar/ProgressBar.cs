@@ -41,6 +41,7 @@ namespace Elements.Controls
     {
         private int _Fade;
         private SolidBrush _FadeBrush;
+        private bool _progressVisible;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ProgressBar"/> class.
@@ -49,6 +50,28 @@ namespace Elements.Controls
         {
             base.ForeColor = SystemColors.ControlText;
             _FadeBrush = new SolidBrush(Color.FromArgb(Fade, Color.White));
+            _progressVisible = true;
+        }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether [progress visible].
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [progress visible]; otherwise, <c>false</c>.
+        /// </value>
+        [DefaultValue(true)]
+        public bool ProgressVisible
+        {
+            get
+            {
+                return _progressVisible;
+            }
+
+            set
+            {
+                _progressVisible = value;
+                Invalidate();
+            }
         }
 
         /// <summary>
@@ -149,8 +172,7 @@ namespace Elements.Controls
         /// </exception>
         [Category("Appearance")]
         [DefaultValue(0)]
-        [Description(
-            "Specifies the opacity of the white overlay brush which fades the background colors of the ProgressBarEx.")]
+        [Description("Specifies the opacity of the white overlay brush which fades the background colors of the ProgressBar.")]
         public int Fade
         {
             get
@@ -334,7 +356,10 @@ namespace Elements.Controls
                     graphics.FillRectangle(_FadeBrush, rect);
                 }
 
-                TextRenderer.DrawText(graphics, Text, Font, rect, ForeColor);
+                if (ProgressVisible)
+                {
+                    TextRenderer.DrawText(graphics, Text, Font, rect, ForeColor);
+                }
             }
         }
 
