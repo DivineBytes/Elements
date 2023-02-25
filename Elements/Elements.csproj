@@ -109,10 +109,10 @@
     </Compile>
     <Compile Include="Controls\TextBox\TextBoxActionList.cs" />
     <Compile Include="Controls\TextBox\TextBoxDesigner.cs" />
-    <Compile Include="Dialogs\IconPickerDialog.cs">
+    <Compile Include="Dialogs\IconPicker\IconPickerDialog.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Dialogs\ProgressDialog.cs" />
+    <Compile Include="Dialogs\ProgressDialog\ProgressDialog.cs" />
     <Compile Include="Enumerators\MouseStates.cs" />
     <Compile Include="Events\ColorEventArgs.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
@@ -161,7 +161,11 @@
       <DependentUpon>Test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Components\Gradient\" />
+    <Folder Include="Controls\GroupBox\" />
+    <Folder Include="Controls\Label\" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Icon.ico" />
   </ItemGroup>
