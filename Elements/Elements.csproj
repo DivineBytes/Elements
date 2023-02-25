@@ -51,6 +51,8 @@
     <Compile Include="Constants\PropertyCategory.cs" />
     <Compile Include="Constants\EventCategory.cs" />
     <Compile Include="Controls\Gauge\GaugeDesigner.cs" />
+    <Compile Include="Controls\RadialProgress\RadialProgress.cs" />
+    <Compile Include="Controls\RadialProgress\RadialProgressDesigner.cs" />
     <Compile Include="Delegates\ControlDelegates.cs" />
     <Compile Include="Controls\Base\ControlBase.cs" />
     <Compile Include="Controls\Base\ProgressBase.cs" />
@@ -126,6 +128,11 @@
     <Compile Include="InteropServices\Modules\WM.cs" />
     <Compile Include="Library.cs" />
     <Compile Include="Models\ColorState.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -145,6 +152,10 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Test.resx">
       <DependentUpon>Test.cs</DependentUpon>
     </EmbeddedResource>
@@ -166,6 +177,7 @@
   <ItemGroup>
     <Content Include="Controls\ProgressBar\ProgressBar.bmp" />
     <Content Include="Controls\ProgressIndicator\ProgressIndicator.bmp" />
+    <Content Include="Controls\RadialProgress\RadialProgress.bmp" />
     <Content Include="Controls\Separator\Separator.bmp" />
     <Content Include="Controls\TabControl\TabControl.bmp" />
     <Content Include="Controls\TextBox\TextBox.bmp" />
