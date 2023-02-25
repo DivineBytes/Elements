@@ -1,4 +1,8 @@
-﻿using Elements.InteropServices;
+﻿using Elements.Constants;
+using Elements.Controls.Base;
+using Elements.Controls.ProgressBar;
+using Elements.Events;
+using Elements.InteropServices;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -34,23 +38,71 @@ namespace Elements.Controls
     /// referenced in your class, before calling <c>Dispose(disposing)</c> on the base class. </note>
     /// </para>
     /// </remarks>
+    [ClassInterface(ClassInterfaceType.AutoDispatch)]
+    [ComVisible(true)]
+    [DefaultEvent("Click")]
+    [DefaultProperty("Value")]
     [Description("Provides a ProgressBar which displays its Value as text on a faded background.")]
     [Designer(typeof(ProgressBarDesigner))]
-    [ToolboxBitmap(typeof(ProgressBar), "ProgressBar.bmp")]
-    public class ProgressBar : System.Windows.Forms.ProgressBar
+    [ToolboxBitmap(typeof(ProgressBarEx), "ProgressBar.bmp")]
+    [ToolboxItem(true)]
+    public class ProgressBarEx : System.Windows.Forms.ProgressBar
     {
         private int _fade;
         private SolidBrush _fadeBrush;
         private bool _progressVisible;
 
         /// <summary>
+        /// The <see cref="ValueChangedEventHandler"/> delegate.
+        /// </summary>
+        /// <param name="e">The <see cref="ProgressEventArgs"/> instance containing the event data.</param>
+        public delegate void ValueChangedEventHandler(ProgressEventArgs e);
+
+        /// <summary>
+        /// The value changed.
+        /// </summary>
+        public ValueChangedEventHandler ValueChanged;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="ProgressBar"/> class.
         /// </summary>
-        public ProgressBar()
+        public ProgressBarEx()
         {
-            base.ForeColor = SystemColors.ControlText;
+            ForeColor = SystemColors.ControlText;
             _fadeBrush = new SolidBrush(Color.FromArgb(Fade, Color.White));
             _progressVisible = true;
+        }
+
+        /// <summary>
+        /// Gets or sets the value.
+        /// </summary>
+        /// <value>The value.</value>
+        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// Value - Provided value is out of the Minimum to Maximum range of values.
+        /// </exception>
+        [Bindable(true)]
+        [Category(PropertyCategory.Behavior)]
+        [Description("The current value for the ProgressBar, in the range specified by the minimum and maximum properties.")]
+        public new int Value
+        {
+            get
+            {
+                return base.Value;
+            }
+
+            set
+            {
+                if (value != base.Value)
+                {
+                    if ((value < Minimum) || (value > Maximum))
+                    {
+                        throw new ArgumentOutOfRangeException(nameof(Value), "Provided value is out of the Minimum to Maximum range of values.");
+                    }
+
+                    base.Value = value;
+                    OnValueChanged(new ProgressEventArgs(base.Value, this));
+                }
+            }
         }
 
         /// <summary>
@@ -71,81 +123,6 @@ namespace Elements.Controls
             {
                 _progressVisible = value;
                 Invalidate();
-            }
-        }
-
-        /// <summary>
-        /// Releases the unmanaged resources used by the <see cref="ProgressBar"/> and optionally
-        /// releases the managed resources.
-        /// </summary>
-        /// <param name="disposing">
-        /// <b>True</b> to release both managed and unmanaged resources; <b>false</b> to release
-        /// only unmanaged resources.
-        /// </param>
-        /// <remarks>
-        /// This method is called by the public <see cref="Control.Dispose"/> method and the <see
-        /// cref="object.Finalize"/> method. Dispose invokes Dispose with the <i>disposing</i>
-        /// parameter set to <b>true</b>. Finalize invokes Dispose with <i>disposing</i> set to <b>false</b>.
-        /// <para>
-        /// <note type="inherit"> Dispose might be called multiple times by other objects. When
-        /// overriding <i>Dispose(Boolean)</i>, be careful not to reference objects that have been
-        /// previously disposed of in an earlier call to Dispose.
-        /// <para>
-        /// If your derived class references objects that must be disposed of before an instance of
-        /// your class is destroyed, you must call <see cref="Control.Dispose"/> on all objects that
-        /// are referenced in your class, before calling <c>Dispose(disposing)</c> on the base class.
-        /// </para>
-        /// </note>
-        /// </para>
-        /// </remarks>
-        /// <overloads>
-        /// Releases all resources used by the <see cref="ProgressBar"/>.
-        /// <para>
-        /// This member is overloaded. For complete information about this member, click a name in
-        /// the overload list.
-        /// </para>
-        /// </overloads>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                if (_fadeBrush != null)
-                {
-                    _fadeBrush.Dispose();
-                    _fadeBrush = null;
-                }
-            }
-
-            base.Dispose(disposing);
-        }
-
-        /// <summary>
-        /// Returns the parameters used to create the window for the <see cref="ProgressBar"/> control.
-        /// </summary>
-        /// <value>
-        /// A <see cref="System.Windows.Forms.CreateParams"/> object that contains the required
-        /// creation parameters for the <see cref="ProgressBar"/> control.
-        /// </value>
-        /// <remarks>
-        /// The information returned by the CreateParams property is used to pass information about
-        /// the initial state and appearance of this control, at the time an instance of this class
-        /// is being created.
-        /// <para>
-        /// <note type="inherit"> When overriding the CreateParams property in a derived class, use
-        /// the base class's CreateParams property to extend the base implementation. Otherwise, you
-        /// must provide all the implementation. </note>
-        /// </para>
-        /// </remarks>
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams myParams = base.CreateParams;
-
-                // Make the control use double buffering
-                myParams.ExStyle |= (int)WM.WS_EX_COMPOSITED;
-
-                return myParams;
             }
         }
 
@@ -290,7 +267,176 @@ namespace Elements.Controls
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Always)]
         [Bindable(false)]
-        public override string Text => Value.ToString(CultureInfo.CurrentCulture) + "%";
+        public override string Text
+        {
+            get
+            {
+                return Value.ToString(CultureInfo.CurrentCulture) + "%";
+            }
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:ValueChangedEvent" /> event.
+        /// </summary>
+        /// <param name="eventArgs">The <see cref="ProgressEventArgs"/> instance containing the event data.</param>
+        protected virtual void OnValueChanged(ProgressEventArgs eventArgs)
+        {
+            ValueChanged?.Invoke(eventArgs);
+        }
+
+        /// <summary>
+        /// Releases the unmanaged resources used by the <see cref="ProgressBar"/> and optionally
+        /// releases the managed resources.
+        /// </summary>
+        /// <param name="disposing">
+        /// <b>True</b> to release both managed and unmanaged resources; <b>false</b> to release
+        /// only unmanaged resources.
+        /// </param>
+        /// <remarks>
+        /// This method is called by the public <see cref="Control.Dispose"/> method and the <see
+        /// cref="object.Finalize"/> method. Dispose invokes Dispose with the <i>disposing</i>
+        /// parameter set to <b>true</b>. Finalize invokes Dispose with <i>disposing</i> set to <b>false</b>.
+        /// <para>
+        /// <note type="inherit"> Dispose might be called multiple times by other objects. When
+        /// overriding <i>Dispose(Boolean)</i>, be careful not to reference objects that have been
+        /// previously disposed of in an earlier call to Dispose.
+        /// <para>
+        /// If your derived class references objects that must be disposed of before an instance of
+        /// your class is destroyed, you must call <see cref="Control.Dispose"/> on all objects that
+        /// are referenced in your class, before calling <c>Dispose(disposing)</c> on the base class.
+        /// </para>
+        /// </note>
+        /// </para>
+        /// </remarks>
+        /// <overloads>
+        /// Releases all resources used by the <see cref="ProgressBar"/>.
+        /// <para>
+        /// This member is overloaded. For complete information about this member, click a name in
+        /// the overload list.
+        /// </para>
+        /// </overloads>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (_fadeBrush != null)
+                {
+                    _fadeBrush.Dispose();
+                    _fadeBrush = null;
+                }
+            }
+
+            base.Dispose(disposing);
+        }
+
+        /// <summary>
+        /// Returns the parameters used to create the window for the <see cref="ProgressBar"/> control.
+        /// </summary>
+        /// <value>
+        /// A <see cref="System.Windows.Forms.CreateParams"/> object that contains the required
+        /// creation parameters for the <see cref="ProgressBar"/> control.
+        /// </value>
+        /// <remarks>
+        /// The information returned by the CreateParams property is used to pass information about
+        /// the initial state and appearance of this control, at the time an instance of this class
+        /// is being created.
+        /// <para>
+        /// <note type="inherit"> When overriding the CreateParams property in a derived class, use
+        /// the base class's CreateParams property to extend the base implementation. Otherwise, you
+        /// must provide all the implementation. </note>
+        /// </para>
+        /// </remarks>
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams myParams = base.CreateParams;
+
+                // Make the control use double buffering
+                myParams.ExStyle |= (int)WM.WS_EX_COMPOSITED;
+
+                return myParams;
+            }
+        }
+
+        /// <summary>
+        /// Decrement from the value.
+        /// </summary>
+        /// <param name="value">Amount of value to decrement.</param>
+        public void Decrement(int value)
+        {
+            if (Value > Minimum)
+            {
+                Value -= value;
+                if (Value < Minimum)
+                {
+                    Value = Minimum;
+                }
+            }
+            else
+            {
+                Value = Minimum;
+            }
+
+            Invalidate();
+        }
+
+        /// <summary>
+        /// Increment to the value.
+        /// </summary>
+        /// <param name="value">Amount of value to increment.</param>
+        public new void Increment(int value)
+        {
+            if (Value < Maximum)
+            {
+                Value += value;
+                if (Value > Maximum)
+                {
+                    Value = Maximum;
+                }
+            }
+            else
+            {
+                Value = Maximum;
+            }
+
+            Invalidate();
+        }
+
+        /// <summary>
+        /// Set the minimum and maximum value range.
+        /// </summary>
+        /// <param name="minimumValue">The minimum.</param>
+        /// <param name="maximumValue">The maximum.</param>
+        public void SetRange(int minimumValue, int maximumValue)
+        {
+            if ((Minimum != minimumValue) || (Maximum != maximumValue))
+            {
+                if (minimumValue > maximumValue)
+                {
+                    minimumValue = maximumValue;
+                }
+
+                Minimum = minimumValue;
+                Maximum = maximumValue;
+
+                int beforeValue = Value;
+                if (Value < Minimum)
+                {
+                    Value = Minimum;
+                }
+
+                if (Value > Maximum)
+                {
+                    Value = Maximum;
+                }
+
+                if (beforeValue != Value)
+                {
+                    OnValueChanged(ProgressEventArgs.Empty);
+                }
+            }
+        }
 
         /// <summary>
         /// Processes Windows messages.
@@ -343,6 +489,10 @@ namespace Elements.Controls
             return builder.ToString();
         }
 
+        /// <summary>
+        /// Paints the private.
+        /// </summary>
+        /// <param name="device">The device.</param>
         private void PaintPrivate(IntPtr device)
         {
             // Create a Graphics object for the device context
@@ -363,6 +513,10 @@ namespace Elements.Controls
             }
         }
 
+        /// <summary>
+        /// Wms the paint.
+        /// </summary>
+        /// <param name="m">The m.</param>
         private void WmPaint(ref Message m)
         {
             // Create a wrapper for the Handle
@@ -390,6 +544,10 @@ namespace Elements.Controls
             }
         }
 
+        /// <summary>
+        /// Wms the print client.
+        /// </summary>
+        /// <param name="m">The m.</param>
         private void WmPrintClient(ref Message m)
         {
             // Retrieve the device context

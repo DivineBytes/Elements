@@ -51,6 +51,7 @@
     <Compile Include="Constants\PropertyCategory.cs" />
     <Compile Include="Constants\EventCategory.cs" />
     <Compile Include="Controls\Gauge\GaugeDesigner.cs" />
+    <Compile Include="Controls\ProgressBar\ProgressEventArgs.cs" />
     <Compile Include="Controls\RadialProgress\RadialProgress.cs" />
     <Compile Include="Controls\RadialProgress\RadialProgressDesigner.cs" />
     <Compile Include="Delegates\ControlDelegates.cs" />
@@ -58,7 +59,7 @@
     <Compile Include="Controls\Base\ProgressBase.cs" />
     <Compile Include="Controls\Gauge\Gauge.cs" />
     <Compile Include="Controls\ProgressBar\ModifyProgressBarColor.cs" />
-    <Compile Include="Controls\ProgressBar\ProgressBar.cs">
+    <Compile Include="Controls\ProgressBar\ProgressBarEx.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\ProgressBar\ProgressBarDesigner.cs" />
