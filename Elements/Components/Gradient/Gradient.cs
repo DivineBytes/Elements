@@ -18,7 +18,7 @@ namespace Elements.Components.Gradient
     [DefaultEvent("Click")]
     [DefaultProperty("Value")]
     [Description("The gradient component can be used to apply gradient backgrounds on controls.")]
-    //[Designer(typeof(GaugeDesigner))]
+    [Designer(typeof(GradientDesigner))]
     [ToolboxBitmap(typeof(Gradient), "Gradient.bmp")]
     [ToolboxItem(true)]
     public class Gradient : ComponentBase
