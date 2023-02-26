@@ -2,13 +2,13 @@
 using System.ComponentModel;
 using System.Globalization;
 
-namespace Elements.TypeConverters
+namespace Elements.Controls.Label
 {
     /// <summary>
-    /// The <see cref="LabelShadowTypeConverter"/> class.
+    /// The <see cref="LabelOutlineTypeConverter"/> class.
     /// </summary>
     /// <seealso cref="System.ComponentModel.ExpandableObjectConverter"/>
-    public class LabelShadowTypeConverter : ExpandableObjectConverter
+    public class LabelOutlineTypeConverter : ExpandableObjectConverter
     {
         /// <summary>
         /// Can convert context from source type.
@@ -32,7 +32,7 @@ namespace Elements.TypeConverters
         /// <returns>The <see cref="object"/>.</returns>
         public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType)
         {
-            return "Shadow Settings";
+            return "Outline Settings";
         }
     }
 }

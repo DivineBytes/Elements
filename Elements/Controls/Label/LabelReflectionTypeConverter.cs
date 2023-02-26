@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Globalization;
 
-namespace Elements.TypeConverters
+namespace Elements.Controls.Label
 {
     /// <summary>
     /// The <see cref="LabelReflectionTypeConverter"/> class.

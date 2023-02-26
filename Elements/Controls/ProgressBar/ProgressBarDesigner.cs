@@ -1,19 +1,22 @@
-﻿using Elements.InteropServices;
+﻿using Elements.Designer;
+using Elements.InteropServices;
 using System;
 using System.Collections;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using System.Windows.Forms.Design;
 using System.Windows.Forms.Design.Behavior;
 
 namespace Elements.Controls
 {
-    internal class ProgressBarDesigner : ControlDesigner
+    internal class ProgressBarDesigner : BaseControlDesigner
     {
-        /* Gets a list of System.Windows.Forms.Design.Behavior.SnapLine
-        objects, representing alignment points for the edited control. */
-
+        /// <summary>
+        /// Gets a list of System.Windows.Forms.Design.Behavior.SnapLine objects, representing alignment points for the edited control.
+        /// </summary>
+        /// <value>
+        /// The snap lines.
+        /// </value>
         public override IList SnapLines
         {
             get
@@ -32,6 +35,12 @@ namespace Elements.Controls
             }
         }
 
+        /// <summary>
+        /// Gets the baseline.
+        /// </summary>
+        /// <param name="ctrl">The control.</param>
+        /// <param name="alignment">The alignment.</param>
+        /// <returns>The <see cref="int"/>.</returns>
         private static int GetBaseline(Control ctrl, ContentAlignment alignment)
         {
             int textAscent = 0;
@@ -95,6 +104,13 @@ namespace Elements.Controls
 
             // Assume bottom alignment
             return (int)Math.Round(clientRect.Top + (double)clientRect.Height / 2 - (double)textHeight / 2 + textAscent);
+        }
+
+        protected override void PreFilterProperties(IDictionary properties)
+        {
+            // properties.Remove("ImeMode");
+
+            base.PreFilterProperties(properties);
         }
     }
 }

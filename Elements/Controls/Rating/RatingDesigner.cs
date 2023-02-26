@@ -1,9 +1,9 @@
 ﻿using Elements.Designer;
 using System.Collections;
 
-namespace Elements.Controls.Separator
+namespace Elements.Controls.RadialProgress
 {
-    internal class SeparatorDesigner : BaseControlDesigner
+    internal class RatingDesigner : BaseControlDesigner
     {
         protected override void PreFilterProperties(IDictionary properties)
         {

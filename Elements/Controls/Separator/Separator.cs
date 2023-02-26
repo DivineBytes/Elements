@@ -11,8 +11,12 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace Mycelial.Forms.Controls
+namespace Mycelial.Forms.Controls.Separator
 {
+    /// <summary>
+    /// The <see cref="Separator"/> class.
+    /// </summary>
+    /// <seealso cref="System.Windows.Forms.Control" />
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [DefaultEvent("Click")]

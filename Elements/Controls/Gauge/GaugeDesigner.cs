@@ -1,26 +1,12 @@
-﻿using System.Collections;
-using System.Windows.Forms.Design;
+﻿using Elements.Designer;
+using System.Collections;
 
 namespace Elements.Controls
 {
-    internal class GaugeDesigner : ControlDesigner
+    internal class GaugeDesigner : BaseControlDesigner
     {
         protected override void PreFilterProperties(IDictionary properties)
         {
-            properties.Remove("ImeMode");
-            properties.Remove("FlatAppearance");
-            properties.Remove("FlatStyle");
-            properties.Remove("AutoEllipsis");
-            properties.Remove("UseCompatibleTextRendering");
-            properties.Remove("Image");
-            properties.Remove("ImageAlign");
-            properties.Remove("ImageIndex");
-            properties.Remove("ImageKey");
-            properties.Remove("ImageList");
-            properties.Remove("TextImageRelation");
-            properties.Remove("BackgroundImageLayout");
-            properties.Remove("UseVisualStyleBackColor");
-            properties.Remove("RightToLeft");
             properties.Remove("Text");
 
             base.PreFilterProperties(properties);

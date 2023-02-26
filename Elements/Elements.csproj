@@ -59,6 +59,10 @@
     <Compile Include="Controls\ProgressBar\ProgressEventArgs.cs" />
     <Compile Include="Controls\RadialProgress\RadialProgress.cs" />
     <Compile Include="Controls\RadialProgress\RadialProgressDesigner.cs" />
+    <Compile Include="Controls\Rating\RatingDesigner.cs" />
+    <Compile Include="Controls\Rating\Rating.cs" />
+    <Compile Include="Controls\Rating\StarGenerator.cs" />
+    <Compile Include="Controls\Rating\StarType.cs" />
     <Compile Include="Delegates\ControlDelegates.cs" />
     <Compile Include="Controls\Base\ControlBase.cs" />
     <Compile Include="Controls\Base\ProgressBase.cs" />
@@ -114,6 +118,7 @@
     </Compile>
     <Compile Include="Controls\TextBox\TextBoxActionList.cs" />
     <Compile Include="Controls\TextBox\TextBoxDesigner.cs" />
+    <Compile Include="Designer\BaseControlDesigner.cs" />
     <Compile Include="Dialogs\IconPicker\IconPickerDialog.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -151,9 +156,9 @@
       <DependentUpon>Test.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TypeConverters\LabelReflectionTypeConverter.cs" />
-    <Compile Include="TypeConverters\LabelShadowTypeConverter.cs" />
-    <Compile Include="TypeConverters\LabelOutlineTypeConverter.cs" />
+    <Compile Include="Controls\Label\LabelReflectionTypeConverter.cs" />
+    <Compile Include="Controls\Label\LabelShadowTypeConverter.cs" />
+    <Compile Include="Controls\Label\LabelOutlineTypeConverter.cs" />
     <Compile Include="TypeConverters\SettingsTypeConverter.cs" />
     <Compile Include="Utilities\ControlUtilities.cs" />
     <Compile Include="Utilities\GraphicsUtilities.cs" />
@@ -191,6 +196,7 @@
     <Content Include="Controls\ProgressBar\ProgressBar.bmp" />
     <Content Include="Controls\ProgressIndicator\ProgressIndicator.bmp" />
     <Content Include="Controls\RadialProgress\RadialProgress.bmp" />
+    <Content Include="Controls\Rating\Rating.bmp" />
     <Content Include="Controls\Separator\Separator.bmp" />
     <Content Include="Controls\TabControl\TabControl.bmp" />
     <Content Include="Controls\TextBox\TextBox.bmp" />

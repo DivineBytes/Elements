@@ -1,10 +1,10 @@
-﻿using System.Collections;
+﻿using Elements.Designer;
+using System.Collections;
 using System.ComponentModel.Design;
-using System.Windows.Forms.Design;
 
 namespace Elements.Controls
 {
-    internal class TextBoxDesigner : ControlDesigner
+    internal class TextBoxDesigner : BaseControlDesigner
     {
         private DesignerActionListCollection _actionListCollection;
 
@@ -26,20 +26,7 @@ namespace Elements.Controls
 
         protected override void PreFilterProperties(IDictionary properties)
         {
-            properties.Remove("ImeMode");
-            properties.Remove("FlatAppearance");
-            properties.Remove("FlatStyle");
-            properties.Remove("AutoEllipsis");
-            properties.Remove("UseCompatibleTextRendering");
-            properties.Remove("Image");
-            properties.Remove("ImageAlign");
-            properties.Remove("ImageIndex");
-            properties.Remove("ImageKey");
-            properties.Remove("ImageList");
-            properties.Remove("TextImageRelation");
-            properties.Remove("BackgroundImageLayout");
-            properties.Remove("UseVisualStyleBackColor");
-            properties.Remove("RightToLeft");
+            //properties.Remove("ImeMode");
 
             base.PreFilterProperties(properties);
         }
