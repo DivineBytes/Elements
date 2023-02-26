@@ -1,4 +1,5 @@
 using System;
+using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Security;
 
@@ -41,5 +42,11 @@ namespace Elements.InteropServices
         /// <returns>The <see cref="IntPtr"/>.</returns>
         [DllImport(ExternalDLL.User32, CharSet = CharSet.Auto, SetLastError = false)]
         public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr w, IntPtr l);
+
+        /// <summary>Retrieves the position of the mouse cursor, in screen coordinates.</summary>
+        /// <param name="lpPoint">A pointer to a POINT structure that receives the screen coordinates of the cursor.</param>
+        /// <returns>Returns nonzero if successful or zero otherwise. To get extended error information, call GetLastError.</returns>
+        [DllImport(ExternalDLL.User32, SetLastError = true)]
+        public static extern bool GetCursorPos(ref Point lpPoint);
     }
 }

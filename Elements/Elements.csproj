@@ -47,6 +47,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\DisplayNameAttribute.cs" />
+    <Compile Include="Base\ComponentBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\Gradient\ColorField.cs" />
+    <Compile Include="Components\Gradient\Gradient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\Gradient\GradientDesigner.cs" />
     <Compile Include="Constants\Defaults.cs" />
     <Compile Include="Constants\PropertyCategory.cs" />
     <Compile Include="Constants\EventCategory.cs" />
@@ -64,22 +72,18 @@
     <Compile Include="Controls\Rating\StarGenerator.cs" />
     <Compile Include="Controls\Rating\StarType.cs" />
     <Compile Include="Delegates\ControlDelegates.cs" />
-    <Compile Include="Controls\Base\ControlBase.cs" />
-    <Compile Include="Controls\Base\ProgressBase.cs" />
+    <Compile Include="Base\ControlBase.cs" />
+    <Compile Include="Base\ProgressBase.cs" />
     <Compile Include="Controls\Gauge\Gauge.cs" />
     <Compile Include="Controls\ProgressBar\ModifyProgressBarColor.cs" />
     <Compile Include="Controls\ProgressBar\ProgressBarEx.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\ProgressBar\ProgressBarDesigner.cs" />
-    <Compile Include="Controls\ProgressIndicator\ProgressIndicator.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Controls\ProgressIndicator\ProgressIndicator.cs" />
     <Compile Include="Controls\ProgressIndicator\ProgressIndicatorDesigner.cs" />
     <Compile Include="Controls\Separator\SeparatorDesigner.cs" />
-    <Compile Include="Controls\Separator\Separator.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Controls\Separator\Separator.cs" />
     <Compile Include="Controls\TabControl\NativeMethods.cs" />
     <Compile Include="Controls\TabControl\TabControl.cs">
       <SubType>Component</SubType>
@@ -118,6 +122,7 @@
     </Compile>
     <Compile Include="Controls\TextBox\TextBoxActionList.cs" />
     <Compile Include="Controls\TextBox\TextBoxDesigner.cs" />
+    <Compile Include="Designer\BaseComponentDesigner.cs" />
     <Compile Include="Designer\BaseControlDesigner.cs" />
     <Compile Include="Dialogs\IconPicker\IconPickerDialog.cs">
       <SubType>Component</SubType>
@@ -139,6 +144,7 @@
     <Compile Include="InteropServices\Modules\WM.cs" />
     <Compile Include="Library.cs" />
     <Compile Include="Models\ColorState.cs" />
+    <Compile Include="Models\Shape.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -160,8 +166,10 @@
     <Compile Include="Controls\Label\LabelShadowTypeConverter.cs" />
     <Compile Include="Controls\Label\LabelOutlineTypeConverter.cs" />
     <Compile Include="TypeConverters\SettingsTypeConverter.cs" />
+    <Compile Include="Utilities\ColorUtilities.cs" />
     <Compile Include="Utilities\ControlUtilities.cs" />
     <Compile Include="Utilities\GraphicsUtilities.cs" />
+    <Compile Include="Utilities\ImageUtilities.cs" />
     <Compile Include="Utilities\MathUtilities.cs" />
     <Compile Include="Utilities\StringUtilities.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
@@ -176,8 +184,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Components\Gradient\" />
+    <Folder Include="Components\Badge\" />
     <Folder Include="Controls\GroupBox\" />
+    <Folder Include="Controls\Tile\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Icon.ico" />
@@ -193,6 +202,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Components\Gradient\Gradient.bmp" />
     <Content Include="Controls\ProgressBar\ProgressBar.bmp" />
     <Content Include="Controls\ProgressIndicator\ProgressIndicator.bmp" />
     <Content Include="Controls\RadialProgress\RadialProgress.bmp" />

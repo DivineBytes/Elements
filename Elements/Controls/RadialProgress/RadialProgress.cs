@@ -1,5 +1,5 @@
-﻿using Elements.Constants;
-using Elements.Controls.Base;
+﻿using Elements.Base;
+using Elements.Constants;
 using Elements.Utilities;
 using System;
 using System.ComponentModel;
@@ -13,7 +13,7 @@ namespace Elements.Controls.RadialProgress
     /// <summary>
     /// The <see cref="RadialProgress"/> class.
     /// </summary>
-    /// <seealso cref="Elements.Controls.Base.ProgressBase"/>
+    /// <seealso cref="ProgressBase"/>
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [DefaultEvent("Click")]
@@ -287,9 +287,7 @@ namespace Elements.Controls.RadialProgress
         /// <summary>
         /// Gets or sets a value indicating whether [percentage visible].
         /// </summary>
-        /// <value>
-        ///   <c>true</c> if [percentage visible]; otherwise, <c>false</c>.
-        /// </value>
+        /// <value><c>true</c> if [percentage visible]; otherwise, <c>false</c>.</value>
         [Category(PropertyCategory.Appearance)]
         [Description("Visible")]
         public bool PercentageVisible

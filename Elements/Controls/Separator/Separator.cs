@@ -1,6 +1,5 @@
-﻿#region Namespace
-
-using Elements.Controls;
+﻿using Elements.Base;
+using Elements.Controls.Separator;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -9,14 +8,12 @@ using System.Drawing.Text;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-#endregion
-
 namespace Mycelial.Forms.Controls.Separator
 {
     /// <summary>
     /// The <see cref="Separator"/> class.
     /// </summary>
-    /// <seealso cref="System.Windows.Forms.Control" />
+    /// <seealso cref="System.Windows.Forms.Control"/>
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [DefaultEvent("Click")]
@@ -25,18 +22,12 @@ namespace Mycelial.Forms.Controls.Separator
     [Designer(typeof(SeparatorDesigner))]
     [ToolboxBitmap(typeof(Separator), "Separator.bmp")]
     [ToolboxItem(true)]
-    public class Separator : Control
+    public class Separator : ControlBase
     {
-        #region Fields
-
         private Color _line;
         private Orientation _orientation;
         private Color _shadow;
         private bool _shadowVisible;
-
-        #endregion
-
-        #region Constructors and Destructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Separator"/> class.
@@ -50,10 +41,10 @@ namespace Mycelial.Forms.Controls.Separator
             _shadow = Color.FromArgb(250, 249, 249);
         }
 
-        #endregion
-
-        #region Public Properties
-
+        /// <summary>
+        /// Gets or sets the line.
+        /// </summary>
+        /// <value>The line.</value>
         [Category("Appearance")]
         [Description("Color")]
         public Color Line
@@ -75,6 +66,10 @@ namespace Mycelial.Forms.Controls.Separator
             }
         }
 
+        /// <summary>
+        /// Gets or sets the orientation.
+        /// </summary>
+        /// <value>The orientation.</value>
         [Category("Behaviour")]
         [Description("Orientation")]
         public Orientation Orientation
@@ -112,6 +107,10 @@ namespace Mycelial.Forms.Controls.Separator
             }
         }
 
+        /// <summary>
+        /// Gets or sets the shadow.
+        /// </summary>
+        /// <value>The shadow.</value>
         [Category("Appearance")]
         [Description("Color")]
         public Color Shadow
@@ -133,6 +132,10 @@ namespace Mycelial.Forms.Controls.Separator
             }
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether [shadow visible].
+        /// </summary>
+        /// <value><c>true</c> if [shadow visible]; otherwise, <c>false</c>.</value>
         [Category("Appearance")]
         [Description("Visible")]
         public bool ShadowVisible
@@ -149,12 +152,11 @@ namespace Mycelial.Forms.Controls.Separator
             }
         }
 
-        #endregion
-
-
-
-        #region Methods
-
+        /// <summary>
+        /// Raises the <see cref="E:Paint"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="PaintEventArgs"/> instance containing the event data.</param>
+        /// <exception cref="System.ArgumentOutOfRangeException"></exception>
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
@@ -206,6 +208,10 @@ namespace Mycelial.Forms.Controls.Separator
             }
         }
 
+        /// <summary>
+        /// Raises the <see cref="E:Resize"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
@@ -219,7 +225,5 @@ namespace Mycelial.Forms.Controls.Separator
                 Width = 4;
             }
         }
-
-        #endregion
     }
 }

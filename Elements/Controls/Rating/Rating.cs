@@ -1,5 +1,5 @@
-﻿using Elements.Constants;
-using Elements.Controls.Base;
+﻿using Elements.Base;
+using Elements.Constants;
 using Elements.Controls.RadialProgress;
 using System;
 using System.ComponentModel;

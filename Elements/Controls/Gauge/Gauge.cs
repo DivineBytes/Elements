@@ -1,5 +1,5 @@
-﻿using Elements.Constants;
-using Elements.Controls.Base;
+﻿using Elements.Base;
+using Elements.Constants;
 using Elements.Models;
 using Elements.TypeConverters;
 using Elements.Utilities;
@@ -15,7 +15,7 @@ namespace Elements.Controls.Gauge
     /// <summary>
     /// The <see cref="Gauge"/> class.
     /// </summary>
-    /// <seealso cref="Elements.Controls.Base.ProgressBase"/>
+    /// <seealso cref="Elements.Base.ProgressBase"/>
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [DefaultEvent("Click")]

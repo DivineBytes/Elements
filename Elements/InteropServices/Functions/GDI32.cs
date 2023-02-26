@@ -54,7 +54,6 @@ namespace Elements.InteropServices
             return result;
         }
 
-
         /// <summary>
         ///     Fills the specified buffer with the metrics for the currently selected font. This is the Ansi version of the
         ///     function.
@@ -94,6 +93,24 @@ namespace Elements.InteropServices
         [DllImport(ExternalDLL.Gdi32, CharSet = CharSet.Auto, ExactSpelling = false)]
         public static extern IntPtr SelectObject(HandleRef hDC, HandleRef hObject);
 
-
+        /// <summary>
+        ///     The BitBlt function performs a bit-block transfer of the color data corresponding to a rectangle of pixels
+        ///     from the specified source device context into a destination device context.
+        /// </summary>
+        /// <param name="hDC">A handle to the destination device context.</param>
+        /// <param name="x">The x-coordinate, in logical units, of the upper-left corner of the destination rectangle.</param>
+        /// <param name="y">The y-coordinate, in logical units, of the upper-left corner of the destination rectangle.</param>
+        /// <param name="nWidth">The width, in logical units, of the source and destination rectangles.</param>
+        /// <param name="nHeight">The height, in logical units, of the source and the destination rectangles.</param>
+        /// <param name="hSrcDC">A handle to the source device context.</param>
+        /// <param name="xSrc">The x-coordinate, in logical units, of the upper-left corner of the source rectangle.</param>
+        /// <param name="ySrc">The y-coordinate, in logical units, of the upper-left corner of the source rectangle.</param>
+        /// <param name="dwRop">
+        ///     A raster-operation code. These codes define how the color data for the source rectangle is to be
+        ///     combined with the color data for the destination rectangle to achieve the final color.
+        /// </param>
+        /// <returns>If the function succeeds, the return value is nonzero.</returns>
+        [DllImport(ExternalDLL.Gdi32, EntryPoint = "BitBlt", CharSet = CharSet.Auto, SetLastError = true, ExactSpelling = true)]
+        public static extern int BitBlt(IntPtr hDC, int x, int y, int nWidth, int nHeight, IntPtr hSrcDC, int xSrc, int ySrc, int dwRop);
     }
 }

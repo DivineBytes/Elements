@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace Elements.Controls.Base
+namespace Elements.Base
 {
     /// <summary>
     /// The <see cref="ControlBase"/> class.

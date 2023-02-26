@@ -1,7 +1,5 @@
 ﻿using Elements.Constants;
-using Elements.Controls.Base;
 using Elements.Controls.ProgressBar;
-using Elements.Events;
 using Elements.InteropServices;
 using System;
 using System.ComponentModel;
@@ -14,28 +12,28 @@ using System.Windows.Forms;
 namespace Elements.Controls
 {
     /// <summary>
-    /// Represents a Windows progress bar control which displays its <see cref="System.Windows.Forms.ProgressBar.Value"/>
-    /// as text on a faded background.
+    /// Represents a Windows progress bar control which displays its <see
+    /// cref="System.Windows.Forms.ProgressBar.Value"/> as text on a faded background.
     /// </summary>
     /// <remarks>
-    /// ProgressBarEx is a specialized type of <see cref="System.Windows.Forms.ProgressBar"/>, which it extends to fade
-    /// its background colors and to display its <see cref="ProgressBar.Text"/>.
+    /// ProgressBarEx is a specialized type of <see cref="System.Windows.Forms.ProgressBar"/>, which
+    /// it extends to fade its background colors and to display its <see cref="Text"/>.
     /// <para>
     /// You can manipulate the background fading intensity by changing the value of property <see
-    /// cref="ProgressBar.Fade"/> which accepts values between 0 and 255. Lower values make the
+    /// cref="Fade"/> which accepts values between 0 and 255. Lower values make the
     /// background darker; higher values make the background lighter.
     /// </para>
     /// <para>
-    /// The current <see cref="System.Windows.Forms.ProgressBar.Text"/> is displayed using the values of properties <see
-    /// cref="ProgressBar.Font"/> and <see cref="ProgressBar.ForeColor"/>.
+    /// The current <see cref="System.Windows.Forms.ProgressBar.Text"/> is displayed using the
+    /// values of properties <see cref="Font"/> and <see cref="ForeColor"/>.
     /// </para>
     /// <para>
-    /// <note type="inherit"> When you derive from ProgressBarEx, adding new functionality to the
+    /// <note type="inherit">When you derive from ProgressBarEx, adding new functionality to the
     /// derived class, if your derived class references objects that must be disposed of before an
     /// instance of your class is destroyed, you must override the <see
-    /// cref="ProgressBar.Dispose(System.Boolean)"/> method, and call <see
+    /// cref="Dispose(System.Boolean)"/> method, and call <see
     /// cref="System.ComponentModel.Component.Dispose()">Dispose()</see> on all objects that are
-    /// referenced in your class, before calling <c>Dispose(disposing)</c> on the base class. </note>
+    /// referenced in your class, before calling <c>Dispose(disposing)</c> on the base class.</note>
     /// </para>
     /// </remarks>
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
@@ -108,9 +106,7 @@ namespace Elements.Controls
         /// <summary>
         /// Gets or sets a value indicating whether [progress visible].
         /// </summary>
-        /// <value>
-        ///   <c>true</c> if [progress visible]; otherwise, <c>false</c>.
-        /// </value>
+        /// <value><c>true</c> if [progress visible]; otherwise, <c>false</c>.</value>
         [DefaultValue(true)]
         public bool ProgressVisible
         {
@@ -137,8 +133,8 @@ namespace Elements.Controls
         /// <remarks>
         /// You can use this property to manipulate the density of the background coloring of this
         /// control, to allow for better readability of any text within the <see
-        /// cref="ProgressBar"/>. You can use the <see cref="ProgressBar.Font"/> and <see
-        /// cref="ProgressBar.ForeColor"/> properties to further optimize the display of text.
+        /// cref="ProgressBar"/>. You can use the <see cref="Font"/> and <see
+        /// cref="ForeColor"/> properties to further optimize the display of text.
         /// <para>
         /// Acceptable values for this property are between 0 and 255 inclusive. The default is 150;
         /// lower values make the background darker; higher values make the background lighter.
@@ -190,7 +186,7 @@ namespace Elements.Controls
         /// <remarks>
         /// You can use the Font property to change the <see cref="System.Drawing.Font"/> to use
         /// when drawing text. To change the text <see cref="Color"/>, use the <see
-        /// cref="ProgressBar.ForeColor"/> property.
+        /// cref="ForeColor"/> property.
         /// <para>
         /// The Font property is an ambient property. An ambient property is a control property
         /// that, if not set, is retrieved from the parent control.
@@ -201,9 +197,9 @@ namespace Elements.Controls
         /// However, you can base the new font on the existing font.
         /// </para>
         /// <para>
-        /// <note type="inherit"> When overriding the Font property in a derived class, use the base
+        /// <note type="inherit">When overriding the Font property in a derived class, use the base
         /// class's Font property to extend the base implementation. Otherwise, you must provide all
-        /// the implementation. </note>
+        /// the implementation.</note>
         /// </para>
         /// </remarks>
         [Browsable(true)]
@@ -231,11 +227,11 @@ namespace Elements.Controls
         /// You can use the ForeColor property to change the color of the text within the <see
         /// cref="ProgressBar"/> to match the text of other controls on your form. To change the
         /// <see cref="System.Drawing.Font"/> to use when drawing text, use the <see
-        /// cref="ProgressBar.Font">ProgressBarEx.Font</see> property.
+        /// cref="Font">ProgressBarEx.Font</see> property.
         /// <para>
-        /// <note type="inherit"> When overriding the ForeColor property in a derived class, use the
+        /// <note type="inherit">When overriding the ForeColor property in a derived class, use the
         /// base class's ForeColor property to extend the base implementation. Otherwise, you must
-        /// provide all the implementation. </note>
+        /// provide all the implementation.</note>
         /// </para>
         /// </remarks>
         [DefaultValue(typeof(Color), "ControlText")]
@@ -258,10 +254,11 @@ namespace Elements.Controls
         /// <value>A <see cref="string"/> representing the text displayed in the control.</value>
         /// <remarks>
         /// The <see cref="ProgressBar"/> control supports display of a single line of text,
-        /// consisting of the <see cref="System.Windows.Forms.ProgressBar.Value"/> followed by a percent sign.
+        /// consisting of the <see cref="System.Windows.Forms.ProgressBar.Value"/> followed by a
+        /// percent sign.
         /// <para>
-        /// The text is displayed using the values of properties <see cref="ProgressBar.Font"/>
-        /// and <see cref="ProgressBar.ForeColor"/>.
+        /// The text is displayed using the values of properties <see cref="Font"/> and
+        /// <see cref="ForeColor"/>.
         /// </para>
         /// </remarks>
         [Browsable(false)]
@@ -276,9 +273,11 @@ namespace Elements.Controls
         }
 
         /// <summary>
-        /// Raises the <see cref="E:ValueChangedEvent" /> event.
+        /// Raises the <see cref="E:ValueChangedEvent"/> event.
         /// </summary>
-        /// <param name="eventArgs">The <see cref="ProgressEventArgs"/> instance containing the event data.</param>
+        /// <param name="eventArgs">
+        /// The <see cref="ProgressEventArgs"/> instance containing the event data.
+        /// </param>
         protected virtual void OnValueChanged(ProgressEventArgs eventArgs)
         {
             ValueChanged?.Invoke(eventArgs);
@@ -297,7 +296,7 @@ namespace Elements.Controls
         /// cref="object.Finalize"/> method. Dispose invokes Dispose with the <i>disposing</i>
         /// parameter set to <b>true</b>. Finalize invokes Dispose with <i>disposing</i> set to <b>false</b>.
         /// <para>
-        /// <note type="inherit"> Dispose might be called multiple times by other objects. When
+        /// <note type="inherit">Dispose might be called multiple times by other objects. When
         /// overriding <i>Dispose(Boolean)</i>, be careful not to reference objects that have been
         /// previously disposed of in an earlier call to Dispose.
         /// <para>
@@ -341,9 +340,9 @@ namespace Elements.Controls
         /// the initial state and appearance of this control, at the time an instance of this class
         /// is being created.
         /// <para>
-        /// <note type="inherit"> When overriding the CreateParams property in a derived class, use
+        /// <note type="inherit">When overriding the CreateParams property in a derived class, use
         /// the base class's CreateParams property to extend the base implementation. Otherwise, you
-        /// must provide all the implementation. </note>
+        /// must provide all the implementation.</note>
         /// </para>
         /// </remarks>
         protected override CreateParams CreateParams
@@ -447,8 +446,8 @@ namespace Elements.Controls
         /// PreProcessMessage method. The WndProc method corresponds exactly to the Windows
         /// WindowProc function.
         /// <para>
-        /// <note type="inherit"> Inheriting controls should call the base class's WndProc method to
-        /// process any messages that they do not handle. </note>
+        /// <note type="inherit">Inheriting controls should call the base class's WndProc method to
+        /// process any messages that they do not handle.</note>
         /// </para>
         /// </remarks>
         protected override void WndProc(ref Message m)

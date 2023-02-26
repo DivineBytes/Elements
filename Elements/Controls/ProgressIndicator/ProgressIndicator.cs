@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Elements.Base;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -9,9 +10,9 @@ using System.Windows.Forms;
 namespace Elements.Controls
 {
     /// <summary>
-    /// The <see cref="ProgressIndicator"/> class.
+    /// The <see cref="ProgressIndicator" /> class.
     /// </summary>
-    /// <seealso cref="System.Windows.Forms.Control"/>
+    /// <seealso cref="Elements.Base.ControlBase" />
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [DefaultEvent("Click")]
@@ -20,7 +21,7 @@ namespace Elements.Controls
     [Designer(typeof(ProgressIndicatorDesigner))]
     [ToolboxBitmap(typeof(ProgressIndicator), "ProgressIndicator.bmp")]
     [ToolboxItem(true)]
-    public class ProgressIndicator : Control
+    public class ProgressIndicator : ControlBase
     {
         private SolidBrush animationColor;
         private Timer animationSpeed;

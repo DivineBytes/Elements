@@ -1,5 +1,5 @@
-﻿using Elements.Constants;
-using Elements.Controls.Base;
+﻿using Elements.Base;
+using Elements.Constants;
 using Elements.Utilities;
 using System;
 using System.Collections.Generic;
@@ -16,7 +16,7 @@ namespace Elements.Controls.Label
     /// <summary>
     /// The <see cref="Label" /> class.
     /// </summary>
-    /// <seealso cref="Elements.Controls.Base.ControlBase" />
+    /// <seealso cref="Elements.Base.ControlBase" />
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [DefaultEvent("Click")]

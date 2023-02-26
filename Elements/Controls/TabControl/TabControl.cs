@@ -17,6 +17,10 @@ using System.Windows.Forms;
 
 namespace Elements.Controls
 {
+    /// <summary>
+    /// The <see cref="TabControl"/> class.
+    /// </summary>
+    /// <seealso cref="System.Windows.Forms.TabControl" />
     [ToolboxBitmap(typeof(TabControl), "TabControl.bmp")]
     public class TabControl : System.Windows.Forms.TabControl
     {

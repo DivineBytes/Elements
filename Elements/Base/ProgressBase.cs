@@ -3,12 +3,12 @@ using System;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 
-namespace Elements.Controls.Base
+namespace Elements.Base
 {
     /// <summary>
     /// The <see cref="ProgressBase"/> class.
     /// </summary>
-    /// <seealso cref="Elements.Controls.Base.ControlBase"/>
+    /// <seealso cref="Elements.Base.ControlBase"/>
     [DesignerCategory("code")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
