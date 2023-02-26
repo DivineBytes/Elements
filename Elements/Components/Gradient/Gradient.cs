@@ -16,7 +16,7 @@ namespace Elements.Components.Gradient
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [DefaultEvent("Click")]
-    [DefaultProperty("Value")]
+    [DefaultProperty("Control")]
     [Description("The gradient component can be used to apply gradient backgrounds on controls.")]
     [Designer(typeof(GradientDesigner))]
     [ToolboxBitmap(typeof(Gradient), "Gradient.bmp")]
