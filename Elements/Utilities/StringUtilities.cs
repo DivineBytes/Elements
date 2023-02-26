@@ -9,6 +9,34 @@ namespace Elements.Utilities
     /// </summary>
     public static class StringUtilities
     {
+
+        /// <summary>Retrieves the appropriate string format.</summary>
+        /// <param name="orientation">The orientation.</param>
+        /// <param name="alignment">The alignment.</param>
+        /// <param name="lineAlignment">The line Alignment.</param>
+        /// <returns>The <see cref="StringFormat" />.</returns>
+        public static StringFormat GetOrientedStringFormat(Orientation orientation, StringAlignment alignment, StringAlignment lineAlignment)
+        {
+            StringFormat orientedStringFormat = new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
+
+            switch (orientation)
+            {
+                case Orientation.Horizontal:
+                    {
+                        orientedStringFormat = new StringFormat { Alignment = alignment, LineAlignment = lineAlignment };
+                        break;
+                    }
+
+                case Orientation.Vertical:
+                    {
+                        orientedStringFormat = new StringFormat(StringFormatFlags.DirectionVertical);
+                        break;
+                    }
+            }
+
+            return orientedStringFormat;
+        }
+
         /// <summary>
         /// Measures the specified string when draw with the specified font.
         /// </summary>

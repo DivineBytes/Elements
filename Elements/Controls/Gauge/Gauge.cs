@@ -26,9 +26,9 @@ namespace Elements.Controls.Gauge
     [ToolboxItem(true)]
     public class Gauge : ProgressBase
     {
-        private Label _labelMaximum;
-        private Label _labelMinimum;
-        private Label _labelProgress;
+        private System.Windows.Forms.Label _labelMaximum;
+        private System.Windows.Forms.Label _labelMinimum;
+        private System.Windows.Forms.Label _labelProgress;
         private Color _progress;
         private Size _progressTextSize;
         private int _thickness;
@@ -44,7 +44,7 @@ namespace Elements.Controls.Gauge
             _thickness = 25;
             Maximum = 100;
 
-            _labelProgress = new Label
+            _labelProgress = new System.Windows.Forms.Label
             {
                 AutoSize = true,
                 Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0),
@@ -57,7 +57,7 @@ namespace Elements.Controls.Gauge
                 BackColor = Color.Transparent
             };
 
-            _labelMinimum = new Label
+            _labelMinimum = new System.Windows.Forms.Label
             {
                 AutoSize = true,
                 Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0),
@@ -70,7 +70,7 @@ namespace Elements.Controls.Gauge
                 BackColor = Color.Transparent
             };
 
-            _labelMaximum = new Label
+            _labelMaximum = new System.Windows.Forms.Label
             {
                 AutoSize = true,
                 Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0),
@@ -99,7 +99,7 @@ namespace Elements.Controls.Gauge
         /// <value>
         /// The maximum label.
         /// </value>
-        public Label MaximumLabel
+        public System.Windows.Forms.Label MaximumLabel
         {
             get
             {
@@ -117,7 +117,7 @@ namespace Elements.Controls.Gauge
         /// <value>
         /// The minimum label.
         /// </value>
-        public Label MinimumLabel
+        public System.Windows.Forms.Label MinimumLabel
         {
             get
             {
@@ -135,7 +135,7 @@ namespace Elements.Controls.Gauge
         /// <value>
         /// The progress label.
         /// </value>
-        public Label ProgressLabel
+        public System.Windows.Forms.Label ProgressLabel
         {
             get
             {

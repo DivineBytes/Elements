@@ -51,6 +51,11 @@
     <Compile Include="Constants\PropertyCategory.cs" />
     <Compile Include="Constants\EventCategory.cs" />
     <Compile Include="Controls\Gauge\GaugeDesigner.cs" />
+    <Compile Include="Controls\Label\Label.cs" />
+    <Compile Include="Controls\Label\LabelDesigner.cs" />
+    <Compile Include="Controls\Label\LabelOutline.cs" />
+    <Compile Include="Controls\Label\LabelReflection.cs" />
+    <Compile Include="Controls\Label\LabelShadow.cs" />
     <Compile Include="Controls\ProgressBar\ProgressEventArgs.cs" />
     <Compile Include="Controls\RadialProgress\RadialProgress.cs" />
     <Compile Include="Controls\RadialProgress\RadialProgressDesigner.cs" />
@@ -146,8 +151,12 @@
       <DependentUpon>Test.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TypeConverters\LabelReflectionTypeConverter.cs" />
+    <Compile Include="TypeConverters\LabelShadowTypeConverter.cs" />
+    <Compile Include="TypeConverters\LabelOutlineTypeConverter.cs" />
     <Compile Include="TypeConverters\SettingsTypeConverter.cs" />
     <Compile Include="Utilities\ControlUtilities.cs" />
+    <Compile Include="Utilities\GraphicsUtilities.cs" />
     <Compile Include="Utilities\MathUtilities.cs" />
     <Compile Include="Utilities\StringUtilities.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
@@ -164,7 +173,6 @@
   <ItemGroup>
     <Folder Include="Components\Gradient\" />
     <Folder Include="Controls\GroupBox\" />
-    <Folder Include="Controls\Label\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Icon.ico" />
