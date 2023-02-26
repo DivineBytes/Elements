@@ -29,7 +29,7 @@ namespace Elements.Utilities
 
                 case Orientation.Vertical:
                     {
-                        orientedStringFormat = new StringFormat(StringFormatFlags.DirectionVertical);
+                        orientedStringFormat = new StringFormat { Alignment = alignment, LineAlignment = lineAlignment, FormatFlags = StringFormatFlags.DirectionVertical };
                         break;
                     }
             }

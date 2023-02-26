@@ -75,7 +75,6 @@ namespace Elements.Controls.Label
                     {
                         imageGraphics.TranslateTransform(0, StringUtilities.MeasureText(text, font, graphics).Height);
                         imageGraphics.ScaleTransform(1, -1);
-
                         reflectionLocation = new PointF(0, location.Y - (StringUtilities.MeasureText(text, font, graphics).Height / 2) - labelReflection.Spacing);
                         break;
                     }
