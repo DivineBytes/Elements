@@ -1,5 +1,6 @@
 ﻿using Elements.Base;
 using Elements.Components.Gradient;
+using Elements.Controls.Tile;
 using System.ComponentModel;
 using System.Drawing;
 using System.Runtime.InteropServices;
@@ -20,6 +21,34 @@ namespace Elements.Components.Badge
     [ToolboxItem(true)]
     public class Badge : ComponentBase
     {
+        private Tile _tile;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Badge"/> class.
+        /// </summary>
+        public Badge()
+        {
+            _tile = new Tile();
+        }
+
+
+        /// <summary>
+        /// Gets or sets the tile.
+        /// </summary>
+        /// <value>
+        /// The tile.
+        /// </value>
+        public Tile Tile
+        {
+            get
+            {
+                return _tile;
+            }
+
+            set
+            {
+                _tile = value;
+            }
+        }
     }
 }

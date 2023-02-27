@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Elements.Constants
+﻿namespace Elements.Constants
 {
     /// <summary>
-    ///     The <see cref="EventCategory" /> class.
+    /// The <see cref="EventCategory"/> class.
     /// </summary>
+#pragma warning disable 1591
+
     public class EventCategory
     {
-
 #if DEBUG
 
         public const string Action = Defaults.DefaultCategory;
@@ -40,6 +36,5 @@ namespace Elements.Constants
         public const string PropertyChanged = "Property Changed";
 
 #endif
-
     }
 }

@@ -9,11 +9,11 @@ namespace Elements.Designer
         {
             properties.Remove("AutoEllipsis");
 
-            properties.Remove("BackgroundImage");
-            properties.Remove("BackgroundImageLayout");
+            //properties.Remove("BackgroundImage");
+            //properties.Remove("BackgroundImageLayout");
 
-            properties.Remove("Image");
-            properties.Remove("ImageAlign");
+            //properties.Remove("Image");
+            //properties.Remove("ImageAlign");
             properties.Remove("ImageIndex");
             properties.Remove("ImageKey");
             properties.Remove("ImageList");

@@ -75,6 +75,10 @@
     <Compile Include="Controls\Rating\Rating.cs" />
     <Compile Include="Controls\Rating\StarGenerator.cs" />
     <Compile Include="Controls\Rating\StarType.cs" />
+    <Compile Include="Controls\Tile\Tile.cs" />
+    <Compile Include="Controls\Tile\TileDesigner.cs" />
+    <Compile Include="Controls\Tile\TileType.cs" />
+    <Compile Include="Controls\Tile\TileShape.cs" />
     <Compile Include="Delegates\ControlDelegates.cs" />
     <Compile Include="Base\ControlBase.cs" />
     <Compile Include="Base\ProgressBase.cs" />
@@ -132,8 +136,10 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Dialogs\ProgressDialog\ProgressDialog.cs" />
+    <Compile Include="Enumerators\ElementImageLayout.cs" />
     <Compile Include="Enumerators\MouseStates.cs" />
     <Compile Include="Events\ColorEventArgs.cs" />
+    <Compile Include="Events\MouseStateEventArgs.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\PropertyGridExtensions.cs" />
     <Compile Include="InteropServices\ExternalDLL.cs" />
@@ -148,7 +154,10 @@
     <Compile Include="InteropServices\Modules\WM.cs" />
     <Compile Include="Library.cs" />
     <Compile Include="Models\ColorState.cs" />
+    <Compile Include="Models\ControlColorState.cs" />
+    <Compile Include="Models\HoverColorState.cs" />
     <Compile Include="Models\Shape.cs" />
+    <Compile Include="Models\TextStyle.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -159,6 +168,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Renders\BackgroundRender.cs" />
+    <Compile Include="Renders\ImageRender.cs" />
+    <Compile Include="Renders\TextRender.cs" />
     <Compile Include="Test.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -189,7 +201,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controls\GroupBox\" />
-    <Folder Include="Controls\Tile\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Icon.ico" />
@@ -214,6 +225,7 @@
     <Content Include="Controls\Separator\Separator.bmp" />
     <Content Include="Controls\TabControl\TabControl.bmp" />
     <Content Include="Controls\TextBox\TextBox.bmp" />
+    <Content Include="Controls\Tile\Tile.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Elements.Constants
+﻿namespace Elements.Constants
 {
     /// <summary>
-    ///     The <see cref="PropertyCategory" /> class.
+    /// The <see cref="PropertyCategory"/> class.
     /// </summary>
+#pragma warning disable 1591
     public class PropertyCategory
     {
-
 #if DEBUG
 
         public const string Accessibility = Defaults.DefaultCategory;
@@ -34,6 +29,5 @@ namespace Elements.Constants
         public const string WindowStyle = "Window style";
 
 #endif
-
     }
 }

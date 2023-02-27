@@ -28,19 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.gradient1 = new Elements.Components.Gradient.Gradient(this.components);
             this.SuspendLayout();
-            // 
-            // gradient1
-            // 
-            this.gradient1.AutoSize = true;
-            this.gradient1.BottomLeft = System.Drawing.Color.Black;
-            this.gradient1.BottomRight = System.Drawing.Color.Red;
-            this.gradient1.Control = null;
-            this.gradient1.Size = new System.Drawing.Size(25, 25);
-            this.gradient1.TopLeft = System.Drawing.Color.Green;
-            this.gradient1.TopRight = System.Drawing.Color.Yellow;
             // 
             // Test
             // 
@@ -53,7 +41,5 @@
         }
 
         #endregion
-
-        private Components.Gradient.Gradient gradient1;
     }
 }

@@ -14,28 +14,17 @@ namespace Elements.Models
     /// <summary>
     /// The <see cref="ColorState"/> class.
     /// </summary>
-    [TypeConverter(typeof(SettingsTypeConverter))]
-    [ToolboxItem(false)]
-    [DesignerCategory("code")]
+    [Category(PropertyCategory.Appearance)]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [Description("The color states of a component.")]
-    [Category(PropertyCategory.Appearance)]
+    [DesignerCategory("code")]
+    [ToolboxItem(false)]
+    [TypeConverter(typeof(SettingsTypeConverter))]
     public class ColorState
     {
         private Color _disabled;
         private Color _enabled;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ColorState"/> class.
-        /// </summary>
-        /// <param name="disabled">The disabled color.</param>
-        /// <param name="enabled">The normal color.</param>
-        public ColorState(Color disabled, Color enabled) : this()
-        {
-            _disabled = disabled;
-            _enabled = enabled;
-        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ColorState"/> class.
@@ -47,18 +36,44 @@ namespace Elements.Models
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="ColorState" /> class.
+        /// </summary>
+        /// <param name="disabled">The disabled color.</param>
+        /// <param name="enabled">The normal color.</param>
+        /// <exception cref="System.ArgumentNullException">
+        /// disabled - Cannot be empty.
+        /// or
+        /// enabled - Cannot be empty.
+        /// </exception>
+        public ColorState(Color disabled, Color enabled) : this()
+        {
+            if (disabled == Color.Empty)
+            {
+                throw new ArgumentNullException(nameof(disabled), "Cannot be empty.");
+            }
+
+            if (enabled == Color.Empty)
+            {
+                throw new ArgumentNullException(nameof(enabled), "Cannot be empty.");
+            }
+
+            _disabled = disabled;
+            _enabled = enabled;
+        }
+
+        /// <summary>
         /// Occurs when [disabled color changed].
         /// </summary>
         [Category(EventCategory.PropertyChanged)]
         [Description("Property event changed")]
-        public event ControlDelegates.BackColorStateChangedEventHandler DisabledColorChanged;
+        public event ColorStateChangedEventHandler DisabledColorChanged;
 
         /// <summary>
-        /// Occurs when [normal color changed].
+        /// Occurs when [enabled color changed].
         /// </summary>
         [Category(EventCategory.PropertyChanged)]
         [Description("Property event changed")]
-        public event ControlDelegates.BackColorStateChangedEventHandler NormalColorChanged;
+        public event ColorStateChangedEventHandler EnabledColorChanged;
 
         /// <summary>
         /// Gets or sets the disabled.
@@ -103,27 +118,15 @@ namespace Elements.Models
         }
 
         /// <summary>
-        /// Gets a value indicating whether this <see cref="ColorState"/> is empty.
-        /// </summary>
-        [Browsable(false)]
-        public bool IsEmpty
-        {
-            get
-            {
-                return _disabled.IsEmpty && _enabled.IsEmpty;
-            }
-        }
-
-        /// <summary>
         /// Get the control back color state.
         /// </summary>
         /// <param name="colorState">The color State.</param>
         /// <param name="enabled">The enabled toggle.</param>
         /// <param name="mouseState">The mouse state.</param>
         /// <returns><see cref="Color"/></returns>
-        public static Color BackColorState(ColorState colorState, bool enabled, MouseStates mouseState)
+        public static Color GetColorState(ColorState colorState, bool enabled, MouseStates mouseState)
         {
-            Color _color;
+            Color _color = Color.Empty;
 
             if (enabled)
             {
@@ -146,11 +149,6 @@ namespace Elements.Models
                             _color = colorState.Enabled;
                             break;
                         }
-
-                    default:
-                        {
-                            throw new ArgumentOutOfRangeException(nameof(mouseState), mouseState, null);
-                        }
                 }
             }
             else
@@ -170,19 +168,11 @@ namespace Elements.Models
             StringBuilder _stringBuilder = new StringBuilder();
             _stringBuilder.Append(GetType().Name);
             _stringBuilder.Append(" [");
-
-            if (IsEmpty)
-            {
-                _stringBuilder.Append("IsEmpty");
-            }
-            else
-            {
-                _stringBuilder.Append("Disabled=");
-                _stringBuilder.Append(Disabled);
-                _stringBuilder.Append("Normal=");
-                _stringBuilder.Append(Enabled);
-            }
-
+            _stringBuilder.Append("Disabled=");
+            _stringBuilder.Append(Disabled);
+            _stringBuilder.Append(",");
+            _stringBuilder.Append("Enabled=");
+            _stringBuilder.Append(Enabled);
             _stringBuilder.Append("]");
 
             return _stringBuilder.ToString();
@@ -194,16 +184,16 @@ namespace Elements.Models
         /// <param name="e">The <see cref="ColorEventArgs"/> instance containing the event data.</param>
         protected virtual void OnDisabledColorChanged(ColorEventArgs e)
         {
-            DisabledColorChanged?.Invoke(e);
+            DisabledColorChanged?.Invoke(this, e);
         }
 
         /// <summary>
-        /// Raises the <see cref="E:NormalColorChanged"/> event.
+        /// Raises the <see cref="E:EnabledColorChanged"/> event.
         /// </summary>
         /// <param name="e">The <see cref="ColorEventArgs"/> instance containing the event data.</param>
-        protected virtual void OnNormalColorChanged(ColorEventArgs e)
+        protected virtual void OnEnabledColorChanged(ColorEventArgs e)
         {
-            NormalColorChanged?.Invoke(e);
+            EnabledColorChanged?.Invoke(this, e);
         }
     }
 }
