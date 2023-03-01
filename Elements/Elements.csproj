@@ -78,7 +78,7 @@
     <Compile Include="Controls\Tile\Tile.cs" />
     <Compile Include="Controls\Tile\TileDesigner.cs" />
     <Compile Include="Controls\Tile\TileType.cs" />
-    <Compile Include="Controls\Tile\TileShape.cs" />
+    <Compile Include="Enumerators\TileShape.cs" />
     <Compile Include="Delegates\ControlDelegates.cs" />
     <Compile Include="Base\ControlBase.cs" />
     <Compile Include="Base\ProgressBase.cs" />
@@ -153,6 +153,7 @@
     <Compile Include="InteropServices\Modules\TEXTMETRICA.cs" />
     <Compile Include="InteropServices\Modules\WM.cs" />
     <Compile Include="Library.cs" />
+    <Compile Include="Models\Border.cs" />
     <Compile Include="Models\ColorState.cs" />
     <Compile Include="Models\ControlColorState.cs" />
     <Compile Include="Models\HoverColorState.cs" />

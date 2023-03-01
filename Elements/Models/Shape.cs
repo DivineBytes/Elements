@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Elements.Models
 {
-    internal class Shape
+    public class Shape
     {
     }
 }

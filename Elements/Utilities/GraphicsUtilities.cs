@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 namespace Elements.Utilities
@@ -79,5 +80,87 @@ namespace Elements.Utilities
                 return process.ProcessName.ToLowerInvariant().Contains("devenv");
             }
         }
+
+        /// <summary>Draws the rounded rectangle with the specific values.</summary>
+        /// <param name="x">The x.</param>
+        /// <param name="y">The y.</param>
+        /// <param name="width">The width.</param>
+        /// <param name="height">The height.</param>
+        /// <param name="rounding">The curve.</param>
+        /// <returns>The <see cref="GraphicsPath" />.</returns>
+        public static GraphicsPath DrawRoundedRectangle(int x, int y, int width, int height, int rounding)
+        {
+            Rectangle _rectangle = new Rectangle(x, y, width, height);
+            GraphicsPath _graphicsPath = DrawRoundedRectangle(_rectangle, rounding);
+            return _graphicsPath;
+        }
+
+        /// <summary>Draws the rounded rectangle with the specified values.</summary>
+        /// <param name="rectangle">The rectangle.</param>
+        /// <param name="rounding">The rounding.</param>
+        /// <returns>The <see cref="GraphicsPath" />.</returns>
+        public static GraphicsPath DrawRoundedRectangle(Rectangle rectangle, int rounding)
+        {
+            GraphicsPath _graphicsPath = new GraphicsPath();
+            _graphicsPath.AddArc(rectangle.X, rectangle.Y, rounding, rounding, 180F, 90F);
+            _graphicsPath.AddArc(rectangle.Width - rounding, rectangle.Y, rounding, rounding, 270F, 90F);
+            _graphicsPath.AddArc(rectangle.Width - rounding, rectangle.Height - rounding, rounding, rounding, 90F, 90F);
+            _graphicsPath.AddArc(rectangle.X, rectangle.Height - rounding, rounding, rounding, 90F, 90F);
+            return _graphicsPath;
+        }
+
+        /// <summary>Draws the rounded rectangle with the specified values.</summary>
+        /// <param name="rectangle">The Rectangle to fill.</param>
+        /// <param name="curve">The Rounding border radius.</param>
+        /// <param name="topLeft">The top left of rectangle be round or not.</param>
+        /// <param name="topRight">The top right of rectangle be round or not.</param>
+        /// <param name="bottomLeft">The bottom left of rectangle be round or not.</param>
+        /// <param name="bottomRight">The bottom right of rectangle be round or not.</param>
+        /// <returns>The <see cref="GraphicsPath" />.</returns>
+        public static GraphicsPath DrawRoundedRectangle(Rectangle rectangle, int curve, bool topLeft = true, bool topRight = true, bool bottomLeft = true, bool bottomRight = true)
+        {
+            curve = curve * 2;
+
+            GraphicsPath createRoundPath = new GraphicsPath(FillMode.Winding);
+            if (!topLeft)
+            {
+                createRoundPath.AddLine(rectangle.X, rectangle.Y, rectangle.X, rectangle.Y);
+            }
+            else
+            {
+                createRoundPath.AddArc(rectangle.X, rectangle.Y, curve, curve, 180f, 90f);
+            }
+
+            if (!topRight)
+            {
+                createRoundPath.AddLine(rectangle.Right - rectangle.Width, rectangle.Y, rectangle.Width, rectangle.Y);
+            }
+            else
+            {
+                createRoundPath.AddArc(rectangle.Right - curve, rectangle.Y, curve, curve, 270f, 90f);
+            }
+
+            if (!bottomRight)
+            {
+                createRoundPath.AddLine(rectangle.Right, rectangle.Bottom, rectangle.Right, rectangle.Bottom);
+            }
+            else
+            {
+                createRoundPath.AddArc(rectangle.Right - curve, rectangle.Bottom - curve, curve, curve, 0f, 90f);
+            }
+
+            if (!bottomLeft)
+            {
+                createRoundPath.AddLine(rectangle.X, rectangle.Bottom, rectangle.X, rectangle.Bottom);
+            }
+            else
+            {
+                createRoundPath.AddArc(rectangle.X, rectangle.Bottom - curve, curve, curve, 90f, 90f);
+            }
+
+            createRoundPath.CloseFigure();
+            return createRoundPath;
+        }
+
     }
 }

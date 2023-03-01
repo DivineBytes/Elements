@@ -8,6 +8,7 @@ using Elements.Renders;
 using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -16,7 +17,7 @@ namespace Elements.Controls.Tile
     /// <summary>
     /// The <see cref="Tile"/> class.
     /// </summary>
-    /// <seealso cref="Elements.Base.ControlBase"/>
+    /// <seealso cref="ControlBase"/>
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [DefaultEvent("Click")]
@@ -27,12 +28,9 @@ namespace Elements.Controls.Tile
     [ToolboxItem(true)]
     public class Tile : ControlBase
     {
-        private int _rounding;
         private TileType _tileType;
-        private TileShape _tileShape;
-        private int _thickness;
-        private bool _visible;
-        private System.Drawing.Image _image;
+        private Border _border;
+        private Image _image;
         private Point _offset;
         private ElementImageLayout _backgroundLayout;
         private ElementImageLayout _imageLayout;
@@ -46,37 +44,39 @@ namespace Elements.Controls.Tile
         {
             Size = new Size(85, 75);
 
+            _border = new Border();
+
             _backgroundLayout = ElementImageLayout.Stretch;
             _imageLayout = ElementImageLayout.Stretch;
-            _backColorState = new ControlColorState(Color.FromArgb(180, 180, 180), Color.FromArgb(180, 180, 180), Color.FromArgb(180, 180, 180), Color.FromArgb(180, 180, 180));
+
+            _backColorState = new ControlColorState(
+                Color.FromArgb(180, 180, 180),
+                Color.FromArgb(253, 253, 253),
+                Color.FromArgb(180, 180, 180),
+                Color.FromArgb(180, 180, 180));
+
             _image = Resources.Logo;
             _offset = new Point(0, 0);
-
-            _thickness = 5;
-            _rounding = 5;
-            _tileShape = TileShape.Rectangle;
             _tileType = TileType.Text;
-            _visible = true;
             _textStyle = new TextStyle();
+            _textStyle.ColorState.Enabled = Color.Black;
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Tile"/> class.
         /// </summary>
         /// <param name="color">The color.</param>
+        /// <param name="border">The border.</param>
         /// <param name="thickness">The thickness.</param>
         /// <param name="rounding">The rounding.</param>
         /// <param name="shape">The shape.</param>
         /// <param name="type">The type.</param>
         /// <param name="visible">if set to <c>true</c> [visible].</param>
-        public Tile(ControlColorState color, int thickness, int rounding, TileShape shape, TileType type, bool visible) : this()
+        public Tile(ControlColorState color, Border border, int thickness, int rounding, TileShape shape, TileType type, bool visible) : this()
         {
             _backColorState = color;
-            _thickness = thickness;
-            _rounding = rounding;
-            _tileShape = shape;
+            _border = border;
             _tileType = type;
-            _visible = visible;
         }
 
         /// <summary>
@@ -85,20 +85,6 @@ namespace Elements.Controls.Tile
         [Category(EventCategory.PropertyChanged)]
         [Description("Property Event Changed")]
         public event ColorChangedEventHandler ColorChanged;
-
-        /// <summary>
-        /// Occurs when [rounding changed].
-        /// </summary>
-        [Category(EventCategory.PropertyChanged)]
-        [Description("Property Event Changed")]
-        public event RoundingChangedEventHandler RoundingChanged;
-
-        /// <summary>
-        /// Occurs when [thickness changed].
-        /// </summary>
-        [Category(EventCategory.PropertyChanged)]
-        [Description("Property Event Changed")]
-        public event ThicknessChangedEventHandler ThicknessChanged;
 
         /// <summary>
         /// Occurs when [type changed].
@@ -112,24 +98,23 @@ namespace Elements.Controls.Tile
         /// </summary>
         [Category(EventCategory.PropertyChanged)]
         [Description("Property Event Changed")]
-        public event TypeChangedEventHandler ShapeChanged;
+        public event ShapeChangedEventHandler ShapeChanged;
 
         /// <summary>
-        /// Occurs when [visible changed].
+        /// Gets or sets the border.
         /// </summary>
-        [Category(EventCategory.PropertyChanged)]
-        [Description("Property Event Changed")]
-        public new event VisibleChangedEventHandler VisibleChanged;
-
-        /// <summary>
-        /// Gets the distance from the rounded border.
-        /// </summary>
-        [Browsable(false)]
-        public int BorderCurve
+        /// <value>The border.</value>
+        public Border Border
         {
             get
             {
-                return (_rounding / 2) + _thickness + 1;
+                return _border;
+            }
+
+            set
+            {
+                _border = value;
+                Invalidate();
             }
         }
 
@@ -198,7 +183,7 @@ namespace Elements.Controls.Tile
         /// <value>The image.</value>
         [Category(PropertyCategory.Appearance)]
         [Description("The image.")]
-        public System.Drawing.Image Image
+        public Image Image
         {
             get
             {
@@ -228,6 +213,7 @@ namespace Elements.Controls.Tile
             set
             {
                 _offset = value;
+                Invalidate();
             }
         }
 
@@ -246,41 +232,6 @@ namespace Elements.Controls.Tile
             set
             {
                 _textStyle = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the rounding.
-        /// </summary>
-        /// <value>The rounding.</value>
-        public int Rounding
-        {
-            get
-            {
-                return _rounding;
-            }
-
-            set
-            {
-                _rounding = value;
-                Invalidate();
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the shape.
-        /// </summary>
-        /// <value>The shape.</value>
-        public TileShape Shape
-        {
-            get
-            {
-                return _tileShape;
-            }
-
-            set
-            {
-                _tileShape = value;
                 Invalidate();
             }
         }
@@ -299,44 +250,44 @@ namespace Elements.Controls.Tile
             set
             {
                 _tileType = value;
-                Invalidate();
+                OnTypeChanged(this, EventArgs.Empty);
             }
         }
 
         /// <summary>
-        /// Gets or sets the thickness.
+        /// Invokes the rounding changed event.
         /// </summary>
-        /// <value>The thickness.</value>
-        public int Thickness
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The event args.</param>
+        /// <exception cref="Exception">A delegate callback throws an exception.</exception>
+        protected virtual void OnColorChanged(object sender, EventArgs e)
         {
-            get
-            {
-                return _thickness;
-            }
-
-            set
-            {
-                _thickness = value;
-                Invalidate();
-            }
+            Invalidate();
+            ColorChanged?.Invoke(sender, e);
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this <see cref="Tile"/> is visible.
+        /// Invokes the type changed event.
         /// </summary>
-        /// <value><c>true</c> if visible; otherwise, <c>false</c>.</value>
-        public new bool Visible
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The event args.</param>
+        /// <exception cref="Exception">A delegate callback throws an exception.</exception>
+        protected virtual void OnTypeChanged(object sender, EventArgs e)
         {
-            get
-            {
-                return _visible;
-            }
+            Invalidate();
+            TypeChanged?.Invoke(sender, e);
+        }
 
-            set
-            {
-                _visible = value;
-                Invalidate();
-            }
+        /// <summary>
+        /// Invokes the shape changed event.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The event args.</param>
+        /// <exception cref="Exception">A delegate callback throws an exception.</exception>
+        protected virtual void OnShapeChanged(object sender, EventArgs e)
+        {
+            Invalidate();
+            ShapeChanged?.Invoke(sender, e);
         }
 
         /// <summary>
@@ -357,7 +308,6 @@ namespace Elements.Controls.Tile
         protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
-
             Cursor = Cursors.Default;
             Invalidate();
         }
@@ -404,10 +354,19 @@ namespace Elements.Controls.Tile
         /// <param name="e">The <see cref="PaintEventArgs"/> instance containing the event data.</param>
         protected override void OnPaint(PaintEventArgs e)
         {
+            e.Graphics.SmoothingMode = SmoothingMode.HighQuality;
+
             Color backColor = ControlColorState.GetColorState(_backColorState, Enabled, MouseState);
 
+            Rectangle _clientRectangle = new Rectangle(ClientRectangle.X, ClientRectangle.Y, ClientRectangle.Width - 1, ClientRectangle.Height - 1);
+            GraphicsPath controlGraphicsPath = Border.CreatePath(_border, _clientRectangle);
+
+            e.Graphics.SetClip(controlGraphicsPath);
             ImageRender.Render(e.Graphics, backColor, BackgroundImage, _backgroundLayout, ClientRectangle);
             RenderTile(e.Graphics, _tileType, _imageLayout, ClientRectangle, Image, Text, Font, Enabled, MouseState, _textStyle, _offset);
+            e.Graphics.ResetClip();
+
+            Border.Render(e.Graphics, _border, MouseState, controlGraphicsPath);
 
             base.OnPaint(e);
         }
@@ -426,7 +385,6 @@ namespace Elements.Controls.Tile
         /// <param name="mouseState">The mouse State.</param>
         /// <param name="textStyle">The text Style.</param>
         /// <param name="offset">The location offset.</param>
-        /// <returns></returns>
         public static void RenderTile(Graphics graphics, TileType type, ElementImageLayout layout, Rectangle clientRectangle, Image image, string text, Font font, bool enabled, MouseStates mouseState, TextStyle textStyle, Point offset = new Point())
         {
             switch (type)

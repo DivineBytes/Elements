@@ -1,4 +1,4 @@
-﻿namespace Elements.Controls.Tile
+﻿namespace Elements.Enumerators
 {
     /// <summary>
     /// The <see cref="TileShape"/> enum.
