@@ -28,10 +28,12 @@ namespace Elements.Components.Badge
         private Tile _tile;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Badge"/> class.
+        /// Prevents a default instance of the <see cref="Badge"/> class from being created.
         /// </summary>
-        public Badge()
+        private Badge()
         {
+            _clickEvent = null;
+            _control = null;
             _tile = new Tile();
         }
 

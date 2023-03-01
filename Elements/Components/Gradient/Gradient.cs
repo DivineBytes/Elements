@@ -29,7 +29,7 @@ namespace Elements.Components.Gradient
         public static readonly Size DefaultSize = new Size(25, 25);
 
         private bool _autoSize;
-        private ColorField colorField;
+        private ColorField _colorField;
         private Control _control;
         private Size _size;
 
@@ -40,7 +40,7 @@ namespace Elements.Components.Gradient
         public Gradient(IContainer container) : this()
         {
             container.Add(this);
-            UpdateGradient(DefaultSize, colorField);
+            UpdateGradient(DefaultSize, _colorField);
         }
 
         /// <summary>
@@ -70,7 +70,8 @@ namespace Elements.Components.Gradient
         /// </summary>
         private Gradient()
         {
-            colorField = new ColorField(Color.Green, Color.Yellow, Color.Black, Color.Red);
+            _colorField = new ColorField(Color.Green, Color.Yellow, Color.Black, Color.Red);
+            _control = null;
             _size = DefaultSize;
             _autoSize = true;
         }
@@ -99,7 +100,7 @@ namespace Elements.Components.Gradient
 
                 _autoSize = value;
                 Size _gradientSize = GetGradientSize(_autoSize, _control, _size);
-                UpdateGradient(_gradientSize, colorField);
+                UpdateGradient(_gradientSize, _colorField);
             }
         }
 
@@ -115,14 +116,14 @@ namespace Elements.Components.Gradient
         {
             get
             {
-                return colorField.BottomLeft;
+                return _colorField.BottomLeft;
             }
 
             set
             {
-                colorField.BottomLeft = value;
+                _colorField.BottomLeft = value;
                 Size _gradientSize = GetGradientSize(_autoSize, _control, _size);
-                UpdateGradient(_gradientSize, colorField);
+                UpdateGradient(_gradientSize, _colorField);
             }
         }
 
@@ -138,14 +139,14 @@ namespace Elements.Components.Gradient
         {
             get
             {
-                return colorField.BottomRight;
+                return _colorField.BottomRight;
             }
 
             set
             {
-                colorField.BottomRight = value;
+                _colorField.BottomRight = value;
                 Size _gradientSize = GetGradientSize(_autoSize, _control, _size);
-                UpdateGradient(_gradientSize, colorField);
+                UpdateGradient(_gradientSize, _colorField);
             }
         }
 
@@ -176,7 +177,7 @@ namespace Elements.Components.Gradient
 
                 _control.Resize += Control_Resize;
                 Size _gradientSize = GetGradientSize(_autoSize, _control, _size);
-                UpdateGradient(_gradientSize, colorField);
+                UpdateGradient(_gradientSize, _colorField);
             }
         }
 
@@ -191,7 +192,7 @@ namespace Elements.Components.Gradient
             get
             {
                 Size _gradientSize = GetGradientSize(_autoSize, _control, _size);
-                return ImageUtilities.CreateGradient(_gradientSize, colorField.TopLeft, colorField.TopRight, colorField.BottomLeft, colorField.BottomRight);
+                return ImageUtilities.CreateGradient(_gradientSize, _colorField.TopLeft, _colorField.TopRight, _colorField.BottomLeft, _colorField.BottomRight);
             }
         }
 
@@ -219,7 +220,7 @@ namespace Elements.Components.Gradient
 
                 _size = value;
                 Size _gradientSize = GetGradientSize(_autoSize, _control, _size);
-                UpdateGradient(_gradientSize, colorField);
+                UpdateGradient(_gradientSize, _colorField);
             }
         }
 
@@ -235,14 +236,14 @@ namespace Elements.Components.Gradient
         {
             get
             {
-                return colorField.TopLeft;
+                return _colorField.TopLeft;
             }
 
             set
             {
-                colorField.TopLeft = value;
+                _colorField.TopLeft = value;
                 Size _gradientSize = GetGradientSize(_autoSize, _control, _size);
-                UpdateGradient(_gradientSize, colorField);
+                UpdateGradient(_gradientSize, _colorField);
             }
         }
 
@@ -258,14 +259,14 @@ namespace Elements.Components.Gradient
         {
             get
             {
-                return colorField.TopRight;
+                return _colorField.TopRight;
             }
 
             set
             {
-                colorField.TopRight = value;
+                _colorField.TopRight = value;
                 Size _gradientSize = GetGradientSize(_autoSize, _control, _size);
-                UpdateGradient(_gradientSize, colorField);
+                UpdateGradient(_gradientSize, _colorField);
             }
         }
 
@@ -294,7 +295,7 @@ namespace Elements.Components.Gradient
         private void Control_Resize(object sender, EventArgs e)
         {
             Size _gradientSize = GetGradientSize(_autoSize, _control, _size);
-            UpdateGradient(_gradientSize, colorField);
+            UpdateGradient(_gradientSize, _colorField);
         }
 
         /// <summary>

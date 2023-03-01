@@ -66,16 +66,12 @@ namespace Elements.Controls.Tile
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Tile"/> class.
+        /// Initializes a new instance of the <see cref="Tile" /> class.
         /// </summary>
         /// <param name="color">The color.</param>
         /// <param name="border">The border.</param>
-        /// <param name="thickness">The thickness.</param>
-        /// <param name="rounding">The rounding.</param>
-        /// <param name="shape">The shape.</param>
         /// <param name="type">The type.</param>
-        /// <param name="visible">if set to <c>true</c> [visible].</param>
-        public Tile(ControlColorState color, Border border, int thickness, int rounding, TileShape shape, TileType type, bool visible) : this()
+        public Tile(ControlColorState color, Border border, TileType type) : this()
         {
             _backColorState = color;
             _border = border;
