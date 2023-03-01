@@ -18,7 +18,7 @@ namespace Elements.Components.Badge
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [DefaultEvent("Click")]
-    [DefaultProperty("Control")]
+    [DefaultProperty("Text")]
     [Description("The badge component enables controls to have a badge with text displayed.")]
     [Designer(typeof(BadgeDesigner))]
     [ToolboxBitmap(typeof(Badge), "Badge.bmp")]
@@ -47,7 +47,6 @@ namespace Elements.Components.Badge
             _tile.TextStyle.Enabled = Color.White;
 
             _tile.Click += Tile_Click;
-            _tile.Paint += Tile_Paint;
         }
 
         /// <summary>
@@ -57,6 +56,40 @@ namespace Elements.Components.Badge
         public Badge(IContainer container) : this()
         {
             container.Add(this);
+        }
+
+        /// <summary>
+        /// Occurs when [click].
+        /// </summary>
+        [Category(EventCategory.PropertyChanged)]
+        [Description("Property Event Changed")]
+        public event EventHandler Click
+        {
+            add
+            {
+                _tile.Click += value;
+            }
+            remove
+            {
+                _tile.Click -= value;
+            }
+        }
+
+        /// <summary>
+        /// Occurs when [text changed].
+        /// </summary>
+        [Category(EventCategory.PropertyChanged)]
+        [Description("Property Event Changed")]
+        public event EventHandler TextChanged
+        {
+            add
+            {
+                _tile.TextChanged += value;
+            }
+            remove
+            {
+                _tile.TextChanged -= value;
+            }
         }
 
         /// <summary>
@@ -298,17 +331,6 @@ namespace Elements.Components.Badge
             {
                 _control.Controls.Remove(_tile);
             }
-        }
-
-        /// <summary>
-        /// Handles the Paint event of the Tile control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="PaintEventArgs"/> instance containing the event data.</param>
-        private void Tile_Paint(object sender, PaintEventArgs e)
-        {
-            //Size _textSize = StringUtilities.MeasureText(Text, Font, e.Graphics);
-            //Render(e.Graphics, new Rectangle(new Point(0, 0), new Size(_tile.Width - 1, _label.Height - 1)), Background, Text, Font, ForeColor, Shape, new Point((_label.Width / 2) - (_textSize.Width / 2), (_label.Height / 2) - (_textSize.Height / 2)));
         }
 
         /// <summary>
