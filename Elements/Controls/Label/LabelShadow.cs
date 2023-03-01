@@ -12,7 +12,7 @@ namespace Elements.Controls.Label
     /// The <see cref="LabelShadow"/> class.
     /// </summary>
     [Description("The shadow settings.")]
-    [TypeConverter(typeof(LabelShadowTypeConverter))]
+    [TypeConverter(typeof(SettingsTypeConverter))]
     public class LabelShadow
     {
         /// <summary>
@@ -32,42 +32,42 @@ namespace Elements.Controls.Label
         /// Gets or sets the color.
         /// </summary>
         /// <value>The color.</value>
-        [Description("The shadow color.")]
+        [Description("The color.")]
         public Color Color { get; set; }
 
         /// <summary>
         /// Gets or sets the depth.
         /// </summary>
         /// <value>The depth.</value>
-        [Description("The shadow depth.")]
+        [Description("The depth.")]
         public int Depth { get; set; }
 
         /// <summary>
         /// Gets or sets the direction.
         /// </summary>
         /// <value>The direction.</value>
-        [Description("The shadow direction.")]
+        [Description("The direction.")]
         public int Direction { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="LabelShadow"/> is enabled.
         /// </summary>
         /// <value><c>true</c> if enabled; otherwise, <c>false</c>.</value>
-        [Description("The shadow enabled.")] 
+        [Description("The enabled.")] 
         public bool Enabled { get; set; }
 
         /// <summary>
         /// Gets or sets the location.
         /// </summary>
         /// <value>The location.</value>
-        [Description("The shadow location.")]
+        [Description("The location.")]
         public Point Location { get; set; }
 
         /// <summary>
         /// Gets or sets the smoothness.
         /// </summary>
         /// <value>The smoothness.</value>
-        [Description("The shadow smoothness.")]
+        [Description("The smoothness.")]
         public float Smoothness { get; set; }
 
         /// <summary>

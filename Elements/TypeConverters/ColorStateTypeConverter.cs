@@ -2,13 +2,13 @@
 using System.ComponentModel;
 using System.Globalization;
 
-namespace Elements.Controls.Label
+namespace Elements.TypeConverters
 {
     /// <summary>
-    /// The <see cref="LabelOutlineTypeConverter"/> class.
+    /// The <see cref="ColorStateTypeConverter"/> class.
     /// </summary>
     /// <seealso cref="System.ComponentModel.ExpandableObjectConverter"/>
-    public class LabelOutlineTypeConverter : ExpandableObjectConverter
+    public class ColorStateTypeConverter : ExpandableObjectConverter
     {
         /// <summary>
         /// Can convert context from source type.
@@ -32,7 +32,7 @@ namespace Elements.Controls.Label
         /// <returns>The <see cref="object"/>.</returns>
         public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType)
         {
-            return "Outline Settings";
+            return $@"Color State Settings";
         }
     }
 }

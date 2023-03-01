@@ -20,7 +20,7 @@ namespace Elements.Models
     [Description("The control color states of a component.")]
     [DesignerCategory("code")]
     [ToolboxItem(false)]
-    [TypeConverter(typeof(SettingsTypeConverter))]
+    [TypeConverter(typeof(ColorStateTypeConverter))]
     public class ControlColorState : HoverColorState
     {
         private Color _pressed;

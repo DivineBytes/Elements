@@ -20,7 +20,7 @@ namespace Elements.Models
     [Description("The color states of a component.")]
     [DesignerCategory("code")]
     [ToolboxItem(false)]
-    [TypeConverter(typeof(SettingsTypeConverter))]
+    [TypeConverter(typeof(ColorStateTypeConverter))]
     public class ColorState
     {
         private Color _disabled;

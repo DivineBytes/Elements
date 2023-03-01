@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Text;
 using System.Windows.Forms;
 
 namespace Elements.Utilities
@@ -65,6 +66,33 @@ namespace Elements.Utilities
             float _width = _graphics.MeasureString(text, font).Width;
             float _height = _graphics.MeasureString(text, font).Height;
             return new SizeF(_width, _height);
+        }
+
+        /// <summary>
+        /// Adds the spaces to sentence.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        /// <returns>The <see cref="string"/>.</returns>
+        public static string AddSpacesToSentence(string text)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                return string.Empty;
+            }
+
+            StringBuilder newText = new StringBuilder(text.Length * 2);
+            newText.Append(text[0]);
+
+            for (int i = 1; i < text.Length; i++)
+            {
+                if (char.IsUpper(text[i]) && text[i - 1] != ' ')
+                {
+                    newText.Append(' ');
+                }
+
+                newText.Append(text[i]);
+            }
+            return newText.ToString();
         }
     }
 }

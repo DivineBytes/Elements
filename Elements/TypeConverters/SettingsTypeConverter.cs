@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Elements.Utilities;
+using System;
 using System.ComponentModel;
 using System.Globalization;
 
@@ -32,7 +33,9 @@ namespace Elements.TypeConverters
         /// <returns>The <see cref="object"/>.</returns>
         public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType)
         {
-            return $@"{value.GetType().Name} Settings";
+            // Adds spaces before uppercase letters
+            string name = StringUtilities.AddSpacesToSentence(value.GetType().Name);
+            return $@"{name} Settings";
         }
     }
 }

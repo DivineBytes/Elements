@@ -12,7 +12,7 @@ namespace Elements.Controls.Label
     /// The <see cref="LabelReflection"/> class.
     /// </summary>
     [Description("The reflection settings.")]
-    [TypeConverter(typeof(LabelReflectionTypeConverter))]
+    [TypeConverter(typeof(SettingsTypeConverter))]
     public class LabelReflection
     {
         /// <summary>
@@ -29,21 +29,21 @@ namespace Elements.Controls.Label
         /// Gets or sets a value indicating whether this <see cref="LabelReflection"/> is enabled.
         /// </summary>
         /// <value><c>true</c> if enabled; otherwise, <c>false</c>.</value>
-        [Description("The reflection enabled.")]
+        [Description("The enabled.")]
         public bool Enabled { get; set; }
 
         /// <summary>
         /// Gets or sets the color.
         /// </summary>
         /// <value>The color.</value>
-        [Description("The reflection color.")]
+        [Description("The color.")]
         public Color Color { get; set; }
 
         /// <summary>
         /// Gets or sets the spacing.
         /// </summary>
         /// <value>The spacing.</value>
-        [Description("The reflection spacing.")]
+        [Description("The spacing.")]
         public float Spacing { get; set; }
 
         /// <summary>

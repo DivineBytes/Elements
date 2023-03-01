@@ -9,8 +9,8 @@ namespace Elements.Controls.Label
     /// <summary>
     /// The <see cref="LabelOutline"/> class.
     /// </summary>
-    [Description("The reflection outline.")]
-    [TypeConverter(typeof(LabelOutlineTypeConverter))]
+    [Description("The outline settings.")]
+    [TypeConverter(typeof(SettingsTypeConverter))]
     public class LabelOutline
     {
         /// <summary>
@@ -27,21 +27,21 @@ namespace Elements.Controls.Label
         /// Gets or sets a value indicating whether this <see cref="LabelOutline"/> is enabled.
         /// </summary>
         /// <value><c>true</c> if enabled; otherwise, <c>false</c>.</value>
-        [Description("The reflection enabled.")]
+        [Description("The enabled.")]
         public bool Enabled { get; set; }
 
         /// <summary>
         /// Gets or sets the color.
         /// </summary>
         /// <value>The color.</value>
-        [Description("The reflection color.")]
+        [Description("The color.")]
         public Color Color { get; set; }
 
         /// <summary>
         /// Gets or sets the location.
         /// </summary>
         /// <value>The location.</value>
-        [Description("The reflection location.")]
+        [Description("The location.")]
         public Point Location { get; set; }
 
         /// <summary>
