@@ -156,6 +156,8 @@
     <Compile Include="Models\Border.cs" />
     <Compile Include="Models\ColorState.cs" />
     <Compile Include="Models\ControlColorState.cs" />
+    <Compile Include="Models\DebuggerDisplay.cs" />
+    <Compile Include="Models\DebuggerDisplayFormat.cs" />
     <Compile Include="Models\HoverColorState.cs" />
     <Compile Include="Models\Shape.cs" />
     <Compile Include="Models\TextStyle.cs" />
