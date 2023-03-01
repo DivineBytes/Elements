@@ -7,6 +7,9 @@ namespace Elements.Controls.Tile
     {
         protected override void PreFilterProperties(IDictionary properties)
         {
+            properties.Remove("BackColor");
+            properties.Remove("ForeColor");
+
             base.PreFilterProperties(properties);
         }
     }

@@ -42,6 +42,9 @@ namespace Elements.Controls.Tile
         /// </summary>
         public Tile()
         {
+            BackColor = Color.Transparent;
+            ForeColor = Color.Transparent;
+
             Size = new Size(85, 75);
 
             _border = new Border();
