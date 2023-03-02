@@ -69,6 +69,7 @@
     <Compile Include="Controls\Gauge\GaugeDesigner.cs" />
     <Compile Include="Controls\GroupBox\GroupBoxDesigner.cs" />
     <Compile Include="Controls\GroupBox\GroupBox.cs" />
+    <Compile Include="Controls\GroupBox\GroupBoxStyle.cs" />
     <Compile Include="Controls\Label\Label.cs" />
     <Compile Include="Controls\Label\LabelDesigner.cs" />
     <Compile Include="Controls\Label\LabelOutline.cs" />

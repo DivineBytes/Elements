@@ -13,6 +13,7 @@ namespace Elements.Models
     /// <summary>
     /// The <see cref="Border"/> class.
     /// </summary>
+    [Category(PropertyCategory.Appearance)]
     [TypeConverter(typeof(SettingsTypeConverter))]
     public class Border
     {

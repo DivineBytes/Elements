@@ -58,22 +58,6 @@ namespace Elements.Controls.GroupBox
         }
 
         /// <summary>
-        /// The <see cref="GroupBoxStyle"/> enum.
-        /// </summary>
-        public enum GroupBoxStyle
-        {
-            /// <summary>
-            /// The default.
-            /// </summary>
-            Default = 0,
-
-            /// <summary>
-            /// The classic.
-            /// </summary>
-            Classic = 1
-        }
-
-        /// <summary>
         /// Gets or sets the border.
         /// </summary>
         /// <value>The border.</value>
@@ -136,7 +120,7 @@ namespace Elements.Controls.GroupBox
         }
 
         [Category(PropertyCategory.Appearance)]
-        [Description("Color")]
+        [Description("Separator")]
         public bool Separator
         {
             //get
