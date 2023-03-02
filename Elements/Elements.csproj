@@ -50,6 +50,8 @@
     <Compile Include="Base\ComponentBase.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Base\ContainedControlBase.cs" />
+    <Compile Include="Base\NestedControlBase.cs" />
     <Compile Include="Components\Badge\Badge.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -177,13 +179,13 @@
     <Compile Include="Renders\BackgroundRender.cs" />
     <Compile Include="Renders\ImageRender.cs" />
     <Compile Include="Renders\TextRender.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Test.Designer.cs">
       <DependentUpon>Test.cs</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypeConverters\ColorStateTypeConverter.cs" />
     <Compile Include="TypeConverters\SettingsTypeConverter.cs" />
     <Compile Include="Utilities\ColorUtilities.cs" />

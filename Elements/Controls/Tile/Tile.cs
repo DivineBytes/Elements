@@ -53,7 +53,7 @@ namespace Elements.Controls.Tile
             _imageLayout = ElementImageLayout.Stretch;
 
             _backColorState = new ControlColorState(
-                Color.FromArgb(180, 180, 180),
+                Color.FromArgb(253, 253, 253),
                 Color.FromArgb(253, 253, 253),
                 Color.FromArgb(180, 180, 180),
                 Color.FromArgb(180, 180, 180));
@@ -62,6 +62,7 @@ namespace Elements.Controls.Tile
             _offset = new Point(0, 0);
             _tileType = TileType.Text;
             _textStyle = new TextStyle();
+            _textStyle.ColorState.Disabled = Color.FromArgb(131, 129, 129);
             _textStyle.ColorState.Enabled = Color.Black;
         }
 
@@ -308,7 +309,6 @@ namespace Elements.Controls.Tile
         {
             base.OnMouseLeave(e);
             Cursor = Cursors.Default;
-            Invalidate();
         }
 
         /// <summary>

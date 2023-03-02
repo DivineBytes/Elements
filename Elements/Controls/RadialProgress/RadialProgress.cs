@@ -51,7 +51,7 @@ namespace Elements.Controls.RadialProgress
             _imageSize = new Size(16, 16);
 
             _backCircleColor = Color.FromArgb(220, 220, 220);
-            _foreCircleColor = Color.FromArgb(220, 220, 220);
+            _foreCircleColor = Color.LightGray;
             _progressColor = Color.Green;
 
             Size = new Size(100, 100);

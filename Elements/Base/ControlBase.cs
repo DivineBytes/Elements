@@ -100,18 +100,8 @@ namespace Elements.Base
         /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
         protected override void OnMouseDown(MouseEventArgs e)
         {
-            OnMouseStateChanged(this, new MouseStateEventArgs(MouseStates.Pressed));
             base.OnMouseDown(e);
-        }
-
-        /// <summary>
-        /// Raises the <see cref="E:MouseLeave"/> event.
-        /// </summary>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        protected override void OnMouseLeave(EventArgs e)
-        {
-            OnMouseStateChanged(this, new MouseStateEventArgs(MouseStates.Normal));
-            base.OnMouseLeave(e);
+            OnMouseStateChanged(this, new MouseStateEventArgs(MouseStates.Pressed));
         }
 
         /// <summary>
@@ -120,8 +110,29 @@ namespace Elements.Base
         /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
         protected override void OnMouseMove(MouseEventArgs e)
         {
-            OnMouseStateChanged(this, new MouseStateEventArgs(MouseStates.Hover));
             base.OnMouseMove(e);
+            OnMouseStateChanged(this, new MouseStateEventArgs(MouseStates.Hover));
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MouseHover" /> event.
+        /// </summary>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        protected override void OnMouseHover(EventArgs e)
+        {
+            base.OnMouseHover(e);
+            OnMouseStateChanged(this, new MouseStateEventArgs(MouseStates.Hover));
+        }
+
+
+        /// <summary>
+        /// Raises the <see cref="E:MouseLeave" /> event.
+        /// </summary>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        protected override void OnMouseLeave(EventArgs e)
+        {
+            base.OnMouseLeave(e);
+            OnMouseStateChanged(this, new Events.MouseStateEventArgs(MouseStates.Normal));
         }
     }
 }

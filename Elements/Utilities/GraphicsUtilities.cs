@@ -1,8 +1,10 @@
-﻿using System.ComponentModel;
+﻿using Elements.Controls;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Elements.Utilities
 {
@@ -162,5 +164,54 @@ namespace Elements.Utilities
             return createRoundPath;
         }
 
+        /// <summary>Apply BackColor change on the container and it's child controls.</summary>
+        /// <param name="container">The container control.</param>
+        /// <param name="backgroundColor">The container backgroundColor.</param>
+        public static void ApplyContainerBackColorChange(Control container, Color backgroundColor)
+        {
+            if (container == null)
+            {
+                return;
+            }
+
+            foreach (object control in container.Controls)
+            {
+                if (control != null)
+                {
+                    ((Control)control).BackColor = backgroundColor;
+                }
+            }
+        }
+
+        /// <summary>Set's the container controls BackColor.</summary>
+        /// <param name="control">Current control.</param>
+        /// <param name="backgroundColor">Container background color.</param>
+        /// <param name="onControlRemoved">Control removed?</param>
+        public static void SetControlBackColor(Control control, Color backgroundColor, bool onControlRemoved)
+        {
+            if (control == null)
+            {
+                return;
+            }
+
+            Color backColor;
+
+            if (onControlRemoved)
+            {
+                backColor = Color.Transparent;
+
+                // The Control doesn't support transparent background
+                if (control is ProgressIndicator)
+                {
+                    backColor = SystemColors.Control;
+                }
+            }
+            else
+            {
+                backColor = backgroundColor;
+            }
+
+            control.BackColor = backColor;
+        }
     }
 }

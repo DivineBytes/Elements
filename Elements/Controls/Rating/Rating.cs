@@ -11,9 +11,9 @@ using System.Windows.Forms;
 namespace Elements.Controls.Rating
 {
     /// <summary>
-    /// The <see cref="Rating"/> class.
+    /// The <see cref="Rating" /> class.
     /// </summary>
-    /// <seealso cref="Elements.Controls.Base.ControlBase"/>
+    /// <seealso cref="Elements.Base.ControlBase" />
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [DefaultEvent("RatingChanged")]
@@ -681,7 +681,7 @@ namespace Elements.Controls.Rating
 
                 default:
                     {
-                        return null;
+                        return StarGenerator.GenerateNormalSemiStar(rect);
                     }
             }
         }
@@ -712,7 +712,7 @@ namespace Elements.Controls.Rating
 
                 default:
                     {
-                        return null;
+                        return StarGenerator.GenerateNormalStar(rect);
                     }
             }
         }

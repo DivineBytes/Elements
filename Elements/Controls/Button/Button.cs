@@ -42,7 +42,12 @@ namespace Elements.Controls.Button
         {
             Size = new Size(140, 45);
             _border = new Border();
-            _backColorState = new ControlColorState();
+            _backColorState = new ControlColorState
+            {
+                Hover = Color.FromArgb(180, 180, 180),
+                Pressed = Color.FromArgb(180, 180, 180)
+            };
+
             dialogResult = DialogResult.None;
             _textImageRelation = TextImageRelation.Overlay;
             _imageLayout = ElementImageLayout.Stretch;
@@ -51,8 +56,8 @@ namespace Elements.Controls.Button
                 new ControlColorState(
                     Color.FromArgb(131, 129, 129),
                     Color.FromArgb(0, 0, 0),
-                    Color.FromArgb(217, 220, 227),
-                    Color.FromArgb(0, 0, 0)));
+                    Color.White,
+                    Color.White));
         }
 
         /// <summary>
@@ -213,7 +218,6 @@ namespace Elements.Controls.Button
         /// <summary>
         /// Gets or sets the <see cref="TextStyle"/>.
         /// </summary>
-        [Browsable(false)]
         [Category(PropertyCategory.Appearance)]
         [Description("Text Style")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
@@ -290,6 +294,24 @@ namespace Elements.Controls.Button
             AccessibilityNotifyClients(AccessibleEvents.NameChange, -1);
 
             base.OnClick(e);
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MouseMove"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        protected override void OnMouseMove(MouseEventArgs e)
+        {
+            base.OnMouseMove(e);
+
+            if (Enabled)
+            {
+                Cursor = Cursors.Hand;
+            }
+            else
+            {
+                Cursor = Cursors.Default;
+            }
         }
 
         /// <summary>
