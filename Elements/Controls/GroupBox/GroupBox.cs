@@ -1,6 +1,7 @@
 ﻿using Elements.Base;
 using Elements.Constants;
 using Elements.Controls.Button;
+using Elements.Controls.Separator;
 using Elements.Enumerators;
 using Elements.Models;
 using Elements.Renders;
@@ -29,7 +30,7 @@ namespace Elements.Controls.GroupBox
     public class GroupBox : NestedControlBase
     {
         private Border _border;
-        //private Separator _separator;
+        private Elements.Controls.Separator.Separator _separator;
         private GroupBoxStyle _boxStyle;
         private Image _image;
         private StringAlignment _textAlignment;
@@ -45,18 +46,19 @@ namespace Elements.Controls.GroupBox
         {
             BackColor = Color.Transparent;
 
-            
+            _separator = new Separator.Separator();
+            _separator.BackColor = Color.Transparent;
 
             _boxStyle = GroupBoxStyle.Default;
             _titleBoxHeight = 25;
-            //_borderEdge = new BorderEdge();
             _textImageRelation = TextImageRelation.ImageBeforeText;
             _textAlignment = StringAlignment.Center;
             _textLineAlignment = StringAlignment.Center;
             Size = new Size(220, 180);
             _border = new Border();
             Padding = new Padding(5, _titleBoxHeight + _border.Thickness, 5, 5);
-            //Controls.Add(_borderEdge);
+
+            Controls.Add(_separator);
         }
 
         /// <summary>
@@ -92,14 +94,14 @@ namespace Elements.Controls.GroupBox
             {
                 _boxStyle = value;
 
-                //if (_boxStyle == GroupBoxStyle.Classic)
-                //{
-                //    _borderEdge.Visible = false;
-                //}
-                //else
-                //{
-                //    _borderEdge.Visible = true;
-                //}
+                if (_boxStyle == GroupBoxStyle.Classic)
+                {
+                    _separator.Visible = false;
+                }
+                else
+                {
+                    _separator.Visible = true;
+                }
 
                 Invalidate();
             }
@@ -125,14 +127,14 @@ namespace Elements.Controls.GroupBox
         [Description("Separator")]
         public bool Separator
         {
-            //get
-            //{
-            //   // return _borderEdge.Visible;
-            //}
+            get
+            {
+                return _separator.Visible;
+            }
 
             set
             {
-                //_borderEdge.Visible = value;
+                _separator.Visible = value;
                 Invalidate();
             }
         }
@@ -143,15 +145,14 @@ namespace Elements.Controls.GroupBox
         {
             get
             {
-                return Color.Green;
-                // return _borderEdge.BackColor;
+                return _separator.BackColor;
             }
 
-            //set
-            //{
-            //    _borderEdge.BackColor = value;
-            //    Invalidate();
-            //}
+            set
+            {
+                _separator.BackColor = value;
+                Invalidate();
+            }
         }
 
         [Category(PropertyCategory.Appearance)]
@@ -239,11 +240,11 @@ namespace Elements.Controls.GroupBox
             Color _backColor = Enabled ? BackColorState.Enabled : BackColorState.Disabled;
             ImageRender.Render(e.Graphics, _backColor, BackgroundImage, group, Border);
 
-            //if (_borderEdge.Visible)
-            //{
-            //    _borderEdge.Location = new Point(_titleBoxRectangle.X + _border.Thickness, _titleBoxRectangle.Bottom);
-            //    _borderEdge.Size = new Size(Width - _border.Thickness - 1, 1);
-            //}
+            if (_separator.Visible)
+            {
+                _separator.Location = new Point(_titleBoxRectangle.X + _border.Thickness, _titleBoxRectangle.Bottom);
+                _separator.Size = new Size(Width - _border.Thickness - 2, 1);
+            }
 
             Border.Render(e.Graphics, _border, MouseState, ControlGraphicsPath);
 

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 namespace Elements.Controls.Separator
 {
     /// <summary>
-    /// The <see cref="Separator"/> class.
+    /// The <see cref="Separator" /> class.
     /// </summary>
-    /// <seealso cref="System.Windows.Forms.Control"/>
+    /// <seealso cref="Elements.Base.ControlBase" />
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [DefaultEvent("Click")]
