@@ -25,7 +25,7 @@ namespace Elements.Controls.Button
     [Designer(typeof(ButtonDesigner))]
     [ToolboxBitmap(typeof(Button), "Button.bmp")]
     [ToolboxItem(true)]
-    public class Button : ControlBase//, IButtonControl
+    public class Button : ControlBase, IButtonControl
     {
         private ControlColorState _backColorState;
         private Border _border;
