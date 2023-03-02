@@ -22,7 +22,7 @@ namespace Elements.Controls.GroupBox
     [ComVisible(true)]
     [DefaultEvent("Click")]
     [DefaultProperty("Text")]
-    [Description("The Button")]
+    [Description("The GroupBox")]
     [Designer(typeof(GroupBoxDesigner))]
     [ToolboxBitmap(typeof(GroupBox), "GroupBox.bmp")]
     [ToolboxItem(true)]

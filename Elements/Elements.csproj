@@ -226,6 +226,7 @@
     <Content Include="Components\Badge\Badge.bmp" />
     <Content Include="Components\Gradient\Gradient.bmp" />
     <Content Include="Controls\Button\Button.bmp" />
+    <Content Include="Controls\GroupBox\GroupBox.bmp" />
     <Content Include="Controls\ProgressBar\ProgressBar.bmp" />
     <Content Include="Controls\ProgressIndicator\ProgressIndicator.bmp" />
     <Content Include="Controls\RadialProgress\RadialProgress.bmp" />
