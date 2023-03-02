@@ -62,6 +62,8 @@
     <Compile Include="Constants\Defaults.cs" />
     <Compile Include="Constants\PropertyCategory.cs" />
     <Compile Include="Constants\EventCategory.cs" />
+    <Compile Include="Controls\Button\Button.cs" />
+    <Compile Include="Controls\Button\ButtonDesigner.cs" />
     <Compile Include="Controls\Gauge\GaugeDesigner.cs" />
     <Compile Include="Controls\Label\Label.cs" />
     <Compile Include="Controls\Label\LabelDesigner.cs" />
@@ -78,6 +80,7 @@
     <Compile Include="Controls\Tile\Tile.cs" />
     <Compile Include="Controls\Tile\TileDesigner.cs" />
     <Compile Include="Controls\Tile\TileType.cs" />
+    <Compile Include="Enumerators\ImageTextRelation.cs" />
     <Compile Include="Enumerators\TileShape.cs" />
     <Compile Include="Delegates\ControlDelegates.cs" />
     <Compile Include="Base\ControlBase.cs" />
@@ -188,6 +191,7 @@
     <Compile Include="Utilities\GraphicsUtilities.cs" />
     <Compile Include="Utilities\ImageUtilities.cs" />
     <Compile Include="Utilities\MathUtilities.cs" />
+    <Compile Include="Utilities\RelationUtilities.cs" />
     <Compile Include="Utilities\StringUtilities.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
@@ -219,6 +223,7 @@
   <ItemGroup>
     <Content Include="Components\Badge\Badge.bmp" />
     <Content Include="Components\Gradient\Gradient.bmp" />
+    <Content Include="Controls\Button\Button.bmp" />
     <Content Include="Controls\ProgressBar\ProgressBar.bmp" />
     <Content Include="Controls\ProgressIndicator\ProgressIndicator.bmp" />
     <Content Include="Controls\RadialProgress\RadialProgress.bmp" />

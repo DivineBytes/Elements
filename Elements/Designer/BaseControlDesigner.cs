@@ -27,7 +27,7 @@ namespace Elements.Designer
 
             properties.Remove("RightToLeft");
 
-            properties.Remove("TextImageRelation");
+            // properties.Remove("TextImageRelation");
 
             base.PreFilterProperties(properties);
         }

@@ -396,7 +396,7 @@ namespace Elements.Controls.Tile
 
                 case TileType.Text:
                     {
-                        TextRender.RenderText(graphics, clientRectangle, text, font, enabled, mouseState, textStyle);
+                        TextRender.Render(graphics, clientRectangle, text, font, enabled, mouseState, textStyle);
                         break;
                     }
             }

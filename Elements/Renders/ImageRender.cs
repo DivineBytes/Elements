@@ -1,6 +1,8 @@
 ﻿using Elements.Enumerators;
+using Elements.Models;
 using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 
 namespace Elements.Renders
 {
@@ -9,6 +11,41 @@ namespace Elements.Renders
     /// </summary>
     public static class ImageRender
     {
+        /// <summary>Fills the background graphics path.</summary>
+        /// <param name="graphics">The graphics to draw on.</param>
+        /// <param name="background">The background color.</param>
+        /// <param name="rectangle">The coordinates of the rectangle to draw.</param>
+        /// <param name="border">The border type.</param>
+        /// <returns>The <see cref="GraphicsPath" />.</returns>
+        private static GraphicsPath CreateBackgroundFill(Graphics graphics, Color background, Rectangle rectangle, Border border)
+        {
+            GraphicsPath backgroundPath = Border.CreatePath(border, rectangle);
+            graphics.SetClip(backgroundPath);
+            graphics.FillRectangle(new SolidBrush(background), rectangle);
+            graphics.ResetClip();
+            return backgroundPath;
+        }
+
+        /// <summary>Draws the control background, with a BackColor and the specified BackgroundImage.</summary>
+        /// <param name="graphics">The graphics to draw on.</param>
+        /// <param name="backColor">The color to use for the background.</param>
+        /// <param name="backgroundImage">The background image to use for the background.</param>
+        /// <param name="rectangle">The coordinates of the rectangle to draw.</param>
+        /// <param name="border">The shape settings.</param>
+        public static void Render(Graphics graphics, Color backColor, Image backgroundImage, Rectangle rectangle, Border border)
+        {
+            GraphicsPath _controlGraphicsPath = CreateBackgroundFill(graphics, backColor, rectangle, border);
+
+            if (backgroundImage != null)
+            {
+                Point _location = new Point(rectangle.Width - backgroundImage.Width, rectangle.Height - backgroundImage.Height);
+                Size _size = new Size(backgroundImage.Width, backgroundImage.Height);
+                graphics.SetClip(_controlGraphicsPath);
+                graphics.DrawImage(backgroundImage, new Rectangle(_location, _size));
+                graphics.ResetClip();
+            }
+        }
+
         /// <summary>
         /// Renders the image.
         /// </summary>
