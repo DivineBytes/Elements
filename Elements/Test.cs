@@ -10,13 +10,20 @@ using Elements.Dialogs;
 
 namespace Elements
 {
+    /// <summary>
+    /// The <see cref="Test"/> class.
+    /// </summary>
+    /// <seealso cref="System.Windows.Forms.UserControl" />
     public partial class Test: UserControl
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Test"/> class.
+        /// </summary>
         public Test()
         {
             InitializeComponent();
 
-          
+            
         }
 
     }
