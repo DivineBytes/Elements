@@ -9,7 +9,7 @@ namespace Elements.Models
     /// </summary>
     /// <seealso cref="System.IComparable"/>
     [ComVisible(true)]
-    [DebuggerDisplay(DebuggerDisplay.DefaultDebuggerDisplay)]
+    [DebuggerDisplay(DebuggerDisplay.Default)]
     [Serializable]
     public class DebuggerDisplayFormat : IComparable
     {

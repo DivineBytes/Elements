@@ -12,7 +12,7 @@ namespace Elements.Models
     public static class DebuggerDisplay
     {
         /// <summary>Determines how a class or field is displayed in the debugger variable windows.</summary>
-        public const string DefaultDebuggerDisplay = "{ToString(),nq}";
+        public const string Default = "{ToString(),nq}";
 
         /// <summary>Serializes the target to a more read able string for debugging.</summary>
         /// <param name="target">The target instance.</param>
