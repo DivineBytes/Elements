@@ -1,5 +1,4 @@
 ﻿using Elements.Base;
-using Elements.Controls.Separator;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -8,7 +7,7 @@ using System.Drawing.Text;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace Mycelial.Forms.Controls.Separator
+namespace Elements.Controls.Separator
 {
     /// <summary>
     /// The <see cref="Separator"/> class.

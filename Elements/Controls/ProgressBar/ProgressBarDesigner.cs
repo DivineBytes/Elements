@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Windows.Forms.Design.Behavior;
 
-namespace Elements.Controls
+namespace Elements.Controls.ProgressBar
 {
     internal class ProgressBarDesigner : BaseControlDesigner
     {

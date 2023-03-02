@@ -6,7 +6,7 @@ using System.Drawing.Drawing2D;
 
 #endregion
 
-namespace Elements.Controls
+namespace Elements.Controls.TabControl.TabStyleProviders
 {
     [ToolboxItem(false)]
     public class TabStyleNoneProvider : TabStyleProvider

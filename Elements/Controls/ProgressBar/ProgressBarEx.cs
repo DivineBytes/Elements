@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Elements.Controls
+namespace Elements.Controls.ProgressBar
 {
     /// <summary>
     /// Represents a Windows progress bar control which displays its <see

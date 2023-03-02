@@ -1,5 +1,6 @@
 ﻿#region Namespaces
 
+using Elements.Controls.TabControl.TabStyleProviders;
 using System;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
@@ -9,8 +10,12 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace Elements.Controls
+namespace Elements.Controls.TabControl
 {
+    /// <summary>
+    /// The <see cref="TabStyleProvider"/> class.
+    /// </summary>
+    /// <seealso cref="System.ComponentModel.Component" />
     [ToolboxItem(false)]
     public abstract class TabStyleProvider : Component
     {

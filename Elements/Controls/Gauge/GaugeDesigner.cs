@@ -1,7 +1,7 @@
 ﻿using Elements.Designer;
 using System.Collections;
 
-namespace Elements.Controls
+namespace Elements.Controls.Gauge
 {
     internal class GaugeDesigner : BaseControlDesigner
     {

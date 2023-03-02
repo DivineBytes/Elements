@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace Elements.Controls
+namespace Elements.Controls.TabControl
 {
     /// <summary>
     /// Description of NativeMethods.

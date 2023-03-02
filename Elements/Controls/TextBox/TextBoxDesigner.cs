@@ -2,7 +2,7 @@
 using System.Collections;
 using System.ComponentModel.Design;
 
-namespace Elements.Controls
+namespace Elements.Controls.TextBox
 {
     internal class TextBoxDesigner : BaseControlDesigner
     {

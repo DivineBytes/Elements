@@ -1,7 +1,7 @@
 ﻿using Elements.InteropServices;
 using System;
 
-namespace Elements.Controls
+namespace Elements.Controls.ProgressBar
 {
     /// <summary>
     /// The <see cref="ModifyProgressBarColor"/> class.

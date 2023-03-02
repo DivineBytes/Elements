@@ -1,4 +1,5 @@
 ﻿using Elements.Controls;
+using Elements.Controls.ProgressIndicator;
 using Elements.Enumerators;
 using System.ComponentModel;
 using System.Diagnostics;

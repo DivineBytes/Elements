@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace Elements.Controls
+namespace Elements.Controls.TabControl.TabStyleProviders
 {
     [ToolboxItem(false)]
     public class TabStyleChromeProvider : TabStyleProvider

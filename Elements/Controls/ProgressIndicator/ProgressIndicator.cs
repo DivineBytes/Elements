@@ -7,7 +7,7 @@ using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace Elements.Controls
+namespace Elements.Controls.ProgressIndicator
 {
     /// <summary>
     /// The <see cref="ProgressIndicator" /> class.

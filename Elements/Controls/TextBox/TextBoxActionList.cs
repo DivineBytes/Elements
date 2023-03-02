@@ -2,7 +2,7 @@
 using System.ComponentModel.Design;
 using System.Drawing.Design;
 
-namespace Elements.Controls
+namespace Elements.Controls.TextBox
 {
     internal class TextBoxActionList : DesignerActionList
     {

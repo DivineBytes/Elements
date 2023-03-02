@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 
-namespace Elements.Controls
+namespace Elements.Controls.TabControl
 {
     /// <summary>
     /// The <see cref="ThemedColors"/> class.

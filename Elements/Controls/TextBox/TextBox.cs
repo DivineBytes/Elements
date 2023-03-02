@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace Elements.Controls
+namespace Elements.Controls.TextBox
 {
     /// <summary>
     /// The <see cref="TextBox"/> class.

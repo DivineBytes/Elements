@@ -29,7 +29,7 @@ namespace Elements.Controls.GroupBox
     public class GroupBox : NestedControlBase
     {
         private Border _border;
-        //private BorderEdge _borderEdge;
+        //private Separator _separator;
         private GroupBoxStyle _boxStyle;
         private Image _image;
         private StringAlignment _textAlignment;
@@ -44,6 +44,8 @@ namespace Elements.Controls.GroupBox
         public GroupBox()
         {
             BackColor = Color.Transparent;
+
+            
 
             _boxStyle = GroupBoxStyle.Default;
             _titleBoxHeight = 25;
