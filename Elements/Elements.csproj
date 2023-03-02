@@ -67,6 +67,8 @@
     <Compile Include="Controls\Button\Button.cs" />
     <Compile Include="Controls\Button\ButtonDesigner.cs" />
     <Compile Include="Controls\Gauge\GaugeDesigner.cs" />
+    <Compile Include="Controls\GroupBox\GroupBoxDesigner.cs" />
+    <Compile Include="Controls\GroupBox\GroupBox.cs" />
     <Compile Include="Controls\Label\Label.cs" />
     <Compile Include="Controls\Label\LabelDesigner.cs" />
     <Compile Include="Controls\Label\LabelOutline.cs" />
@@ -206,9 +208,7 @@
       <DependentUpon>Test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controls\GroupBox\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Resources\Icon.ico" />
   </ItemGroup>

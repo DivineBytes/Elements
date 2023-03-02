@@ -104,6 +104,8 @@ namespace Elements.Controls.Tile
         /// Gets or sets the border.
         /// </summary>
         /// <value>The border.</value>
+        [Category(PropertyCategory.Appearance)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public Border Border
         {
             get

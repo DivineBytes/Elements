@@ -14,8 +14,8 @@ namespace Elements.Base
     /// </summary>
     /// <seealso cref="System.Windows.Forms.Control"/>
     /// <seealso cref="System.ICloneable"/>
-    [ComVisible(true)]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
+    [ComVisible(true)]
     [DesignerCategory("code")]
     [EditorBrowsable(EditorBrowsableState.Advanced)]
     [ToolboxItem(false)]

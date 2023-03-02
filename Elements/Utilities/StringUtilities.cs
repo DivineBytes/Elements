@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Elements.Enumerators;
+using Elements.Models;
+using System;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -93,6 +95,33 @@ namespace Elements.Utilities
                 newText.Append(text[i]);
             }
             return newText.ToString();
+        }
+
+
+        /// <summary>Render the text using the string format.</summary>
+        /// <param name="graphics">The specified graphics to draw on.</param>
+        /// <param name="clientRectangle">The client rectangle.</param>
+        /// <param name="text">The text to draw.</param>
+        /// <param name="font">The font to  draw.</param>
+        /// <param name="color">The fore color.</param>
+        /// <param name="stringFormat">The string Format.</param>
+        public static void Render(Graphics graphics, Rectangle clientRectangle, string text, Font font, Color color, StringFormat stringFormat)
+        {
+            graphics.DrawString(text, font, new SolidBrush(color), clientRectangle, stringFormat);
+        }
+
+        /// <summary>Render the text using the text style.</summary>
+        /// <param name="graphics">The specified graphics to draw on.</param>
+        /// <param name="clientRectangle">The client rectangle.</param>
+        /// <param name="text">The text to draw.</param>
+        /// <param name="font">The font to  draw.</param>
+        /// <param name="enabled">The enabled.</param>
+        /// <param name="mouseState">The mouse State.</param>
+        /// <param name="textStyle">The text Style.</param>
+        public static void Render(Graphics graphics, Rectangle clientRectangle, string text, Font font, bool enabled, MouseStates mouseState, TextStyle textStyle)
+        {
+            Color _textColor = TextStyle.GetColorState(enabled, mouseState, textStyle);
+            Render(graphics, clientRectangle, text, font, _textColor, textStyle.StringFormat);
         }
     }
 }
