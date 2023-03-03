@@ -45,6 +45,7 @@ namespace Elements.Controls.GroupBox
         {
             BackColor = Color.Transparent;
 
+            _border = new Border();
             _separator = new Separator.Separator
             {
                 BackColor = Color.Transparent,
@@ -60,7 +61,10 @@ namespace Elements.Controls.GroupBox
             _imageLayout = ElementImageLayout.Stretch;
 
             Size = new Size(220, 180);
-            _border = new Border();
+
+            BackColorState.Enabled = Color.FromArgb(241, 244, 249);
+            BackColorState.Disabled = Color.FromArgb(220, 220, 220);
+
             Padding = new Padding(5, _titleBoxHeight + _border.Thickness, 5, 5);
 
             Controls.Add(_separator);
@@ -69,9 +73,10 @@ namespace Elements.Controls.GroupBox
         /// <summary>
         /// Gets or sets the border.
         /// </summary>
-        /// <value>The border.</value>
+        /// <value>
+        /// The border.
+        /// </value>
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        [Category(PropertyCategory.Appearance)]
         public Border Border
         {
             get
@@ -86,6 +91,12 @@ namespace Elements.Controls.GroupBox
             }
         }
 
+        /// <summary>
+        /// Gets or sets the box style.
+        /// </summary>
+        /// <value>
+        /// The box style.
+        /// </value>
         [Category(PropertyCategory.Appearance)]
         [Description("Box Style")]
         public GroupBoxStyle BoxStyle
@@ -112,6 +123,12 @@ namespace Elements.Controls.GroupBox
             }
         }
 
+        /// <summary>
+        /// Gets or sets the image.
+        /// </summary>
+        /// <value>
+        /// The image.
+        /// </value>
         [Category(PropertyCategory.Appearance)]
         [Description("Image")]
         public Image Image
@@ -128,6 +145,12 @@ namespace Elements.Controls.GroupBox
             }
         }
 
+        /// <summary>
+        /// Gets or sets the background image layout.
+        /// </summary>
+        /// <value>
+        /// The background image layout.
+        /// </value>
         [Category(PropertyCategory.Appearance)]
         [Description("Background Image Layout")]
         public new ElementImageLayout BackgroundImageLayout
@@ -144,6 +167,12 @@ namespace Elements.Controls.GroupBox
             }
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="GroupBox"/> is separator.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if separator; otherwise, <c>false</c>.
+        /// </value>
         [Category(PropertyCategory.Appearance)]
         [Description("Separator")]
         public bool Separator
@@ -160,6 +189,12 @@ namespace Elements.Controls.GroupBox
             }
         }
 
+        /// <summary>
+        /// Gets or sets the color of the separator.
+        /// </summary>
+        /// <value>
+        /// The color of the separator.
+        /// </value>
         [Category(PropertyCategory.Appearance)]
         [Description("Color")]
         public Color SeparatorColor
@@ -176,6 +211,12 @@ namespace Elements.Controls.GroupBox
             }
         }
 
+        /// <summary>
+        /// Gets or sets the separator shadow.
+        /// </summary>
+        /// <value>
+        /// The separator shadow.
+        /// </value>
         [Category(PropertyCategory.Appearance)]
         [Description("Color")]
         public Color SeparatorShadow
@@ -192,6 +233,12 @@ namespace Elements.Controls.GroupBox
             }
         }
 
+        /// <summary>
+        /// Gets or sets the text alignment.
+        /// </summary>
+        /// <value>
+        /// The text alignment.
+        /// </value>
         [Category(PropertyCategory.Appearance)]
         [Description("Alignment")]
         public StringAlignment TextAlignment
@@ -208,6 +255,12 @@ namespace Elements.Controls.GroupBox
             }
         }
 
+        /// <summary>
+        /// Gets or sets the text image relation.
+        /// </summary>
+        /// <value>
+        /// The text image relation.
+        /// </value>
         [Category(PropertyCategory.Behavior)]
         [Description("Text Image Relation")]
         public TextImageRelation TextImageRelation
@@ -224,6 +277,12 @@ namespace Elements.Controls.GroupBox
             }
         }
 
+        /// <summary>
+        /// Gets or sets the text line alignment.
+        /// </summary>
+        /// <value>
+        /// The text line alignment.
+        /// </value>
         [Category(PropertyCategory.Appearance)]
         [Description("Alignment")]
         public StringAlignment TextLineAlignment
@@ -240,6 +299,12 @@ namespace Elements.Controls.GroupBox
             }
         }
 
+        /// <summary>
+        /// Gets or sets the height of the title box.
+        /// </summary>
+        /// <value>
+        /// The height of the title box.
+        /// </value>
         [Category(PropertyCategory.Layout)]
         [Description("Size")]
         public int TitleBoxHeight
@@ -256,10 +321,33 @@ namespace Elements.Controls.GroupBox
             }
         }
 
+        /// <summary>
+        /// Raises the <see cref="E:PaintBackground" /> event.
+        /// </summary>
+        /// <param name="pevent">The <see cref="PaintEventArgs"/> instance containing the event data.</param>
+        protected override void OnPaintBackground(PaintEventArgs pevent)
+        {
+            base.OnPaintBackground(pevent);
+
+            if (Parent != null)
+            {
+                if (Parent is NestedControlBase nestedControlBase)
+                {
+                    pevent.Graphics.Clear(nestedControlBase.BackColorState.Enabled);
+                }
+                else
+                {
+                    pevent.Graphics.Clear(Parent.BackColor);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:Paint" /> event.
+        /// </summary>
+        /// <param name="e">The <see cref="PaintEventArgs"/> instance containing the event data.</param>
         protected override void OnPaint(PaintEventArgs e)
         {
-            base.OnPaint(e);
-
             Graphics graphics = e.Graphics;
             graphics.SmoothingMode = SmoothingMode.HighQuality;
             graphics.CompositingQuality = CompositingQuality.GammaCorrected;
@@ -278,7 +366,7 @@ namespace Elements.Controls.GroupBox
             Color _backColor = Enabled ? BackColorState.Enabled : BackColorState.Disabled;
             graphics.FillRectangle(new SolidBrush(_backColor), _clientRectangle);
 
-            ImageRender.Render(e.Graphics, BackgroundImage, _imageLayout, group);
+            ImageRender.Render(graphics, BackgroundImage, _imageLayout, group);
 
             if (_separator.Visible)
             {
@@ -331,8 +419,15 @@ namespace Elements.Controls.GroupBox
             graphics.ResetClip();
 
             Border.Render(e.Graphics, _border, MouseState, controlGraphicsPath);
+
+            base.OnPaint(e);
         }
 
+        /// <summary>
+        /// Configures the style box.
+        /// </summary>
+        /// <param name="textArea">The text area.</param>
+        /// <returns></returns>
         private Rectangle ConfigureStyleBox(Size textArea)
         {
             Size groupBoxSize = new Size();
@@ -360,6 +455,12 @@ namespace Elements.Controls.GroupBox
             return groupBoxRectangle;
         }
 
+        /// <summary>
+        /// Configures the style title box.
+        /// </summary>
+        /// <param name="textArea">The text area.</param>
+        /// <returns></returns>
+        /// <exception cref="System.ArgumentOutOfRangeException"></exception>
         private Rectangle ConfigureStyleTitleBox(Size textArea)
         {
             Size titleSize = new Size(Width, _titleBoxHeight);
