@@ -1,4 +1,7 @@
-﻿using System.Windows.Forms;
+﻿using Elements.Utilities;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace Elements.Test
 {

@@ -86,5 +86,48 @@ namespace Elements.Utilities
 
             return _pixel.GetPixel(0, 0);
         }
+
+        /// <summary>
+        /// Converts the <see cref="Color"/> to a HTML <see cref="string"/>.
+        /// </summary>
+        /// <param name="color">The color to convert to HTML.</param>
+        /// <returns>The <see cref="Color"/>.</returns>
+        public static string ToHtml(this Color color)
+        {
+            if (color == Color.Empty)
+            {
+                return "#000000";
+            }
+
+            return ColorTranslator.ToHtml(color);
+        }
+
+        /// <summary>
+        /// Converts the HTML <see cref="string"/> to a <see cref="Color"/>.
+        /// </summary>
+        /// <param name="htmlColor">The html color.</param>
+        /// <param name="alpha">The alpha value.</param>
+        /// <returns>The <see cref="Color"/>.</returns>
+        public static Color FromHtml(string htmlColor, int alpha = 255)
+        {
+            if (string.IsNullOrEmpty(htmlColor))
+            {
+                throw new ArgumentNullException(nameof(htmlColor), "Cannot be null or empty.");
+            }
+
+            if (htmlColor[0] != '#')
+            {
+                htmlColor = "#" + htmlColor;
+            }
+
+            if (htmlColor == "#00FFFFFF")
+            {
+                return Color.Transparent;
+            }
+            else
+            {
+                return Color.FromArgb(alpha > 255 ? 255 : alpha, ColorTranslator.FromHtml(htmlColor));
+            }
+        }
     }
 }

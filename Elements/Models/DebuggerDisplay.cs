@@ -41,9 +41,9 @@ namespace Elements.Models
             }
 
             // Initialize defaults
-            var targetID = new KeyValuePair<string, string>("Type", target.GetType().Name);
-            var propertyNamePair = new KeyValuePair<string, string>("Name", propertyName);
-            var propertyValuePair = new KeyValuePair<string, string>("Value", valueData);
+            KeyValuePair<string, string> targetID = new KeyValuePair<string, string>("Type", target.GetType().Name);
+            KeyValuePair<string, string> propertyNamePair = new KeyValuePair<string, string>("Name", propertyName);
+            KeyValuePair<string, string> propertyValuePair = new KeyValuePair<string, string>("Value", valueData);
 
             // Format types to string
             string objectFormat = GenerateID(targetID, format.ObjectValueSeparator);

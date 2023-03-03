@@ -52,7 +52,7 @@ namespace Elements.Dialogs
         /// <returns></returns>
         protected override bool RunDialog(IntPtr hwndOwner)
         {
-            var buf = new StringBuilder(FileName, MAX_PATH);
+            StringBuilder buf = new StringBuilder(FileName, MAX_PATH);
             int index;
 
             bool ok = SHPickIconDialog(hwndOwner, buf, MAX_PATH, out index);

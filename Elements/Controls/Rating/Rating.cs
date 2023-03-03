@@ -537,10 +537,10 @@ namespace Elements.Controls.Rating
             Pen starDullStroke = new Pen(starDullBorderColor, dullStroke) { LineJoin = LineJoin.Round, Alignment = PenAlignment.Outset };
 
             // Draw stars
-            for (var i = 0; i < _maximum; i++)
+            for (int i = 0; i < _maximum; i++)
             {
                 RectangleF rect = new RectangleF(lastX, borderWidth / 2f, width, height);
-                var polygon = GetStarPolygon(rect);
+                PointF[] polygon = GetStarPolygon(rect);
                 _bufferedGraphics.Graphics.FillPolygon(new SolidBrush(starDull), polygon);
                 _bufferedGraphics.Graphics.DrawPolygon(starDullStroke, polygon);
                 lastX += _starWidth + _starSpacing + borderWidth;
@@ -565,19 +565,19 @@ namespace Elements.Controls.Rating
             if (_toggleHalfStar)
             {
                 // Draw stars
-                for (var i = 0; i < _maximum; i++)
+                for (int i = 0; i < _maximum; i++)
                 {
                     RectangleF rect = new RectangleF(lastX, borderWidth / 2f, width, height);
 
                     if (i < _mouseOverIndex - 0.5f)
                     {
-                        var polygon = GetStarPolygon(rect);
+                        PointF[] polygon = GetStarPolygon(rect);
                         _bufferedGraphics.Graphics.FillPolygon(new SolidBrush(starColor), polygon);
                         _bufferedGraphics.Graphics.DrawPolygon(_starStroke, polygon);
                     }
                     else if (i == _mouseOverIndex - 0.5f)
                     {
-                        var polygon = GetSemiStarPolygon(rect);
+                        PointF[] polygon = GetSemiStarPolygon(rect);
                         _bufferedGraphics.Graphics.FillPolygon(new SolidBrush(starColor), polygon);
                         _bufferedGraphics.Graphics.DrawPolygon(_starStroke, polygon);
                     }
@@ -592,10 +592,10 @@ namespace Elements.Controls.Rating
             else
             {
                 // Draw stars
-                for (var i = 0; i < _maximum; i++)
+                for (int i = 0; i < _maximum; i++)
                 {
                     RectangleF rect = new RectangleF(lastX, borderWidth / 2f, width, height);
-                    var polygon = GetStarPolygon(rect);
+                    PointF[] polygon = GetStarPolygon(rect);
 
                     if (i <= _mouseOverIndex)
                     {
@@ -623,7 +623,7 @@ namespace Elements.Controls.Rating
             {
                 float widthSection = Width / (float)_maximum / 2f;
 
-                for (var i = 0f; i < _maximum; i += 0.5f)
+                for (float i = 0f; i < _maximum; i += 0.5f)
                 {
                     float starX = i * widthSection * 2f;
 
@@ -638,9 +638,9 @@ namespace Elements.Controls.Rating
             }
             else
             {
-                var widthSection = (int)((Width / (double)_maximum) + 0.5);
+                int widthSection = (int)((Width / (double)_maximum) + 0.5);
 
-                for (var i = 0; i < _maximum; i++)
+                for (int i = 0; i < _maximum; i++)
                 {
                     float starX = i * widthSection;
 
@@ -751,8 +751,8 @@ namespace Elements.Controls.Rating
         /// </summary>
         private void UpdateSize()
         {
-            var height = (int)(_starWidth + borderWidth + 0.5);
-            var width = (int)(TotalStarWidth + TotalSpacing + TotalStrokeWidth + 0.5);
+            int height = (int)(_starWidth + borderWidth + 0.5);
+            int width = (int)(TotalStarWidth + TotalSpacing + TotalStrokeWidth + 0.5);
             Size = new Size(width, height);
         }
     }

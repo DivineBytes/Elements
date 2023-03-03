@@ -70,7 +70,7 @@ namespace Mycelial.Forms.Utilities
             {
                 if (obj.InvokeRequired)
                 {
-                    var args = new object[0];
+                    object[] args = new object[0];
                     obj.Invoke(action, args);
                 }
                 else

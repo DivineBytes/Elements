@@ -2,6 +2,7 @@
 using Elements.Models;
 using System;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -12,12 +13,13 @@ namespace Elements.Utilities
     /// </summary>
     public static class StringUtilities
     {
-
-        /// <summary>Retrieves the appropriate string format.</summary>
+        /// <summary>
+        /// Retrieves the appropriate string format.
+        /// </summary>
         /// <param name="orientation">The orientation.</param>
         /// <param name="alignment">The alignment.</param>
         /// <param name="lineAlignment">The line Alignment.</param>
-        /// <returns>The <see cref="StringFormat" />.</returns>
+        /// <returns>The <see cref="StringFormat"/>.</returns>
         public static StringFormat GetOrientedStringFormat(Orientation orientation, StringAlignment alignment, StringAlignment lineAlignment)
         {
             StringFormat orientedStringFormat = new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
@@ -97,12 +99,13 @@ namespace Elements.Utilities
             return newText.ToString();
         }
 
-
-        /// <summary>Render the text using the string format.</summary>
+        /// <summary>
+        /// Render the text using the string format.
+        /// </summary>
         /// <param name="graphics">The specified graphics to draw on.</param>
         /// <param name="clientRectangle">The client rectangle.</param>
         /// <param name="text">The text to draw.</param>
-        /// <param name="font">The font to  draw.</param>
+        /// <param name="font">The font to draw.</param>
         /// <param name="color">The fore color.</param>
         /// <param name="stringFormat">The string Format.</param>
         public static void Render(Graphics graphics, Rectangle clientRectangle, string text, Font font, Color color, StringFormat stringFormat)
@@ -110,11 +113,13 @@ namespace Elements.Utilities
             graphics.DrawString(text, font, new SolidBrush(color), clientRectangle, stringFormat);
         }
 
-        /// <summary>Render the text using the text style.</summary>
+        /// <summary>
+        /// Render the text using the text style.
+        /// </summary>
         /// <param name="graphics">The specified graphics to draw on.</param>
         /// <param name="clientRectangle">The client rectangle.</param>
         /// <param name="text">The text to draw.</param>
-        /// <param name="font">The font to  draw.</param>
+        /// <param name="font">The font to draw.</param>
         /// <param name="enabled">The enabled.</param>
         /// <param name="mouseState">The mouse State.</param>
         /// <param name="textStyle">The text Style.</param>
@@ -122,6 +127,42 @@ namespace Elements.Utilities
         {
             Color _textColor = TextStyle.GetColorState(enabled, mouseState, textStyle);
             Render(graphics, clientRectangle, text, font, _textColor, textStyle.StringFormat);
+        }
+
+        /// <summary>The amount of lines in the <see cref="string" />.</summary>
+        /// <param name="text">The text.</param>
+        /// <returns>The <see cref="int" />.</returns>
+        public static int LineCount(this string text)
+        {
+            // int numLinesMethod = text.Length - text.Replace(Environment.NewLine, string.Empty).Length;
+            int numLines = text.Split('\n').Length;
+            return numLines;
+        }
+
+        /// <summary>Returns the text as a <see cref="string" /><see cref="Array" />.</summary>
+        /// <param name="text">The text.</param>
+        /// <returns>The <see cref="string" />.</returns>
+        public static string[] Lines(string text)
+        {
+            return text.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
+        }
+
+        /// <summary>Removes the white spaces.</summary>
+        /// <param name="text">The text.</param>
+        /// <returns>The <see cref="string" />.</returns>
+        public static string RemoveWhiteSpaces(string text)
+        {
+            return new string(text.Where(_char => !char.IsWhiteSpace(_char)).ToArray());
+        }
+
+        /// <summary>Reverse the <see cref="string" />.</summary>
+        /// <param name="text">The text.</param>
+        /// <returns>The <see cref="string" />.</returns>
+        public static string Reverse(string text)
+        {
+            var _chars = text.ToCharArray();
+            Array.Reverse(_chars);
+            return new string(_chars);
         }
     }
 }

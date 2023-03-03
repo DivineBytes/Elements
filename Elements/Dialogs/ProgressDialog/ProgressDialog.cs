@@ -439,7 +439,7 @@ namespace Elements.Dialogs
             if (flags.Length != 0)
             {
                 dialogFlags = flags[0];
-                for (var i = 1; i < flags.Length; i++)
+                for (int i = 1; i < flags.Length; i++)
                 {
                     dialogFlags = dialogFlags | flags[i];
                 }

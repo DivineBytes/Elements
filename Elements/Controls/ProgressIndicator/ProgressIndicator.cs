@@ -229,7 +229,7 @@ namespace Elements.Controls.ProgressIndicator
 
             buffGraphics.Graphics.Clear(BackColor);
             int num2 = floatPoint.Length - 1;
-            for (var i = 0; i <= num2; i++)
+            for (int i = 0; i <= num2; i++)
             {
                 if (indicatorIndex == i)
                 {
@@ -295,9 +295,9 @@ namespace Elements.Controls.ProgressIndicator
         /// </summary>
         private void SetPoints()
         {
-            var stack = new Stack<PointF>();
+            Stack<PointF> stack = new Stack<PointF>();
             startingFloatPoint = new PointF(Width / 2f, Height / 2f);
-            for (var i = 0f; i < 360f; i += circles)
+            for (float i = 0f; i < 360f; i += circles)
             {
                 SetValue(startingFloatPoint, (int)Math.Round((Width / 2.0) - 15.0), i);
                 PointF endPoint = EndPoint;
