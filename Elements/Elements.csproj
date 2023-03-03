@@ -202,7 +202,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\Gauge\Gauge.bmp" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Icon.ico" />
   </ItemGroup>
@@ -217,18 +219,19 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Components\Badge\Badge.bmp" />
-    <Content Include="Components\Gradient\Gradient.bmp" />
-    <Content Include="Controls\Button\Button.bmp" />
-    <Content Include="Controls\GroupBox\GroupBox.bmp" />
-    <Content Include="Controls\ProgressBar\ProgressBar.bmp" />
-    <Content Include="Controls\ProgressIndicator\ProgressIndicator.bmp" />
-    <Content Include="Controls\RadialProgress\RadialProgress.bmp" />
-    <Content Include="Controls\Rating\Rating.bmp" />
-    <Content Include="Controls\Separator\Separator.bmp" />
-    <Content Include="Controls\TabControl\TabControl.bmp" />
-    <Content Include="Controls\TextBox\TextBox.bmp" />
-    <Content Include="Controls\Tile\Tile.bmp" />
+    <EmbeddedResource Include="Components\Badge\Badge.bmp" />
+    <EmbeddedResource Include="Components\Gradient\Gradient.bmp" />
+    <EmbeddedResource Include="Controls\Button\Button.bmp" />
+    <EmbeddedResource Include="Controls\GroupBox\GroupBox.bmp" />
+    <EmbeddedResource Include="Controls\Label\Label.bmp" />
+    <EmbeddedResource Include="Controls\ProgressBar\ProgressBar.bmp" />
+    <EmbeddedResource Include="Controls\ProgressIndicator\ProgressIndicator.bmp" />
+    <EmbeddedResource Include="Controls\RadialProgress\RadialProgress.bmp" />
+    <EmbeddedResource Include="Controls\Rating\Rating.bmp" />
+    <EmbeddedResource Include="Controls\Separator\Separator.bmp" />
+    <EmbeddedResource Include="Controls\TabControl\TabControl.bmp" />
+    <EmbeddedResource Include="Controls\TextBox\TextBox.bmp" />
+    <EmbeddedResource Include="Controls\Tile\Tile.bmp" />
     <EmbeddedResource Include="Resources\Logo24.png" />
     <EmbeddedResource Include="Resources\Logo32.png" />
   </ItemGroup>
