@@ -160,7 +160,7 @@ namespace Elements.Utilities
         /// <returns>The <see cref="string" />.</returns>
         public static string Reverse(string text)
         {
-            var _chars = text.ToCharArray();
+            char[] _chars = text.ToCharArray();
             Array.Reverse(_chars);
             return new string(_chars);
         }

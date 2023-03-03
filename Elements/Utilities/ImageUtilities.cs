@@ -38,6 +38,40 @@ namespace Elements.Utilities
             return _bitmap;
         }
 
+        /// <summary>Filters the <see cref="Bitmap" /> using GrayScale.</summary>
+        /// <param name="bitmap">The bitmap image.</param>
+        /// <returns>The <see cref="Bitmap" />.</returns>
+        public static Bitmap FilterGrayScale(this Bitmap bitmap)
+        {
+            // Constants
+            const double RED_THRESHOLD = 0.3;
+            const double GREEN_THRESHOLD = 0.59;
+            const double BLUE_THRESHOLD = 0.11;
+
+            // Create new gray-scaled bitmap image to work with using the original pixel size
+            using (Bitmap filteredGrayScaleImage = new Bitmap(bitmap.Width, bitmap.Height))
+            {
+                // Loop thru the Y coordinates
+                for (int y = 0; y < filteredGrayScaleImage.Height; y++)
+                {
+                    // Loop thru the X coordinates
+                    for (int x = 0; x < filteredGrayScaleImage.Width; x++)
+                    {
+                        // Retrieve the color from the input bitmap pixels
+                        Color pixelColor = bitmap.GetPixel(x, y);
+
+                        // Calculate gray-scale value of the selected pixel
+                        int pixelColorGrayScaleValue = (int)((pixelColor.R * RED_THRESHOLD) + (pixelColor.G * GREEN_THRESHOLD) + (pixelColor.B * BLUE_THRESHOLD));
+
+                        // Update the color of the specified pixel in the bitmap
+                        filteredGrayScaleImage.SetPixel(x, y, Color.FromArgb(pixelColorGrayScaleValue, pixelColorGrayScaleValue, pixelColorGrayScaleValue));
+                    }
+                }
+
+                return filteredGrayScaleImage;
+            }
+        }
+
         /// <summary>
         /// Converts the <c>Base64</c><see cref="string"/> to an <see cref="Image"/>.
         /// </summary>
