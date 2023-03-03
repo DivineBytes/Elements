@@ -748,6 +748,9 @@ namespace Elements.InteropServices
         /// </summary>
         IME_COMPOSITION = 0x010F,
 
+        /// <summary>
+        /// The IME keylast
+        /// </summary>
         IME_KEYLAST = 0x010F,
 
         /// <summary>
@@ -1299,7 +1302,13 @@ namespace Elements.InteropServices
         /// </summary>
         WTSSESSION_CHANGE = 0x02B1,
 
+        /// <summary>
+        /// The tablet first
+        /// </summary>
         TABLET_FIRST = 0x02c0,
+        /// <summary>
+        /// The tablet last
+        /// </summary>
         TABLET_LAST = 0x02df,
 
         /// <summary>
@@ -1495,11 +1504,34 @@ namespace Elements.InteropServices
         /// </summary>
         GETTITLEBARINFOEX = 0x033F,
 
+        /// <summary>
+        /// The handheldfirst
+        /// </summary>
         HANDHELDFIRST = 0x0358,
+
+        /// <summary>
+        /// The handheldlast
+        /// </summary>
         HANDHELDLAST = 0x035F,
+
+        /// <summary>
+        /// The afxfirst
+        /// </summary>
         AFXFIRST = 0x0360,
+
+        /// <summary>
+        /// The afxlast
+        /// </summary>
         AFXLAST = 0x037F,
+
+        /// <summary>
+        /// The penwinfirst
+        /// </summary>
         PENWINFIRST = 0x0380,
+
+        /// <summary>
+        /// The penwinlast
+        /// </summary>
         PENWINLAST = 0x038F,
 
         /// <summary>

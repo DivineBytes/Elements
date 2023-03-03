@@ -1,6 +1,6 @@
 ﻿namespace Elements.InteropServices
 {
-    /// <summary>Represents the <see cref="ExternalDll"/> class.</summary>
+    /// <summary>Represents the <see cref="ExternalDLL"/> class.</summary>
     /// <remarks>The name of the unmanaged dynamic-link library (<c>DLL</c>) entry point.</remarks>
     public static class ExternalDLL
     {

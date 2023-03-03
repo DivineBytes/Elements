@@ -1,18 +1,22 @@
-﻿#region Namespaces
-
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-#endregion
-
 namespace Elements.Controls.TabControl.TabStyleProviders
 {
+    /// <summary>
+    /// The <see cref="TabStyleChromeProvider"/> class.
+    /// </summary>
+    /// <seealso cref="Elements.Controls.TabControl.TabStyleProvider"/>
     [ToolboxItem(false)]
     public class TabStyleChromeProvider : TabStyleProvider
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TabStyleChromeProvider"/> class.
+        /// </summary>
+        /// <param name="tabControl">The tab control.</param>
         public TabStyleChromeProvider(TabControl tabControl) : base(tabControl)
         {
             _Overlap = 16;
@@ -24,6 +28,11 @@ namespace Elements.Controls.TabControl.TabStyleProviders
             Padding = new Point(7, 5);
         }
 
+        /// <summary>
+        /// Adds the tab border.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <param name="tabBounds">The tab bounds.</param>
         public override void AddTabBorder(GraphicsPath path, Rectangle tabBounds)
         {
             int spread;
@@ -121,6 +130,11 @@ namespace Elements.Controls.TabControl.TabStyleProviders
             }
         }
 
+        /// <summary>
+        /// Draws the tab closer.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <param name="graphics">The graphics.</param>
         protected override void DrawTabCloser(int index, Graphics graphics)
         {
             if (_ShowTabCloser)
@@ -158,6 +172,11 @@ namespace Elements.Controls.TabControl.TabStyleProviders
             }
         }
 
+        /// <summary>
+        /// Gets the closer button path.
+        /// </summary>
+        /// <param name="closerRect">The closer rect.</param>
+        /// <returns></returns>
         private static GraphicsPath GetCloserButtonPath(Rectangle closerRect)
         {
             GraphicsPath closerPath = new GraphicsPath();

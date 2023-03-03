@@ -1,5 +1,4 @@
 ﻿using Elements.Constants;
-using Elements.Controls.ProgressBar;
 using Elements.InteropServices;
 using System;
 using System.ComponentModel;

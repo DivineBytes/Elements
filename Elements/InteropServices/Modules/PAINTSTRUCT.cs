@@ -4,25 +4,36 @@ using System.Runtime.InteropServices;
 namespace Elements.InteropServices
 {
     /// <summary>
-    /// The <see cref="PAINTSTRUCT"/> class. Contains information to be used to paint the client area of a window.
+    /// The <see cref="PAINTSTRUCT"/> class. Contains information to be used to paint the client
+    /// area of a window.
     /// </summary>
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
     public struct PAINTSTRUCT
     {
-        /* A handle to the display DC to use for painting. */
+        /// <summary>
+        /// A handle to the display DC to use for painting.
+        /// </summary>
         public IntPtr hdc;
 
-        /* Indicates whether the background should be erased. */
+        /// <summary>
+        /// Indicates whether the background should be erased.
+        /// </summary>
         public bool fErase;
 
-        /* A RECT structure that specifies the upper left and lower right 
-        corners of the rectangle in which the painting is requested, */
+        /// <summary>
+        /// A RECT structure that specifies the upper left and lower right corners of the rectangle
+        /// in which the painting is requested.
+        /// </summary>
         public RECT rcPaint;
 
-        /* Reserved; used internally by the system. */
+        /// <summary>
+        /// Reserved; used internally by the system.
+        /// </summary>
         public bool fRestore;
 
-        /* Reserved; used internally by the system. */
+        /// <summary>
+        /// Reserved; used internally by the system.
+        /// </summary>
         public bool fIncUpdate;
     }
 }

@@ -13,8 +13,19 @@ namespace Elements.Controls.ProgressBar
         /// </summary>
         public enum ProgressBarState
         {
+            /// <summary>
+            /// The normal
+            /// </summary>
             Normal = 1,
+
+            /// <summary>
+            /// The error
+            /// </summary>
             Error = 2,
+
+            /// <summary>
+            /// The paused
+            /// </summary>
             Paused = 3
         }
 

@@ -1,23 +1,32 @@
-﻿#region Namespaces
-
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-#endregion
-
 namespace Elements.Controls.TabControl.TabStyleProviders
 {
+    /// <summary>
+    /// The <see cref="TabStyleDefaultProvider"/> class.
+    /// </summary>
+    /// <seealso cref="Elements.Controls.TabControl.TabStyleProvider"/>
     [ToolboxItem(false)]
     public class TabStyleDefaultProvider : TabStyleProvider
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TabStyleDefaultProvider"/> class.
+        /// </summary>
+        /// <param name="tabControl">The tab control.</param>
         public TabStyleDefaultProvider(TabControl tabControl) : base(tabControl)
         {
             _FocusTrack = true;
             _Radius = 2;
         }
 
+        /// <summary>
+        /// Adds the tab border.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <param name="tabBounds">The tab bounds.</param>
         public override void AddTabBorder(GraphicsPath path, Rectangle tabBounds)
         {
             switch (_TabControl.Alignment)
@@ -48,6 +57,11 @@ namespace Elements.Controls.TabControl.TabStyleProviders
             }
         }
 
+        /// <summary>
+        /// Gets the tab rect.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <returns></returns>
         public override Rectangle GetTabRect(int index)
         {
             if (index < 0)

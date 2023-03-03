@@ -1,17 +1,21 @@
-﻿#region Namespaces
-
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-#endregion
-
 namespace Elements.Controls.TabControl.TabStyleProviders
 {
+    /// <summary>
+    /// The <see cref="TabStyleVS2010Provider"/> class.
+    /// </summary>
+    /// <seealso cref="Elements.Controls.TabControl.TabStyleProviders.TabStyleRoundedProvider"/>
     [ToolboxItem(false)]
     public class TabStyleVS2010Provider : TabStyleRoundedProvider
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TabStyleVS2010Provider"/> class.
+        /// </summary>
+        /// <param name="tabControl">The tab control.</param>
         public TabStyleVS2010Provider(TabControl tabControl) : base(tabControl)
         {
             _Radius = 3;
@@ -27,6 +31,11 @@ namespace Elements.Controls.TabControl.TabStyleProviders
             Padding = new Point(6, 5);
         }
 
+        /// <summary>
+        /// Gets the tab background brush.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <returns></returns>
         protected override Brush GetTabBackgroundBrush(int index)
         {
             LinearGradientBrush fillBrush = null;
@@ -81,6 +90,10 @@ namespace Elements.Controls.TabControl.TabStyleProviders
             return fillBrush;
         }
 
+        /// <summary>
+        /// Gets the background blend.
+        /// </summary>
+        /// <returns></returns>
         private static Blend GetBackgroundBlend()
         {
             float[] relativeIntensities = { 0f, 0.5f, 1f, 1f };
@@ -93,6 +106,11 @@ namespace Elements.Controls.TabControl.TabStyleProviders
             return blend;
         }
 
+        /// <summary>
+        /// Gets the page background brush.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <returns></returns>
         public override Brush GetPageBackgroundBrush(int index)
         {
             // Capture the colours dependant on selection state of the tab
@@ -115,6 +133,11 @@ namespace Elements.Controls.TabControl.TabStyleProviders
             return new SolidBrush(light);
         }
 
+        /// <summary>
+        /// Draws the tab closer.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <param name="graphics">The graphics.</param>
         protected override void DrawTabCloser(int index, Graphics graphics)
         {
             if (_ShowTabCloser)
@@ -169,6 +192,11 @@ namespace Elements.Controls.TabControl.TabStyleProviders
             }
         }
 
+        /// <summary>
+        /// Gets the closer button path.
+        /// </summary>
+        /// <param name="closerRect">The closer rect.</param>
+        /// <returns></returns>
         private static GraphicsPath GetCloserButtonPath(Rectangle closerRect)
         {
             GraphicsPath closerPath = new GraphicsPath();

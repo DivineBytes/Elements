@@ -1,6 +1,4 @@
-﻿#region Namespaces
-
-using Elements.Controls.TabControl.TabStyleProviders;
+﻿using Elements.Controls.TabControl.TabStyleProviders;
 using System;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
@@ -8,19 +6,19 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-#endregion
-
 namespace Elements.Controls.TabControl
 {
     /// <summary>
     /// The <see cref="TabStyleProvider"/> class.
     /// </summary>
-    /// <seealso cref="System.ComponentModel.Component" />
+    /// <seealso cref="System.ComponentModel.Component"/>
     [ToolboxItem(false)]
     public abstract class TabStyleProvider : Component
     {
-        #region Constructor
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TabStyleProvider"/> class.
+        /// </summary>
+        /// <param name="tabControl">The tab control.</param>
         protected TabStyleProvider(TabControl tabControl)
         {
             _TabControl = tabControl;
@@ -44,10 +42,11 @@ namespace Elements.Controls.TabControl
             Padding = new Point(6, 3);
         }
 
-        #endregion
-
-        #region Factory Methods
-
+        /// <summary>
+        /// Creates the provider.
+        /// </summary>
+        /// <param name="tabControl">The tab control.</param>
+        /// <returns></returns>
         public static TabStyleProvider CreateProvider(TabControl tabControl)
         {
             TabStyleProvider provider;
@@ -96,10 +95,11 @@ namespace Elements.Controls.TabControl
             return provider;
         }
 
-        #endregion
-
-        #region Tab border and rect
-
+        /// <summary>
+        /// Gets the tab border.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <returns></returns>
         public GraphicsPath GetTabBorder(int index)
         {
             GraphicsPath path = new GraphicsPath();
@@ -111,66 +111,125 @@ namespace Elements.Controls.TabControl
             return path;
         }
 
-        #endregion
-
-        #region Protected variables
-
+        /// <summary>
+        /// The tab control
+        /// </summary>
         [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")]
         protected TabControl _TabControl;
 
+        /// <summary>
+        /// The padding
+        /// </summary>
         [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")] protected Point _Padding;
 
+        /// <summary>
+        /// The hot track
+        /// </summary>
         [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")] protected bool _HotTrack;
 
+        /// <summary>
+        /// The style
+        /// </summary>
         [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")]
         protected TabStyle _Style = TabStyle.Default;
 
+        /// <summary>
+        /// The image align
+        /// </summary>
         [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")]
         protected ContentAlignment _ImageAlign;
 
+        /// <summary>
+        /// The radius
+        /// </summary>
         [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")] protected int _Radius = 1;
 
+        /// <summary>
+        /// The overlap
+        /// </summary>
         [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")] protected int _Overlap;
 
+        /// <summary>
+        /// The focus track
+        /// </summary>
         [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")] protected bool _FocusTrack;
 
+        /// <summary>
+        /// The opacity
+        /// </summary>
         [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")] protected float _Opacity = 1;
 
+        /// <summary>
+        /// The show tab closer
+        /// </summary>
         [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")] protected bool _ShowTabCloser;
 
+        /// <summary>
+        /// The border color selected
+        /// </summary>
         [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")]
         protected Color _BorderColorSelected = Color.Empty;
 
+        /// <summary>
+        /// The border color
+        /// </summary>
         [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")]
         protected Color _BorderColor = Color.Empty;
 
+        /// <summary>
+        /// The border color hot
+        /// </summary>
         [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")]
         protected Color _BorderColorHot = Color.Empty;
 
+        /// <summary>
+        /// The closer color active
+        /// </summary>
         [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")]
         protected Color _CloserColorActive = Color.Black;
 
+        /// <summary>
+        /// The closer color
+        /// </summary>
         [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")]
         protected Color _CloserColor = Color.DarkGray;
 
+        /// <summary>
+        /// The focus color
+        /// </summary>
         [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")]
         protected Color _FocusColor = Color.Empty;
 
+        /// <summary>
+        /// The text color
+        /// </summary>
         [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")]
         protected Color _TextColor = Color.Empty;
 
+        /// <summary>
+        /// The text color selected
+        /// </summary>
         [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")]
         protected Color _TextColorSelected = Color.Empty;
 
+        /// <summary>
+        /// The text color disabled
+        /// </summary>
         [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")]
         protected Color _TextColorDisabled = Color.Empty;
 
-        #endregion
-
-        #region overridable Methods
-
+        /// <summary>
+        /// Adds the tab border.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <param name="tabBounds">The tab bounds.</param>
         public abstract void AddTabBorder(GraphicsPath path, Rectangle tabBounds);
 
+        /// <summary>
+        /// Gets the tab rect.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <returns></returns>
         public virtual Rectangle GetTabRect(int index)
         {
             if (index < 0)
@@ -229,6 +288,11 @@ namespace Elements.Controls.TabControl
             return tabBounds;
         }
 
+        /// <summary>
+        /// Ensures the first tab is in view.
+        /// </summary>
+        /// <param name="tabBounds">The tab bounds.</param>
+        /// <param name="index">The index.</param>
         [SuppressMessage("Microsoft.Design", "CA1045:DoNotPassTypesByReference", MessageId = "0#")]
         protected virtual void EnsureFirstTabIsInView(ref Rectangle tabBounds, int index)
         {
@@ -294,6 +358,11 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Gets the tab background brush.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <returns></returns>
         protected virtual Brush GetTabBackgroundBrush(int index)
         {
             LinearGradientBrush fillBrush = null;
@@ -353,10 +422,10 @@ namespace Elements.Controls.TabControl
             return fillBrush;
         }
 
-        #endregion
-
-        #region Base Properties
-
+        /// <summary>
+        /// Gets or sets the display style.
+        /// </summary>
+        /// <value>The display style.</value>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public TabStyle DisplayStyle
@@ -372,6 +441,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Gets or sets the image align.
+        /// </summary>
+        /// <value>The image align.</value>
         [Category("Appearance")]
         public ContentAlignment ImageAlign
         {
@@ -387,6 +460,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Gets or sets the padding.
+        /// </summary>
+        /// <value>The padding.</value>
         [Category("Appearance")]
         public Point Padding
         {
@@ -424,6 +501,13 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Gets or sets the radius.
+        /// </summary>
+        /// <value>The radius.</value>
+        /// <exception cref="System.ArgumentException">
+        /// The radius must be greater than 1 - value
+        /// </exception>
         [Category("Appearance")]
         [DefaultValue(1)]
         [Browsable(true)]
@@ -447,6 +531,13 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Gets or sets the overlap.
+        /// </summary>
+        /// <value>The overlap.</value>
+        /// <exception cref="System.ArgumentException">
+        /// The tabs cannot have a negative overlap - value
+        /// </exception>
         [Category("Appearance")]
         public int Overlap
         {
@@ -466,6 +557,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether [focus track].
+        /// </summary>
+        /// <value><c>true</c> if [focus track]; otherwise, <c>false</c>.</value>
         [Category("Appearance")]
         public bool FocusTrack
         {
@@ -481,6 +576,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether [hot track].
+        /// </summary>
+        /// <value><c>true</c> if [hot track]; otherwise, <c>false</c>.</value>
         [Category("Appearance")]
         public bool HotTrack
         {
@@ -496,6 +595,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether [show tab closer].
+        /// </summary>
+        /// <value><c>true</c> if [show tab closer]; otherwise, <c>false</c>.</value>
         [Category("Appearance")]
         public bool ShowTabCloser
         {
@@ -512,6 +615,13 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Gets or sets the opacity.
+        /// </summary>
+        /// <value>The opacity.</value>
+        /// <exception cref="System.ArgumentException">
+        /// The opacity must be between 0 and 1 - value
+        /// </exception>
         [Category("Appearance")]
         public float Opacity
         {
@@ -537,6 +647,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Gets or sets the border color selected.
+        /// </summary>
+        /// <value>The border color selected.</value>
         [Category("Appearance")]
         [DefaultValue(typeof(Color), "")]
         public Color BorderColorSelected
@@ -565,6 +679,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Gets or sets the border color hot.
+        /// </summary>
+        /// <value>The border color hot.</value>
         [Category("Appearance")]
         [DefaultValue(typeof(Color), "")]
         public Color BorderColorHot
@@ -593,6 +711,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Gets or sets the color of the border.
+        /// </summary>
+        /// <value>The color of the border.</value>
         [Category("Appearance")]
         [DefaultValue(typeof(Color), "")]
         public Color BorderColor
@@ -621,6 +743,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Gets or sets the color of the text.
+        /// </summary>
+        /// <value>The color of the text.</value>
         [Category("Appearance")]
         [DefaultValue(typeof(Color), "")]
         public Color TextColor
@@ -649,6 +775,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Gets or sets the text color selected.
+        /// </summary>
+        /// <value>The text color selected.</value>
         [Category("Appearance")]
         [DefaultValue(typeof(Color), "")]
         public Color TextColorSelected
@@ -677,6 +807,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Gets or sets the text color disabled.
+        /// </summary>
+        /// <value>The text color disabled.</value>
         [Category("Appearance")]
         [DefaultValue(typeof(Color), "")]
         public Color TextColorDisabled
@@ -705,6 +839,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Gets or sets the color of the focus.
+        /// </summary>
+        /// <value>The color of the focus.</value>
         [Category("Appearance")]
         [DefaultValue(typeof(Color), "Orange")]
         public Color FocusColor
@@ -721,6 +859,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Gets or sets the closer color active.
+        /// </summary>
+        /// <value>The closer color active.</value>
         [Category("Appearance")]
         [DefaultValue(typeof(Color), "Black")]
         public Color CloserColorActive
@@ -737,6 +879,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Gets or sets the color of the closer.
+        /// </summary>
+        /// <value>The color of the closer.</value>
         [Category("Appearance")]
         [DefaultValue(typeof(Color), "DarkGrey")]
         public Color CloserColor
@@ -753,10 +899,11 @@ namespace Elements.Controls.TabControl
             }
         }
 
-        #endregion
-
-        #region Painting
-
+        /// <summary>
+        /// Paints the tab.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <param name="graphics">The graphics.</param>
         public void PaintTab(int index, Graphics graphics)
         {
             using (GraphicsPath tabpath = GetTabBorder(index))
@@ -778,6 +925,11 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Draws the tab closer.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <param name="graphics">The graphics.</param>
         protected virtual void DrawTabCloser(int index, Graphics graphics)
         {
             if (_ShowTabCloser)
@@ -804,6 +956,11 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Gets the closer path.
+        /// </summary>
+        /// <param name="closerRect">The closer rect.</param>
+        /// <returns></returns>
         protected static GraphicsPath GetCloserPath(Rectangle closerRect)
         {
             GraphicsPath closerPath = new GraphicsPath();
@@ -815,6 +972,12 @@ namespace Elements.Controls.TabControl
             return closerPath;
         }
 
+        /// <summary>
+        /// Draws the tab focus indicator.
+        /// </summary>
+        /// <param name="tabpath">The tabpath.</param>
+        /// <param name="index">The index.</param>
+        /// <param name="graphics">The graphics.</param>
         private void DrawTabFocusIndicator(GraphicsPath tabpath, int index, Graphics graphics)
         {
             if (_FocusTrack && _TabControl.Focused && index == _TabControl.SelectedIndex)
@@ -858,10 +1021,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
-        #endregion
-
-        #region Background brushes
-
+        /// <summary>
+        /// Gets the background blend.
+        /// </summary>
+        /// <returns></returns>
         private Blend GetBackgroundBlend()
         {
             float[] relativeIntensities = { 0f, 0.7f, 1f };
@@ -881,6 +1044,11 @@ namespace Elements.Controls.TabControl
             return blend;
         }
 
+        /// <summary>
+        /// Gets the page background brush.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <returns></returns>
         public virtual Brush GetPageBackgroundBrush(int index)
         {
             // Capture the colours dependant on selection state of the tab
@@ -906,7 +1074,5 @@ namespace Elements.Controls.TabControl
 
             return new SolidBrush(light);
         }
-
-        #endregion
     }
 }

@@ -1,17 +1,21 @@
-﻿#region Namespaces
-
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-#endregion
-
 namespace Elements.Controls.TabControl.TabStyleProviders
 {
+    /// <summary>
+    /// The <see cref="TabStyleAngledProvider"/> class.
+    /// </summary>
+    /// <seealso cref="Elements.Controls.TabControl.TabStyleProvider"/>
     [ToolboxItem(false)]
     public class TabStyleAngledProvider : TabStyleProvider
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TabStyleAngledProvider"/> class.
+        /// </summary>
+        /// <param name="tabControl">The tab control.</param>
         public TabStyleAngledProvider(TabControl tabControl) : base(tabControl)
         {
             _ImageAlign = ContentAlignment.MiddleRight;
@@ -22,6 +26,11 @@ namespace Elements.Controls.TabControl.TabStyleProviders
             Padding = new Point(10, 3);
         }
 
+        /// <summary>
+        /// Adds the tab border.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <param name="tabBounds">The tab bounds.</param>
         public override void AddTabBorder(GraphicsPath path, Rectangle tabBounds)
         {
             switch (_TabControl.Alignment)

@@ -3,69 +3,111 @@
 namespace Elements.InteropServices
 {
     /// <summary>
-    /// The <see cref="TEXTMETRICA"/> class. Contains basic information about a physical font. This is the ANSI version of the structure.
+    /// The <see cref="TEXTMETRICA"/> class. Contains basic information about a physical font. This
+    /// is the ANSI version of the structure.
     /// </summary>
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     public struct TEXTMETRICA
     {
-        /* The height (ascent + descent) of characters. */
+        /// <summary>
+        /// The height (ascent + descent) of characters.
+        /// </summary>
         public int tmHeight;
 
-        /* The ascent (units above the base line) of characters. */
+        /// <summary>
+        /// The ascent (units above the base line) of characters.
+        /// </summary>
         public int tmAscent;
 
-        /* The descent (units below the base line) of characters. */
+        /// <summary>
+        /// The descent (units below the base line) of characters.
+        /// </summary>
         public int tmDescent;
 
-        /* The amount of leading (space) inside the bounds set by the tmHeight member. */
+        /// <summary>
+        /// The amount of leading (space) inside the bounds set by the tmHeight member.
+        /// </summary>
         public int tmInternalLeading;
 
-        /* The amount of extra leading (space) that the application adds between rows. */
+        /// <summary>
+        /// The amount of extra leading (space) that the application adds between rows.
+        /// </summary>
         public int tmExternalLeading;
 
-        /* The average width of characters in the font (generally defined as the width of the letter x). */
+        /// <summary>
+        /// The average width of characters in the font (generally defined as the width of the
+        /// letter x).
+        /// </summary>
         public int tmAveCharWidth;
 
-        /* The width of the widest character in the font. */
+        /// <summary>
+        /// The width of the widest character in the font.
+        /// </summary>
         public int tmMaxCharWidth;
 
-        /* The weight of the font. */
+        /// <summary>
+        /// The weight of the font.
+        /// </summary>
         public int tmWeight;
 
-        /* The extra width per string that may be added to some synthesized fonts. */
+        /// <summary>
+        /// The extra width per string that may be added to some synthesized fonts.
+        /// </summary>
         public int tmOverhang;
 
-        /* The horizontal aspect of the device for which the font was designed. */
+        /// <summary>
+        /// The horizontal aspect of the device for which the font was designed.
+        /// </summary>
         public int tmDigitizedAspectX;
 
-        /* The vertical aspect of the device for which the font was designed. */
+        /// <summary>
+        /// The vertical aspect of the device for which the font was designed.
+        /// </summary>
         public int tmDigitizedAspectY;
 
-        /* The value of the first character defined in the font. */
+        /// <summary>
+        /// The value of the first character defined in the font.
+        /// </summary>
         public byte tmFirstChar;
 
-        /* The value of the last character defined in the font. */
+        /// <summary>
+        /// The value of the last character defined in the font.
+        /// </summary>
         public byte tmLastChar;
 
-        /* The value of the character to be substituted for characters not in the font. */
+        /// <summary>
+        /// The value of the character to be substituted for characters not in the font.
+        /// </summary>
         public byte tmDefaultChar;
 
-        /* The value of the character that will be used to define word breaks for text justification. */
+        /// <summary>
+        /// The value of the character that will be used to define word breaks for text justification.
+        /// </summary>
         public byte tmBreakChar;
 
-        /* Specifies an italic font if it is nonzero. */
+        /// <summary>
+        /// Specifies an italic font if it is nonzero.
+        /// </summary>
         public byte tmItalic;
 
-        /* Specifies an underlined font if it is nonzero. */
+        /// <summary>
+        /// Specifies an underlined font if it is nonzero.
+        /// </summary>
         public byte tmUnderlined;
 
-        /* A strikeout font if it is nonzero. */
+        /// <summary>
+        /// A strikeout font if it is nonzero.
+        /// </summary>
         public byte tmStruckOut;
 
-        /* Specifies information about the pitch, the technology, and the family of a physical font. */
+        /// <summary>
+        /// Specifies information about the pitch, the technology, and the family of a physical font.
+        /// </summary>
         public byte tmPitchAndFamily;
 
-        /* The character set of the font. */
+        /// <summary>
+        /// The character set of the font.
+        /// </summary>
         public byte tmCharSet;
     }
 }

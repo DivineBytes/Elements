@@ -20,53 +20,24 @@ namespace Elements.Controls.TabControl
     /// <summary>
     /// The <see cref="TabControl"/> class.
     /// </summary>
-    /// <seealso cref="System.Windows.Forms.TabControl" />
+    /// <seealso cref="System.Windows.Forms.TabControl"/>
     [ToolboxBitmap(typeof(TabControl), "TabControl.bmp")]
     public class TabControl : System.Windows.Forms.TabControl
     {
-        #region String formatting
+        private Bitmap _BackImage;
+        private Bitmap _BackBuffer;
+        private Graphics _BackBufferGraphics;
+        private Bitmap _TabBuffer;
+        private Graphics _TabBufferGraphics;
+        private int _oldValue;
+        private Point _dragStartPosition = new Point(0, 0);
+        private TabStyle _Style;
+        private TabStyleProvider _StyleProvider;
+        private List<TabPage> _TabPages;
 
-        private StringFormat GetStringFormat()
-        {
-            StringFormat format = null;
-
-            // Rotate Text by 90 degrees for left and right tabs
-            switch (Alignment)
-            {
-                case TabAlignment.Top:
-                case TabAlignment.Bottom:
-                    format = new StringFormat();
-                    break;
-
-                case TabAlignment.Left:
-                case TabAlignment.Right:
-                    format = new StringFormat(StringFormatFlags.DirectionVertical);
-                    break;
-            }
-
-            format.Alignment = StringAlignment.Center;
-            format.LineAlignment = StringAlignment.Center;
-            if (FindForm() != null && FindForm().KeyPreview)
-            {
-                format.HotkeyPrefix = HotkeyPrefix.Show;
-            }
-            else
-            {
-                format.HotkeyPrefix = HotkeyPrefix.Hide;
-            }
-
-            if (RightToLeft == RightToLeft.Yes)
-            {
-                format.FormatFlags = format.FormatFlags | StringFormatFlags.DirectionRightToLeft;
-            }
-
-            return format;
-        }
-
-        #endregion
-
-        #region Construction
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TabControl"/> class.
+        /// </summary>
         public TabControl()
         {
             SetStyle(
@@ -81,86 +52,10 @@ namespace Elements.Controls.TabControl
             DisplayStyle = TabStyle.Default;
         }
 
-        protected override void OnCreateControl()
-        {
-            base.OnCreateControl();
-            OnFontChanged(EventArgs.Empty);
-        }
-
-        protected override CreateParams CreateParams
-        {
-            [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
-            get
-            {
-                CreateParams cp = base.CreateParams;
-                if (RightToLeftLayout)
-                {
-                    cp.ExStyle = cp.ExStyle | NativeMethods.WS_EX_LAYOUTRTL | NativeMethods.WS_EX_NOINHERITLAYOUT;
-                }
-
-                return cp;
-            }
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            base.Dispose(disposing);
-            if (disposing)
-            {
-                if (_BackImage != null)
-                {
-                    _BackImage.Dispose();
-                }
-
-                if (_BackBufferGraphics != null)
-                {
-                    _BackBufferGraphics.Dispose();
-                }
-
-                if (_BackBuffer != null)
-                {
-                    _BackBuffer.Dispose();
-                }
-
-                if (_TabBufferGraphics != null)
-                {
-                    _TabBufferGraphics.Dispose();
-                }
-
-                if (_TabBuffer != null)
-                {
-                    _TabBuffer.Dispose();
-                }
-
-                if (_StyleProvider != null)
-                {
-                    _StyleProvider.Dispose();
-                }
-            }
-        }
-
-        #endregion
-
-        #region Private variables
-
-        private Bitmap _BackImage;
-        private Bitmap _BackBuffer;
-        private Graphics _BackBufferGraphics;
-        private Bitmap _TabBuffer;
-        private Graphics _TabBufferGraphics;
-
-        private int _oldValue;
-        private Point _dragStartPosition = new Point(0, 0);
-
-        private TabStyle _Style;
-        private TabStyleProvider _StyleProvider;
-
-        private List<TabPage> _TabPages;
-
-        #endregion
-
-        #region Public properties
-
+        /// <summary>
+        /// Gets or sets the display style provider.
+        /// </summary>
+        /// <value>The display style provider.</value>
         [Category("Appearance")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public TabStyleProvider DisplayStyleProvider
@@ -180,6 +75,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Gets or sets the display style.
+        /// </summary>
+        /// <value>The display style.</value>
         [Category("Appearance")]
         [DefaultValue(typeof(TabStyle), "Default")]
         [RefreshProperties(RefreshProperties.All)]
@@ -201,6 +100,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="TabControl"/> is multiline.
+        /// </summary>
+        /// <value><c>true</c> if multiline; otherwise, <c>false</c>.</value>
         [Category("Appearance")]
         [RefreshProperties(RefreshProperties.All)]
         public new bool Multiline
@@ -218,6 +121,10 @@ namespace Elements.Controls.TabControl
         }
 
         // Hide the Padding attribute so it can not be changed We are handling this on the Style Provider
+        /// <summary>
+        /// Gets or sets the padding.
+        /// </summary>
+        /// <value>The padding.</value>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public new Point Padding
@@ -233,6 +140,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether [right to left layout].
+        /// </summary>
+        /// <value><c>true</c> if [right to left layout]; otherwise, <c>false</c>.</value>
         public override bool RightToLeftLayout
         {
             get
@@ -248,6 +159,10 @@ namespace Elements.Controls.TabControl
         }
 
         // Hide the HotTrack attribute so it can not be changed We are handling this on the Style Provider
+        /// <summary>
+        /// Gets or sets a value indicating whether [hot track].
+        /// </summary>
+        /// <value><c>true</c> if [hot track]; otherwise, <c>false</c>.</value>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public new bool HotTrack
@@ -263,6 +178,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Gets or sets the alignment.
+        /// </summary>
+        /// <value>The alignment.</value>
         [Category("Appearance")]
         public new TabAlignment Alignment
         {
@@ -289,8 +208,14 @@ namespace Elements.Controls.TabControl
             }
         }
 
-        // Hide the Appearance attribute so it can not be changed We don't want it as we are doing
-        // all the painting.
+        /// <summary>
+        /// Gets or sets the appearance.
+        /// </summary>
+        /// <remarks>
+        /// Hide the Appearance attribute so it can not be changed We don't want it as we are doing
+        /// all the painting.
+        /// </remarks>
+        /// <value>The appearance.</value>
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "value")]
@@ -308,6 +233,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Gets the display rectangle.
+        /// </summary>
+        /// <value>The display rectangle.</value>
         public override Rectangle DisplayRectangle
         {
             get
@@ -356,6 +285,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Gets the index of the active.
+        /// </summary>
+        /// <value>The index of the active.</value>
         [Browsable(false)]
         public int ActiveIndex
         {
@@ -377,6 +310,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Gets the active tab.
+        /// </summary>
+        /// <value>The active tab.</value>
         [Browsable(false)]
         public TabPage ActiveTab
         {
@@ -392,10 +329,82 @@ namespace Elements.Controls.TabControl
             }
         }
 
-        #endregion
+        /// <summary>
+        /// Called when [create control].
+        /// </summary>
+        protected override void OnCreateControl()
+        {
+            base.OnCreateControl();
+            OnFontChanged(EventArgs.Empty);
+        }
 
-        #region Extension methods
+        /// <summary>
+        /// Gets the create parameters.
+        /// </summary>
+        /// <value>The create parameters.</value>
+        protected override CreateParams CreateParams
+        {
+            [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                if (RightToLeftLayout)
+                {
+                    cp.ExStyle = cp.ExStyle | NativeMethods.WS_EX_LAYOUTRTL | NativeMethods.WS_EX_NOINHERITLAYOUT;
+                }
 
+                return cp;
+            }
+        }
+
+        /// <summary>
+        /// Releases unmanaged and - optionally - managed resources.
+        /// </summary>
+        /// <param name="disposing">
+        /// <c>true</c> to release both managed and unmanaged resources; <c>false</c> to release
+        /// only unmanaged resources.
+        /// </param>
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+            if (disposing)
+            {
+                if (_BackImage != null)
+                {
+                    _BackImage.Dispose();
+                }
+
+                if (_BackBufferGraphics != null)
+                {
+                    _BackBufferGraphics.Dispose();
+                }
+
+                if (_BackBuffer != null)
+                {
+                    _BackBuffer.Dispose();
+                }
+
+                if (_TabBufferGraphics != null)
+                {
+                    _TabBufferGraphics.Dispose();
+                }
+
+                if (_TabBuffer != null)
+                {
+                    _TabBuffer.Dispose();
+                }
+
+                if (_StyleProvider != null)
+                {
+                    _StyleProvider.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Hides the tab.
+        /// </summary>
+        /// <param name="page">The page.</param>
         public void HideTab(TabPage page)
         {
             if (page != null && TabPages.Contains(page))
@@ -405,6 +414,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Hides the tab.
+        /// </summary>
+        /// <param name="index">The index.</param>
         public void HideTab(int index)
         {
             if (IsValidTabIndex(index))
@@ -413,6 +426,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Hides the tab.
+        /// </summary>
+        /// <param name="key">The key.</param>
         public void HideTab(string key)
         {
             if (TabPages.ContainsKey(key))
@@ -421,6 +438,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Shows the tab.
+        /// </summary>
+        /// <param name="page">The page.</param>
         public void ShowTab(TabPage page)
         {
             if (page != null)
@@ -470,6 +491,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Shows the tab.
+        /// </summary>
+        /// <param name="index">The index.</param>
         public void ShowTab(int index)
         {
             if (IsValidTabIndex(index))
@@ -478,6 +503,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Shows the tab.
+        /// </summary>
+        /// <param name="key">The key.</param>
         public void ShowTab(string key)
         {
             if (_TabPages != null)
@@ -490,12 +519,20 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Determines whether [is valid tab index] [the specified index].
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <returns><c>true</c> if [is valid tab index] [the specified index]; otherwise, <c>false</c>.</returns>
         private bool IsValidTabIndex(int index)
         {
             BackupTabPages();
             return index >= 0 && index < _TabPages.Count;
         }
 
+        /// <summary>
+        /// Backups the tab pages.
+        /// </summary>
         private void BackupTabPages()
         {
             if (_TabPages == null)
@@ -508,10 +545,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
-        #endregion
-
-        #region Drag 'n' Drop
-
+        /// <summary>
+        /// Raises the <see cref="E:MouseDown"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseDown(e);
@@ -521,6 +558,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Raises the <see cref="E:MouseUp"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
         protected override void OnMouseUp(MouseEventArgs e)
         {
             base.OnMouseUp(e);
@@ -530,6 +571,12 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Raises the <see cref="E:DragOver"/> event.
+        /// </summary>
+        /// <param name="drgevent">
+        /// The <see cref="DragEventArgs"/> instance containing the event data.
+        /// </param>
         protected override void OnDragOver(DragEventArgs drgevent)
         {
             base.OnDragOver(drgevent);
@@ -544,6 +591,12 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Raises the <see cref="E:DragDrop"/> event.
+        /// </summary>
+        /// <param name="drgevent">
+        /// The <see cref="DragEventArgs"/> instance containing the event data.
+        /// </param>
         protected override void OnDragDrop(DragEventArgs drgevent)
         {
             base.OnDragDrop(drgevent);
@@ -583,6 +636,9 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Starts the drag drop.
+        /// </summary>
         private void StartDragDrop()
         {
             if (!_dragStartPosition.IsEmpty)
@@ -603,23 +659,28 @@ namespace Elements.Controls.TabControl
             }
         }
 
-        #endregion
-
-        #region Events
-
+        /// <summary>
+        /// Occurs when [h scroll].
+        /// </summary>
         [Category("Action")]
         public event ScrollEventHandler HScroll;
 
+        /// <summary>
+        /// Occurs when [tab image click].
+        /// </summary>
         [Category("Action")]
         public event EventHandler<TabControlEventArgs> TabImageClick;
 
+        /// <summary>
+        /// Occurs when [tab closing].
+        /// </summary>
         [Category("Action")]
         public event EventHandler<TabControlCancelEventArgs> TabClosing;
 
-        #endregion
-
-        #region Base class event processing
-
+        /// <summary>
+        /// Raises the <see cref="E:FontChanged"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected override void OnFontChanged(EventArgs e)
         {
             IntPtr hFont = Font.ToHfont();
@@ -632,6 +693,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Raises the <see cref="E:Resize"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected override void OnResize(EventArgs e)
         {
             // Recreate the buffer for manual double buffering
@@ -679,6 +744,10 @@ namespace Elements.Controls.TabControl
             base.OnResize(e);
         }
 
+        /// <summary>
+        /// Raises the <see cref="E:ParentBackColorChanged"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected override void OnParentBackColorChanged(EventArgs e)
         {
             if (_BackImage != null)
@@ -690,6 +759,10 @@ namespace Elements.Controls.TabControl
             base.OnParentBackColorChanged(e);
         }
 
+        /// <summary>
+        /// Raises the <see cref="E:ParentBackgroundImageChanged"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected override void OnParentBackgroundImageChanged(EventArgs e)
         {
             if (_BackImage != null)
@@ -709,6 +782,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Raises the <see cref="E:ParentChanged"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected override void OnParentChanged(EventArgs e)
         {
             base.OnParentChanged(e);
@@ -718,6 +795,12 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Raises the <see cref="E:Selecting"/> event.
+        /// </summary>
+        /// <param name="e">
+        /// The <see cref="TabControlCancelEventArgs"/> instance containing the event data.
+        /// </param>
         protected override void OnSelecting(TabControlCancelEventArgs e)
         {
             base.OnSelecting(e);
@@ -729,6 +812,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Raises the <see cref="E:Move"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected override void OnMove(EventArgs e)
         {
             if (Width > 0 && Height > 0)
@@ -744,6 +831,10 @@ namespace Elements.Controls.TabControl
             Invalidate();
         }
 
+        /// <summary>
+        /// Raises the <see cref="E:ControlAdded"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="ControlEventArgs"/> instance containing the event data.</param>
         protected override void OnControlAdded(ControlEventArgs e)
         {
             base.OnControlAdded(e);
@@ -753,6 +844,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Raises the <see cref="E:ControlRemoved"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="ControlEventArgs"/> instance containing the event data.</param>
         protected override void OnControlRemoved(ControlEventArgs e)
         {
             base.OnControlRemoved(e);
@@ -762,6 +857,11 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Processes the mnemonic.
+        /// </summary>
+        /// <param name="charCode">The character code.</param>
+        /// <returns></returns>
         [UIPermission(SecurityAction.LinkDemand, Window = UIPermissionWindow.AllWindows)]
         protected override bool ProcessMnemonic(char charCode)
         {
@@ -777,11 +877,19 @@ namespace Elements.Controls.TabControl
             return base.ProcessMnemonic(charCode);
         }
 
+        /// <summary>
+        /// Raises the <see cref="E:SelectedIndexChanged"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected override void OnSelectedIndexChanged(EventArgs e)
         {
             base.OnSelectedIndexChanged(e);
         }
 
+        /// <summary>
+        /// WNDs the proc.
+        /// </summary>
+        /// <param name="m">The m.</param>
         [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         [DebuggerStepThrough]
         protected override void WndProc(ref Message m)
@@ -806,6 +914,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Raises the <see cref="E:MouseClick"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
         protected override void OnMouseClick(MouseEventArgs e)
         {
             int index = ActiveIndex;
@@ -844,6 +956,12 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Raises the <see cref="E:TabImageClick"/> event.
+        /// </summary>
+        /// <param name="e">
+        /// The <see cref="TabControlEventArgs"/> instance containing the event data.
+        /// </param>
         protected virtual void OnTabImageClick(TabControlEventArgs e)
         {
             if (TabImageClick != null)
@@ -852,6 +970,12 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Raises the <see cref="E:TabClosing"/> event.
+        /// </summary>
+        /// <param name="e">
+        /// The <see cref="TabControlCancelEventArgs"/> instance containing the event data.
+        /// </param>
         protected virtual void OnTabClosing(TabControlCancelEventArgs e)
         {
             if (TabClosing != null)
@@ -860,6 +984,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Raises the <see cref="E:HScroll"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="ScrollEventArgs"/> instance containing the event data.</param>
         protected virtual void OnHScroll(ScrollEventArgs e)
         {
             // repaint the moved tabs
@@ -877,6 +1005,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Raises the <see cref="E:MouseMove"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
@@ -896,15 +1028,10 @@ namespace Elements.Controls.TabControl
             }
         }
 
-        #endregion
-
-        #region Basic drawing methods
-
-        // private void CustomPaint(ref Message m){ NativeMethods.PAINTSTRUCT paintStruct = new
-        // NativeMethods.PAINTSTRUCT(); NativeMethods.BeginPaint(m.HWnd, ref paintStruct); using
-        // (Graphics screenGraphics = this.CreateGraphics()) { this.CustomPaint(screenGraphics); }
-        // NativeMethods.EndPaint(m.HWnd, ref paintStruct); }
-
+        /// <summary>
+        /// Raises the <see cref="E:Paint"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="PaintEventArgs"/> instance containing the event data.</param>
         protected override void OnPaint(PaintEventArgs e)
         {
             // We must always paint the entire area of the tab control
@@ -920,15 +1047,12 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Customs the paint.
+        /// </summary>
+        /// <param name="screenGraphics">The screen graphics.</param>
         private void CustomPaint(Graphics screenGraphics)
         {
-            // We render into a bitmap that is then drawn in one shot rather than using double
-            // buffering built into the control as the built in buffering messes up the background
-            // painting. Equally the .Net 2.0 BufferedGraphics object causes the background painting
-            // to mess up, which is why we use this .Net 1.1 buffering technique.
-
-            // Buffer code from Gil. Schmidt http://www.codeproject.com/KB/graphics/DoubleBuffering.aspx
-
             if (Width > 0 && Height > 0)
             {
                 if (_BackImage == null)
@@ -1027,6 +1151,11 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Paints the transparent background.
+        /// </summary>
+        /// <param name="graphics">The graphics.</param>
+        /// <param name="clipRect">The clip rect.</param>
         protected void PaintTransparentBackground(Graphics graphics, Rectangle clipRect)
         {
             if (Parent != null)
@@ -1057,6 +1186,11 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Draws the tab page.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <param name="graphics">The graphics.</param>
         private void DrawTabPage(int index, Graphics graphics)
         {
             graphics.SmoothingMode = SmoothingMode.HighSpeed;
@@ -1087,6 +1221,12 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Draws the tab border.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <param name="index">The index.</param>
+        /// <param name="graphics">The graphics.</param>
         private void DrawTabBorder(GraphicsPath path, int index, Graphics graphics)
         {
             graphics.SmoothingMode = SmoothingMode.HighQuality;
@@ -1110,6 +1250,11 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Draws the tab text.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <param name="graphics">The graphics.</param>
         private void DrawTabText(int index, Graphics graphics)
         {
             graphics.SmoothingMode = SmoothingMode.HighQuality;
@@ -1142,6 +1287,11 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Draws the tab image.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <param name="graphics">The graphics.</param>
         private void DrawTabImage(int index, Graphics graphics)
         {
             Image tabImage = null;
@@ -1179,10 +1329,11 @@ namespace Elements.Controls.TabControl
             }
         }
 
-        #endregion
-
-        #region Tab borders and bounds properties
-
+        /// <summary>
+        /// Gets the tab page border.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <returns></returns>
         private GraphicsPath GetTabPageBorder(int index)
         {
             GraphicsPath path = new GraphicsPath();
@@ -1195,6 +1346,11 @@ namespace Elements.Controls.TabControl
             return path;
         }
 
+        /// <summary>
+        /// Gets the page bounds.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <returns></returns>
         public Rectangle GetPageBounds(int index)
         {
             Rectangle pageBounds = TabPages[index].Bounds;
@@ -1211,6 +1367,11 @@ namespace Elements.Controls.TabControl
             return pageBounds;
         }
 
+        /// <summary>
+        /// Gets the tab text rect.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <returns></returns>
         private Rectangle GetTabTextRect(int index)
         {
             Rectangle textRect = new Rectangle();
@@ -1435,6 +1596,11 @@ namespace Elements.Controls.TabControl
             return textRect;
         }
 
+        /// <summary>
+        /// Gets the tab row.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <returns></returns>
         public int GetTabRow(int index)
         {
             // All calculations will use this rect as the base point because the itemsize does not
@@ -1465,6 +1631,11 @@ namespace Elements.Controls.TabControl
             return row;
         }
 
+        /// <summary>
+        /// Gets the tab position.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <returns></returns>
         public Point GetTabPosition(int index)
         {
             // If we are not multiline then the column is the index and the row is 0.
@@ -1512,6 +1683,11 @@ namespace Elements.Controls.TabControl
             return new Point(0, 0);
         }
 
+        /// <summary>
+        /// Determines whether [is first tab in row] [the specified index].
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <returns><c>true</c> if [is first tab in row] [the specified index]; otherwise, <c>false</c>.</returns>
         public bool IsFirstTabInRow(int index)
         {
             if (index < 0)
@@ -1541,6 +1717,12 @@ namespace Elements.Controls.TabControl
             return firstTabinRow;
         }
 
+        /// <summary>
+        /// Adds the page border.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <param name="pageBounds">The page bounds.</param>
+        /// <param name="tabBounds">The tab bounds.</param>
         private void AddPageBorder(GraphicsPath path, Rectangle pageBounds, Rectangle tabBounds)
         {
             switch (Alignment)
@@ -1579,6 +1761,11 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Gets the tab image rect.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <returns></returns>
         private Rectangle GetTabImageRect(int index)
         {
             using (GraphicsPath tabBorderPath = _StyleProvider.GetTabBorder(index))
@@ -1587,6 +1774,11 @@ namespace Elements.Controls.TabControl
             }
         }
 
+        /// <summary>
+        /// Gets the tab image rect.
+        /// </summary>
+        /// <param name="tabBorderPath">The tab border path.</param>
+        /// <returns></returns>
         private Rectangle GetTabImageRect(GraphicsPath tabBorderPath)
         {
             Rectangle imageRect = new Rectangle();
@@ -1698,6 +1890,11 @@ namespace Elements.Controls.TabControl
             return imageRect;
         }
 
+        /// <summary>
+        /// Gets the tab closer rect.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <returns></returns>
         public Rectangle GetTabCloserRect(int index)
         {
             Rectangle closerRect = new Rectangle();
@@ -1785,6 +1982,10 @@ namespace Elements.Controls.TabControl
             return closerRect;
         }
 
+        /// <summary>
+        /// Gets the mouse position.
+        /// </summary>
+        /// <value>The mouse position.</value>
         public new Point MousePosition
         {
             get
@@ -1799,6 +2000,45 @@ namespace Elements.Controls.TabControl
             }
         }
 
-        #endregion
+        /// <summary>
+        /// Gets the string format.
+        /// </summary>
+        /// <returns></returns>
+        private StringFormat GetStringFormat()
+        {
+            StringFormat format = null;
+
+            // Rotate Text by 90 degrees for left and right tabs
+            switch (Alignment)
+            {
+                case TabAlignment.Top:
+                case TabAlignment.Bottom:
+                    format = new StringFormat();
+                    break;
+
+                case TabAlignment.Left:
+                case TabAlignment.Right:
+                    format = new StringFormat(StringFormatFlags.DirectionVertical);
+                    break;
+            }
+
+            format.Alignment = StringAlignment.Center;
+            format.LineAlignment = StringAlignment.Center;
+            if (FindForm() != null && FindForm().KeyPreview)
+            {
+                format.HotkeyPrefix = HotkeyPrefix.Show;
+            }
+            else
+            {
+                format.HotkeyPrefix = HotkeyPrefix.Hide;
+            }
+
+            if (RightToLeft == RightToLeft.Yes)
+            {
+                format.FormatFlags = format.FormatFlags | StringFormatFlags.DirectionRightToLeft;
+            }
+
+            return format;
+        }
     }
 }

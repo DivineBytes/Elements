@@ -10,9 +10,9 @@ using System.Windows.Forms;
 namespace Elements.Controls.ProgressIndicator
 {
     /// <summary>
-    /// The <see cref="ProgressIndicator" /> class.
+    /// The <see cref="ProgressIndicator"/> class.
     /// </summary>
-    /// <seealso cref="Elements.Base.ControlBase" />
+    /// <seealso cref="Elements.Base.ControlBase"/>
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [DefaultEvent("Click")]
@@ -59,6 +59,10 @@ namespace Elements.Controls.ProgressIndicator
             UpdateStyles();
         }
 
+        /// <summary>
+        /// Gets or sets the color of the animation.
+        /// </summary>
+        /// <value>The color of the animation.</value>
         [Category("Appearance")]
         [Description("Color")]
         public Color AnimationColor
@@ -74,6 +78,10 @@ namespace Elements.Controls.ProgressIndicator
             }
         }
 
+        /// <summary>
+        /// Gets or sets the animation speed.
+        /// </summary>
+        /// <value>The animation speed.</value>
         [Category("Behaviour")]
         [Description("Animation Speed")]
         public int AnimationSpeed
@@ -89,6 +97,10 @@ namespace Elements.Controls.ProgressIndicator
             }
         }
 
+        /// <summary>
+        /// Gets or sets the color of the base.
+        /// </summary>
+        /// <value>The color of the base.</value>
         [Category("Appearance")]
         [Description("Color")]
         public Color BaseColor
@@ -104,6 +116,10 @@ namespace Elements.Controls.ProgressIndicator
             }
         }
 
+        /// <summary>
+        /// Gets or sets the circles.
+        /// </summary>
+        /// <value>The circles.</value>
         [DefaultValue(45F)]
         [Category("Layout")]
         [Description("Amount")]
@@ -122,6 +138,10 @@ namespace Elements.Controls.ProgressIndicator
             }
         }
 
+        /// <summary>
+        /// Gets or sets the size of the circle.
+        /// </summary>
+        /// <value>The size of the circle.</value>
         [Category("Layout")]
         [Description("Size")]
         public Size CircleSize
@@ -138,6 +158,10 @@ namespace Elements.Controls.ProgressIndicator
             }
         }
 
+        /// <summary>
+        /// Gets or sets the diameter.
+        /// </summary>
+        /// <value>The diameter.</value>
         [DefaultValue(7.5F)]
         [Category("Layout")]
         [Description("Diameter")]
@@ -156,6 +180,10 @@ namespace Elements.Controls.ProgressIndicator
             }
         }
 
+        /// <summary>
+        /// Gets the end point.
+        /// </summary>
+        /// <value>The end point.</value>
         private PointF EndPoint
         {
             get
@@ -167,12 +195,20 @@ namespace Elements.Controls.ProgressIndicator
             }
         }
 
+        /// <summary>
+        /// Raises the <see cref="E:EnabledChanged"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected override void OnEnabledChanged(EventArgs e)
         {
             base.OnEnabledChanged(e);
             animationSpeed.Enabled = Enabled;
         }
 
+        /// <summary>
+        /// Raises the <see cref="E:HandleCreated"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected override void OnHandleCreated(EventArgs e)
         {
             base.OnHandleCreated(e);
@@ -180,6 +216,10 @@ namespace Elements.Controls.ProgressIndicator
             animationSpeed.Start();
         }
 
+        /// <summary>
+        /// Raises the <see cref="E:Paint"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="PaintEventArgs"/> instance containing the event data.</param>
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
@@ -206,6 +246,10 @@ namespace Elements.Controls.ProgressIndicator
             buffGraphics.Render(e.Graphics);
         }
 
+        /// <summary>
+        /// Raises the <see cref="E:SizeChanged"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected override void OnSizeChanged(EventArgs e)
         {
             base.OnSizeChanged(e);
@@ -214,12 +258,24 @@ namespace Elements.Controls.ProgressIndicator
             SetPoints();
         }
 
+        /// <summary>
+        /// Assigns the values.
+        /// </summary>
+        /// <typeparam name="X"></typeparam>
+        /// <param name="run">The run.</param>
+        /// <param name="length">The length.</param>
+        /// <returns></returns>
         private static X AssignValues<X>(ref X run, X length)
         {
             run = length;
             return length;
         }
 
+        /// <summary>
+        /// Animations the speed tick.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void AnimationSpeedTick(object sender, EventArgs e)
         {
             if (indicatorIndex.Equals(0))
@@ -234,6 +290,9 @@ namespace Elements.Controls.ProgressIndicator
             Invalidate(false);
         }
 
+        /// <summary>
+        /// Sets the points.
+        /// </summary>
         private void SetPoints()
         {
             var stack = new Stack<PointF>();
@@ -249,12 +308,21 @@ namespace Elements.Controls.ProgressIndicator
             floatPoint = stack.ToArray();
         }
 
+        /// <summary>
+        /// Sets the size of the standard.
+        /// </summary>
         private void SetStandardSize()
         {
             int size = Math.Max(Width, Height);
             Size = new Size(size, size);
         }
 
+        /// <summary>
+        /// Sets the value.
+        /// </summary>
+        /// <param name="startFloatPoint">The start float point.</param>
+        /// <param name="length">The length.</param>
+        /// <param name="angle">The angle.</param>
         private void SetValue(PointF startFloatPoint, int length, double angle)
         {
             double circleRadian = (Math.PI * angle) / 180.0;
@@ -265,6 +333,9 @@ namespace Elements.Controls.ProgressIndicator
             run = Math.Cos(circleRadian) * run;
         }
 
+        /// <summary>
+        /// Updates the graphics.
+        /// </summary>
         private void UpdateGraphics()
         {
             if ((Width <= 0) || (Height <= 0))

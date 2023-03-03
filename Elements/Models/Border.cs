@@ -36,7 +36,7 @@ namespace Elements.Models
 
             _thickness = 1;
             _rounding = 6;
-            _shape = TileShape.Rectangle;
+            _shape = TileShape.Rounded;
             _visible = true;
             _hoverVisible = true;
         }
