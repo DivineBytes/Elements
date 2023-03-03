@@ -1,10 +1,10 @@
 ﻿using Elements.Utilities.Designer;
 using System.Collections;
-using System.ComponentModel.Design;
+using System.Windows.Forms.Design;
 
 namespace Elements.Designer
 {
-    internal class BaseComponentDesigner : ComponentDesigner
+    internal class ParentControlDesignerBase : ParentControlDesigner
     {
         protected override void PreFilterProperties(IDictionary properties)
         {

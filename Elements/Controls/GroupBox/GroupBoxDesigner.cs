@@ -1,9 +1,10 @@
 ﻿using Elements.Designer;
 using System.Collections;
+using System.Windows.Forms.Design;
 
-namespace Elements.Controls.Button
+namespace Elements.Controls.GroupBox
 {
-    internal class GroupBoxDesigner : BaseControlDesigner
+    internal class GroupBoxDesigner : ParentControlDesignerBase
     {
         protected override void PreFilterProperties(IDictionary properties)
         {

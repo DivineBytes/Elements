@@ -33,6 +33,9 @@ namespace Elements.Controls.Separator
         /// </summary>
         public Separator()
         {
+            BackColor = Color.Transparent;
+            ForeColor = Color.Transparent;
+
             Size = new Size(75, 4);
             _orientation = Orientation.Horizontal;
             _shadowVisible = true;

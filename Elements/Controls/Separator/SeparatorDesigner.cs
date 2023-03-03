@@ -7,6 +7,7 @@ namespace Elements.Controls.Separator
     {
         protected override void PreFilterProperties(IDictionary properties)
         {
+            properties.Remove("ForeColor");
             properties.Remove("Text");
 
             base.PreFilterProperties(properties);

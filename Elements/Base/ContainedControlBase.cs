@@ -17,13 +17,13 @@ namespace Elements.Base
     [ToolboxItem(false)]
     public abstract class ContainedControlBase : ControlBase
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ContainedControlBase"/> class.
-        /// </summary>
-        protected ContainedControlBase()
-        { 
+        ///// <summary>
+        ///// Initializes a new instance of the <see cref="ContainedControlBase"/> class.
+        ///// </summary>
+        //protected ContainedControlBase()
+        //{ 
             
-        }
+        //}
 
         /// <summary>
         /// Gets the internal control location.

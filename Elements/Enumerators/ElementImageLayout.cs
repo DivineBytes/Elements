@@ -8,17 +8,17 @@ namespace Elements.Enumerators
     public enum ElementImageLayout
     {
         /// <summary>
-        /// Draw the background normal.
+        /// Normal image layout.
         /// </summary>
         None = 0,
 
         /// <summary>
-        /// Draw the background centered.
+        /// Center image layout.
         /// </summary>
         Center = 1,
 
         /// <summary>
-        /// Draw the background stretched.
+        /// Stretch image layout.
         /// </summary>
         Stretch = 2
     }

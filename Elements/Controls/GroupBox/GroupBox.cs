@@ -1,7 +1,5 @@
 ﻿using Elements.Base;
 using Elements.Constants;
-using Elements.Controls.Button;
-using Elements.Controls.Separator;
 using Elements.Enumerators;
 using Elements.Models;
 using Elements.Renders;
@@ -30,9 +28,10 @@ namespace Elements.Controls.GroupBox
     public class GroupBox : NestedControlBase
     {
         private Border _border;
-        private Elements.Controls.Separator.Separator _separator;
+        private Separator.Separator _separator;
         private GroupBoxStyle _boxStyle;
         private Image _image;
+        private ElementImageLayout _imageLayout;
         private StringAlignment _textAlignment;
         private TextImageRelation _textImageRelation;
         private StringAlignment _textLineAlignment;
@@ -46,14 +45,20 @@ namespace Elements.Controls.GroupBox
         {
             BackColor = Color.Transparent;
 
-            _separator = new Separator.Separator();
-            _separator.BackColor = Color.Transparent;
+            _separator = new Separator.Separator
+            {
+                BackColor = Color.Transparent,
+                ForeColor = Color.Transparent
+            };
 
             _boxStyle = GroupBoxStyle.Default;
             _titleBoxHeight = 25;
             _textImageRelation = TextImageRelation.ImageBeforeText;
             _textAlignment = StringAlignment.Center;
             _textLineAlignment = StringAlignment.Center;
+
+            _imageLayout = ElementImageLayout.Stretch;
+
             Size = new Size(220, 180);
             _border = new Border();
             Padding = new Padding(5, _titleBoxHeight + _border.Thickness, 5, 5);
@@ -124,6 +129,22 @@ namespace Elements.Controls.GroupBox
         }
 
         [Category(PropertyCategory.Appearance)]
+        [Description("Background Image Layout")]
+        public new ElementImageLayout BackgroundImageLayout
+        {
+            get
+            {
+                return _imageLayout;
+            }
+
+            set
+            {
+                _imageLayout = value;
+                Invalidate();
+            }
+        }
+
+        [Category(PropertyCategory.Appearance)]
         [Description("Separator")]
         public bool Separator
         {
@@ -145,12 +166,28 @@ namespace Elements.Controls.GroupBox
         {
             get
             {
-                return _separator.BackColor;
+                return _separator.Line;
             }
 
             set
             {
-                _separator.BackColor = value;
+                _separator.Line = value;
+                Invalidate();
+            }
+        }
+
+        [Category(PropertyCategory.Appearance)]
+        [Description("Color")]
+        public Color SeparatorShadow
+        {
+            get
+            {
+                return _separator.Shadow;
+            }
+
+            set
+            {
+                _separator.Shadow = value;
                 Invalidate();
             }
         }
@@ -234,19 +271,34 @@ namespace Elements.Controls.GroupBox
             _titleBoxRectangle = new Rectangle(title.X, title.Y, title.Width - 1, title.Height);
 
             Rectangle _clientRectangle = new Rectangle(group.X, group.Y, group.Width, group.Height);
-            var ControlGraphicsPath = Border.CreatePath(_border, _clientRectangle);
-            graphics.FillRectangle(new SolidBrush(BackColor), _clientRectangle);
+            GraphicsPath controlGraphicsPath = Border.CreatePath(_border, _clientRectangle);
+
+            graphics.SetClip(controlGraphicsPath);
 
             Color _backColor = Enabled ? BackColorState.Enabled : BackColorState.Disabled;
-            ImageRender.Render(e.Graphics, _backColor, BackgroundImage, group, Border);
+            graphics.FillRectangle(new SolidBrush(_backColor), _clientRectangle);
+
+            ImageRender.Render(e.Graphics, BackgroundImage, _imageLayout, group);
 
             if (_separator.Visible)
             {
                 _separator.Location = new Point(_titleBoxRectangle.X + _border.Thickness, _titleBoxRectangle.Bottom);
-                _separator.Size = new Size(Width - _border.Thickness - 2, 1);
-            }
 
-            Border.Render(e.Graphics, _border, MouseState, ControlGraphicsPath);
+                int buffer = 0;
+
+                switch (_border.Shape)
+                {
+                    case TileShape.Rectangle:
+                        buffer = 2;
+                        break;
+
+                    case TileShape.Rounded:
+                        buffer = 1;
+                        break;
+                }
+
+                _separator.Size = new Size(Width - _border.Thickness - buffer, 1);
+            }
 
             if (_boxStyle == GroupBoxStyle.Classic)
             {
@@ -275,6 +327,10 @@ namespace Elements.Controls.GroupBox
 
                 StringUtilities.Render(e.Graphics, _titleBoxRectangle, Text, Font, ForeColor, _stringFormat);
             }
+
+            graphics.ResetClip();
+
+            Border.Render(e.Graphics, _border, MouseState, controlGraphicsPath);
         }
 
         private Rectangle ConfigureStyleBox(Size textArea)
