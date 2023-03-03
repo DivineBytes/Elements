@@ -39,24 +39,21 @@ namespace Elements.Utilities
         }
 
         /// <summary>
-        /// Create the image from a Base64 value.
+        /// Converts the <c>Base64</c><see cref="string"/> to an <see cref="Image"/>.
         /// </summary>
-        /// <param name="value">The Base64 value.</param>
+        /// <param name="base64">The Base64 text value.</param>
         /// <returns>The <see cref="Image"/>.</returns>
-        public static Image DrawImageFromBase64(string value)
+        public static Image ToImage(string base64)
         {
-            if (string.IsNullOrEmpty(value))
+            if (string.IsNullOrEmpty(base64))
             {
-                throw new ArgumentNullException(nameof(value), "Cannot be null or empty.");
+                throw new ArgumentNullException(nameof(base64), "Cannot be null or empty.");
             }
 
-            Image _image;
-            using (MemoryStream _memoryStream = new MemoryStream(Convert.FromBase64String(value)))
+            using (MemoryStream _image = new MemoryStream(Convert.FromBase64String(base64)))
             {
-                _image = Image.FromStream(_memoryStream);
+                return Image.FromStream(_image);
             }
-
-            return _image;
         }
 
         /// <summary>
