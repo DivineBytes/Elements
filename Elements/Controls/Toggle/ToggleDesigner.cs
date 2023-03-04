@@ -1,15 +1,12 @@
 ﻿using Elements.Designer;
 using System.Collections;
-using System.Windows.Forms.Design;
 
-namespace Elements.Controls.GroupBox
+namespace Elements.Controls.Toggle
 {
-    internal class GroupBoxDesigner : BaseParentControlDesigner
+    internal class ToggleDesigner : BaseControlDesigner
     {
         protected override void PreFilterProperties(IDictionary properties)
         {
-            // properties.Remove("Text");
-
             base.PreFilterProperties(properties);
         }
     }

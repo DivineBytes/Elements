@@ -4,7 +4,7 @@ using System.Windows.Forms.Design;
 
 namespace Elements.Designer
 {
-    internal class ParentControlDesignerBase : ParentControlDesigner
+    internal class BaseParentControlDesigner : ParentControlDesigner
     {
         protected override void PreFilterProperties(IDictionary properties)
         {

@@ -11,45 +11,45 @@ namespace Elements.Delegates
     public delegate void ColorStateChangedEventHandler(object source, ColorEventArgs e);
 
     /// <summary>
-    /// The <see cref="ColorChangedEventHandler" />.
+    /// The <see cref="ColorChangedEventHandler"/>.
     /// </summary>
     /// <param name="source">The source.</param>
-    /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
+    /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     public delegate void ColorChangedEventHandler(object source, EventArgs e);
 
     /// <summary>
-    /// The <see cref="RoundingChangedEventHandler" />.
+    /// The <see cref="RoundingChangedEventHandler"/>.
     /// </summary>
     /// <param name="source">The source.</param>
-    /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
+    /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     public delegate void RoundingChangedEventHandler(object source, EventArgs e);
 
     /// <summary>
-    /// The <see cref="ThicknessChangedEventHandler" />.
+    /// The <see cref="ThicknessChangedEventHandler"/>.
     /// </summary>
     /// <param name="source">The source.</param>
-    /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
+    /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     public delegate void ThicknessChangedEventHandler(object source, EventArgs e);
 
     /// <summary>
-    /// The <see cref="TypeChangedEventHandler" />.
+    /// The <see cref="TypeChangedEventHandler"/>.
     /// </summary>
     /// <param name="source">The source.</param>
-    /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
+    /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     public delegate void TypeChangedEventHandler(object source, EventArgs e);
 
     /// <summary>
-    /// The <see cref="ShapeChangedEventHandler" />.
+    /// The <see cref="ShapeChangedEventHandler"/>.
     /// </summary>
     /// <param name="source">The source.</param>
-    /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
+    /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     public delegate void ShapeChangedEventHandler(object source, EventArgs e);
 
     /// <summary>
-    /// The <see cref="VisibleChangedEventHandler" />.
+    /// The <see cref="VisibleChangedEventHandler"/>.
     /// </summary>
     /// <param name="source">The source.</param>
-    /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
+    /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     public delegate void VisibleChangedEventHandler(object source, EventArgs e);
 
     /// <summary>
@@ -58,4 +58,11 @@ namespace Elements.Delegates
     /// <param name="source">The source.</param>
     /// <param name="e">The <see cref="MouseStateEventArgs"/> instance containing the event data.</param>
     public delegate void MouseStateChangedEventHandler(object source, MouseStateEventArgs e);
+
+    /// <summary>
+    /// The <see cref="ToggleChangedEventHandler"/>.
+    /// </summary>
+    /// <param name="source">The source.</param>
+    /// <param name="e">The <see cref="ToggleEventArgs"/> instance containing the event data.</param>
+    public delegate void ToggleChangedEventHandler(object source, ToggleEventArgs e);
 }
