@@ -30,7 +30,7 @@ namespace Elements.Models
         /// </summary>
         public ControlColorState() : base()
         {
-            _pressed = Color.FromArgb(255, 255, 255);
+            _pressed = Color.FromArgb(192, 192, 192);
         }
 
         /// <summary>

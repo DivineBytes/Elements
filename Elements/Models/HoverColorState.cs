@@ -30,7 +30,7 @@ namespace Elements.Models
         /// </summary>
         public HoverColorState() : base()
         {
-            _hover = Color.FromArgb(255, 255, 255);
+            _hover = Color.FromArgb(224, 224, 224);
         }
 
         /// <summary>

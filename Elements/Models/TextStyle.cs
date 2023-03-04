@@ -23,7 +23,7 @@ namespace Elements.Models
         /// </summary>
         public TextStyle()
         {
-            textColorState = new ControlColorState();
+            textColorState = new ControlColorState(Color.Black, Color.Black, Color.Black, Color.Black);
             textRenderingHint = TextRenderingHint.ClearTypeGridFit;
             textAlignment = StringAlignment.Center;
             textLineAlignment = StringAlignment.Center;

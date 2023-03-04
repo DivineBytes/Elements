@@ -31,7 +31,7 @@ namespace Elements.Models
         {
             _colorState = new HoverColorState(
             Color.FromArgb(180, 180, 180),
-            Color.FromArgb(208, 208, 208),
+            Color.FromArgb(180, 180, 180),
             Color.FromArgb(120, 183, 230));
 
             _thickness = 1;

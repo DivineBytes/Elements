@@ -32,7 +32,7 @@ namespace Elements.Models
         public ColorState()
         {
             _disabled = Color.FromArgb(220, 220, 220);
-            _enabled = Color.FromArgb(241, 244, 249);
+            _enabled = Color.FromArgb(220, 220, 220);
         }
 
         /// <summary>

@@ -1,6 +1,7 @@
 ﻿using Elements.Base;
 using Elements.Constants;
 using Elements.Enumerators;
+using Elements.Events;
 using Elements.Models;
 using Elements.Renders;
 using Elements.Utilities;
@@ -42,22 +43,13 @@ namespace Elements.Controls.Button
         {
             Size = new Size(140, 45);
             _border = new Border();
-            _backColorState = new ControlColorState
-            {
-                Hover = Color.FromArgb(180, 180, 180),
-                Pressed = Color.FromArgb(180, 180, 180)
-            };
+            _backColorState = new ControlColorState();
 
             dialogResult = DialogResult.None;
             _textImageRelation = TextImageRelation.Overlay;
             _imageLayout = ElementImageLayout.Stretch;
 
-            _textStyle = new TextStyle(
-                new ControlColorState(
-                    Color.FromArgb(131, 129, 129),
-                    Color.FromArgb(0, 0, 0),
-                    Color.White,
-                    Color.White));
+            _textStyle = new TextStyle();
         }
 
         /// <summary>
@@ -294,6 +286,17 @@ namespace Elements.Controls.Button
             AccessibilityNotifyClients(AccessibleEvents.NameChange, -1);
 
             base.OnClick(e);
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MouseDown"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
+            base.OnMouseDown(e);
+            OnMouseStateChanged(this, new MouseStateEventArgs(MouseStates.Pressed));
+            Invalidate();
         }
 
         /// <summary>
