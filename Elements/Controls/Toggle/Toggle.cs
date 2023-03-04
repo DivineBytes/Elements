@@ -223,7 +223,7 @@ namespace Elements.Controls.Toggle
             Rectangle _clientRectangle = new Rectangle(ClientRectangle.X, ClientRectangle.Y, ClientRectangle.Width - 1, ClientRectangle.Height - 1);
             GraphicsPath controlGraphicsPath = Border.CreatePath(_border, _clientRectangle);
 
-            Color _backColor = Enabled ? _colorState.Enabled : _colorState.Disabled;
+            Color _backColor = ColorState.GetColorState(_colorState, Enabled, MouseState);
 
             // Adjust the toggle state location
             Point _startPoint = new Point(0 + 2, (_clientRectangle.Height / 2) - (_button.Height / 2));
