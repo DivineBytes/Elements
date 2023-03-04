@@ -6,28 +6,28 @@ namespace Elements.Controls.TextBox
 {
     internal class TextBoxActionList : DesignerActionList
     {
-        private TextBox _control;
+        private TextBoxExtended _control;
         private DesignerActionUIService _designerService;
 
         public TextBoxActionList(IComponent component) : base(component)
         {
-            _control = (TextBox)component;
+            _control = (TextBoxExtended)component;
             _designerService = (DesignerActionUIService)GetService(typeof(DesignerActionUIService));
         }
 
         [Category("Behaviour")]
         [Description("Gets or sets a value indicating whether this is a multiline TextBox control.")]
         [DefaultValue(false)]
-        public virtual bool Multiline
+        public virtual bool MultiLine
         {
             get
             {
-                return _control.Multiline;
+                return _control.MultiLine;
             }
 
             set
             {
-                _control.Multiline = value;
+                _control.MultiLine = value;
                 _control.Invalidate();
             }
         }
@@ -51,7 +51,7 @@ namespace Elements.Controls.TextBox
         {
             DesignerActionItemCollection items = new DesignerActionItemCollection
             {
-                new DesignerActionPropertyItem("Multiline", "MultiLine"),
+                new DesignerActionPropertyItem("MultiLine", "MultiLine"),
                 new DesignerActionPropertyItem("Text", "Edit Text:")
             };
 

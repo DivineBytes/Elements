@@ -82,6 +82,9 @@
     <Compile Include="Controls\Rating\Rating.cs" />
     <Compile Include="Controls\Rating\StarGenerator.cs" />
     <Compile Include="Controls\Rating\StarType.cs" />
+    <Compile Include="Controls\TextBox\TextBoxEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\Tile\Tile.cs" />
     <Compile Include="Controls\Tile\TileDesigner.cs" />
     <Compile Include="Controls\Tile\TileType.cs" />
@@ -138,9 +141,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\TabControl\ThemedColors.cs" />
-    <Compile Include="Controls\TextBox\TextBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Controls\TextBox\TextBoxExtended.cs" />
     <Compile Include="Controls\TextBox\TextBoxActionList.cs" />
     <Compile Include="Controls\TextBox\TextBoxDesigner.cs" />
     <Compile Include="Designer\BaseComponentDesigner.cs" />
@@ -184,11 +185,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Renders\BackgroundRender.cs" />
     <Compile Include="Renders\ImageRender.cs" />
     <Compile Include="Renders\TextRender.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TypeConverters\ColorStateTypeConverter.cs" />
     <Compile Include="TypeConverters\SettingsTypeConverter.cs" />
     <Compile Include="Utilities\ColorUtilities.cs" />
     <Compile Include="Utilities\ControlUtilities.cs" />

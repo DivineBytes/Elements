@@ -7,18 +7,17 @@ using System.Windows.Forms;
 namespace Elements.Controls.TextBox
 {
     /// <summary>
-    /// The <see cref="TextBox"/> class.
+    /// The <see cref="TextBoxEx"/> class.
     /// </summary>
     /// <seealso cref="System.Windows.Forms.TextBox"/>
+    [Browsable(false)]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [DefaultEvent("TextChanged")]
     [DefaultProperty("Text")]
     [Description("The TextBox")]
-    [Designer(typeof(TextBoxDesigner))]
-    [ToolboxBitmap(typeof(TextBox), "TextBox.bmp")]
-    [ToolboxItem(true)]
-    public class TextBox : System.Windows.Forms.TextBox
+    [ToolboxItem(false)]
+    public class TextBoxEx : System.Windows.Forms.TextBox
     {
         private const int WM_KILLFOCUS = 0x0008;
         private const int WM_PAINT = 0x000F;
@@ -26,9 +25,9 @@ namespace Elements.Controls.TextBox
         private Watermark _watermark;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TextBox"/> class.
+        /// Initializes a new instance of the <see cref="TextBoxEx"/> class.
         /// </summary>
-        public TextBox()
+        public TextBoxEx()
         {
             _watermark = new Watermark();
         }

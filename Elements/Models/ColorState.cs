@@ -20,7 +20,7 @@ namespace Elements.Models
     [Description("The color states of a component.")]
     [DesignerCategory("code")]
     [ToolboxItem(false)]
-    [TypeConverter(typeof(ColorStateTypeConverter))]
+    [TypeConverter(typeof(SettingsTypeConverter))]
     public class ColorState
     {
         private Color _disabled;
@@ -31,8 +31,8 @@ namespace Elements.Models
         /// </summary>
         public ColorState()
         {
-            _disabled = Color.FromArgb(255, 255, 255);
-            _enabled = Color.FromArgb(255, 255, 255);
+            _disabled = Color.FromArgb(220, 220, 220);
+            _enabled = Color.FromArgb(241, 244, 249);
         }
 
         /// <summary>

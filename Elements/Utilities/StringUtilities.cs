@@ -42,6 +42,15 @@ namespace Elements.Utilities
             return orientedStringFormat;
         }
 
+        /// <summary>Measures the specified string when draw with the specified font.</summary>
+        /// <param name="text">The text to measure.</param>
+        /// <param name="font">The font to apply to the measured text.</param>
+        /// <returns>The <see cref="Size" />.</returns>
+        public static Size MeasureText(string text, Font font)
+        {
+            return TextRenderer.MeasureText(text, font);
+        }
+
         /// <summary>
         /// Measures the specified string when draw with the specified font.
         /// </summary>
@@ -97,6 +106,19 @@ namespace Elements.Utilities
                 newText.Append(text[i]);
             }
             return newText.ToString();
+        }
+
+        /// <summary>Removes the line breaks and new lines from the text.</summary>
+        /// <param name="text">The text.</param>
+        /// <returns>The <see cref="string" />.</returns>
+        public static string RemoveLineBreaks(string text)
+        {
+            if (string.IsNullOrEmpty(text))
+            {
+                return string.Empty;
+            }
+
+            return text.Replace(Environment.NewLine, " ");
         }
 
         /// <summary>
