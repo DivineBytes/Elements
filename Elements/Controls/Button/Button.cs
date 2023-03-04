@@ -296,7 +296,6 @@ namespace Elements.Controls.Button
         {
             base.OnMouseDown(e);
             OnMouseStateChanged(this, new MouseStateEventArgs(MouseStates.Pressed));
-            Invalidate();
         }
 
         /// <summary>
