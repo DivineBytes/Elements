@@ -162,6 +162,26 @@ namespace Elements.Controls.Toggle
         }
 
         /// <summary>
+        /// Gets or sets the toggle options.
+        /// </summary>
+        /// <value>
+        /// The toggle options.
+        /// </value>
+        public ToggleOptions ToggleOptions
+        {
+            get
+            {
+                return _toggleOptions;
+            }
+
+            set
+            {
+                _toggleOptions = value;
+                Invalidate();
+            }
+        }
+
+        /// <summary>
         /// Raises the <see cref="E:HandleCreated" /> event.
         /// </summary>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>

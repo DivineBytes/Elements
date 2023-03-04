@@ -1,10 +1,16 @@
-﻿using System;
+﻿using Elements.Constants;
+using Elements.TypeConverters;
+using System;
+using System.ComponentModel;
 
 namespace Elements.Controls.Toggle
 {
     /// <summary>
     /// The <see cref="ToggleOptions"/> class.
     /// </summary>
+    [Category(PropertyCategory.Behavior)]
+    [Description("The toggle options.")]
+    [TypeConverter(typeof(SettingsTypeConverter))]
     public class ToggleOptions
     {
         /// <summary>
