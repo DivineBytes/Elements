@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Elements.Controls.ProgressIndicator
 {
-    internal class ProgressIndicatorDesigner : BaseControlDesigner
+    internal class ProgressIndicatorDesigner : ControlDesignerBase
     {
         protected override void PreFilterProperties(IDictionary properties)
         {

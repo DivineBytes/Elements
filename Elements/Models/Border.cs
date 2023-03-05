@@ -74,6 +74,8 @@ namespace Elements.Models
         /// Gets or sets the state of the color.
         /// </summary>
         /// <value>The state of the color.</value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        //[EditorBrowsable(EditorBrowsableState.Always)]
         public HoverColorState ColorState
         {
             get

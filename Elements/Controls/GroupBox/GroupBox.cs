@@ -407,7 +407,7 @@ namespace Elements.Controls.GroupBox
 
             if (_image != null)
             {
-                GraphicsUtilities.DrawContent(e.Graphics, _titleBoxRectangle, Text, Font, ForeColor, _image, _image.Size, _textImageRelation);
+                ControlRender.RenderContent(e.Graphics, _titleBoxRectangle, Text, Font, ForeColor, _image, _image.Size, _textImageRelation);
             }
             else
             {

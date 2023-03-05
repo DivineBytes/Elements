@@ -27,11 +27,17 @@ namespace Elements.Controls.TextBox
     [ToolboxItem(true)]
     public class TextBoxExtended : ContainedControlBase
     {
+        #region Private Fields
+
         private const int InternalTextBoxMargin = 10;
 
         private Border _border;
         private ColorState _colorState;
         private TextBoxEx _textBox;
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TextBoxExtended"/> class.
@@ -75,6 +81,10 @@ namespace Elements.Controls.TextBox
 
             Controls.Add(_textBox);
         }
+
+        #endregion Public Constructors
+
+        #region Public Events
 
         /// <summary>
         /// Occurs when [key down].
@@ -171,6 +181,10 @@ namespace Elements.Controls.TextBox
             }
         }
 
+        #endregion Public Events
+
+        #region Public Properties
+
         /// <summary>
         /// Gets or sets the automatic complete custom source.
         /// </summary>
@@ -244,7 +258,7 @@ namespace Elements.Controls.TextBox
         /// </summary>
         /// <value>The border.</value>
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        [EditorBrowsable(EditorBrowsableState.Always)]
+        //[EditorBrowsable(EditorBrowsableState.Always)]
         public virtual Border Border
         {
             get
@@ -264,6 +278,7 @@ namespace Elements.Controls.TextBox
         /// </summary>
         /// <value>The state of the color.</value>
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [EditorBrowsable(EditorBrowsableState.Always)]
         public virtual ColorState ColorState
         {
             get
@@ -443,27 +458,6 @@ namespace Elements.Controls.TextBox
         }
 
         /// <summary>
-        /// Gets or sets the text box ex.
-        /// </summary>
-        /// <value>The text box ex.</value>
-        [Browsable(false)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        [EditorBrowsable(EditorBrowsableState.Always)]
-        public virtual TextBoxEx TextBox
-        {
-            get
-            {
-                return _textBox;
-            }
-
-            set
-            {
-                _textBox = value;
-                Invalidate();
-            }
-        }
-
-        /// <summary>
         /// Gets or sets the text align.
         /// </summary>
         /// <value>The text align.</value>
@@ -485,6 +479,26 @@ namespace Elements.Controls.TextBox
             }
         }
 
+        /// <summary>
+        /// Gets or sets the text box ex.
+        /// </summary>
+        /// <value>The text box ex.</value>
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        public virtual TextBoxEx TextBox
+        {
+            get
+            {
+                return _textBox;
+            }
+
+            set
+            {
+                _textBox = value;
+                Invalidate();
+            }
+        }
         /// <summary>
         /// Gets the length of text in the control.
         /// </summary>
@@ -563,89 +577,9 @@ namespace Elements.Controls.TextBox
             }
         }
 
-        /// <summary>
-        /// Creates the handle.
-        /// </summary>
-        protected override void CreateHandle()
-        {
-            base.CreateHandle();
-            AutoSize = true;
-        }
+        #endregion Public Properties
 
-        /// <summary>
-        /// Raises the <see cref="E:Paint"/> event.
-        /// </summary>
-        /// <param name="e">The <see cref="PaintEventArgs"/> instance containing the event data.</param>
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            base.OnPaint(e);
-
-            Graphics graphics = e.Graphics;
-            Rectangle _clientRectangle = new Rectangle(ClientRectangle.X, ClientRectangle.Y, ClientRectangle.Width - 1, ClientRectangle.Height - 1);
-            System.Drawing.Drawing2D.GraphicsPath controlGraphicsPath = Border.CreatePath(_border, _clientRectangle);
-
-            Color _backColor = Enabled ? _colorState.Enabled : _colorState.Disabled;
-            _textBox.BackColor = _backColor;
-
-            graphics.SetClip(controlGraphicsPath);
-
-            ImageRender.Render(graphics, _backColor, BackgroundImage, _clientRectangle, _border);
-
-            graphics.ResetClip();
-
-            Border.Render(e.Graphics, _border, MouseState, controlGraphicsPath);
-        }
-
-        /// <summary>
-        /// Raises the <see cref="E:GotFocus"/> event.
-        /// </summary>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        protected override void OnGotFocus(EventArgs e)
-        {
-            base.OnGotFocus(e);
-            _textBox.Focus();
-        }
-
-        /// <summary>
-        /// Raises the <see cref="E:MouseLeave"/> event.
-        /// </summary>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        protected override void OnMouseLeave(EventArgs e)
-        {
-            base.OnMouseLeave(e);
-
-            if (!_textBox.Focused)
-            {
-                OnMouseStateChanged(this, new Events.MouseStateEventArgs(MouseStates.Normal));
-                Invalidate();
-            }
-        }
-
-        /// <summary>
-        /// Raises the <see cref="E:Resize"/> event.
-        /// </summary>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        protected override void OnResize(EventArgs e)
-        {
-            base.OnResize(e);
-
-            if (_textBox != null)
-            {
-                if (_textBox.Multiline)
-                {
-                    _textBox.Location = GetInternalControlLocation(_border);
-                    _textBox.Size = GetInternalControlSize(Size, _border);
-                }
-                else
-                {
-                    _textBox.Height = GetTextBoxHeight();
-                    _textBox.Width = Width - _border.Thickness - InternalTextBoxMargin;
-                    Size = new Size(Width, _border.BorderCurve + _textBox.Height + _border.BorderCurve);
-                }
-            }
-
-            Invalidate();
-        }
+        #region Public Methods
 
         /// <summary>
         /// Appends text to the current text of a rich text box.
@@ -801,6 +735,97 @@ namespace Elements.Controls.TextBox
             _textBox.Undo();
         }
 
+        #endregion Public Methods
+
+        #region Protected Methods
+
+        /// <summary>
+        /// Creates the handle.
+        /// </summary>
+        protected override void CreateHandle()
+        {
+            base.CreateHandle();
+            AutoSize = true;
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:GotFocus"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        protected override void OnGotFocus(EventArgs e)
+        {
+            base.OnGotFocus(e);
+            _textBox.Focus();
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MouseLeave"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        protected override void OnMouseLeave(EventArgs e)
+        {
+            base.OnMouseLeave(e);
+
+            if (!_textBox.Focused)
+            {
+                OnMouseStateChanged(this, new Events.MouseStateEventArgs(MouseStates.Normal));
+                Invalidate();
+            }
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:Paint"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="PaintEventArgs"/> instance containing the event data.</param>
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+
+            Graphics graphics = e.Graphics;
+            Rectangle _clientRectangle = new Rectangle(ClientRectangle.X, ClientRectangle.Y, ClientRectangle.Width - 1, ClientRectangle.Height - 1);
+            System.Drawing.Drawing2D.GraphicsPath controlGraphicsPath = Border.CreatePath(_border, _clientRectangle);
+
+            Color _backColor = Enabled ? _colorState.Enabled : _colorState.Disabled;
+            _textBox.BackColor = _backColor;
+
+            graphics.SetClip(controlGraphicsPath);
+
+            ImageRender.Render(graphics, _backColor, BackgroundImage, _clientRectangle, _border);
+
+            graphics.ResetClip();
+
+            Border.Render(e.Graphics, _border, MouseState, controlGraphicsPath);
+        }
+        /// <summary>
+        /// Raises the <see cref="E:Resize"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+
+            if (_textBox != null)
+            {
+                if (_textBox.Multiline)
+                {
+                    _textBox.Location = GetInternalControlLocation(_border);
+                    _textBox.Size = GetInternalControlSize(Size, _border);
+                }
+                else
+                {
+                    _textBox.Height = GetTextBoxHeight();
+                    _textBox.Width = Width - _border.Thickness - InternalTextBoxMargin;
+                    Size = new Size(Width, _border.BorderCurve + _textBox.Height + _border.BorderCurve);
+                }
+            }
+
+            Invalidate();
+        }
+
+        #endregion Protected Methods
+
+        #region Private Methods
+
         /// <summary>
         /// Gets the height of the text box.
         /// </summary>
@@ -818,6 +843,17 @@ namespace Elements.Controls.TextBox
         }
 
         /// <summary>
+        /// Called when [enter].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnEnter(object sender, EventArgs e)
+        {
+            OnMouseStateChanged(this, new Events.MouseStateEventArgs(MouseStates.Hover));
+            Invalidate();
+        }
+
+        /// <summary>
         /// Called when [leave].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -830,18 +866,6 @@ namespace Elements.Controls.TextBox
                 Invalidate();
             }
         }
-
-        /// <summary>
-        /// Called when [enter].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnEnter(object sender, EventArgs e)
-        {
-            OnMouseStateChanged(this, new Events.MouseStateEventArgs(MouseStates.Hover));
-            Invalidate();
-        }
-
         /// <summary>
         /// Handles the KeyDown event of the TextBox control.
         /// </summary>
@@ -877,5 +901,7 @@ namespace Elements.Controls.TextBox
                 e.SuppressKeyPress = true;
             }
         }
+
+        #endregion Private Methods
     }
 }

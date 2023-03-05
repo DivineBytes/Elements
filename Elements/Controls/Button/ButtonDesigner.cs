@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Elements.Controls.Button
 {
-    internal class ButtonDesigner : BaseControlDesigner
+    internal class ButtonDesigner : ControlDesignerBase
     {
         protected override void PreFilterProperties(IDictionary properties)
         {

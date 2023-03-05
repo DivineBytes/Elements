@@ -15,7 +15,7 @@ namespace Elements.Utilities
         /// <returns>The <see cref="int"/>.</returns>
         public static int GetHalfRadianAngle(int value)
         {
-            return int.Parse(Math.Round((value * 180.0) / 100.0, 0).ToString(CultureInfo.CurrentCulture));
+            return int.Parse(Math.Round(value * 180.0 / 100.0, 0).ToString(CultureInfo.CurrentCulture));
         }
     }
 }

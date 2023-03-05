@@ -347,7 +347,7 @@ namespace Elements.Controls.RadialProgress
             {
                 progressPen.StartCap = _lineCap;
                 progressPen.EndCap = _lineCap;
-                graphics.DrawArc(progressPen, _progressSize + 2, _progressSize + 2, Width - (_progressSize * 2), Height - (_progressSize * 2), -90, (int)Math.Round((360.0 / Maximum) * Value));
+                graphics.DrawArc(progressPen, _progressSize + 2, _progressSize + 2, Width - (_progressSize * 2), Height - (_progressSize * 2), -90, (int)Math.Round(360.0 / Maximum * Value));
             }
 
             if (_foreCircleVisible)

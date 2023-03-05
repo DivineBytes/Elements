@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Elements.Controls.Separator
 {
-    internal class SeparatorDesigner : BaseControlDesigner
+    internal class SeparatorDesigner : ControlDesignerBase
     {
         protected override void PreFilterProperties(IDictionary properties)
         {

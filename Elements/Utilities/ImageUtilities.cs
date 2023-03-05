@@ -27,10 +27,10 @@ namespace Elements.Utilities
 
             for (int i = 0; i < _bitmap.Width; i++)
             {
-                Color _xColor = ColorUtilities.TransitionColor(int.Parse(Math.Round((i / (double)_bitmap.Width) * 100.0, 0).ToString(CultureInfo.CurrentCulture)), topLeft, topRight);
+                Color _xColor = ColorUtilities.TransitionColor(int.Parse(Math.Round(i / (double)_bitmap.Width * 100.0, 0).ToString(CultureInfo.CurrentCulture)), topLeft, topRight);
                 for (int j = 0; j < _bitmap.Height; j++)
                 {
-                    Color _yColor = ColorUtilities.TransitionColor(int.Parse(Math.Round((j / (double)_bitmap.Height) * 100.0, 0).ToString(CultureInfo.CurrentCulture)), bottomLeft, bottomRight);
+                    Color _yColor = ColorUtilities.TransitionColor(int.Parse(Math.Round(j / (double)_bitmap.Height * 100.0, 0).ToString(CultureInfo.CurrentCulture)), bottomLeft, bottomRight);
                     _bitmap.SetPixel(i, j, ColorUtilities.InsertColor(_xColor, _yColor));
                 }
             }

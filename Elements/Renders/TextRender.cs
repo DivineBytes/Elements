@@ -64,7 +64,7 @@ namespace Elements.Renders
         /// <param name="textStyle">The text Style.</param>
         public static void Render(Graphics graphics, Rectangle clientRectangle, string text, Font font, bool enabled, MouseStates mouseState, TextStyle textStyle)
         {
-            Color _textColor = TextStyle.GetColorState(enabled, mouseState, textStyle);
+            Color _textColor = TextStyle.GetColorState(textStyle, enabled, mouseState);
             Render(graphics, clientRectangle, text, font, _textColor, textStyle.StringFormat);
         }
     }

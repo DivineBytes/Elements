@@ -228,17 +228,17 @@ namespace Elements.Models
         /// <returns>The <see cref="Color"/>.</returns>
         public Color GetColorState(bool enabled, MouseStates state)
         {
-            return GetColorState(enabled, state, this);
+            return GetColorState(this, enabled, state);
         }
 
         /// <summary>
         /// Retrieves the color state.
         /// </summary>
+        /// <param name="textStyle">The text style.&gt;</param>
         /// <param name="enabled">The enabled state.</param>
         /// <param name="mouseState">The mouse state.</param>
-        /// <param name="textStyle">The text style.&gt;</param>
         /// <returns>The <see cref="Color"/>.</returns>
-        public static Color GetColorState(bool enabled, MouseStates mouseState, TextStyle textStyle)
+        public static Color GetColorState(TextStyle textStyle, bool enabled, MouseStates mouseState)
         {
             Color _textColor = Color.Empty;
 

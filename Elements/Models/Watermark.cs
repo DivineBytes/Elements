@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace Elements.Models
 {
@@ -16,12 +17,15 @@ namespace Elements.Models
     [TypeConverter(typeof(SettingsTypeConverter))]
     public class Watermark
     {
-        private const int WM_KILLFOCUS = 0x0008;
-        private const int WM_PAINT = 0x000F;
+        #region Private Fields
 
         private Color _color;
         private Font _font;
         private string _text;
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Watermark"/> class.
@@ -45,6 +49,10 @@ namespace Elements.Models
             _font = font;
             _text = text;
         }
+
+        #endregion Public Constructors
+
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the color.
@@ -82,33 +90,28 @@ namespace Elements.Models
             }
         }
 
-        /// <summary>
-        /// Draws the Watermark Text in the client area of the <see
-        /// cref="System.Windows.Forms.TextBox"/> using the default font and color.
-        /// </summary>
-        /// <param name="graphics">The graphics.</param>
-        /// <param name="control">The control.</param>
-        public void Render(Graphics graphics, TextBox control)
-        {
-            Render(graphics, control, this);
-        }
+        #endregion Public Properties
+
+        #region Public Methods
 
         /// <summary>
-        /// Draws the Watermark Text in the client area of the <see
-        /// cref="System.Windows.Forms.TextBox"/> using the default font and color.
+        /// Draws the Watermark Text in the client area of the <see cref="System.Windows.Forms.Control" /> using the default font and color.
         /// </summary>
         /// <param name="graphics">The graphics.</param>
-        /// <param name="control">The control.</param>
+        /// <param name="backColor">Color of the back.</param>
+        /// <param name="rectangle">The rectangle.</param>
+        /// <param name="horizontalAlignment">The horizontal alignment.</param>
+        /// <param name="verticalAlignment">The vertical alignment.</param>
+        /// <param name="rightToLeft">The right to left.</param>
         /// <param name="watermark">The watermark.</param>
-        public static void Render(Graphics graphics, TextBox control, Watermark watermark)
+        public static void Render(Graphics graphics, Color backColor, Rectangle rectangle, HorizontalAlignment horizontalAlignment, VerticalAlignment verticalAlignment, RightToLeft rightToLeft, Watermark watermark)
         {
             TextFormatFlags flags = TextFormatFlags.NoPadding | TextFormatFlags.Top | TextFormatFlags.EndEllipsis;
-            Rectangle rectangle = control.ClientRectangle;
 
-            if (control.RightToLeft == RightToLeft.Yes)
+            if (rightToLeft == RightToLeft.Yes)
             {
                 flags |= TextFormatFlags.RightToLeft;
-                switch (control.TextAlign)
+                switch (horizontalAlignment)
                 {
                     case HorizontalAlignment.Center:
                         flags |= TextFormatFlags.HorizontalCenter;
@@ -129,7 +132,7 @@ namespace Elements.Models
             else
             {
                 flags &= ~TextFormatFlags.RightToLeft;
-                switch (control.TextAlign)
+                switch (horizontalAlignment)
                 {
                     case HorizontalAlignment.Center:
                         flags |= TextFormatFlags.HorizontalCenter;
@@ -148,7 +151,36 @@ namespace Elements.Models
                 }
             }
 
-            TextRenderer.DrawText(graphics, watermark.Text, watermark.Font, rectangle, watermark.Color, control.BackColor, flags);
+            switch (verticalAlignment)
+            {
+                case VerticalAlignment.Top:
+                    flags |= TextFormatFlags.Top;
+                    break;
+                case VerticalAlignment.Center:
+                    flags |= TextFormatFlags.VerticalCenter;
+                    break;
+                case VerticalAlignment.Bottom:
+                    flags |= TextFormatFlags.Bottom;
+                    break;
+            }
+
+            TextRenderer.DrawText(graphics, watermark.Text, watermark.Font, rectangle, watermark.Color, backColor, flags);
         }
+
+        /// <summary>
+        /// Draws the Watermark Text in the client area of the <see cref="System.Windows.Forms.Control" /> using the default font and color.
+        /// </summary>
+        /// <param name="graphics">The graphics.</param>
+        /// <param name="backColor">Color of the back.</param>
+        /// <param name="rectangle">The rectangle.</param>
+        /// <param name="horizontalAlignment">The horizontal alignment.</param>
+        /// <param name="verticalAlignment">The vertical alignment.</param>
+        /// <param name="rightToLeft">The right to left.</param>
+        public void Render(Graphics graphics, Color backColor, Rectangle rectangle, HorizontalAlignment horizontalAlignment, VerticalAlignment verticalAlignment, RightToLeft rightToLeft)
+        {
+            Render(graphics, backColor, rectangle, horizontalAlignment, verticalAlignment, rightToLeft, this);
+        }
+
+        #endregion Public Methods
     }
 }

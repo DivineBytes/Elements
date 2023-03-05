@@ -4,7 +4,7 @@ using System.ComponentModel.Design;
 
 namespace Elements.Designer
 {
-    internal class BaseComponentDesigner : ComponentDesigner
+    internal class ComponentDesignerBase : ComponentDesigner
     {
         protected override void PreFilterProperties(IDictionary properties)
         {

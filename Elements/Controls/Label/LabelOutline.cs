@@ -64,7 +64,7 @@ namespace Elements.Controls.Label
                             text,
                             font.FontFamily,
                             (int)font.Style,
-                            (graphics.DpiY * font.SizeInPoints) / 72,
+                            graphics.DpiY * font.SizeInPoints / 72,
                             labelOutline.Location,
                             new StringFormat());
 
@@ -77,7 +77,7 @@ namespace Elements.Controls.Label
                             text,
                             font.FontFamily,
                             (int)font.Style,
-                            (graphics.DpiY * font.SizeInPoints) / 72,
+                            graphics.DpiY * font.SizeInPoints / 72,
                             labelOutline.Location,
                             new StringFormat(StringFormatFlags.DirectionVertical));
 

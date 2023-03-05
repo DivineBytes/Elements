@@ -338,7 +338,7 @@ namespace Elements.Controls.Button
             if (_image != null)
             {
                 Color _textColor = Enabled ? ForeColor : TextStyle.Disabled;
-                GraphicsUtilities.DrawContent(e.Graphics, ClientRectangle, Text, Font, _textColor, _image, _image.Size, _textImageRelation);
+                ControlRender.RenderContent(e.Graphics, ClientRectangle, Text, Font, _textColor, _image, _image.Size, _textImageRelation);
             }
             else
             {

@@ -52,13 +52,9 @@ namespace Elements.Controls.Tile
             _backgroundLayout = ElementImageLayout.Stretch;
             _imageLayout = ElementImageLayout.Stretch;
 
-            _backColorState = new ControlColorState(
-                Color.FromArgb(253, 253, 253),
-                Color.FromArgb(253, 253, 253),
-                Color.FromArgb(180, 180, 180),
-                Color.FromArgb(180, 180, 180));
+            _backColorState = new ControlColorState();
 
-            _image = Resources.Logo;
+            _image = null;
             _offset = new Point(0, 0);
             _tileType = TileType.Text;
             _textStyle = new TextStyle();

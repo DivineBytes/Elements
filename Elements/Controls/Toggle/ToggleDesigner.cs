@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Elements.Controls.Toggle
 {
-    internal class ToggleDesigner : BaseControlDesigner
+    internal class ToggleDesigner : ControlDesignerBase
     {
         protected override void PreFilterProperties(IDictionary properties)
         {

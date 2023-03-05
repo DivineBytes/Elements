@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Elements.Controls.Gauge
 {
-    internal class GaugeDesigner : BaseControlDesigner
+    internal class GaugeDesigner : ControlDesignerBase
     {
         protected override void PreFilterProperties(IDictionary properties)
         {

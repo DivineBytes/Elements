@@ -109,7 +109,7 @@ namespace Elements.Renders
 
                 case ElementImageLayout.Center:
                     {
-                        RenderCenteredFit(graphics, clientRectangle, image);
+                        RenderCentered(graphics, clientRectangle, image);
                         break;
                     }
 
@@ -140,7 +140,7 @@ namespace Elements.Renders
         /// <param name="offset">The location offset.</param>
         public static void RenderCentered(Graphics graphics, Rectangle clientRectangle, Image image, Point offset = new Point())
         {
-            Point _location = new Point(((clientRectangle.Width / 2) - (image.Width / 2)) + offset.X, ((clientRectangle.Height / 2) - (image.Height / 2)) + offset.Y);
+            Point _location = new Point((clientRectangle.Width / 2) - (image.Width / 2) + offset.X, (clientRectangle.Height / 2) - (image.Height / 2) + offset.Y);
             graphics.DrawImage(image, _location);
         }
 

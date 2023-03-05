@@ -4,7 +4,7 @@ using System.Windows.Forms.Design;
 
 namespace Elements.Controls.GroupBox
 {
-    internal class GroupBoxDesigner : BaseParentControlDesigner
+    internal class GroupBoxDesigner : ParentControlDesignerBase
     {
         protected override void PreFilterProperties(IDictionary properties)
         {

@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Elements.Controls.Tile
 {
-    internal class TileDesigner : BaseControlDesigner
+    internal class TileDesigner : ControlDesignerBase
     {
         protected override void PreFilterProperties(IDictionary properties)
         {

@@ -1,4 +1,5 @@
-﻿using Elements.Utilities;
+﻿using Elements.Test.Properties;
+using Elements.Utilities;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -17,9 +18,8 @@ namespace Elements.Test
         public Main()
         {
             InitializeComponent();
-            
-            // Insert test code below...
 
+            // Insert test code below...
 
         }
 

@@ -63,7 +63,7 @@ namespace Elements.Controls.TextBox
             if (ShouldRenderPlaceHolderText(m))
             {
                 Graphics g = CreateGraphics();
-                _watermark.Render(g, this);
+                _watermark.Render(g, BackColor, ClientRectangle, TextAlign, System.Windows.Forms.VisualStyles.VerticalAlignment.Center, RightToLeft);
             }
         }
 

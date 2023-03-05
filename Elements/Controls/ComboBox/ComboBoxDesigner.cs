@@ -1,10 +1,10 @@
-﻿using Elements.Designer;
+﻿using Elements.Controls.TextBox;
 using System.Collections;
 using System.ComponentModel.Design;
 
-namespace Elements.Controls.TextBox
+namespace Elements.Controls.ComboBox
 {
-    internal class TextBoxDesigner : ControlDesignerBase
+    internal class ComboBoxDesigner : Designer.ControlDesignerBase
     {
         private DesignerActionListCollection _actionListCollection;
 
@@ -17,7 +17,7 @@ namespace Elements.Controls.TextBox
             {
                 if (_actionListCollection == null)
                 {
-                    _actionListCollection = new DesignerActionListCollection { new TextBoxActionList(Component) };
+                    _actionListCollection = new DesignerActionListCollection { new ComboBoxActionList(Component) };
                 }
 
                 return _actionListCollection;
@@ -26,7 +26,7 @@ namespace Elements.Controls.TextBox
 
         protected override void PreFilterProperties(IDictionary properties)
         {
-            //properties.Remove("ImeMode");
+            // properties.Remove("Text");
 
             base.PreFilterProperties(properties);
         }

@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Elements.Components.Gradient
 {
-    internal class GradientDesigner : BaseComponentDesigner
+    internal class GradientDesigner : ComponentDesignerBase
     {
         protected override void PreFilterProperties(IDictionary properties)
         {

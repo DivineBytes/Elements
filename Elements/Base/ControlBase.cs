@@ -124,7 +124,6 @@ namespace Elements.Base
             OnMouseStateChanged(this, new MouseStateEventArgs(MouseStates.Hover));
         }
 
-
         /// <summary>
         /// Raises the <see cref="E:MouseLeave" /> event.
         /// </summary>
@@ -132,7 +131,7 @@ namespace Elements.Base
         protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
-            OnMouseStateChanged(this, new Events.MouseStateEventArgs(MouseStates.Normal));
+            OnMouseStateChanged(this, new MouseStateEventArgs(MouseStates.Normal));
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Elements.Controls.Label
 {
-    internal class LabelDesigner : BaseControlDesigner
+    internal class LabelDesigner : ControlDesignerBase
     {
         protected override void PreFilterProperties(IDictionary properties)
         {

@@ -13,6 +13,7 @@ namespace Elements.Controls.Separator
     /// The <see cref="Separator" /> class.
     /// </summary>
     /// <seealso cref="Elements.Base.ControlBase" />
+    [Category(Constants.PropertyCategory.Appearance)]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [DefaultEvent("Click")]

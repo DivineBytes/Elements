@@ -325,7 +325,7 @@ namespace Elements.Controls.ProgressIndicator
         /// <param name="angle">The angle.</param>
         private void SetValue(PointF startFloatPoint, int length, double angle)
         {
-            double circleRadian = (Math.PI * angle) / 180.0;
+            double circleRadian = Math.PI * angle / 180.0;
 
             startingFloatPoint = startFloatPoint;
             rise = AssignValues(ref run, length);

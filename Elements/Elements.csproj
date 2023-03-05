@@ -66,6 +66,14 @@
     <Compile Include="Constants\EventCategory.cs" />
     <Compile Include="Controls\Button\Button.cs" />
     <Compile Include="Controls\Button\ButtonDesigner.cs" />
+    <Compile Include="Controls\ComboBox\ComboBoxButton.cs" />
+    <Compile Include="Controls\ComboBox\ComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ComboBox\ComboBoxButtonStyles.cs" />
+    <Compile Include="Controls\ComboBox\ComboBoxDesigner.cs" />
+    <Compile Include="Controls\ComboBox\ComboBoxSeparator.cs" />
+    <Compile Include="Controls\ComboBox\ComboBoxActionList.cs" />
     <Compile Include="Controls\Gauge\GaugeDesigner.cs" />
     <Compile Include="Controls\GroupBox\GroupBoxDesigner.cs" />
     <Compile Include="Controls\GroupBox\GroupBox.cs" />
@@ -92,12 +100,15 @@
     <Compile Include="Controls\Toggle\ToggleDesigner.cs" />
     <Compile Include="Controls\Toggle\ToggleOptions.cs" />
     <Compile Include="Controls\Toggle\ToggleTypes.cs" />
+    <Compile Include="Enumerators\Vertical.cs" />
     <Compile Include="Events\ToggleEventArgs.cs" />
+    <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="Models\Watermark.cs">
       <SubType>Elements</SubType>
     </Compile>
+    <Compile Include="Renders\ControlRender.cs" />
     <Compile Include="Utilities\DesignerUtilities.cs" />
-    <Compile Include="Designer\BaseParentControlDesigner.cs" />
+    <Compile Include="Designer\ParentControlDesignerBase.cs" />
     <Compile Include="Enumerators\ImageTextRelation.cs" />
     <Compile Include="Enumerators\TileShape.cs" />
     <Compile Include="Delegates\ControlDelegates.cs" />
@@ -149,8 +160,8 @@
     <Compile Include="Controls\TextBox\TextBoxExtended.cs" />
     <Compile Include="Controls\TextBox\TextBoxActionList.cs" />
     <Compile Include="Controls\TextBox\TextBoxDesigner.cs" />
-    <Compile Include="Designer\BaseComponentDesigner.cs" />
-    <Compile Include="Designer\BaseControlDesigner.cs" />
+    <Compile Include="Designer\ComponentDesignerBase.cs" />
+    <Compile Include="Designer\ControlDesignerBase.cs" />
     <Compile Include="Dialogs\IconPicker\IconPickerDialog.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -216,9 +227,6 @@
     <EmbeddedResource Include="Resources\Icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Logo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -244,6 +252,13 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Controls\Toggle\Toggle.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\ComboBox\ComboBox.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Logo16.png" />
+    <EmbeddedResource Include="Resources\Logo512.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

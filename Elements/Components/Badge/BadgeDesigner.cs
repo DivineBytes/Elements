@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Elements.Components.Gradient
 {
-    internal class BadgeDesigner : BaseComponentDesigner
+    internal class BadgeDesigner : ComponentDesignerBase
     {
         protected override void PreFilterProperties(IDictionary properties)
         {

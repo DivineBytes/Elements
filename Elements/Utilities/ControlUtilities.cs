@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace Mycelial.Forms.Utilities
+namespace Elements.Utilities
 {
     /// <summary>
     ///     The <see cref="ControlUtilities" /> class.

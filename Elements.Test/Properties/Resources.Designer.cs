@@ -63,9 +63,9 @@ namespace Elements.Test.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Logo {
+        internal static System.Drawing.Bitmap Logo16 {
             get {
-                object obj = ResourceManager.GetObject("Logo", resourceCulture);
+                object obj = ResourceManager.GetObject("Logo16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -86,6 +86,16 @@ namespace Elements.Test.Properties {
         internal static System.Drawing.Bitmap Logo32 {
             get {
                 object obj = ResourceManager.GetObject("Logo32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Logo512 {
+            get {
+                object obj = ResourceManager.GetObject("Logo512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

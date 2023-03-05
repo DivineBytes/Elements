@@ -99,6 +99,17 @@ namespace Elements.Models
         }
 
         /// <summary>
+        /// Gets the state of the color.
+        /// </summary>
+        /// <param name="enabled">if set to <c>true</c> [enabled].</param>
+        /// <param name="state">The state.</param>
+        /// <returns>The <see cref="Color"/>.</returns>
+        public new Color GetColorState(bool enabled, MouseStates state)
+        {
+            return GetColorState(this, enabled, state);
+        }
+
+        /// <summary>
         /// Get the control back color state.
         /// </summary>
         /// <param name="colorState">The color State.</param>

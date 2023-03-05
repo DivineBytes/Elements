@@ -9,7 +9,7 @@ using System.Windows.Forms.Design.Behavior;
 
 namespace Elements.Controls.ProgressBar
 {
-    internal class ProgressBarDesigner : BaseControlDesigner
+    internal class ProgressBarDesigner : ControlDesignerBase
     {
         /// <summary>
         /// Gets a list of System.Windows.Forms.Design.Behavior.SnapLine objects, representing alignment points for the edited control.

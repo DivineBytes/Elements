@@ -96,9 +96,10 @@
     <EmbeddedResource Include="Resources\Icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Logo.png" />
+    <EmbeddedResource Include="Resources\Logo16.png" />
     <EmbeddedResource Include="Resources\Logo24.png" />
     <EmbeddedResource Include="Resources\Logo32.png" />
+    <EmbeddedResource Include="Resources\Logo512.png" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

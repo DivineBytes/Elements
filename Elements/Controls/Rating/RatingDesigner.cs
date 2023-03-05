@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Elements.Controls.RadialProgress
 {
-    internal class RatingDesigner : BaseControlDesigner
+    internal class RatingDesigner : ControlDesignerBase
     {
         protected override void PreFilterProperties(IDictionary properties)
         {
