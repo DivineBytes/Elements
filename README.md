@@ -14,7 +14,9 @@
 
 <h2 align="center">⭐ Features ⭐</h2>
 
+<p align="center">Customizable components</p>
 <p align="center">Customizable controls</p>
+<p align="center">Customizable modules</p>
 
 <h2 align="center">⚖️ License ⚖️</h2>
 
