@@ -1,6 +1,5 @@
 ﻿using Elements.Base;
 using Elements.Constants;
-using Elements.Delegates;
 using Elements.Enumerators;
 using Elements.Events;
 using Elements.Models;
@@ -27,7 +26,7 @@ namespace Elements.Controls.Toggle
     [Designer(typeof(ToggleDesigner))]
     [ToolboxBitmap(typeof(Toggle), "Toggle.bmp")]
     [ToolboxItem(true)]
-    public class Toggle : ControlBase
+    public class Toggle : ToggleBase
     {
         #region Private Fields
 
@@ -70,17 +69,6 @@ namespace Elements.Controls.Toggle
         }
 
         #endregion Public Constructors
-
-        #region Public Events
-
-        /// <summary>
-        /// Occurs when [toggle changed].
-        /// </summary>
-        [Category(EventCategory.PropertyChanged)]
-        [Description("Occours when the toggle has been changed on the control.")]
-        public event ToggleChangedEventHandler ToggleChanged;
-
-        #endregion Public Events
 
         #region Public Properties
 
@@ -264,17 +252,6 @@ namespace Elements.Controls.Toggle
             _graphics.ResetClip();
 
             Border.Render(e.Graphics, _border, MouseState, controlGraphicsPath);
-        }
-
-        /// <summary>
-        /// Occurs when the ToggleChanged event fires.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The event args.</param>
-        protected virtual void OnToggleChanged(object sender, ToggleEventArgs e)
-        {
-            ToggleChanged?.Invoke(sender, e);
-            Invalidate();
         }
 
         #endregion Protected Methods

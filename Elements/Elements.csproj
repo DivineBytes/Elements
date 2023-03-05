@@ -52,6 +52,7 @@
     </Compile>
     <Compile Include="Base\ContainedControlBase.cs" />
     <Compile Include="Base\NestedControlBase.cs" />
+    <Compile Include="Base\ToggleBase.cs" />
     <Compile Include="Components\Badge\Badge.cs">
       <SubType>Component</SubType>
     </Compile>
