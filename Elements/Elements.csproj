@@ -74,6 +74,7 @@
     <Compile Include="Controls\ComboBox\ComboBoxDesigner.cs" />
     <Compile Include="Controls\ComboBox\ComboBoxSeparator.cs" />
     <Compile Include="Controls\ComboBox\ComboBoxActionList.cs" />
+    <Compile Include="Controls\ControlBox\Constants.cs" />
     <Compile Include="Controls\Gauge\GaugeDesigner.cs" />
     <Compile Include="Controls\GroupBox\GroupBoxDesigner.cs" />
     <Compile Include="Controls\GroupBox\GroupBox.cs" />
@@ -265,7 +266,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controls\CheckBox\" />
-    <Folder Include="Controls\ControlBox\" />
     <Folder Include="Controls\ListBox\" />
     <Folder Include="Controls\NumericUpDown\" />
     <Folder Include="Controls\RadioButton\" />
