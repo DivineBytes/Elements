@@ -6,14 +6,24 @@ namespace Elements.Controls.TextBox
 {
     internal class TextBoxActionList : DesignerActionList
     {
+        #region Private Fields
+
         private TextBoxExtended _control;
         private DesignerActionUIService _designerService;
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         public TextBoxActionList(IComponent component) : base(component)
         {
             _control = (TextBoxExtended)component;
             _designerService = (DesignerActionUIService)GetService(typeof(DesignerActionUIService));
         }
+
+        #endregion Public Constructors
+
+        #region Public Properties
 
         [Category("Behaviour")]
         [Description("Gets or sets a value indicating whether this is a multiline TextBox control.")]
@@ -47,6 +57,10 @@ namespace Elements.Controls.TextBox
             }
         }
 
+        #endregion Public Properties
+
+        #region Public Methods
+
         public override DesignerActionItemCollection GetSortedActionItems()
         {
             DesignerActionItemCollection items = new DesignerActionItemCollection
@@ -57,5 +71,7 @@ namespace Elements.Controls.TextBox
 
             return items;
         }
+
+        #endregion Public Methods
     }
 }

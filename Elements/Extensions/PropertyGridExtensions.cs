@@ -1,29 +1,30 @@
-﻿#region Namespace
-
-using System;
+﻿using System;
 using System.Reflection;
 using System.Windows.Forms;
 
-#endregion
-
 namespace Mycelial.Forms.Extensions
 {
-    /// <summary>The <see cref="PropertyGridExtensions"/> provider class.</summary>
+    /// <summary>
+    /// The <see cref="PropertyGridExtensions"/> provider class.
+    /// </summary>
     public static class PropertyGridExtensions
     {
-        #region Public Methods and Operators
+        #region Public Methods
 
-        /// <summary>Moves the property grid splitter to the specified position.</summary>
+        /// <summary>
+        /// Moves the property grid splitter to the specified position.
+        /// </summary>
         /// <param name="propertyGrid">The PropertyGrid that will have its splitter moved.</param>
         /// <param name="position">The new position of the splitter.</param>
         public static void MoveSplitterTo(this PropertyGrid propertyGrid, int position)
         {
-            // There is an internal class known as 'System.Windows.Forms.PropertyGridInternal.PropertyGridView'.
-            // Which contains the 'MoveSplitterTo' method. We can invoke the 'MoveSplitterTo' method with the
-            // specified position using reflection.
+            // There is an internal class known as
+            // 'System.Windows.Forms.PropertyGridInternal.PropertyGridView'. Which contains the
+            // 'MoveSplitterTo' method. We can invoke the 'MoveSplitterTo' method with the specified
+            // position using reflection.
 
-            // The 'System.Windows.Forms.PropertyGridInternal.PropertyGridView' is always the 3rd control in the
-            // 'PropertyGrid' control collection.
+            // The 'System.Windows.Forms.PropertyGridInternal.PropertyGridView' is always the 3rd
+            // control in the 'PropertyGrid' control collection.
             Control propertyGridView = propertyGrid.Controls[2];
             Type propertyGridViewType = propertyGridView.GetType();
 
@@ -33,6 +34,6 @@ namespace Mycelial.Forms.Extensions
             methodInfo?.Invoke(propertyGridView, new object[] { position });
         }
 
-        #endregion
+        #endregion Public Methods
     }
 }

@@ -23,6 +23,8 @@ namespace Elements.Controls.ProgressIndicator
     [ToolboxItem(true)]
     public class ProgressIndicator : ControlBase
     {
+        #region Private Fields
+
         private SolidBrush animationColor;
         private Timer animationSpeed;
         private SolidBrush baseColor;
@@ -36,6 +38,10 @@ namespace Elements.Controls.ProgressIndicator
         private double rise;
         private double run;
         private PointF startingFloatPoint;
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ProgressIndicator"/> class.
@@ -58,6 +64,10 @@ namespace Elements.Controls.ProgressIndicator
             animationSpeed.Interval = 100;
             UpdateStyles();
         }
+
+        #endregion Public Constructors
+
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the color of the animation.
@@ -180,6 +190,10 @@ namespace Elements.Controls.ProgressIndicator
             }
         }
 
+        #endregion Public Properties
+
+        #region Private Properties
+
         /// <summary>
         /// Gets the end point.
         /// </summary>
@@ -194,6 +208,10 @@ namespace Elements.Controls.ProgressIndicator
                 return new PointF(locationY, locationX);
             }
         }
+
+        #endregion Private Properties
+
+        #region Protected Methods
 
         /// <summary>
         /// Raises the <see cref="E:EnabledChanged"/> event.
@@ -257,6 +275,10 @@ namespace Elements.Controls.ProgressIndicator
             UpdateGraphics();
             SetPoints();
         }
+
+        #endregion Protected Methods
+
+        #region Private Methods
 
         /// <summary>
         /// Assigns the values.
@@ -348,5 +370,7 @@ namespace Elements.Controls.ProgressIndicator
             buffGraphics = graphicsContext.Allocate(CreateGraphics(), ClientRectangle);
             buffGraphics.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
         }
+
+        #endregion Private Methods
     }
 }

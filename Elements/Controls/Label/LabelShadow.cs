@@ -15,6 +15,8 @@ namespace Elements.Controls.Label
     [TypeConverter(typeof(SettingsTypeConverter))]
     public class LabelShadow
     {
+        #region Public Constructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="LabelShadow"/> class.
         /// </summary>
@@ -27,6 +29,10 @@ namespace Elements.Controls.Label
             Location = new Point(0, 0);
             Smoothness = 1.5F;
         }
+
+        #endregion Public Constructors
+
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the color.
@@ -53,7 +59,7 @@ namespace Elements.Controls.Label
         /// Gets or sets a value indicating whether this <see cref="LabelShadow"/> is enabled.
         /// </summary>
         /// <value><c>true</c> if enabled; otherwise, <c>false</c>.</value>
-        [Description("The enabled.")] 
+        [Description("The enabled.")]
         public bool Enabled { get; set; }
 
         /// <summary>
@@ -69,6 +75,10 @@ namespace Elements.Controls.Label
         /// <value>The smoothness.</value>
         [Description("The smoothness.")]
         public float Smoothness { get; set; }
+
+        #endregion Public Properties
+
+        #region Public Methods
 
         /// <summary>
         /// Render the text shadow.
@@ -113,5 +123,7 @@ namespace Elements.Controls.Label
             graphics.DrawImage(shadowBitmap, clientRectangle, 0, 0, shadowBitmap.Width, shadowBitmap.Height, GraphicsUnit.Pixel);
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
         }
+
+        #endregion Public Methods
     }
 }

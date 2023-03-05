@@ -13,6 +13,8 @@ namespace Elements.Controls.Toggle
     [TypeConverter(typeof(SettingsTypeConverter))]
     public class ToggleOptions
     {
+        #region Public Fields
+
         /// <summary>
         /// The no yes.
         /// </summary>
@@ -28,9 +30,17 @@ namespace Elements.Controls.Toggle
         /// </summary>
         public static readonly ToggleOptions OI = new ToggleOptions("O", "I");
 
+        #endregion Public Fields
+
+        #region Private Fields
+
         private string _falseText;
-        private string _trueText;
         private ToggleTypes _toggleType;
+        private string _trueText;
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ToggleOptions"/> class.
@@ -64,6 +74,10 @@ namespace Elements.Controls.Toggle
             _trueText = _true;
             _toggleType = type;
         }
+
+        #endregion Public Constructors
+
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the false text.
@@ -116,20 +130,22 @@ namespace Elements.Controls.Toggle
             }
         }
 
+        #endregion Public Properties
+
+        #region Public Methods
+
         /// <summary>
         /// Gets the value.
         /// </summary>
         /// <param name="toggle">if set to <c>true</c> [toggle].</param>
-        /// <returns>
-        /// The <see cref="string" />.
-        /// </returns>
+        /// <returns>The <see cref="string"/>.</returns>
         public string GetValue(bool toggle)
         {
             string returnValue;
             if (toggle)
             {
                 returnValue = _falseText;
-            } 
+            }
             else
             {
                 returnValue = _trueText;
@@ -137,5 +153,7 @@ namespace Elements.Controls.Toggle
 
             return returnValue;
         }
+
+        #endregion Public Methods
     }
 }

@@ -36,14 +36,12 @@ namespace Elements.Models
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ColorState" /> class.
+        /// Initializes a new instance of the <see cref="ColorState"/> class.
         /// </summary>
         /// <param name="disabled">The disabled color.</param>
         /// <param name="enabled">The normal color.</param>
         /// <exception cref="System.ArgumentNullException">
-        /// disabled - Cannot be empty.
-        /// or
-        /// enabled - Cannot be empty.
+        /// disabled - Cannot be empty. or enabled - Cannot be empty.
         /// </exception>
         public ColorState(Color disabled, Color enabled) : this()
         {

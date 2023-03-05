@@ -33,9 +33,9 @@ namespace Elements.Controls.ComboBox
         private ColorState _backColorState;
         private Border _border;
         private ComboBoxButton _button;
-        private int _index;
         private ImageList _imageList;
         private bool _imageVisible;
+        private int _index;
         private bool _itemImageVisible;
         private TextStyle _itemStyle;
         private Color _menuItemHover;
@@ -219,6 +219,35 @@ namespace Elements.Controls.ComboBox
         }
 
         /// <summary>
+        /// Gets or sets the index.
+        /// </summary>
+        /// <value>The index.</value>
+        [Category(PropertyCategory.Behavior)]
+        [Description("Start Index")]
+        public int Index
+        {
+            get
+            {
+                return _index;
+            }
+
+            set
+            {
+                _index = value;
+                try
+                {
+                    SelectedIndex = value;
+                }
+                catch (Exception)
+                {
+                    // ignored
+                }
+
+                Invalidate();
+            }
+        }
+
+        /// <summary>
         /// Gets or sets a value indicating whether [item image visible].
         /// </summary>
         /// <value><c>true</c> if [item image visible]; otherwise, <c>false</c>.</value>
@@ -321,36 +350,6 @@ namespace Elements.Controls.ComboBox
                 OnMouseStateChanged(this, new MouseStateEventArgs(_mouseState));
             }
         }
-
-        /// <summary>
-        /// Gets or sets the index.
-        /// </summary>
-        /// <value>The index.</value>
-        [Category(PropertyCategory.Behavior)]
-        [Description("Start Index")]
-        public int Index
-        {
-            get
-            {
-                return _index;
-            }
-
-            set
-            {
-                _index = value;
-                try
-                {
-                    SelectedIndex = value;
-                }
-                catch (Exception)
-                {
-                    // ignored
-                }
-
-                Invalidate();
-            }
-        }
-
         /// <summary>
         /// Gets or sets the separator.
         /// </summary>

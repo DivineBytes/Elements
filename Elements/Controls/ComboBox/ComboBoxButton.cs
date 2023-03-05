@@ -29,7 +29,7 @@ namespace Elements.Controls.ComboBox
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ComboBoxButton" /> class.
+        /// Initializes a new instance of the <see cref="ComboBoxButton"/> class.
         /// </summary>
         /// <param name="color">The color.</param>
         /// <param name="image">The image.</param>
@@ -68,9 +68,7 @@ namespace Elements.Controls.ComboBox
         /// <summary>
         /// Gets or sets the width.
         /// </summary>
-        /// <value>
-        /// The width.
-        /// </value>
+        /// <value>The width.</value>
         public int Width { get; set; }
 
         #endregion Public Properties

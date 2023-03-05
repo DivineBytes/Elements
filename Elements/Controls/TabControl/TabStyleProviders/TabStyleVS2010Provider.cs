@@ -12,6 +12,8 @@ namespace Elements.Controls.TabControl.TabStyleProviders
     [ToolboxItem(false)]
     public class TabStyleVS2010Provider : TabStyleRoundedProvider
     {
+        #region Public Constructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="TabStyleVS2010Provider"/> class.
         /// </summary>
@@ -31,80 +33,9 @@ namespace Elements.Controls.TabControl.TabStyleProviders
             Padding = new Point(6, 5);
         }
 
-        /// <summary>
-        /// Gets the tab background brush.
-        /// </summary>
-        /// <param name="index">The index.</param>
-        /// <returns></returns>
-        protected override Brush GetTabBackgroundBrush(int index)
-        {
-            LinearGradientBrush fillBrush = null;
+        #endregion Public Constructors
 
-            // Capture the colours dependant on selection state of the tab
-            Color dark = Color.Transparent;
-            Color light = Color.Transparent;
-
-            if (_TabControl.SelectedIndex == index)
-            {
-                dark = Color.FromArgb(229, 195, 101);
-                light = SystemColors.Window;
-            }
-            else if (!_TabControl.TabPages[index].Enabled)
-            {
-                light = dark;
-            }
-            else if (HotTrack && index == _TabControl.ActiveIndex)
-            {
-                // Enable hot tracking
-                dark = Color.FromArgb(108, 116, 118);
-                light = dark;
-            }
-
-            // Get the correctly aligned gradient
-            Rectangle tabBounds = GetTabRect(index);
-            tabBounds.Inflate(3, 3);
-            tabBounds.X -= 1;
-            tabBounds.Y -= 1;
-            switch (_TabControl.Alignment)
-            {
-                case TabAlignment.Top:
-                    fillBrush = new LinearGradientBrush(tabBounds, light, dark, LinearGradientMode.Vertical);
-                    break;
-
-                case TabAlignment.Bottom:
-                    fillBrush = new LinearGradientBrush(tabBounds, dark, light, LinearGradientMode.Vertical);
-                    break;
-
-                case TabAlignment.Left:
-                    fillBrush = new LinearGradientBrush(tabBounds, light, dark, LinearGradientMode.Horizontal);
-                    break;
-
-                case TabAlignment.Right:
-                    fillBrush = new LinearGradientBrush(tabBounds, dark, light, LinearGradientMode.Horizontal);
-                    break;
-            }
-
-            // Add the blend
-            fillBrush.Blend = GetBackgroundBlend();
-
-            return fillBrush;
-        }
-
-        /// <summary>
-        /// Gets the background blend.
-        /// </summary>
-        /// <returns></returns>
-        private static Blend GetBackgroundBlend()
-        {
-            float[] relativeIntensities = { 0f, 0.5f, 1f, 1f };
-            float[] relativePositions = { 0f, 0.5f, 0.51f, 1f };
-
-            Blend blend = new Blend();
-            blend.Factors = relativeIntensities;
-            blend.Positions = relativePositions;
-
-            return blend;
-        }
+        #region Public Methods
 
         /// <summary>
         /// Gets the page background brush.
@@ -132,6 +63,10 @@ namespace Elements.Controls.TabControl.TabStyleProviders
 
             return new SolidBrush(light);
         }
+
+        #endregion Public Methods
+
+        #region Protected Methods
 
         /// <summary>
         /// Draws the tab closer.
@@ -193,6 +128,85 @@ namespace Elements.Controls.TabControl.TabStyleProviders
         }
 
         /// <summary>
+        /// Gets the tab background brush.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <returns></returns>
+        protected override Brush GetTabBackgroundBrush(int index)
+        {
+            LinearGradientBrush fillBrush = null;
+
+            // Capture the colours dependant on selection state of the tab
+            Color dark = Color.Transparent;
+            Color light = Color.Transparent;
+
+            if (_TabControl.SelectedIndex == index)
+            {
+                dark = Color.FromArgb(229, 195, 101);
+                light = SystemColors.Window;
+            }
+            else if (!_TabControl.TabPages[index].Enabled)
+            {
+                light = dark;
+            }
+            else if (HotTrack && index == _TabControl.ActiveIndex)
+            {
+                // Enable hot tracking
+                dark = Color.FromArgb(108, 116, 118);
+                light = dark;
+            }
+
+            // Get the correctly aligned gradient
+            Rectangle tabBounds = GetTabRect(index);
+            tabBounds.Inflate(3, 3);
+            tabBounds.X -= 1;
+            tabBounds.Y -= 1;
+            switch (_TabControl.Alignment)
+            {
+                case TabAlignment.Top:
+                    fillBrush = new LinearGradientBrush(tabBounds, light, dark, LinearGradientMode.Vertical);
+                    break;
+
+                case TabAlignment.Bottom:
+                    fillBrush = new LinearGradientBrush(tabBounds, dark, light, LinearGradientMode.Vertical);
+                    break;
+
+                case TabAlignment.Left:
+                    fillBrush = new LinearGradientBrush(tabBounds, light, dark, LinearGradientMode.Horizontal);
+                    break;
+
+                case TabAlignment.Right:
+                    fillBrush = new LinearGradientBrush(tabBounds, dark, light, LinearGradientMode.Horizontal);
+                    break;
+            }
+
+            // Add the blend
+            fillBrush.Blend = GetBackgroundBlend();
+
+            return fillBrush;
+        }
+
+        #endregion Protected Methods
+
+        #region Private Methods
+
+        /// <summary>
+        /// Gets the background blend.
+        /// </summary>
+        /// <returns></returns>
+        private static Blend GetBackgroundBlend()
+        {
+            float[] relativeIntensities = { 0f, 0.5f, 1f, 1f };
+            float[] relativePositions = { 0f, 0.5f, 0.51f, 1f };
+
+            Blend blend = new Blend();
+            blend.Factors = relativeIntensities;
+            blend.Positions = relativePositions;
+
+            return blend;
+        }
+
+        /// <summary>
         /// Gets the closer button path.
         /// </summary>
         /// <param name="closerRect">The closer rect.</param>
@@ -207,5 +221,7 @@ namespace Elements.Controls.TabControl.TabStyleProviders
             closerPath.CloseFigure();
             return closerPath;
         }
+
+        #endregion Private Methods
     }
 }

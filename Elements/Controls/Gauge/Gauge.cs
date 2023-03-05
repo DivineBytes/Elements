@@ -26,13 +26,19 @@ namespace Elements.Controls.Gauge
     [ToolboxItem(true)]
     public class Gauge : ProgressBase
     {
+        #region Private Fields
+
+        private ColorState _colorState;
         private System.Windows.Forms.Label _labelMaximum;
         private System.Windows.Forms.Label _labelMinimum;
         private System.Windows.Forms.Label _labelProgress;
         private Color _progress;
         private Size _progressTextSize;
         private int _thickness;
-        private ColorState _colorState;
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Gauge"/> class.
@@ -93,59 +99,9 @@ namespace Elements.Controls.Gauge
             Font = SystemFonts.DefaultFont;
         }
 
-        /// <summary>
-        /// Gets or sets the maximum label.
-        /// </summary>
-        /// <value>
-        /// The maximum label.
-        /// </value>
-        public System.Windows.Forms.Label MaximumLabel
-        {
-            get
-            {
-                return _labelMaximum;
-            }
-            set
-            {
-                _labelMaximum = value;
-            }
-        }
+        #endregion Public Constructors
 
-        /// <summary>
-        /// Gets or sets the minimum label.
-        /// </summary>
-        /// <value>
-        /// The minimum label.
-        /// </value>
-        public System.Windows.Forms.Label MinimumLabel
-        {
-            get
-            {
-                return _labelMinimum;
-            }
-            set
-            {
-                _labelMinimum = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the progress label.
-        /// </summary>
-        /// <value>
-        /// The progress label.
-        /// </value>
-        public System.Windows.Forms.Label ProgressLabel
-        {
-            get
-            {
-                return _labelProgress;
-            }
-            set
-            {
-                _labelProgress = value;
-            }
-        }
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the state of the back color.
@@ -168,6 +124,22 @@ namespace Elements.Controls.Gauge
         }
 
         /// <summary>
+        /// Gets or sets the maximum label.
+        /// </summary>
+        /// <value>The maximum label.</value>
+        public System.Windows.Forms.Label MaximumLabel
+        {
+            get
+            {
+                return _labelMaximum;
+            }
+            set
+            {
+                _labelMaximum = value;
+            }
+        }
+
+        /// <summary>
         /// Gets or sets a value indicating whether [maximum visible].
         /// </summary>
         /// <value><c>true</c> if [maximum visible]; otherwise, <c>false</c>.</value>
@@ -183,6 +155,22 @@ namespace Elements.Controls.Gauge
             set
             {
                 _labelMaximum.Visible = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the minimum label.
+        /// </summary>
+        /// <value>The minimum label.</value>
+        public System.Windows.Forms.Label MinimumLabel
+        {
+            get
+            {
+                return _labelMinimum;
+            }
+            set
+            {
+                _labelMinimum = value;
             }
         }
 
@@ -226,6 +214,21 @@ namespace Elements.Controls.Gauge
             }
         }
 
+        /// <summary>
+        /// Gets or sets the progress label.
+        /// </summary>
+        /// <value>The progress label.</value>
+        public System.Windows.Forms.Label ProgressLabel
+        {
+            get
+            {
+                return _labelProgress;
+            }
+            set
+            {
+                _labelProgress = value;
+            }
+        }
         /// <summary>
         /// Gets or sets a value indicating whether [progress visible].
         /// </summary>
@@ -286,6 +289,10 @@ namespace Elements.Controls.Gauge
             }
         }
 
+        #endregion Public Properties
+
+        #region Protected Methods
+
         /// <summary>
         /// Raises the <see cref="E:Paint"/> event.
         /// </summary>
@@ -325,5 +332,7 @@ namespace Elements.Controls.Gauge
             _labelMinimum.Left = 20;
             _labelMaximum.Left = Size.Width - _labelMaximum.Width - 20;
         }
+
+        #endregion Protected Methods
     }
 }

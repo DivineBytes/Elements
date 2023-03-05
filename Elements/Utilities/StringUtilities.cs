@@ -42,10 +42,12 @@ namespace Elements.Utilities
             return orientedStringFormat;
         }
 
-        /// <summary>Measures the specified string when draw with the specified font.</summary>
+        /// <summary>
+        /// Measures the specified string when draw with the specified font.
+        /// </summary>
         /// <param name="text">The text to measure.</param>
         /// <param name="font">The font to apply to the measured text.</param>
-        /// <returns>The <see cref="Size" />.</returns>
+        /// <returns>The <see cref="Size"/>.</returns>
         public static Size MeasureText(string text, Font font)
         {
             return TextRenderer.MeasureText(text, font);
@@ -108,9 +110,11 @@ namespace Elements.Utilities
             return newText.ToString();
         }
 
-        /// <summary>Removes the line breaks and new lines from the text.</summary>
+        /// <summary>
+        /// Removes the line breaks and new lines from the text.
+        /// </summary>
         /// <param name="text">The text.</param>
-        /// <returns>The <see cref="string" />.</returns>
+        /// <returns>The <see cref="string"/>.</returns>
         public static string RemoveLineBreaks(string text)
         {
             if (string.IsNullOrEmpty(text))
@@ -151,9 +155,11 @@ namespace Elements.Utilities
             Render(graphics, clientRectangle, text, font, _textColor, textStyle.StringFormat);
         }
 
-        /// <summary>The amount of lines in the <see cref="string" />.</summary>
+        /// <summary>
+        /// The amount of lines in the <see cref="string"/>.
+        /// </summary>
         /// <param name="text">The text.</param>
-        /// <returns>The <see cref="int" />.</returns>
+        /// <returns>The <see cref="int"/>.</returns>
         public static int LineCount(this string text)
         {
             // int numLinesMethod = text.Length - text.Replace(Environment.NewLine, string.Empty).Length;
@@ -161,25 +167,31 @@ namespace Elements.Utilities
             return numLines;
         }
 
-        /// <summary>Returns the text as a <see cref="string" /><see cref="Array" />.</summary>
+        /// <summary>
+        /// Returns the text as a <see cref="string"/><see cref="Array"/>.
+        /// </summary>
         /// <param name="text">The text.</param>
-        /// <returns>The <see cref="string" />.</returns>
+        /// <returns>The <see cref="string"/>.</returns>
         public static string[] Lines(string text)
         {
             return text.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
         }
 
-        /// <summary>Removes the white spaces.</summary>
+        /// <summary>
+        /// Removes the white spaces.
+        /// </summary>
         /// <param name="text">The text.</param>
-        /// <returns>The <see cref="string" />.</returns>
+        /// <returns>The <see cref="string"/>.</returns>
         public static string RemoveWhiteSpaces(string text)
         {
             return new string(text.Where(_char => !char.IsWhiteSpace(_char)).ToArray());
         }
 
-        /// <summary>Reverse the <see cref="string" />.</summary>
+        /// <summary>
+        /// Reverse the <see cref="string"/>.
+        /// </summary>
         /// <param name="text">The text.</param>
-        /// <returns>The <see cref="string" />.</returns>
+        /// <returns>The <see cref="string"/>.</returns>
         public static string Reverse(string text)
         {
             char[] _chars = text.ToCharArray();

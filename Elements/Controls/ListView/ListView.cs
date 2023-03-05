@@ -3,9 +3,11 @@
     /// <summary>
     /// The <see cref="ListView"/> class.
     /// </summary>
-    /// <seealso cref="System.Windows.Forms.ListView" />
+    /// <seealso cref="System.Windows.Forms.ListView"/>
     public class ListView : System.Windows.Forms.ListView
     {
+        #region Public Constructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ListView"/> class.
         /// </summary>
@@ -19,5 +21,7 @@
             Columns.Add("Text", 150);
             Columns.Add("Value", 50);
         }
+
+        #endregion Public Constructors
     }
 }

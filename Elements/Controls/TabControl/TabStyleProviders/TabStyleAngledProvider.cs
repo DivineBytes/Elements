@@ -12,6 +12,8 @@ namespace Elements.Controls.TabControl.TabStyleProviders
     [ToolboxItem(false)]
     public class TabStyleAngledProvider : TabStyleProvider
     {
+        #region Public Constructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="TabStyleAngledProvider"/> class.
         /// </summary>
@@ -25,6 +27,10 @@ namespace Elements.Controls.TabControl.TabStyleProviders
             // Must set after the _Radius as this is used in the calculations of the actual padding
             Padding = new Point(10, 3);
         }
+
+        #endregion Public Constructors
+
+        #region Public Methods
 
         /// <summary>
         /// Adds the tab border.
@@ -60,5 +66,7 @@ namespace Elements.Controls.TabControl.TabStyleProviders
                     break;
             }
         }
+
+        #endregion Public Methods
     }
 }

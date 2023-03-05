@@ -5,6 +5,8 @@ namespace Elements.Controls.Tile
 {
     internal class TileDesigner : ControlDesignerBase
     {
+        #region Protected Methods
+
         protected override void PreFilterProperties(IDictionary properties)
         {
             properties.Remove("BackColor");
@@ -12,5 +14,7 @@ namespace Elements.Controls.Tile
 
             base.PreFilterProperties(properties);
         }
+
+        #endregion Protected Methods
     }
 }

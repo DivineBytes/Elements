@@ -7,6 +7,8 @@ namespace Elements.Controls.Rating
     /// </summary>
     public static class StarGenerator
     {
+        #region Public Methods
+
         /// <summary>
         /// Generate half of the detailed star polygon as a point[].
         /// </summary>
@@ -83,5 +85,7 @@ namespace Elements.Controls.Rating
                     new PointF(rectangle.X + (rectangle.Width * 0.8f), rectangle.Y + (rectangle.Height * 1f)), new PointF(rectangle.X + (rectangle.Width * 0.69f), rectangle.Y + (rectangle.Height * 0.61f)), new PointF(rectangle.X + (rectangle.Width * 1f), rectangle.Y + (rectangle.Height * 0.38f)), new PointF(rectangle.X + (rectangle.Width * 0.61f), rectangle.Y + (rectangle.Height * 0.38f))
                 };
         }
+
+        #endregion Public Methods
     }
 }

@@ -8,6 +8,8 @@ namespace Elements.Dialogs
     /// </summary>
     public class ProgressDialog
     {
+        #region Private Fields
+
         private readonly IntPtr _parentHandle;
 
         private string _cancelMessage = string.Empty;
@@ -26,6 +28,10 @@ namespace Elements.Dialogs
 
         private uint _value;
 
+        #endregion Private Fields
+
+        #region Public Constructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ProgressDialog"/> class.
         /// </summary>
@@ -34,6 +40,10 @@ namespace Elements.Dialogs
         {
             _parentHandle = parentHandle;
         }
+
+        #endregion Public Constructors
+
+        #region Public Enums
 
         /// <summary>
         /// Flags that indicate the action to be taken by the ProgressDialog.SetTime() method.
@@ -104,6 +114,10 @@ namespace Elements.Dialogs
             /// </remarks>
             NoProgressBar = 0x00000010
         }
+
+        #endregion Public Enums
+
+        #region Public Interfaces
 
         /// <summary>
         /// The <see cref="IProgressDialog"/> interface.
@@ -246,12 +260,14 @@ namespace Elements.Dialogs
             void Timer(ProgressDialogAction dwDialogAction, object pvReserved);
         }
 
+        #endregion Public Interfaces
+
+        #region Public Properties
+
         /// <summary>
         /// Gets or sets the cancel message.
         /// </summary>
-        /// <value>
-        /// The cancel message.
-        /// </value>
+        /// <value>The cancel message.</value>
         public string CancelMessage
         {
             get
@@ -269,9 +285,7 @@ namespace Elements.Dialogs
         /// <summary>
         /// Gets a value indicating whether this instance has user canceled.
         /// </summary>
-        /// <value>
-        ///   <c>true</c> if this instance has user canceled; otherwise, <c>false</c>.
-        /// </value>
+        /// <value><c>true</c> if this instance has user canceled; otherwise, <c>false</c>.</value>
         public bool HasUserCanceled
         {
             get
@@ -283,9 +297,7 @@ namespace Elements.Dialogs
         /// <summary>
         /// Gets or sets the line1.
         /// </summary>
-        /// <value>
-        /// The line1.
-        /// </value>
+        /// <value>The line1.</value>
         public string Line1
         {
             get
@@ -303,9 +315,7 @@ namespace Elements.Dialogs
         /// <summary>
         /// Gets or sets the line2.
         /// </summary>
-        /// <value>
-        /// The line2.
-        /// </value>
+        /// <value>The line2.</value>
         public string Line2
         {
             get
@@ -323,9 +333,7 @@ namespace Elements.Dialogs
         /// <summary>
         /// Gets or sets the line3.
         /// </summary>
-        /// <value>
-        /// The line3.
-        /// </value>
+        /// <value>The line3.</value>
         public string Line3
         {
             get
@@ -343,9 +351,7 @@ namespace Elements.Dialogs
         /// <summary>
         /// Gets or sets the maximum.
         /// </summary>
-        /// <value>
-        /// The maximum.
-        /// </value>
+        /// <value>The maximum.</value>
         public uint Maximum
         {
             get
@@ -363,9 +369,7 @@ namespace Elements.Dialogs
         /// <summary>
         /// Gets or sets the title.
         /// </summary>
-        /// <value>
-        /// The title.
-        /// </value>
+        /// <value>The title.</value>
         public string Title
         {
             get
@@ -383,9 +387,7 @@ namespace Elements.Dialogs
         /// <summary>
         /// Gets or sets the value.
         /// </summary>
-        /// <value>
-        /// The value.
-        /// </value>
+        /// <value>The value.</value>
         public uint Value
         {
             get
@@ -399,6 +401,10 @@ namespace Elements.Dialogs
                 _progressDialog?.SetProgress(_value, _maximum);
             }
         }
+
+        #endregion Public Properties
+
+        #region Public Methods
 
         /// <summary>
         /// Closes the dialog.
@@ -448,6 +454,10 @@ namespace Elements.Dialogs
             _progressDialog.StartProgressDialog(_parentHandle, null, dialogFlags, IntPtr.Zero);
         }
 
+        #endregion Public Methods
+
+        #region Public Classes
+
         /// <summary>
         /// The <see cref="Win32ProgressDialog"/> class.
         /// </summary>
@@ -456,5 +466,7 @@ namespace Elements.Dialogs
         public class Win32ProgressDialog
         {
         }
+
+        #endregion Public Classes
     }
 }

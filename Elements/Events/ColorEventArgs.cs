@@ -7,7 +7,13 @@ namespace Elements.Events
     /// </summary>
     public class ColorEventArgs
     {
+        #region Private Fields
+
         private Color _color;
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ColorEventArgs"/> class.
@@ -26,6 +32,10 @@ namespace Elements.Events
             _color = color;
         }
 
+        #endregion Public Constructors
+
+        #region Public Properties
+
         /// <summary>
         /// Gets or sets the color.
         /// </summary>
@@ -42,5 +52,7 @@ namespace Elements.Events
                 _color = value;
             }
         }
+
+        #endregion Public Properties
     }
 }

@@ -9,6 +9,55 @@ namespace Elements.Controls.TabControl
     /// </summary>
     internal static class ThemedColors
     {
+        #region Private Fields
+
+        /// <summary>
+        /// The home stead
+        /// </summary>
+        private const string HomeStead = "HomeStead";
+
+        /// <summary>
+        /// The metallic
+        /// </summary>
+        private const string Metallic = "Metallic";
+
+        /// <summary>
+        /// The normal color
+        /// </summary>
+        private const string NormalColor = "NormalColor";
+
+        /// <summary>
+        /// The no theme
+        /// </summary>
+        private const string NoTheme = "NoTheme";
+
+        /// <summary>
+        /// The tool border
+        /// </summary>
+        private static readonly Color[] _toolBorder;
+
+        #endregion Private Fields
+
+        #region Public Constructors
+
+        /// <summary>
+        /// Initializes the <see cref="ThemedColors"/> class.
+        /// </summary>
+        static ThemedColors()
+        {
+            _toolBorder = new[]
+            {
+                Color.FromArgb(127, 157, 185),
+                Color.FromArgb(164, 185, 127),
+                Color.FromArgb(165, 172, 178),
+                Color.FromArgb(132, 130, 132)
+            };
+        }
+
+        #endregion Public Constructors
+
+        #region Public Enums
+
         /// <summary>
         /// </summary>
         public enum ColorScheme
@@ -33,6 +82,32 @@ namespace Elements.Controls.TabControl
             /// </summary>
             NoTheme = 3
         }
+
+        #endregion Public Enums
+
+        #region Public Properties
+
+        /// <summary>
+        /// Gets the index of the current theme.
+        /// </summary>
+        /// <value>The index of the current theme.</value>
+        public static ColorScheme CurrentThemeIndex => GetCurrentThemeIndex();
+
+        /// <summary>
+        /// Gets the tool border.
+        /// </summary>
+        /// <value>The tool border.</value>
+        public static Color ToolBorder
+        {
+            get
+            {
+                return _toolBorder[(int)CurrentThemeIndex];
+            }
+        }
+
+        #endregion Public Properties
+
+        #region Private Methods
 
         /// <summary>
         /// Gets the index of the current theme.
@@ -68,61 +143,6 @@ namespace Elements.Controls.TabControl
             return theme;
         }
 
-        /// <summary>
-        /// The normal color
-        /// </summary>
-        private const string NormalColor = "NormalColor";
-
-        /// <summary>
-        /// The home stead
-        /// </summary>
-        private const string HomeStead = "HomeStead";
-
-        /// <summary>
-        /// The metallic
-        /// </summary>
-        private const string Metallic = "Metallic";
-
-        /// <summary>
-        /// The no theme
-        /// </summary>
-        private const string NoTheme = "NoTheme";
-
-        /// <summary>
-        /// The tool border
-        /// </summary>
-        private static readonly Color[] _toolBorder;
-
-        /// <summary>
-        /// Gets the index of the current theme.
-        /// </summary>
-        /// <value>The index of the current theme.</value>
-        public static ColorScheme CurrentThemeIndex => GetCurrentThemeIndex();
-
-        /// <summary>
-        /// Gets the tool border.
-        /// </summary>
-        /// <value>The tool border.</value>
-        public static Color ToolBorder
-        {
-            get
-            {
-                return _toolBorder[(int)CurrentThemeIndex];
-            }
-        }
-
-        /// <summary>
-        /// Initializes the <see cref="ThemedColors"/> class.
-        /// </summary>
-        static ThemedColors()
-        {
-            _toolBorder = new[]
-            {
-                Color.FromArgb(127, 157, 185),
-                Color.FromArgb(164, 185, 127),
-                Color.FromArgb(165, 172, 178),
-                Color.FromArgb(132, 130, 132)
-            };
-        }
+        #endregion Private Methods
     }
 }

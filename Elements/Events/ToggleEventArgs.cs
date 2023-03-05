@@ -8,7 +8,13 @@ namespace Elements.Events
     /// <seealso cref="System.EventArgs"/>
     public class ToggleEventArgs : EventArgs
     {
+        #region Private Fields
+
         private bool _state;
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ToggleEventArgs"/> class.
@@ -18,6 +24,10 @@ namespace Elements.Events
         {
             _state = state;
         }
+
+        #endregion Public Constructors
+
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="ToggleEventArgs"/> is state.
@@ -35,5 +45,7 @@ namespace Elements.Events
                 _state = value;
             }
         }
+
+        #endregion Public Properties
     }
 }

@@ -95,7 +95,8 @@ namespace Elements.Models
         #region Public Methods
 
         /// <summary>
-        /// Draws the Watermark Text in the client area of the <see cref="System.Windows.Forms.Control" /> using the default font and color.
+        /// Draws the Watermark Text in the client area of the <see
+        /// cref="System.Windows.Forms.Control"/> using the default font and color.
         /// </summary>
         /// <param name="graphics">The graphics.</param>
         /// <param name="backColor">Color of the back.</param>
@@ -156,9 +157,11 @@ namespace Elements.Models
                 case VerticalAlignment.Top:
                     flags |= TextFormatFlags.Top;
                     break;
+
                 case VerticalAlignment.Center:
                     flags |= TextFormatFlags.VerticalCenter;
                     break;
+
                 case VerticalAlignment.Bottom:
                     flags |= TextFormatFlags.Bottom;
                     break;
@@ -168,7 +171,8 @@ namespace Elements.Models
         }
 
         /// <summary>
-        /// Draws the Watermark Text in the client area of the <see cref="System.Windows.Forms.Control" /> using the default font and color.
+        /// Draws the Watermark Text in the client area of the <see
+        /// cref="System.Windows.Forms.Control"/> using the default font and color.
         /// </summary>
         /// <param name="graphics">The graphics.</param>
         /// <param name="backColor">Color of the back.</param>

@@ -23,15 +23,25 @@ namespace Elements.Components.Gradient
     [ToolboxItem(true)]
     public class Gradient : ComponentBase
     {
+        #region Public Fields
+
         /// <summary>
         /// The default size.
         /// </summary>
         public static readonly Size DefaultSize = new Size(25, 25);
 
+        #endregion Public Fields
+
+        #region Private Fields
+
         private bool _autoSize;
         private ColorField _colorField;
         private Control _control;
         private Size _size;
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Gradient"/> class.
@@ -44,7 +54,7 @@ namespace Elements.Components.Gradient
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Gradient" /> class.
+        /// Initializes a new instance of the <see cref="Gradient"/> class.
         /// </summary>
         /// <param name="control">The control.</param>
         /// <param name="colorField">The color field.</param>
@@ -53,7 +63,7 @@ namespace Elements.Components.Gradient
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Gradient" /> class.
+        /// Initializes a new instance of the <see cref="Gradient"/> class.
         /// </summary>
         /// <param name="control">The control.</param>
         /// <param name="colorField">The color field.</param>
@@ -65,6 +75,10 @@ namespace Elements.Components.Gradient
             UpdateGradient(_gradientSize, colorField);
         }
 
+        #endregion Public Constructors
+
+        #region Private Constructors
+
         /// <summary>
         /// Prevents a default instance of the <see cref="Gradient"/> class from being created.
         /// </summary>
@@ -75,6 +89,10 @@ namespace Elements.Components.Gradient
             _size = DefaultSize;
             _autoSize = true;
         }
+
+        #endregion Private Constructors
+
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets a value indicating whether [automatic size].
@@ -270,33 +288,9 @@ namespace Elements.Components.Gradient
             }
         }
 
-        /// <summary>
-        /// Update the gradient.
-        /// </summary>
-        /// <param name="size">The size of the gradient.</param>
-        /// <param name="colorField">The color field.</param>
-        private void UpdateGradient(Size size, ColorField colorField)
-        {
-            _size = size;
+        #endregion Public Properties
 
-            if (_control == null)
-            {
-                return;
-            }
-
-            GraphicsUtilities.AssignGradientBackground(_control, _size, colorField.TopLeft, colorField.TopRight, colorField.BottomLeft, colorField.BottomRight);
-        }
-
-        /// <summary>
-        /// Handles the Resize event of the Control control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void Control_Resize(object sender, EventArgs e)
-        {
-            Size _gradientSize = GetGradientSize(_autoSize, _control, _size);
-            UpdateGradient(_gradientSize, _colorField);
-        }
+        #region Public Methods
 
         /// <summary>
         /// Gets the gradient size.
@@ -328,5 +322,39 @@ namespace Elements.Components.Gradient
 
             return _newSize;
         }
+
+        #endregion Public Methods
+
+        #region Private Methods
+
+        /// <summary>
+        /// Handles the Resize event of the Control control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void Control_Resize(object sender, EventArgs e)
+        {
+            Size _gradientSize = GetGradientSize(_autoSize, _control, _size);
+            UpdateGradient(_gradientSize, _colorField);
+        }
+
+        /// <summary>
+        /// Update the gradient.
+        /// </summary>
+        /// <param name="size">The size of the gradient.</param>
+        /// <param name="colorField">The color field.</param>
+        private void UpdateGradient(Size size, ColorField colorField)
+        {
+            _size = size;
+
+            if (_control == null)
+            {
+                return;
+            }
+
+            GraphicsUtilities.AssignGradientBackground(_control, _size, colorField.TopLeft, colorField.TopRight, colorField.BottomLeft, colorField.BottomRight);
+        }
+
+        #endregion Private Methods
     }
 }

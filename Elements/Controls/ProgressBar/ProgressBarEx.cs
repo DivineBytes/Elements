@@ -19,8 +19,8 @@ namespace Elements.Controls.ProgressBar
     /// it extends to fade its background colors and to display its <see cref="Text"/>.
     /// <para>
     /// You can manipulate the background fading intensity by changing the value of property <see
-    /// cref="Fade"/> which accepts values between 0 and 255. Lower values make the
-    /// background darker; higher values make the background lighter.
+    /// cref="Fade"/> which accepts values between 0 and 255. Lower values make the background
+    /// darker; higher values make the background lighter.
     /// </para>
     /// <para>
     /// The current <see cref="System.Windows.Forms.ProgressBar.Text"/> is displayed using the
@@ -45,20 +45,24 @@ namespace Elements.Controls.ProgressBar
     [ToolboxItem(true)]
     public class ProgressBarEx : System.Windows.Forms.ProgressBar
     {
-        private int _fade;
-        private SolidBrush _fadeBrush;
-        private bool _progressVisible;
-
-        /// <summary>
-        /// The <see cref="ValueChangedEventHandler"/> delegate.
-        /// </summary>
-        /// <param name="e">The <see cref="ProgressEventArgs"/> instance containing the event data.</param>
-        public delegate void ValueChangedEventHandler(ProgressEventArgs e);
+        #region Public Fields
 
         /// <summary>
         /// The value changed.
         /// </summary>
         public ValueChangedEventHandler ValueChanged;
+
+        #endregion Public Fields
+
+        #region Private Fields
+
+        private int _fade;
+        private SolidBrush _fadeBrush;
+        private bool _progressVisible;
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ProgressBar"/> class.
@@ -70,56 +74,19 @@ namespace Elements.Controls.ProgressBar
             _progressVisible = true;
         }
 
-        /// <summary>
-        /// Gets or sets the value.
-        /// </summary>
-        /// <value>The value.</value>
-        /// <exception cref="System.ArgumentOutOfRangeException">
-        /// Value - Provided value is out of the Minimum to Maximum range of values.
-        /// </exception>
-        [Bindable(true)]
-        [Category(PropertyCategory.Behavior)]
-        [Description("The current value for the ProgressBar, in the range specified by the minimum and maximum properties.")]
-        public new int Value
-        {
-            get
-            {
-                return base.Value;
-            }
+        #endregion Public Constructors
 
-            set
-            {
-                if (value != base.Value)
-                {
-                    if ((value < Minimum) || (value > Maximum))
-                    {
-                        throw new ArgumentOutOfRangeException(nameof(Value), "Provided value is out of the Minimum to Maximum range of values.");
-                    }
-
-                    base.Value = value;
-                    OnValueChanged(new ProgressEventArgs(base.Value, this));
-                }
-            }
-        }
+        #region Public Delegates
 
         /// <summary>
-        /// Gets or sets a value indicating whether [progress visible].
+        /// The <see cref="ValueChangedEventHandler"/> delegate.
         /// </summary>
-        /// <value><c>true</c> if [progress visible]; otherwise, <c>false</c>.</value>
-        [DefaultValue(true)]
-        public bool ProgressVisible
-        {
-            get
-            {
-                return _progressVisible;
-            }
+        /// <param name="e">The <see cref="ProgressEventArgs"/> instance containing the event data.</param>
+        public delegate void ValueChangedEventHandler(ProgressEventArgs e);
 
-            set
-            {
-                _progressVisible = value;
-                Invalidate();
-            }
-        }
+        #endregion Public Delegates
+
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the opacity of the white overlay brush which fades the background colors of
@@ -132,8 +99,8 @@ namespace Elements.Controls.ProgressBar
         /// <remarks>
         /// You can use this property to manipulate the density of the background coloring of this
         /// control, to allow for better readability of any text within the <see
-        /// cref="ProgressBar"/>. You can use the <see cref="Font"/> and <see
-        /// cref="ForeColor"/> properties to further optimize the display of text.
+        /// cref="ProgressBar"/>. You can use the <see cref="Font"/> and <see cref="ForeColor"/>
+        /// properties to further optimize the display of text.
         /// <para>
         /// Acceptable values for this property are between 0 and 255 inclusive. The default is 150;
         /// lower values make the background darker; higher values make the background lighter.
@@ -248,6 +215,25 @@ namespace Elements.Controls.ProgressBar
         }
 
         /// <summary>
+        /// Gets or sets a value indicating whether [progress visible].
+        /// </summary>
+        /// <value><c>true</c> if [progress visible]; otherwise, <c>false</c>.</value>
+        [DefaultValue(true)]
+        public bool ProgressVisible
+        {
+            get
+            {
+                return _progressVisible;
+            }
+
+            set
+            {
+                _progressVisible = value;
+                Invalidate();
+            }
+        }
+
+        /// <summary>
         /// Gets the text associated with this <see cref="ProgressBar"/>.
         /// </summary>
         /// <value>A <see cref="string"/> representing the text displayed in the control.</value>
@@ -256,8 +242,7 @@ namespace Elements.Controls.ProgressBar
         /// consisting of the <see cref="System.Windows.Forms.ProgressBar.Value"/> followed by a
         /// percent sign.
         /// <para>
-        /// The text is displayed using the values of properties <see cref="Font"/> and
-        /// <see cref="ForeColor"/>.
+        /// The text is displayed using the values of properties <see cref="Font"/> and <see cref="ForeColor"/>.
         /// </para>
         /// </remarks>
         [Browsable(false)]
@@ -272,60 +257,40 @@ namespace Elements.Controls.ProgressBar
         }
 
         /// <summary>
-        /// Raises the <see cref="E:ValueChangedEvent"/> event.
+        /// Gets or sets the value.
         /// </summary>
-        /// <param name="eventArgs">
-        /// The <see cref="ProgressEventArgs"/> instance containing the event data.
-        /// </param>
-        protected virtual void OnValueChanged(ProgressEventArgs eventArgs)
+        /// <value>The value.</value>
+        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// Value - Provided value is out of the Minimum to Maximum range of values.
+        /// </exception>
+        [Bindable(true)]
+        [Category(PropertyCategory.Behavior)]
+        [Description("The current value for the ProgressBar, in the range specified by the minimum and maximum properties.")]
+        public new int Value
         {
-            ValueChanged?.Invoke(eventArgs);
-        }
-
-        /// <summary>
-        /// Releases the unmanaged resources used by the <see cref="ProgressBar"/> and optionally
-        /// releases the managed resources.
-        /// </summary>
-        /// <param name="disposing">
-        /// <b>True</b> to release both managed and unmanaged resources; <b>false</b> to release
-        /// only unmanaged resources.
-        /// </param>
-        /// <remarks>
-        /// This method is called by the public <see cref="Control.Dispose"/> method and the <see
-        /// cref="object.Finalize"/> method. Dispose invokes Dispose with the <i>disposing</i>
-        /// parameter set to <b>true</b>. Finalize invokes Dispose with <i>disposing</i> set to <b>false</b>.
-        /// <para>
-        /// <note type="inherit">Dispose might be called multiple times by other objects. When
-        /// overriding <i>Dispose(Boolean)</i>, be careful not to reference objects that have been
-        /// previously disposed of in an earlier call to Dispose.
-        /// <para>
-        /// If your derived class references objects that must be disposed of before an instance of
-        /// your class is destroyed, you must call <see cref="Control.Dispose"/> on all objects that
-        /// are referenced in your class, before calling <c>Dispose(disposing)</c> on the base class.
-        /// </para>
-        /// </note>
-        /// </para>
-        /// </remarks>
-        /// <overloads>
-        /// Releases all resources used by the <see cref="ProgressBar"/>.
-        /// <para>
-        /// This member is overloaded. For complete information about this member, click a name in
-        /// the overload list.
-        /// </para>
-        /// </overloads>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
+            get
             {
-                if (_fadeBrush != null)
-                {
-                    _fadeBrush.Dispose();
-                    _fadeBrush = null;
-                }
+                return base.Value;
             }
 
-            base.Dispose(disposing);
+            set
+            {
+                if (value != base.Value)
+                {
+                    if ((value < Minimum) || (value > Maximum))
+                    {
+                        throw new ArgumentOutOfRangeException(nameof(Value), "Provided value is out of the Minimum to Maximum range of values.");
+                    }
+
+                    base.Value = value;
+                    OnValueChanged(new ProgressEventArgs(base.Value, this));
+                }
+            }
         }
+
+        #endregion Public Properties
+
+        #region Protected Properties
 
         /// <summary>
         /// Returns the parameters used to create the window for the <see cref="ProgressBar"/> control.
@@ -356,6 +321,10 @@ namespace Elements.Controls.ProgressBar
                 return myParams;
             }
         }
+
+        #endregion Protected Properties
+
+        #region Public Methods
 
         /// <summary>
         /// Decrement from the value.
@@ -437,6 +406,84 @@ namespace Elements.Controls.ProgressBar
         }
 
         /// <summary>
+        /// Returns a string representation for this <see cref="ProgressBar"/>.
+        /// </summary>
+        /// <returns>A <see cref="string"/> that describes this control.</returns>
+        public override string ToString()
+        {
+            StringBuilder builder = new StringBuilder();
+
+            builder.Append(GetType().FullName);
+            builder.Append(", Minimum: ");
+            builder.Append(Minimum.ToString(CultureInfo.CurrentCulture));
+            builder.Append(", Maximum: ");
+            builder.Append(Maximum.ToString(CultureInfo.CurrentCulture));
+            builder.Append(", Value: ");
+            builder.Append(Value.ToString(CultureInfo.CurrentCulture));
+
+            return builder.ToString();
+        }
+
+        #endregion Public Methods
+
+        #region Protected Methods
+
+        /// <summary>
+        /// Releases the unmanaged resources used by the <see cref="ProgressBar"/> and optionally
+        /// releases the managed resources.
+        /// </summary>
+        /// <param name="disposing">
+        /// <b>True</b> to release both managed and unmanaged resources; <b>false</b> to release
+        /// only unmanaged resources.
+        /// </param>
+        /// <remarks>
+        /// This method is called by the public <see cref="Control.Dispose"/> method and the <see
+        /// cref="object.Finalize"/> method. Dispose invokes Dispose with the <i>disposing</i>
+        /// parameter set to <b>true</b>. Finalize invokes Dispose with <i>disposing</i> set to <b>false</b>.
+        /// <para>
+        /// <note type="inherit">Dispose might be called multiple times by other objects. When
+        /// overriding <i>Dispose(Boolean)</i>, be careful not to reference objects that have been
+        /// previously disposed of in an earlier call to Dispose.
+        /// <para>
+        /// If your derived class references objects that must be disposed of before an instance of
+        /// your class is destroyed, you must call <see cref="Control.Dispose"/> on all objects that
+        /// are referenced in your class, before calling <c>Dispose(disposing)</c> on the base class.
+        /// </para>
+        /// </note>
+        /// </para>
+        /// </remarks>
+        /// <overloads>
+        /// Releases all resources used by the <see cref="ProgressBar"/>.
+        /// <para>
+        /// This member is overloaded. For complete information about this member, click a name in
+        /// the overload list.
+        /// </para>
+        /// </overloads>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (_fadeBrush != null)
+                {
+                    _fadeBrush.Dispose();
+                    _fadeBrush = null;
+                }
+            }
+
+            base.Dispose(disposing);
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:ValueChangedEvent"/> event.
+        /// </summary>
+        /// <param name="eventArgs">
+        /// The <see cref="ProgressEventArgs"/> instance containing the event data.
+        /// </param>
+        protected virtual void OnValueChanged(ProgressEventArgs eventArgs)
+        {
+            ValueChanged?.Invoke(eventArgs);
+        }
+        /// <summary>
         /// Processes Windows messages.
         /// </summary>
         /// <param name="m">The Windows Message to process.</param>
@@ -468,24 +515,9 @@ namespace Elements.Controls.ProgressBar
             base.WndProc(ref m);
         }
 
-        /// <summary>
-        /// Returns a string representation for this <see cref="ProgressBar"/>.
-        /// </summary>
-        /// <returns>A <see cref="string"/> that describes this control.</returns>
-        public override string ToString()
-        {
-            StringBuilder builder = new StringBuilder();
+        #endregion Protected Methods
 
-            builder.Append(GetType().FullName);
-            builder.Append(", Minimum: ");
-            builder.Append(Minimum.ToString(CultureInfo.CurrentCulture));
-            builder.Append(", Maximum: ");
-            builder.Append(Maximum.ToString(CultureInfo.CurrentCulture));
-            builder.Append(", Value: ");
-            builder.Append(Value.ToString(CultureInfo.CurrentCulture));
-
-            return builder.ToString();
-        }
+        #region Private Methods
 
         /// <summary>
         /// Paints the private.
@@ -557,5 +589,7 @@ namespace Elements.Controls.ProgressBar
             // Custom painting
             PaintPrivate(hDC);
         }
+
+        #endregion Private Methods
     }
 }

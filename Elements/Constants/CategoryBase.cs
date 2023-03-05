@@ -1,9 +1,9 @@
 ﻿namespace Elements.Constants
 {
     /// <summary>
-    /// The <see cref="Defaults"/> class.
+    /// The <see cref="CategoryBase" /> class.
     /// </summary>
-    public class Defaults
+    public abstract class CategoryBase
     {
         /// <summary>
         /// The default category.

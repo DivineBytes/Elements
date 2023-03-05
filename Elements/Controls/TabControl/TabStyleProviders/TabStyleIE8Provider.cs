@@ -12,6 +12,8 @@ namespace Elements.Controls.TabControl.TabStyleProviders
     [ToolboxItem(false)]
     public class TabStyleIE8Provider : TabStyleRoundedProvider
     {
+        #region Public Constructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="TabStyleIE8Provider"/> class.
         /// </summary>
@@ -24,6 +26,37 @@ namespace Elements.Controls.TabControl.TabStyleProviders
 
             // Must set after the _Radius as this is used in the calculations of the actual padding
             Padding = new Point(6, 5);
+        }
+
+        #endregion Public Constructors
+
+        #region Public Methods
+
+        /// <summary>
+        /// Gets the page background brush.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <returns></returns>
+        public override Brush GetPageBackgroundBrush(int index)
+        {
+            // Capture the colours dependant on selection state of the tab
+            Color light = Color.FromArgb(227, 238, 251);
+
+            if (_TabControl.SelectedIndex == index)
+            {
+                light = SystemColors.Window;
+            }
+            else if (!_TabControl.TabPages[index].Enabled)
+            {
+                light = Color.FromArgb(207, 207, 207);
+            }
+            else if (_HotTrack && index == _TabControl.ActiveIndex)
+            {
+                // Enable hot tracking
+                light = Color.FromArgb(234, 246, 253);
+            }
+
+            return new SolidBrush(light);
         }
 
         /// <summary>
@@ -137,6 +170,55 @@ namespace Elements.Controls.TabControl.TabStyleProviders
             return tabBounds;
         }
 
+        #endregion Public Methods
+
+        #region Protected Methods
+
+        /// <summary>
+        /// Draws the tab closer.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <param name="graphics">The graphics.</param>
+        protected override void DrawTabCloser(int index, Graphics graphics)
+        {
+            if (_ShowTabCloser)
+            {
+                Rectangle closerRect = _TabControl.GetTabCloserRect(index);
+                graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                if (closerRect.Contains(_TabControl.MousePosition))
+                {
+                    using (GraphicsPath closerPath = GetCloserButtonPath(closerRect))
+                    {
+                        graphics.FillPath(Brushes.White, closerPath);
+                        using (Pen closerPen = new Pen(BorderColor))
+                        {
+                            graphics.DrawPath(closerPen, closerPath);
+                        }
+                    }
+
+                    using (GraphicsPath closerPath = GetCloserPath(closerRect))
+                    {
+                        using (Pen closerPen = new Pen(_CloserColorActive))
+                        {
+                            closerPen.Width = 2;
+                            graphics.DrawPath(closerPen, closerPath);
+                        }
+                    }
+                }
+                else
+                {
+                    using (GraphicsPath closerPath = GetCloserPath(closerRect))
+                    {
+                        using (Pen closerPen = new Pen(_CloserColor))
+                        {
+                            closerPen.Width = 2;
+                            graphics.DrawPath(closerPen, closerPath);
+                        }
+                    }
+                }
+            }
+        }
+
         /// <summary>
         /// Gets the tab background brush.
         /// </summary>
@@ -196,6 +278,26 @@ namespace Elements.Controls.TabControl.TabStyleProviders
             return fillBrush;
         }
 
+        #endregion Protected Methods
+
+        #region Private Methods
+
+        /// <summary>
+        /// Gets the closer button path.
+        /// </summary>
+        /// <param name="closerRect">The closer rect.</param>
+        /// <returns></returns>
+        private static GraphicsPath GetCloserButtonPath(Rectangle closerRect)
+        {
+            GraphicsPath closerPath = new GraphicsPath();
+            closerPath.AddLine(closerRect.X - 1, closerRect.Y - 2, closerRect.Right + 1, closerRect.Y - 2);
+            closerPath.AddLine(closerRect.Right + 2, closerRect.Y - 1, closerRect.Right + 2, closerRect.Bottom + 1);
+            closerPath.AddLine(closerRect.Right + 1, closerRect.Bottom + 2, closerRect.X - 1, closerRect.Bottom + 2);
+            closerPath.AddLine(closerRect.X - 2, closerRect.Bottom + 1, closerRect.X - 2, closerRect.Y - 1);
+            closerPath.CloseFigure();
+            return closerPath;
+        }
+
         /// <summary>
         /// Gets the background blend.
         /// </summary>
@@ -219,92 +321,6 @@ namespace Elements.Controls.TabControl.TabStyleProviders
             return blend;
         }
 
-        /// <summary>
-        /// Draws the tab closer.
-        /// </summary>
-        /// <param name="index">The index.</param>
-        /// <param name="graphics">The graphics.</param>
-        protected override void DrawTabCloser(int index, Graphics graphics)
-        {
-            if (_ShowTabCloser)
-            {
-                Rectangle closerRect = _TabControl.GetTabCloserRect(index);
-                graphics.SmoothingMode = SmoothingMode.AntiAlias;
-                if (closerRect.Contains(_TabControl.MousePosition))
-                {
-                    using (GraphicsPath closerPath = GetCloserButtonPath(closerRect))
-                    {
-                        graphics.FillPath(Brushes.White, closerPath);
-                        using (Pen closerPen = new Pen(BorderColor))
-                        {
-                            graphics.DrawPath(closerPen, closerPath);
-                        }
-                    }
-
-                    using (GraphicsPath closerPath = GetCloserPath(closerRect))
-                    {
-                        using (Pen closerPen = new Pen(_CloserColorActive))
-                        {
-                            closerPen.Width = 2;
-                            graphics.DrawPath(closerPen, closerPath);
-                        }
-                    }
-                }
-                else
-                {
-                    using (GraphicsPath closerPath = GetCloserPath(closerRect))
-                    {
-                        using (Pen closerPen = new Pen(_CloserColor))
-                        {
-                            closerPen.Width = 2;
-                            graphics.DrawPath(closerPen, closerPath);
-                        }
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// Gets the closer button path.
-        /// </summary>
-        /// <param name="closerRect">The closer rect.</param>
-        /// <returns></returns>
-        private static GraphicsPath GetCloserButtonPath(Rectangle closerRect)
-        {
-            GraphicsPath closerPath = new GraphicsPath();
-            closerPath.AddLine(closerRect.X - 1, closerRect.Y - 2, closerRect.Right + 1, closerRect.Y - 2);
-            closerPath.AddLine(closerRect.Right + 2, closerRect.Y - 1, closerRect.Right + 2, closerRect.Bottom + 1);
-            closerPath.AddLine(closerRect.Right + 1, closerRect.Bottom + 2, closerRect.X - 1, closerRect.Bottom + 2);
-            closerPath.AddLine(closerRect.X - 2, closerRect.Bottom + 1, closerRect.X - 2, closerRect.Y - 1);
-            closerPath.CloseFigure();
-            return closerPath;
-        }
-
-        /// <summary>
-        /// Gets the page background brush.
-        /// </summary>
-        /// <param name="index">The index.</param>
-        /// <returns></returns>
-        public override Brush GetPageBackgroundBrush(int index)
-        {
-            // Capture the colours dependant on selection state of the tab
-            Color light = Color.FromArgb(227, 238, 251);
-
-            if (_TabControl.SelectedIndex == index)
-            {
-                light = SystemColors.Window;
-            }
-            else if (!_TabControl.TabPages[index].Enabled)
-            {
-                light = Color.FromArgb(207, 207, 207);
-            }
-            else if (_HotTrack && index == _TabControl.ActiveIndex)
-            {
-                // Enable hot tracking
-                light = Color.FromArgb(234, 246, 253);
-            }
-
-            return new SolidBrush(light);
-        }
+        #endregion Private Methods
     }
 }

@@ -8,6 +8,18 @@ namespace Elements.Controls.ProgressBar
     /// </summary>
     public static class ModifyProgressBarColor
     {
+        #region Private Fields
+
+        private const int PBM_GETSTATE = WM_USER + 17;
+
+        private const int PBM_SETSTATE = WM_USER + 16;
+
+        private const int WM_USER = 0x400;
+
+        #endregion Private Fields
+
+        #region Public Enums
+
         /// <summary>
         /// The <see cref="ProgressBarState"/> enum.
         /// </summary>
@@ -29,9 +41,9 @@ namespace Elements.Controls.ProgressBar
             Paused = 3
         }
 
-        private const int WM_USER = 0x400;
-        private const int PBM_SETSTATE = WM_USER + 16;
-        private const int PBM_GETSTATE = WM_USER + 17;
+        #endregion Public Enums
+
+        #region Public Methods
 
         /// <summary>
         /// Gets the state.
@@ -52,5 +64,7 @@ namespace Elements.Controls.ProgressBar
         {
             User32.SendMessage(progressBar.Handle, PBM_SETSTATE, (IntPtr)state, IntPtr.Zero);
         }
+
+        #endregion Public Methods
     }
 }

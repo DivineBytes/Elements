@@ -12,6 +12,8 @@ namespace Elements.Controls.TabControl.TabStyleProviders
     [ToolboxItem(false)]
     public class TabStyleDefaultProvider : TabStyleProvider
     {
+        #region Public Constructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="TabStyleDefaultProvider"/> class.
         /// </summary>
@@ -21,6 +23,10 @@ namespace Elements.Controls.TabControl.TabStyleProviders
             _FocusTrack = true;
             _Radius = 2;
         }
+
+        #endregion Public Constructors
+
+        #region Public Methods
 
         /// <summary>
         /// Adds the tab border.
@@ -181,5 +187,7 @@ namespace Elements.Controls.TabControl.TabStyleProviders
 
             return tabBounds;
         }
+
+        #endregion Public Methods
     }
 }

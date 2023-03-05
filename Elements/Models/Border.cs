@@ -17,12 +17,18 @@ namespace Elements.Models
     [TypeConverter(typeof(SettingsTypeConverter))]
     public class Border
     {
+        #region Private Fields
+
         private HoverColorState _colorState;
+        private bool _hoverVisible;
         private int _rounding;
         private TileShape _shape;
         private int _thickness;
         private bool _visible;
-        private bool _hoverVisible;
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Border"/> class.
@@ -58,129 +64,9 @@ namespace Elements.Models
             _visible = visible;
         }
 
-        /// <summary>
-        /// Gets the distance from the rounded border.
-        /// </summary>
-        [Browsable(false)]
-        public int BorderCurve
-        {
-            get
-            {
-                return (_rounding / 2) + _thickness + 1;
-            }
-        }
+        #endregion Public Constructors
 
-        /// <summary>
-        /// Gets or sets the state of the color.
-        /// </summary>
-        /// <value>The state of the color.</value>
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        //[EditorBrowsable(EditorBrowsableState.Always)]
-        public HoverColorState ColorState
-        {
-            get
-            {
-                return _colorState;
-            }
-
-            set
-            {
-                _colorState = value;
-                OnColorStateChanged(this, EventArgs.Empty);
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether [hover visible].
-        /// </summary>
-        /// <value>
-        ///   <c>true</c> if [hover visible]; otherwise, <c>false</c>.
-        /// </value>
-        public bool HoverVisible
-        {
-            get
-            {
-                return _hoverVisible;
-            }
-
-            set
-            {
-                _hoverVisible = value;
-                OnHoverVisibleChanged(this, EventArgs.Empty);
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the thickness.
-        /// </summary>
-        /// <value>The thickness.</value>
-        public int Thickness
-        {
-            get
-            {
-                return _thickness;
-            }
-
-            set
-            {
-                _thickness = value;
-                OnThicknessChanged(this, EventArgs.Empty);
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the rounding.
-        /// </summary>
-        /// <value>The rounding.</value>
-        public int Rounding
-        {
-            get
-            {
-                return _rounding;
-            }
-
-            set
-            {
-                _rounding = value;
-                OnRoundingChanged(this, EventArgs.Empty);
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the shape.
-        /// </summary>
-        /// <value>The shape.</value>
-        public TileShape Shape
-        {
-            get
-            {
-                return _shape;
-            }
-
-            set
-            {
-                _shape = value;
-                OnShapeChanged(this, EventArgs.Empty);
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether this <see cref="Border"/> is visible.
-        /// </summary>
-        /// <value><c>true</c> if visible; otherwise, <c>false</c>.</value>
-        public bool Visible
-        {
-            get
-            {
-                return _visible;
-            }
-
-            set
-            {
-                _visible = value;
-                OnVisibleChanged(this, EventArgs.Empty);
-            }
-        }
+        #region Public Events
 
         /// <summary>
         /// Occurs when [color state changed].
@@ -224,71 +110,134 @@ namespace Elements.Models
         [Description("The visible.")]
         public event VisibleChangedEventHandler VisibleChanged;
 
+        #endregion Public Events
+
+        #region Public Properties
+
         /// <summary>
-        /// Invokes the color state changed event.
+        /// Gets the distance from the rounded border.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The event args.</param>
-        /// <exception cref="Exception">A delegate callback throws an exception.</exception>
-        protected virtual void OnColorStateChanged(object sender, EventArgs e)
+        [Browsable(false)]
+        public int BorderCurve
         {
-            ColorStateChanged?.Invoke(sender, e);
+            get
+            {
+                return (_rounding / 2) + _thickness + 1;
+            }
         }
 
         /// <summary>
-        /// Invokes the hover visible changed event.
+        /// Gets or sets the state of the color.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The event args.</param>
-        /// <exception cref="Exception">A delegate callback throws an exception.</exception>
-        protected virtual void OnHoverVisibleChanged(object sender, EventArgs e)
+        /// <value>The state of the color.</value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public HoverColorState ColorState
         {
-            HoverVisibleChanged?.Invoke(sender, e);
+            get
+            {
+                return _colorState;
+            }
+
+            set
+            {
+                _colorState = value;
+                OnColorStateChanged(this, EventArgs.Empty);
+            }
         }
 
         /// <summary>
-        /// Invokes the rounding changed event.
+        /// Gets or sets a value indicating whether [hover visible].
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The event args.</param>
-        /// <exception cref="Exception">A delegate callback throws an exception.</exception>
-        protected virtual void OnRoundingChanged(object sender, EventArgs e)
+        /// <value><c>true</c> if [hover visible]; otherwise, <c>false</c>.</value>
+        public bool HoverVisible
         {
-            RoundingChanged?.Invoke(sender, e);
+            get
+            {
+                return _hoverVisible;
+            }
+
+            set
+            {
+                _hoverVisible = value;
+                OnHoverVisibleChanged(this, EventArgs.Empty);
+            }
         }
 
         /// <summary>
-        /// Invokes the shape changed event.
+        /// Gets or sets the rounding.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The event args.</param>
-        /// <exception cref="Exception">A delegate callback throws an exception.</exception>
-        protected virtual void OnShapeChanged(object sender, EventArgs e)
+        /// <value>The rounding.</value>
+        public int Rounding
         {
-            ShapeChanged?.Invoke(sender, e);
+            get
+            {
+                return _rounding;
+            }
+
+            set
+            {
+                _rounding = value;
+                OnRoundingChanged(this, EventArgs.Empty);
+            }
         }
 
         /// <summary>
-        /// Invokes the thickness changed event.
+        /// Gets or sets the shape.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The event args.</param>
-        /// <exception cref="Exception">A delegate callback throws an exception.</exception>
-        protected virtual void OnThicknessChanged(object sender, EventArgs e)
+        /// <value>The shape.</value>
+        public TileShape Shape
         {
-            ThicknessChanged?.Invoke(sender, e);
+            get
+            {
+                return _shape;
+            }
+
+            set
+            {
+                _shape = value;
+                OnShapeChanged(this, EventArgs.Empty);
+            }
         }
 
         /// <summary>
-        /// Invokes the visible changed event.
+        /// Gets or sets the thickness.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The event args.</param>
-        /// <exception cref="Exception">A delegate callback throws an exception.</exception>
-        protected virtual void OnVisibleChanged(object sender, EventArgs e)
+        /// <value>The thickness.</value>
+        public int Thickness
         {
-            VisibleChanged?.Invoke(sender, e);
+            get
+            {
+                return _thickness;
+            }
+
+            set
+            {
+                _thickness = value;
+                OnThicknessChanged(this, EventArgs.Empty);
+            }
         }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="Border"/> is visible.
+        /// </summary>
+        /// <value><c>true</c> if visible; otherwise, <c>false</c>.</value>
+        public bool Visible
+        {
+            get
+            {
+                return _visible;
+            }
+
+            set
+            {
+                _visible = value;
+                OnVisibleChanged(this, EventArgs.Empty);
+            }
+        }
+
+        #endregion Public Properties
+
+        #region Public Methods
 
         /// <summary>
         /// Creates a border type path.
@@ -498,5 +447,77 @@ namespace Elements.Models
                     }
             }
         }
+
+        #endregion Public Methods
+
+        #region Protected Methods
+
+        /// <summary>
+        /// Invokes the color state changed event.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The event args.</param>
+        /// <exception cref="Exception">A delegate callback throws an exception.</exception>
+        protected virtual void OnColorStateChanged(object sender, EventArgs e)
+        {
+            ColorStateChanged?.Invoke(sender, e);
+        }
+
+        /// <summary>
+        /// Invokes the hover visible changed event.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The event args.</param>
+        /// <exception cref="Exception">A delegate callback throws an exception.</exception>
+        protected virtual void OnHoverVisibleChanged(object sender, EventArgs e)
+        {
+            HoverVisibleChanged?.Invoke(sender, e);
+        }
+
+        /// <summary>
+        /// Invokes the rounding changed event.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The event args.</param>
+        /// <exception cref="Exception">A delegate callback throws an exception.</exception>
+        protected virtual void OnRoundingChanged(object sender, EventArgs e)
+        {
+            RoundingChanged?.Invoke(sender, e);
+        }
+
+        /// <summary>
+        /// Invokes the shape changed event.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The event args.</param>
+        /// <exception cref="Exception">A delegate callback throws an exception.</exception>
+        protected virtual void OnShapeChanged(object sender, EventArgs e)
+        {
+            ShapeChanged?.Invoke(sender, e);
+        }
+
+        /// <summary>
+        /// Invokes the thickness changed event.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The event args.</param>
+        /// <exception cref="Exception">A delegate callback throws an exception.</exception>
+        protected virtual void OnThicknessChanged(object sender, EventArgs e)
+        {
+            ThicknessChanged?.Invoke(sender, e);
+        }
+
+        /// <summary>
+        /// Invokes the visible changed event.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The event args.</param>
+        /// <exception cref="Exception">A delegate callback throws an exception.</exception>
+        protected virtual void OnVisibleChanged(object sender, EventArgs e)
+        {
+            VisibleChanged?.Invoke(sender, e);
+        }
+
+        #endregion Protected Methods
     }
 }

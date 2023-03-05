@@ -19,7 +19,13 @@ namespace Elements.Base
     [ToolboxItem(false)]
     public abstract class NestedControlBase : ContainedControlBase
     {
+        #region Private Fields
+
         private ColorState _colorState;
+
+        #endregion Private Fields
+
+        #region Protected Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NestedControlBase"/> class.
@@ -28,6 +34,10 @@ namespace Elements.Base
         {
             _colorState = new ColorState();
         }
+
+        #endregion Protected Constructors
+
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the state of the back color.
@@ -47,6 +57,10 @@ namespace Elements.Base
                 Invalidate();
             }
         }
+
+        #endregion Public Properties
+
+        #region Protected Methods
 
         /// <summary>
         /// Raises the <see cref="E:BackColorChanged"/> event.
@@ -77,5 +91,7 @@ namespace Elements.Base
             GraphicsUtilities.SetControlBackColor(e.Control, Parent.BackColor, true);
             base.OnControlRemoved(e);
         }
+
+        #endregion Protected Methods
     }
 }

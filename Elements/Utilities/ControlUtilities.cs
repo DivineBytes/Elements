@@ -5,11 +5,15 @@ using System.Windows.Forms;
 namespace Elements.Utilities
 {
     /// <summary>
-    ///     The <see cref="ControlUtilities" /> class.
+    /// The <see cref="ControlUtilities"/> class.
     /// </summary>
     public class ControlUtilities
     {
-        /// <summary>Invokes if required the control.</summary>
+        #region Public Methods
+
+        /// <summary>
+        /// Invokes if required the control.
+        /// </summary>
         /// <param name="control">The control.</param>
         /// <param name="action">The action.</param>
         public static void InvokeIfRequired<TControl>(TControl control, MethodInvoker action) where TControl : Control
@@ -34,7 +38,30 @@ namespace Elements.Utilities
             }
         }
 
-        /// <summary>Invokes if required the 'Tool Strip Menu Item' control.</summary>
+        /// <summary>
+        /// Invokes if required.
+        /// </summary>
+        /// <param name="obj">The object.</param>
+        /// <param name="action">The action.</param>
+        public static void InvokeIfRequired(ISynchronizeInvoke obj, MethodInvoker action)
+        {
+            if (obj != null && action != null)
+            {
+                if (obj.InvokeRequired)
+                {
+                    object[] args = new object[0];
+                    obj.Invoke(action, args);
+                }
+                else
+                {
+                    action();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Invokes if required the 'Tool Strip Menu Item' control.
+        /// </summary>
         /// <param name="control">The ToolStripMenu item control.</param>
         /// <param name="action">The action.</param>
         public static void InvokeIfRequiredToolStrip<TControl>(TControl control, Action<TControl> action) where TControl : ToolStripItem
@@ -59,25 +86,6 @@ namespace Elements.Utilities
             }
         }
 
-        /// <summary>
-        /// Invokes if required.
-        /// </summary>
-        /// <param name="obj">The object.</param>
-        /// <param name="action">The action.</param>
-        public static void InvokeIfRequired(ISynchronizeInvoke obj, MethodInvoker action)
-        {
-            if (obj != null && action != null)
-            {
-                if (obj.InvokeRequired)
-                {
-                    object[] args = new object[0];
-                    obj.Invoke(action, args);
-                }
-                else
-                {
-                    action();
-                }
-            }
-        }
+        #endregion Public Methods
     }
 }

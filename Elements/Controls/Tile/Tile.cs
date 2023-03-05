@@ -3,7 +3,6 @@ using Elements.Constants;
 using Elements.Delegates;
 using Elements.Enumerators;
 using Elements.Models;
-using Elements.Properties;
 using Elements.Renders;
 using System;
 using System.ComponentModel;
@@ -28,14 +27,20 @@ namespace Elements.Controls.Tile
     [ToolboxItem(true)]
     public class Tile : ControlBase
     {
-        private TileType _tileType;
+        #region Private Fields
+
+        private ControlColorState _backColorState;
+        private ElementImageLayout _backgroundLayout;
         private Border _border;
         private Image _image;
-        private Point _offset;
-        private ElementImageLayout _backgroundLayout;
         private ElementImageLayout _imageLayout;
-        private ControlColorState _backColorState;
+        private Point _offset;
         private TextStyle _textStyle;
+        private TileType _tileType;
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Tile"/> class.
@@ -63,7 +68,7 @@ namespace Elements.Controls.Tile
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Tile" /> class.
+        /// Initializes a new instance of the <see cref="Tile"/> class.
         /// </summary>
         /// <param name="color">The color.</param>
         /// <param name="border">The border.</param>
@@ -75,19 +80,16 @@ namespace Elements.Controls.Tile
             _tileType = type;
         }
 
+        #endregion Public Constructors
+
+        #region Public Events
+
         /// <summary>
         /// Occurs when [color changed].
         /// </summary>
         [Category(EventCategory.PropertyChanged)]
         [Description("Property Event Changed")]
         public event ColorChangedEventHandler ColorChanged;
-
-        /// <summary>
-        /// Occurs when [type changed].
-        /// </summary>
-        [Category(EventCategory.PropertyChanged)]
-        [Description("Property Event Changed")]
-        public event TypeChangedEventHandler TypeChanged;
 
         /// <summary>
         /// Occurs when [shape changed].
@@ -97,24 +99,15 @@ namespace Elements.Controls.Tile
         public event ShapeChangedEventHandler ShapeChanged;
 
         /// <summary>
-        /// Gets or sets the border.
+        /// Occurs when [type changed].
         /// </summary>
-        /// <value>The border.</value>
-        [Category(PropertyCategory.Appearance)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public Border Border
-        {
-            get
-            {
-                return _border;
-            }
+        [Category(EventCategory.PropertyChanged)]
+        [Description("Property Event Changed")]
+        public event TypeChangedEventHandler TypeChanged;
 
-            set
-            {
-                _border = value;
-                Invalidate();
-            }
-        }
+        #endregion Public Events
+
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the state of the back color.
@@ -156,25 +149,24 @@ namespace Elements.Controls.Tile
         }
 
         /// <summary>
-        /// Gets or sets the image layout.
+        /// Gets or sets the border.
         /// </summary>
-        /// <value>The background image layout.</value>
+        /// <value>The border.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("The image layout.")]
-        public ElementImageLayout ImageLayout
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public Border Border
         {
             get
             {
-                return _imageLayout;
+                return _border;
             }
 
             set
             {
-                _imageLayout = value;
+                _border = value;
                 Invalidate();
             }
         }
-
         /// <summary>
         /// Gets or sets the image.
         /// </summary>
@@ -195,6 +187,25 @@ namespace Elements.Controls.Tile
             }
         }
 
+        /// <summary>
+        /// Gets or sets the image layout.
+        /// </summary>
+        /// <value>The background image layout.</value>
+        [Category(PropertyCategory.Appearance)]
+        [Description("The image layout.")]
+        public ElementImageLayout ImageLayout
+        {
+            get
+            {
+                return _imageLayout;
+            }
+
+            set
+            {
+                _imageLayout = value;
+                Invalidate();
+            }
+        }
         /// <summary>
         /// Gets or sets the offset.
         /// </summary>
@@ -252,6 +263,46 @@ namespace Elements.Controls.Tile
             }
         }
 
+        #endregion Public Properties
+
+        #region Public Methods
+
+        /// <summary>
+        /// Render the tile.
+        /// </summary>
+        /// <param name="graphics">The specified graphics to draw on.</param>
+        /// <param name="type">The type to draw.</param>
+        /// <param name="layout">The layout.</param>
+        /// <param name="clientRectangle">The client rectangle.</param>
+        /// <param name="image">The image to draw.</param>
+        /// <param name="text">The text to draw.</param>
+        /// <param name="font">The font to draw.</param>
+        /// <param name="enabled">The enabled.</param>
+        /// <param name="mouseState">The mouse State.</param>
+        /// <param name="textStyle">The text Style.</param>
+        /// <param name="offset">The location offset.</param>
+        public static void RenderTile(Graphics graphics, TileType type, ElementImageLayout layout, Rectangle clientRectangle, Image image, string text, Font font, bool enabled, MouseStates mouseState, TextStyle textStyle, Point offset = new Point())
+        {
+            switch (type)
+            {
+                case TileType.Image:
+                    {
+                        ImageRender.Render(graphics, image, layout, clientRectangle);
+                        break;
+                    }
+
+                case TileType.Text:
+                    {
+                        TextRender.Render(graphics, clientRectangle, text, font, enabled, mouseState, textStyle);
+                        break;
+                    }
+            }
+        }
+
+        #endregion Public Methods
+
+        #region Protected Methods
+
         /// <summary>
         /// Invokes the rounding changed event.
         /// </summary>
@@ -262,30 +313,6 @@ namespace Elements.Controls.Tile
         {
             Invalidate();
             ColorChanged?.Invoke(sender, e);
-        }
-
-        /// <summary>
-        /// Invokes the type changed event.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The event args.</param>
-        /// <exception cref="Exception">A delegate callback throws an exception.</exception>
-        protected virtual void OnTypeChanged(object sender, EventArgs e)
-        {
-            Invalidate();
-            TypeChanged?.Invoke(sender, e);
-        }
-
-        /// <summary>
-        /// Invokes the shape changed event.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The event args.</param>
-        /// <exception cref="Exception">A delegate callback throws an exception.</exception>
-        protected virtual void OnShapeChanged(object sender, EventArgs e)
-        {
-            Invalidate();
-            ShapeChanged?.Invoke(sender, e);
         }
 
         /// <summary>
@@ -369,35 +396,29 @@ namespace Elements.Controls.Tile
         }
 
         /// <summary>
-        /// Render the tile.
+        /// Invokes the shape changed event.
         /// </summary>
-        /// <param name="graphics">The specified graphics to draw on.</param>
-        /// <param name="type">The type to draw.</param>
-        /// <param name="layout">The layout.</param>
-        /// <param name="clientRectangle">The client rectangle.</param>
-        /// <param name="image">The image to draw.</param>
-        /// <param name="text">The text to draw.</param>
-        /// <param name="font">The font to draw.</param>
-        /// <param name="enabled">The enabled.</param>
-        /// <param name="mouseState">The mouse State.</param>
-        /// <param name="textStyle">The text Style.</param>
-        /// <param name="offset">The location offset.</param>
-        public static void RenderTile(Graphics graphics, TileType type, ElementImageLayout layout, Rectangle clientRectangle, Image image, string text, Font font, bool enabled, MouseStates mouseState, TextStyle textStyle, Point offset = new Point())
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The event args.</param>
+        /// <exception cref="Exception">A delegate callback throws an exception.</exception>
+        protected virtual void OnShapeChanged(object sender, EventArgs e)
         {
-            switch (type)
-            {
-                case TileType.Image:
-                    {
-                        ImageRender.Render(graphics, image, layout, clientRectangle);
-                        break;
-                    }
-
-                case TileType.Text:
-                    {
-                        TextRender.Render(graphics, clientRectangle, text, font, enabled, mouseState, textStyle);
-                        break;
-                    }
-            }
+            Invalidate();
+            ShapeChanged?.Invoke(sender, e);
         }
+
+        /// <summary>
+        /// Invokes the type changed event.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The event args.</param>
+        /// <exception cref="Exception">A delegate callback throws an exception.</exception>
+        protected virtual void OnTypeChanged(object sender, EventArgs e)
+        {
+            Invalidate();
+            TypeChanged?.Invoke(sender, e);
+        }
+
+        #endregion Protected Methods
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 namespace Elements.Controls.Separator
 {
     /// <summary>
-    /// The <see cref="Separator" /> class.
+    /// The <see cref="Separator"/> class.
     /// </summary>
-    /// <seealso cref="Elements.Base.ControlBase" />
+    /// <seealso cref="Elements.Base.ControlBase"/>
     [Category(Constants.PropertyCategory.Appearance)]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
@@ -24,10 +24,16 @@ namespace Elements.Controls.Separator
     [ToolboxItem(true)]
     public class Separator : ControlBase
     {
+        #region Private Fields
+
         private Color _line;
         private Orientation _orientation;
         private Color _shadow;
         private bool _shadowVisible;
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Separator"/> class.
@@ -43,6 +49,10 @@ namespace Elements.Controls.Separator
             _line = Color.FromArgb(224, 222, 220);
             _shadow = Color.FromArgb(250, 249, 249);
         }
+
+        #endregion Public Constructors
+
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the line.
@@ -155,6 +165,10 @@ namespace Elements.Controls.Separator
             }
         }
 
+        #endregion Public Properties
+
+        #region Protected Methods
+
         /// <summary>
         /// Raises the <see cref="E:Paint"/> event.
         /// </summary>
@@ -228,5 +242,7 @@ namespace Elements.Controls.Separator
                 Width = 4;
             }
         }
+
+        #endregion Protected Methods
     }
 }

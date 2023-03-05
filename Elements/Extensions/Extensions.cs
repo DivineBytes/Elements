@@ -8,6 +8,8 @@ namespace Elements.Extensions
     /// </summary>
     public static class Extensions
     {
+        #region Public Methods
+
         /// <summary>
         /// Gets the alignment.
         /// </summary>
@@ -34,5 +36,7 @@ namespace Elements.Extensions
 
             return horizontalAlignment;
         }
+
+        #endregion Public Methods
     }
 }

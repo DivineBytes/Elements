@@ -9,6 +9,8 @@ namespace Elements.Extensions
     /// </summary>
     public static class EnumExtensions
     {
+        #region Public Methods
+
         /// <summary>
         /// Gets the enum description.
         /// </summary>
@@ -64,5 +66,7 @@ namespace Elements.Extensions
 
             return string.Empty;
         }
+
+        #endregion Public Methods
     }
 }

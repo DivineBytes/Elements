@@ -34,12 +34,12 @@ namespace Elements.Models
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ControlColorState" /> class.
+        /// Initializes a new instance of the <see cref="ControlColorState"/> class.
         /// </summary>
         /// <param name="pressed">The pressed.</param>
-        /// <exception cref="System.ArgumentNullException">disabled - Cannot be empty.
-        /// or
-        /// enabled - Cannot be empty.</exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// disabled - Cannot be empty. or enabled - Cannot be empty.
+        /// </exception>
         public ControlColorState(Color pressed) : this()
         {
             if (pressed == Color.Empty)
@@ -78,9 +78,7 @@ namespace Elements.Models
         /// <summary>
         /// Gets or sets the pressed.
         /// </summary>
-        /// <value>
-        /// The pressed.
-        /// </value>
+        /// <value>The pressed.</value>
         [NotifyParentProperty(true)]
         [RefreshProperties(RefreshProperties.Repaint)]
         [Description("Color")]

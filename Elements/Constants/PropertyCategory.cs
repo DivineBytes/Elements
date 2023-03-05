@@ -1,21 +1,22 @@
 ﻿namespace Elements.Constants
 {
     /// <summary>
-    /// The <see cref="PropertyCategory"/> class.
+    /// The <see cref="PropertyCategory" /> class.
     /// </summary>
+    /// <seealso cref="Elements.Constants.CategoryBase" />
 #pragma warning disable 1591
-    public class PropertyCategory
+    public class PropertyCategory : CategoryBase
     {
 #if DEBUG
 
-        public const string Accessibility = Defaults.DefaultCategory;
-        public const string Appearance = Defaults.DefaultCategory;
-        public const string Behavior = Defaults.DefaultCategory;
-        public const string Layout = Defaults.DefaultCategory;
-        public const string Data = Defaults.DefaultCategory;
-        public const string Design = Defaults.DefaultCategory;
-        public const string Focus = Defaults.DefaultCategory;
-        public const string WindowStyle = Defaults.DefaultCategory;
+        public const string Accessibility = DefaultCategory;
+        public const string Appearance = DefaultCategory;
+        public const string Behavior = DefaultCategory;
+        public const string Layout = DefaultCategory;
+        public const string Data = DefaultCategory;
+        public const string Design = DefaultCategory;
+        public const string Focus = DefaultCategory;
+        public const string WindowStyle = DefaultCategory;
 
 #else
 

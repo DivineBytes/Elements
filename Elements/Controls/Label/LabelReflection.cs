@@ -15,6 +15,8 @@ namespace Elements.Controls.Label
     [TypeConverter(typeof(SettingsTypeConverter))]
     public class LabelReflection
     {
+        #region Public Constructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="LabelReflection"/> class.
         /// </summary>
@@ -25,12 +27,9 @@ namespace Elements.Controls.Label
             Spacing = 0F;
         }
 
-        /// <summary>
-        /// Gets or sets a value indicating whether this <see cref="LabelReflection"/> is enabled.
-        /// </summary>
-        /// <value><c>true</c> if enabled; otherwise, <c>false</c>.</value>
-        [Description("The enabled.")]
-        public bool Enabled { get; set; }
+        #endregion Public Constructors
+
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the color.
@@ -40,11 +39,21 @@ namespace Elements.Controls.Label
         public Color Color { get; set; }
 
         /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="LabelReflection"/> is enabled.
+        /// </summary>
+        /// <value><c>true</c> if enabled; otherwise, <c>false</c>.</value>
+        [Description("The enabled.")]
+        public bool Enabled { get; set; }
+        /// <summary>
         /// Gets or sets the spacing.
         /// </summary>
         /// <value>The spacing.</value>
         [Description("The spacing.")]
         public float Spacing { get; set; }
+
+        #endregion Public Properties
+
+        #region Public Methods
 
         /// <summary>
         /// Renders the text reflection.
@@ -94,5 +103,7 @@ namespace Elements.Controls.Label
             graphics.DrawImage(reflectionBitmap, clientRectangle, 0, 0, reflectionBitmap.Width, reflectionBitmap.Height, GraphicsUnit.Pixel);
             graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
         }
+
+        #endregion Public Methods
     }
 }

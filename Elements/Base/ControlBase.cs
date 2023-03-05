@@ -21,7 +21,13 @@ namespace Elements.Base
     [ToolboxItem(false)]
     public abstract class ControlBase : Control, ICloneable
     {
+        #region Private Fields
+
         private MouseStates _mouseState;
+
+        #endregion Private Fields
+
+        #region Protected Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ControlBase"/> class.
@@ -45,6 +51,10 @@ namespace Elements.Base
             _mouseState = MouseStates.Normal;
         }
 
+        #endregion Protected Constructors
+
+        #region Public Events
+
         /// <summary>
         /// Occurs when [mouse state changed].
         /// </summary>
@@ -52,7 +62,13 @@ namespace Elements.Base
         [Description("Occours when the MouseState of the control has changed.")]
         public event MouseStateChangedEventHandler MouseStateChanged;
 
-        /// <summary>Gets or sets the <see cref="MouseState" />.</summary>
+        #endregion Public Events
+
+        #region Public Properties
+
+        /// <summary>
+        /// Gets or sets the <see cref="MouseState"/>.
+        /// </summary>
         [Category(PropertyCategory.Appearance)]
         [Description("The mouse state.")]
         public MouseStates MouseState
@@ -74,6 +90,10 @@ namespace Elements.Base
             }
         }
 
+        #endregion Public Properties
+
+        #region Public Methods
+
         /// <summary>
         /// Creates a copy of the current object.
         /// </summary>
@@ -83,16 +103,9 @@ namespace Elements.Base
             return MemberwiseClone();
         }
 
-        /// <summary>Invokes the mouse state changed event.</summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The event args.</param>
-        /// <exception cref="Exception">A delegate callback throws an exception.</exception>
-        protected virtual void OnMouseStateChanged(object sender, MouseStateEventArgs e)
-        {
-            MouseState = e.MouseStates;
-            Invalidate();
-            MouseStateChanged?.Invoke(sender, e);
-        }
+        #endregion Public Methods
+
+        #region Protected Methods
 
         /// <summary>
         /// Raises the <see cref="E:MouseDown"/> event.
@@ -102,6 +115,26 @@ namespace Elements.Base
         {
             base.OnMouseDown(e);
             OnMouseStateChanged(this, new MouseStateEventArgs(MouseStates.Pressed));
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MouseHover"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        protected override void OnMouseHover(EventArgs e)
+        {
+            base.OnMouseHover(e);
+            OnMouseStateChanged(this, new MouseStateEventArgs(MouseStates.Hover));
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MouseLeave"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        protected override void OnMouseLeave(EventArgs e)
+        {
+            base.OnMouseLeave(e);
+            OnMouseStateChanged(this, new MouseStateEventArgs(MouseStates.Normal));
         }
 
         /// <summary>
@@ -115,23 +148,18 @@ namespace Elements.Base
         }
 
         /// <summary>
-        /// Raises the <see cref="E:MouseHover" /> event.
+        /// Invokes the mouse state changed event.
         /// </summary>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        protected override void OnMouseHover(EventArgs e)
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The event args.</param>
+        /// <exception cref="Exception">A delegate callback throws an exception.</exception>
+        protected virtual void OnMouseStateChanged(object sender, MouseStateEventArgs e)
         {
-            base.OnMouseHover(e);
-            OnMouseStateChanged(this, new MouseStateEventArgs(MouseStates.Hover));
+            MouseState = e.MouseStates;
+            Invalidate();
+            MouseStateChanged?.Invoke(sender, e);
         }
 
-        /// <summary>
-        /// Raises the <see cref="E:MouseLeave" /> event.
-        /// </summary>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        protected override void OnMouseLeave(EventArgs e)
-        {
-            base.OnMouseLeave(e);
-            OnMouseStateChanged(this, new MouseStateEventArgs(MouseStates.Normal));
-        }
+        #endregion Protected Methods
     }
 }

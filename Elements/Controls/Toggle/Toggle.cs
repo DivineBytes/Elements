@@ -1,6 +1,5 @@
 ﻿using Elements.Base;
 using Elements.Constants;
-using Elements.Controls.Button;
 using Elements.Delegates;
 using Elements.Enumerators;
 using Elements.Events;
@@ -8,13 +7,10 @@ using Elements.Models;
 using Elements.Renders;
 using Elements.Utilities;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Elements.Controls.Toggle
@@ -33,12 +29,18 @@ namespace Elements.Controls.Toggle
     [ToolboxItem(true)]
     public class Toggle : ControlBase
     {
+        #region Private Fields
+
         private readonly Timer _animationTimer;
         private Border _border;
         private Button.Button _button;
         private ColorState _colorState;
-        private ToggleOptions _toggleOptions;
         private bool _toggle;
+        private ToggleOptions _toggleOptions;
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Toggle"/> class.
@@ -64,9 +66,12 @@ namespace Elements.Controls.Toggle
             _toggleOptions = new ToggleOptions();
             _toggle = false;
 
-
             Controls.Add(_button);
         }
+
+        #endregion Public Constructors
+
+        #region Public Events
 
         /// <summary>
         /// Occurs when [toggle changed].
@@ -75,12 +80,14 @@ namespace Elements.Controls.Toggle
         [Description("Occours when the toggle has been changed on the control.")]
         public event ToggleChangedEventHandler ToggleChanged;
 
+        #endregion Public Events
+
+        #region Public Properties
+
         /// <summary>
         /// Gets or sets the state of the back color.
         /// </summary>
-        /// <value>
-        /// The state of the back color.
-        /// </value>
+        /// <value>The state of the back color.</value>
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public ColorState BackColorState
         {
@@ -99,9 +106,7 @@ namespace Elements.Controls.Toggle
         /// <summary>
         /// Gets or sets the border.
         /// </summary>
-        /// <value>
-        /// The border.
-        /// </value>
+        /// <value>The border.</value>
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public Border Border
         {
@@ -120,9 +125,7 @@ namespace Elements.Controls.Toggle
         /// <summary>
         /// Gets or sets the button.
         /// </summary>
-        /// <value>
-        /// The button.
-        /// </value>
+        /// <value>The button.</value>
         [Browsable(false)]
         public Button.Button Button
         {
@@ -141,9 +144,7 @@ namespace Elements.Controls.Toggle
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="Toggle"/> is toggled.
         /// </summary>
-        /// <value>
-        ///   <c>true</c> if toggled; otherwise, <c>false</c>.
-        /// </value>
+        /// <value><c>true</c> if toggled; otherwise, <c>false</c>.</value>
         [DefaultValue(false)]
         [Category(PropertyCategory.Behavior)]
         [Description("Toggles the behaviour.")]
@@ -164,9 +165,7 @@ namespace Elements.Controls.Toggle
         /// <summary>
         /// Gets or sets the toggle options.
         /// </summary>
-        /// <value>
-        /// The toggle options.
-        /// </value>
+        /// <value>The toggle options.</value>
         public ToggleOptions ToggleOptions
         {
             get
@@ -181,8 +180,12 @@ namespace Elements.Controls.Toggle
             }
         }
 
+        #endregion Public Properties
+
+        #region Protected Methods
+
         /// <summary>
-        /// Raises the <see cref="E:HandleCreated" /> event.
+        /// Raises the <see cref="E:HandleCreated"/> event.
         /// </summary>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected override void OnHandleCreated(EventArgs e)
@@ -190,20 +193,11 @@ namespace Elements.Controls.Toggle
             base.OnHandleCreated(e);
             _animationTimer.Start();
         }
-        
-        /// <summary>Occurs when the ToggleChanged event fires.</summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The event args.</param>
-        protected virtual void OnToggleChanged(object sender, ToggleEventArgs e)
-        {
-            ToggleChanged?.Invoke(sender, e);
-            Invalidate();
-        }
 
         /// <summary>
-        /// Raises the <see cref="E:MouseHover" /> event.
+        /// Raises the <see cref="E:MouseHover"/> event.
         /// </summary>
-        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected override void OnMouseHover(EventArgs e)
         {
             base.OnMouseHover(e);
@@ -219,7 +213,7 @@ namespace Elements.Controls.Toggle
         }
 
         /// <summary>
-        /// Raises the <see cref="E:MouseUp" /> event.
+        /// Raises the <see cref="E:MouseUp"/> event.
         /// </summary>
         /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
         protected override void OnMouseUp(MouseEventArgs e)
@@ -230,7 +224,7 @@ namespace Elements.Controls.Toggle
         }
 
         /// <summary>
-        /// Raises the <see cref="E:Paint" /> event.
+        /// Raises the <see cref="E:Paint"/> event.
         /// </summary>
         /// <param name="e">The <see cref="PaintEventArgs"/> instance containing the event data.</param>
         protected override void OnPaint(PaintEventArgs e)
@@ -272,7 +266,24 @@ namespace Elements.Controls.Toggle
             Border.Render(e.Graphics, _border, MouseState, controlGraphicsPath);
         }
 
-        /// <summary>Create a slide animation when toggled.</summary>
+        /// <summary>
+        /// Occurs when the ToggleChanged event fires.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The event args.</param>
+        protected virtual void OnToggleChanged(object sender, ToggleEventArgs e)
+        {
+            ToggleChanged?.Invoke(sender, e);
+            Invalidate();
+        }
+
+        #endregion Protected Methods
+
+        #region Private Methods
+
+        /// <summary>
+        /// Create a slide animation when toggled.
+        /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The event args.</param>
         private void AnimationTimerTick(object sender, EventArgs e)
@@ -304,7 +315,7 @@ namespace Elements.Controls.Toggle
         private void DrawToggleText(Graphics graphics)
         {
             string _textProcessor = string.Empty;
-            
+
             // Determines the type of toggle to draw.
             switch (_toggleOptions.Type)
             {
@@ -364,5 +375,7 @@ namespace Elements.Controls.Toggle
                 textBoxRectangle,
                 stringFormat);
         }
+
+        #endregion Private Methods
     }
 }

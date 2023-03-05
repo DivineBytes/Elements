@@ -11,12 +11,13 @@ namespace Elements.Controls.ProgressBar
 {
     internal class ProgressBarDesigner : ControlDesignerBase
     {
+        #region Public Properties
+
         /// <summary>
-        /// Gets a list of System.Windows.Forms.Design.Behavior.SnapLine objects, representing alignment points for the edited control.
+        /// Gets a list of System.Windows.Forms.Design.Behavior.SnapLine objects, representing
+        /// alignment points for the edited control.
         /// </summary>
-        /// <value>
-        /// The snap lines.
-        /// </value>
+        /// <value>The snap lines.</value>
         public override IList SnapLines
         {
             get
@@ -34,6 +35,21 @@ namespace Elements.Controls.ProgressBar
                 return snapList;
             }
         }
+
+        #endregion Public Properties
+
+        #region Protected Methods
+
+        protected override void PreFilterProperties(IDictionary properties)
+        {
+            // properties.Remove("ImeMode");
+
+            base.PreFilterProperties(properties);
+        }
+
+        #endregion Protected Methods
+
+        #region Private Methods
 
         /// <summary>
         /// Gets the baseline.
@@ -106,11 +122,6 @@ namespace Elements.Controls.ProgressBar
             return (int)Math.Round(clientRect.Top + (double)clientRect.Height / 2 - (double)textHeight / 2 + textAscent);
         }
 
-        protected override void PreFilterProperties(IDictionary properties)
-        {
-            // properties.Remove("ImeMode");
-
-            base.PreFilterProperties(properties);
-        }
+        #endregion Private Methods
     }
 }

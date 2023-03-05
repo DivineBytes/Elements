@@ -7,6 +7,8 @@ namespace Elements.Components.Gradient
     /// </summary>
     public class ColorField
     {
+        #region Public Constructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ColorField"/> class.
         /// </summary>
@@ -33,17 +35,9 @@ namespace Elements.Components.Gradient
             BottomRight = bottomRight;
         }
 
-        /// <summary>
-        /// Gets or sets the top left.
-        /// </summary>
-        /// <value>The top left.</value>
-        public Color TopLeft { get; set; }
+        #endregion Public Constructors
 
-        /// <summary>
-        /// Gets or sets the top right.
-        /// </summary>
-        /// <value>The top right.</value>
-        public Color TopRight { get; set; }
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the bottom left.
@@ -56,5 +50,19 @@ namespace Elements.Components.Gradient
         /// </summary>
         /// <value>The bottom right.</value>
         public Color BottomRight { get; set; }
+
+        /// <summary>
+        /// Gets or sets the top left.
+        /// </summary>
+        /// <value>The top left.</value>
+        public Color TopLeft { get; set; }
+
+        /// <summary>
+        /// Gets or sets the top right.
+        /// </summary>
+        /// <value>The top right.</value>
+        public Color TopRight { get; set; }
+
+        #endregion Public Properties
     }
 }

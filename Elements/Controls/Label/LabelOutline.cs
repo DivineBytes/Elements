@@ -13,6 +13,8 @@ namespace Elements.Controls.Label
     [TypeConverter(typeof(SettingsTypeConverter))]
     public class LabelOutline
     {
+        #region Public Constructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="LabelOutline"/> class.
         /// </summary>
@@ -23,12 +25,9 @@ namespace Elements.Controls.Label
             Location = new Point(0, 0);
         }
 
-        /// <summary>
-        /// Gets or sets a value indicating whether this <see cref="LabelOutline"/> is enabled.
-        /// </summary>
-        /// <value><c>true</c> if enabled; otherwise, <c>false</c>.</value>
-        [Description("The enabled.")]
-        public bool Enabled { get; set; }
+        #endregion Public Constructors
+
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the color.
@@ -38,11 +37,21 @@ namespace Elements.Controls.Label
         public Color Color { get; set; }
 
         /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="LabelOutline"/> is enabled.
+        /// </summary>
+        /// <value><c>true</c> if enabled; otherwise, <c>false</c>.</value>
+        [Description("The enabled.")]
+        public bool Enabled { get; set; }
+        /// <summary>
         /// Gets or sets the location.
         /// </summary>
         /// <value>The location.</value>
         [Description("The location.")]
         public Point Location { get; set; }
+
+        #endregion Public Properties
+
+        #region Public Methods
 
         /// <summary>
         /// Renders the specified label outline.
@@ -87,5 +96,7 @@ namespace Elements.Controls.Label
 
             graphics.DrawPath(new Pen(labelOutline.Color), outlinePath);
         }
+
+        #endregion Public Methods
     }
 }

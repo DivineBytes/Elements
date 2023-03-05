@@ -19,10 +19,16 @@ namespace Elements.Controls.TextBox
     [ToolboxItem(false)]
     public class TextBoxEx : System.Windows.Forms.TextBox
     {
+        #region Private Fields
+
         private const int WM_KILLFOCUS = 0x0008;
         private const int WM_PAINT = 0x000F;
 
         private Watermark _watermark;
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TextBoxEx"/> class.
@@ -31,6 +37,10 @@ namespace Elements.Controls.TextBox
         {
             _watermark = new Watermark();
         }
+
+        #endregion Public Constructors
+
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the watermark.
@@ -52,6 +62,10 @@ namespace Elements.Controls.TextBox
             }
         }
 
+        #endregion Public Properties
+
+        #region Protected Methods
+
         /// <summary>
         /// WNDs the proc.
         /// </summary>
@@ -67,6 +81,10 @@ namespace Elements.Controls.TextBox
             }
         }
 
+        #endregion Protected Methods
+
+        #region Private Methods
+
         /// <summary>
         /// Shoulds the render place holder text.
         /// </summary>
@@ -79,5 +97,7 @@ namespace Elements.Controls.TextBox
             !GetStyle(ControlStyles.UserPaint) &&
             !Focused && TextLength == 0;
         }
+
+        #endregion Private Methods
     }
 }

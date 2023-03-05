@@ -7,6 +7,8 @@ namespace Elements.Utilities.Designer
     /// </summary>
     public static class DesignerUtilities
     {
+        #region Public Methods
+
         /// <summary>
         /// Configures the filter.
         /// </summary>
@@ -33,5 +35,7 @@ namespace Elements.Utilities.Designer
 
             properties.Remove("RightToLeft");
         }
+
+        #endregion Public Methods
     }
 }

@@ -11,6 +11,8 @@ namespace Elements.Renders
     /// </summary>
     public static class ControlRender
     {
+        #region Public Methods
+
         /// <summary>
         /// Render bars.
         /// </summary>
@@ -108,5 +110,7 @@ namespace Elements.Renders
             graphics.SmoothingMode = SmoothingMode.HighQuality;
             graphics.FillPolygon(new SolidBrush(color), points);
         }
+
+        #endregion Public Methods
     }
 }

@@ -1,22 +1,18 @@
 ﻿using Elements.Base;
 using Elements.Constants;
 using Elements.Utilities;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Elements.Controls.Label
 {
     /// <summary>
-    /// The <see cref="Label" /> class.
+    /// The <see cref="Label"/> class.
     /// </summary>
-    /// <seealso cref="Elements.Base.ControlBase" />
+    /// <seealso cref="Elements.Base.ControlBase"/>
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [DefaultEvent("Click")]
@@ -27,14 +23,19 @@ namespace Elements.Controls.Label
     [ToolboxItem(true)]
     public class Label : ControlBase
     {
+        #region Private Fields
+
         private StringAlignment _alignment;
+        private LabelOutline _labelOutline;
+        private LabelReflection _labelReflection;
+        private LabelShadow _labelShadow;
         private StringAlignment _lineAlignment;
         private Orientation _orientation;
         private Color _textDisabled;
 
-        private LabelOutline _labelOutline;
-        private LabelReflection _labelReflection;
-        private LabelShadow _labelShadow;
+        #endregion Private Fields
+
+        #region Public Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Label"/> class.
@@ -56,16 +57,18 @@ namespace Elements.Controls.Label
             Size = new Size(75, 23);
         }
 
+        #endregion Public Constructors
+
+        #region Public Properties
+
         /// <summary>
         /// Gets or sets the disabled text.
         /// </summary>
-        /// <value>
-        /// The disabled text.
-        /// </value>
+        /// <value>The disabled text.</value>
         [Category(PropertyCategory.Appearance)]
         [Description("The disabled text color.")]
         public Color DisabledText
-        { 
+        {
             get
             {
                 return _textDisabled;
@@ -80,9 +83,7 @@ namespace Elements.Controls.Label
         /// <summary>
         /// Gets or sets the orientation.
         /// </summary>
-        /// <value>
-        /// The orientation.
-        /// </value>
+        /// <value>The orientation.</value>
         [Category(PropertyCategory.Appearance)]
         [Description("The text orientation.")]
         public Orientation Orientation
@@ -103,9 +104,7 @@ namespace Elements.Controls.Label
         /// <summary>
         /// Gets or sets the outline.
         /// </summary>
-        /// <value>
-        /// The outline.
-        /// </value>
+        /// <value>The outline.</value>
         [Category(PropertyCategory.Appearance)]
         public LabelOutline Outline
         {
@@ -123,9 +122,7 @@ namespace Elements.Controls.Label
         /// <summary>
         /// Gets or sets the reflection.
         /// </summary>
-        /// <value>
-        /// The reflection.
-        /// </value>
+        /// <value>The reflection.</value>
         [Category(PropertyCategory.Appearance)]
         public LabelReflection Reflection
         {
@@ -143,9 +140,7 @@ namespace Elements.Controls.Label
         /// <summary>
         /// Gets or sets the shadow.
         /// </summary>
-        /// <value>
-        /// The shadow.
-        /// </value>
+        /// <value>The shadow.</value>
         [Category(PropertyCategory.Appearance)]
         public LabelShadow Shadow
         {
@@ -163,9 +158,7 @@ namespace Elements.Controls.Label
         /// <summary>
         /// Gets or sets the text.
         /// </summary>
-        /// <value>
-        /// The text.
-        /// </value>
+        /// <value>The text.</value>
         [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         public override string Text
         {
@@ -184,9 +177,7 @@ namespace Elements.Controls.Label
         /// <summary>
         /// Gets or sets the text alignment.
         /// </summary>
-        /// <value>
-        /// The text alignment.
-        /// </value>
+        /// <value>The text alignment.</value>
         [Category(PropertyCategory.Appearance)]
         [Description("The text alignment.")]
         public StringAlignment TextAlignment
@@ -206,9 +197,7 @@ namespace Elements.Controls.Label
         /// <summary>
         /// Gets or sets the text line alignment.
         /// </summary>
-        /// <value>
-        /// The text line alignment.
-        /// </value>
+        /// <value>The text line alignment.</value>
         [Category(PropertyCategory.Appearance)]
         [Description("The text line alignment.")]
         public StringAlignment TextLineAlignment
@@ -225,8 +214,12 @@ namespace Elements.Controls.Label
             }
         }
 
+        #endregion Public Properties
+
+        #region Protected Methods
+
         /// <summary>
-        /// Raises the <see cref="E:Paint" /> event.
+        /// Raises the <see cref="E:Paint"/> event.
         /// </summary>
         /// <param name="e">The <see cref="PaintEventArgs"/> instance containing the event data.</param>
         protected override void OnPaint(PaintEventArgs e)
@@ -257,8 +250,6 @@ namespace Elements.Controls.Label
             {
                 LabelShadow.Render(_labelShadow, graphics, _orientation, Text, Font, ClientRectangle);
             }
-            
- 
 
             // Draw the reflection text.
             if (Reflection.Enabled)
@@ -270,5 +261,7 @@ namespace Elements.Controls.Label
 
             graphics.DrawString(Text, Font, new SolidBrush(_foreColor), textBoxRectangle, StringUtilities.GetOrientedStringFormat(_orientation, _alignment, _lineAlignment));
         }
+
+        #endregion Protected Methods
     }
 }

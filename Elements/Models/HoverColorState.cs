@@ -34,12 +34,12 @@ namespace Elements.Models
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="HoverColorState" /> class.
+        /// Initializes a new instance of the <see cref="HoverColorState"/> class.
         /// </summary>
         /// <param name="hover">The hover.</param>
-        /// <exception cref="System.ArgumentNullException">disabled - Cannot be empty.
-        /// or
-        /// enabled - Cannot be empty.</exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// disabled - Cannot be empty. or enabled - Cannot be empty.
+        /// </exception>
         public HoverColorState(Color hover) : this()
         {
             if (hover == Color.Empty)
@@ -51,14 +51,14 @@ namespace Elements.Models
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="HoverColorState" /> class.
+        /// Initializes a new instance of the <see cref="HoverColorState"/> class.
         /// </summary>
         /// <param name="disabled">The disabled.</param>
         /// <param name="enabled">The enabled.</param>
         /// <param name="hover">The hover.</param>
-        /// <exception cref="System.ArgumentNullException">disabled - Cannot be empty.
-        /// or
-        /// enabled - Cannot be empty.</exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// disabled - Cannot be empty. or enabled - Cannot be empty.
+        /// </exception>
         public HoverColorState(Color disabled, Color enabled, Color hover) : base(disabled, enabled)
         {
             if (hover == Color.Empty)
@@ -79,9 +79,7 @@ namespace Elements.Models
         /// <summary>
         /// Gets or sets the hover.
         /// </summary>
-        /// <value>
-        /// The hover.
-        /// </value>
+        /// <value>The hover.</value>
         [NotifyParentProperty(true)]
         [RefreshProperties(RefreshProperties.Repaint)]
         [Description("Color")]

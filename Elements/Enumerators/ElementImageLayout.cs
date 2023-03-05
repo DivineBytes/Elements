@@ -1,6 +1,4 @@
-﻿using System.Windows.Forms;
-
-namespace Elements.Enumerators
+﻿namespace Elements.Enumerators
 {
     /// <summary>
     /// The <see cref="ElementImageLayout"/> enum.

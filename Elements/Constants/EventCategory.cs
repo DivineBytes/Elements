@@ -1,25 +1,26 @@
 ﻿namespace Elements.Constants
 {
     /// <summary>
-    /// The <see cref="EventCategory"/> class.
+    /// The <see cref="EventCategory" /> class.
     /// </summary>
+    /// <seealso cref="Elements.Constants.CategoryBase" />
 #pragma warning disable 1591
 
-    public class EventCategory
+    public class EventCategory : CategoryBase
     {
 #if DEBUG
 
-        public const string Action = Defaults.DefaultCategory;
-        public const string Appearance = Defaults.DefaultCategory;
-        public const string Behavior = Defaults.DefaultCategory;
-        public const string Data = Defaults.DefaultCategory;
-        public const string DragDrop = Defaults.DefaultCategory;
-        public const string Focus = Defaults.DefaultCategory;
-        public const string Key = Defaults.DefaultCategory;
-        public const string Layout = Defaults.DefaultCategory;
-        public const string Misc = Defaults.DefaultCategory;
-        public const string Mouse = Defaults.DefaultCategory;
-        public const string PropertyChanged = Defaults.DefaultCategory;
+        public const string Action = DefaultCategory;
+        public const string Appearance = DefaultCategory;
+        public const string Behavior = DefaultCategory;
+        public const string Data = DefaultCategory;
+        public const string DragDrop = DefaultCategory;
+        public const string Focus = DefaultCategory;
+        public const string Key = DefaultCategory;
+        public const string Layout = DefaultCategory;
+        public const string Misc = DefaultCategory;
+        public const string Mouse = DefaultCategory;
+        public const string PropertyChanged = DefaultCategory;
 
 #else
 

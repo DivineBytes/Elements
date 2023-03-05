@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace Elements.Base
 {
@@ -10,6 +9,8 @@ namespace Elements.Base
     /// <seealso cref="System.ICloneable"/>
     public abstract class ComponentBase : Component
     {
+        #region Public Methods
+
         /// <summary>
         /// Clones this instance.
         /// </summary>
@@ -19,5 +20,7 @@ namespace Elements.Base
         {
             return MemberwiseClone();
         }
+
+        #endregion Public Methods
     }
 }

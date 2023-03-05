@@ -8,24 +8,16 @@ namespace Elements.Controls.ProgressBar
     /// <seealso cref="System.EventArgs"/>
     public class ProgressEventArgs : EventArgs
     {
-        /// <summary>
-        /// The empty <see cref="ProgressEventArgs" />.
-        /// </summary>
-        public static new readonly ProgressEventArgs Empty = new ProgressEventArgs();
+        #region Public Fields
 
         /// <summary>
-        /// Gets or sets the value.
+        /// The empty <see cref="ProgressEventArgs"/>.
         /// </summary>
-        /// <value>The value.</value>
-        public int Value { get; set; }
+        public new static readonly ProgressEventArgs Empty = new ProgressEventArgs();
 
-        /// <summary>
-        /// Gets or sets the object.
-        /// </summary>
-        /// <value>
-        /// The object.
-        /// </value>
-        public object Object { get; set; }
+        #endregion Public Fields
+
+        #region Public Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ProgressEventArgs"/> class.
@@ -37,7 +29,7 @@ namespace Elements.Controls.ProgressBar
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProgressEventArgs" /> class.
+        /// Initializes a new instance of the <see cref="ProgressEventArgs"/> class.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <param name="obj">The object.</param>
@@ -46,5 +38,23 @@ namespace Elements.Controls.ProgressBar
             Object = obj;
             Value = value;
         }
+
+        #endregion Public Constructors
+
+        #region Public Properties
+
+        /// <summary>
+        /// Gets or sets the object.
+        /// </summary>
+        /// <value>The object.</value>
+        public object Object { get; set; }
+
+        /// <summary>
+        /// Gets or sets the value.
+        /// </summary>
+        /// <value>The value.</value>
+        public int Value { get; set; }
+
+        #endregion Public Properties
     }
 }

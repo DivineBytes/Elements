@@ -5,7 +5,6 @@ using Elements.Controls.Tile;
 using Elements.Models;
 using System;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -26,9 +25,28 @@ namespace Elements.Components.Badge
     [ToolboxItem(true)]
     public class Badge : ComponentBase
     {
+        #region Private Fields
+
         private Action _clickEvent;
         private Control _control;
         private Tile _tile;
+
+        #endregion Private Fields
+
+        #region Public Constructors
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Badge"/> class.
+        /// </summary>
+        /// <param name="container">The container.</param>
+        public Badge(IContainer container) : this()
+        {
+            container.Add(this);
+        }
+
+        #endregion Public Constructors
+
+        #region Private Constructors
 
         /// <summary>
         /// Prevents a default instance of the <see cref="Badge"/> class from being created.
@@ -50,14 +68,9 @@ namespace Elements.Components.Badge
             _tile.Click += Tile_Click;
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Badge"/> class.
-        /// </summary>
-        /// <param name="container">The container.</param>
-        public Badge(IContainer container) : this()
-        {
-            container.Add(this);
-        }
+        #endregion Private Constructors
+
+        #region Public Events
 
         /// <summary>
         /// Occurs when [click].
@@ -90,6 +103,30 @@ namespace Elements.Components.Badge
             remove
             {
                 _tile.TextChanged -= value;
+            }
+        }
+
+        #endregion Public Events
+
+        #region Public Properties
+
+        /// <summary>
+        /// Gets or sets the state of the back color.
+        /// </summary>
+        /// <value>The state of the back color.</value>
+        [Category(PropertyCategory.Appearance)]
+        [Description("The back color state.")]
+        public ControlColorState BackColorState
+        {
+            get
+            {
+                return _tile.BackColorState;
+            }
+
+            set
+            {
+                _tile.BackColorState = value;
+                _tile.Invalidate();
             }
         }
 
@@ -129,41 +166,6 @@ namespace Elements.Components.Badge
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this <see cref="Badge"/> is enabled.
-        /// </summary>
-        /// <value><c>true</c> if enabled; otherwise, <c>false</c>.</value>
-        [Category(PropertyCategory.Behavior)]
-        [Description("Toggles the visibility.")]
-        [NotifyParentProperty(true)]
-        [RefreshProperties(RefreshProperties.Repaint)]
-        public bool Visible
-        {
-            get
-            {
-                return _tile.Visible;
-            }
-
-            set
-            {
-                _tile.Visible = value;
-
-                if (_control == null)
-                {
-                    return;
-                }
-
-                if (Visible)
-                {
-                    Attach();
-                }
-                else
-                {
-                    Remove();
-                }
-            }
-        }
-
-        /// <summary>
         /// Gets or sets the font.
         /// </summary>
         /// <value>The font.</value>
@@ -179,46 +181,6 @@ namespace Elements.Components.Badge
             set
             {
                 _tile.Font = value;
-                _tile.Invalidate();
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the text style.
-        /// </summary>
-        /// <value>The text style.</value>
-        [Category(PropertyCategory.Appearance)]
-        [Description("The text style.")]
-        public TextStyle TextStyle
-        {
-            get
-            {
-                return _tile.TextStyle;
-            }
-
-            set
-            {
-                _tile.TextStyle = value;
-                _tile.Invalidate();
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the state of the back color.
-        /// </summary>
-        /// <value>The state of the back color.</value>
-        [Category(PropertyCategory.Appearance)]
-        [Description("The back color state.")]
-        public ControlColorState BackColorState
-        {
-            get
-            {
-                return _tile.BackColorState;
-            }
-
-            set
-            {
-                _tile.BackColorState = value;
                 _tile.Invalidate();
             }
         }
@@ -284,6 +246,26 @@ namespace Elements.Components.Badge
         }
 
         /// <summary>
+        /// Gets or sets the text style.
+        /// </summary>
+        /// <value>The text style.</value>
+        [Category(PropertyCategory.Appearance)]
+        [Description("The text style.")]
+        public TextStyle TextStyle
+        {
+            get
+            {
+                return _tile.TextStyle;
+            }
+
+            set
+            {
+                _tile.TextStyle = value;
+                _tile.Invalidate();
+            }
+        }
+
+        /// <summary>
         /// Gets or sets the tile.
         /// </summary>
         /// <value>The tile.</value>
@@ -304,6 +286,45 @@ namespace Elements.Components.Badge
         }
 
         /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="Badge"/> is enabled.
+        /// </summary>
+        /// <value><c>true</c> if enabled; otherwise, <c>false</c>.</value>
+        [Category(PropertyCategory.Behavior)]
+        [Description("Toggles the visibility.")]
+        [NotifyParentProperty(true)]
+        [RefreshProperties(RefreshProperties.Repaint)]
+        public bool Visible
+        {
+            get
+            {
+                return _tile.Visible;
+            }
+
+            set
+            {
+                _tile.Visible = value;
+
+                if (_control == null)
+                {
+                    return;
+                }
+
+                if (Visible)
+                {
+                    Attach();
+                }
+                else
+                {
+                    Remove();
+                }
+            }
+        }
+
+        #endregion Public Properties
+
+        #region Public Methods
+
+        /// <summary>
         /// Sets the click action for the <see cref="Badge"/>.
         /// </summary>
         /// <param name="action">The click action to set.</param>
@@ -314,6 +335,10 @@ namespace Elements.Components.Badge
                 _clickEvent = action;
             }
         }
+
+        #endregion Public Methods
+
+        #region Private Methods
 
         /// <summary>
         /// Attach the <see cref="Badge"/> to the control.
@@ -343,5 +368,7 @@ namespace Elements.Components.Badge
         {
             _clickEvent?.Invoke();
         }
+
+        #endregion Private Methods
     }
 }

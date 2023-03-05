@@ -24,18 +24,24 @@ namespace Elements.Controls.RadialProgress
     [ToolboxItem(true)]
     public class RadialProgress : ProgressBase
     {
+        #region Private Fields
+
         private Color _backCircleColor;
         private bool _backCircleVisible;
         private Color _foreCircleColor;
         private bool _foreCircleVisible;
-        private LineCap _lineCap;
-        private Color _progressColor;
-        private float _progressSize;
-        private bool _textVisible;
         private Image _image;
         private Point _imageLocation;
         private Size _imageSize;
+        private LineCap _lineCap;
         private bool _percentageVisible;
+        private Color _progressColor;
+        private float _progressSize;
+        private bool _textVisible;
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RadialProgress"/> class.
@@ -59,6 +65,10 @@ namespace Elements.Controls.RadialProgress
             Maximum = 100;
             Text = string.Empty;
         }
+
+        #endregion Public Constructors
+
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the color of the back circle.
@@ -223,6 +233,26 @@ namespace Elements.Controls.RadialProgress
         }
 
         /// <summary>
+        /// Gets or sets a value indicating whether [percentage visible].
+        /// </summary>
+        /// <value><c>true</c> if [percentage visible]; otherwise, <c>false</c>.</value>
+        [Category(PropertyCategory.Appearance)]
+        [Description("Visible")]
+        public bool PercentageVisible
+        {
+            get
+            {
+                return _percentageVisible;
+            }
+
+            set
+            {
+                _percentageVisible = value;
+                Invalidate();
+            }
+        }
+
+        /// <summary>
         /// Gets or sets the color of the progress.
         /// </summary>
         /// <value>The color of the progress.</value>
@@ -284,53 +314,9 @@ namespace Elements.Controls.RadialProgress
             }
         }
 
-        /// <summary>
-        /// Gets or sets a value indicating whether [percentage visible].
-        /// </summary>
-        /// <value><c>true</c> if [percentage visible]; otherwise, <c>false</c>.</value>
-        [Category(PropertyCategory.Appearance)]
-        [Description("Visible")]
-        public bool PercentageVisible
-        {
-            get
-            {
-                return _percentageVisible;
-            }
+        #endregion Public Properties
 
-            set
-            {
-                _percentageVisible = value;
-                Invalidate();
-            }
-        }
-
-        /// <summary>
-        /// Raises the <see cref="E:Resize"/> event.
-        /// </summary>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        protected override void OnResize(EventArgs e)
-        {
-            base.OnResize(e);
-            UpdateSize();
-        }
-
-        /// <summary>
-        /// Raises the <see cref="E:SizeChanged"/> event.
-        /// </summary>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        protected override void OnSizeChanged(EventArgs e)
-        {
-            base.OnSizeChanged(e);
-            UpdateSize();
-        }
-
-        /// <summary>
-        /// Updates the size.
-        /// </summary>
-        private void UpdateSize()
-        {
-            Size = new Size(Math.Max(Width, Height), Math.Max(Width, Height));
-        }
+        #region Protected Methods
 
         /// <summary>
         /// Draws the circles.
@@ -425,5 +411,39 @@ namespace Elements.Controls.RadialProgress
             DrawImage(graphics);
             DrawText(graphics);
         }
+
+        /// <summary>
+        /// Raises the <see cref="E:Resize"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+            UpdateSize();
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:SizeChanged"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        protected override void OnSizeChanged(EventArgs e)
+        {
+            base.OnSizeChanged(e);
+            UpdateSize();
+        }
+
+        #endregion Protected Methods
+
+        #region Private Methods
+
+        /// <summary>
+        /// Updates the size.
+        /// </summary>
+        private void UpdateSize()
+        {
+            Size = new Size(Math.Max(Width, Height), Math.Max(Width, Height));
+        }
+
+        #endregion Private Methods
     }
 }

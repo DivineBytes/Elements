@@ -11,6 +11,8 @@ namespace Elements.Controls.TabControl.TabStyleProviders
     [ToolboxItem(false)]
     public class TabStyleNoneProvider : TabStyleProvider
     {
+        #region Public Constructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="TabStyleNoneProvider"/> class.
         /// </summary>
@@ -18,6 +20,10 @@ namespace Elements.Controls.TabControl.TabStyleProviders
         public TabStyleNoneProvider(TabControl tabControl) : base(tabControl)
         {
         }
+
+        #endregion Public Constructors
+
+        #region Public Methods
 
         /// <summary>
         /// Adds the tab border.
@@ -27,5 +33,7 @@ namespace Elements.Controls.TabControl.TabStyleProviders
         public override void AddTabBorder(GraphicsPath path, Rectangle tabBounds)
         {
         }
+
+        #endregion Public Methods
     }
 }

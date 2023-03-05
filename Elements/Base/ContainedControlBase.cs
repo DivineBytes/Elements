@@ -17,13 +17,18 @@ namespace Elements.Base
     [ToolboxItem(false)]
     public abstract class ContainedControlBase : ControlBase
     {
-        ///// <summary>
-        ///// Initializes a new instance of the <see cref="ContainedControlBase"/> class.
-        ///// </summary>
-        //protected ContainedControlBase()
-        //{ 
-            
-        //}
+        #region Protected Constructors
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ContainedControlBase"/> class.
+        /// </summary>
+        protected ContainedControlBase()
+        {
+        }
+
+        #endregion Protected Constructors
+
+        #region Internal Methods
 
         /// <summary>
         /// Gets the internal control location.
@@ -45,6 +50,10 @@ namespace Elements.Base
         {
             return new Size(size.Width - border.Rounding - border.Thickness - 3, size.Height - border.Rounding - border.Thickness - 3);
         }
+
+        #endregion Internal Methods
+
+        #region Protected Methods
 
         /// <summary>
         /// Raises the <see cref="E:Enter"/> event.
@@ -87,7 +96,7 @@ namespace Elements.Base
         }
 
         /// <summary>
-        /// Raises the <see cref="E:MouseLeave" /> event.
+        /// Raises the <see cref="E:MouseLeave"/> event.
         /// </summary>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected override void OnMouseLeave(EventArgs e)
@@ -95,5 +104,7 @@ namespace Elements.Base
             base.OnMouseLeave(e);
             OnMouseStateChanged(this, new Events.MouseStateEventArgs(MouseStates.Normal));
         }
+
+        #endregion Protected Methods
     }
 }

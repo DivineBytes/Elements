@@ -11,6 +11,8 @@ namespace Elements.TypeConverters
     /// <seealso cref="System.ComponentModel.ExpandableObjectConverter"/>
     public class SettingsTypeConverter : ExpandableObjectConverter
     {
+        #region Public Methods
+
         /// <summary>
         /// Can convert context from source type.
         /// </summary>
@@ -37,5 +39,7 @@ namespace Elements.TypeConverters
             string name = StringUtilities.AddSpacesToSentence(value.GetType().Name);
             return $@"{name} Settings";
         }
+
+        #endregion Public Methods
     }
 }

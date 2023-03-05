@@ -10,7 +10,13 @@ namespace Elements.Events
     /// <seealso cref="System.EventArgs"/>
     public class MouseStateEventArgs : EventArgs
     {
+        #region Private Fields
+
         private MouseStates _mouseStates;
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MouseStateEventArgs"/> class.
@@ -29,6 +35,10 @@ namespace Elements.Events
             _mouseStates = mouseStates;
         }
 
+        #endregion Public Constructors
+
+        #region Public Properties
+
         /// <summary>
         /// Gets or sets the mouse states.
         /// </summary>
@@ -46,5 +56,7 @@ namespace Elements.Events
                 _mouseStates = value;
             }
         }
+
+        #endregion Public Properties
     }
 }

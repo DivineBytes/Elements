@@ -4,7 +4,6 @@ using Elements.Enumerators;
 using Elements.Events;
 using Elements.Models;
 using Elements.Renders;
-using Elements.Utilities;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -28,13 +27,19 @@ namespace Elements.Controls.Button
     [ToolboxItem(true)]
     public class Button : ControlBase, IButtonControl
     {
+        #region Private Fields
+
         private ControlColorState _backColorState;
         private Border _border;
         private Image _image;
-        private TextImageRelation _textImageRelation;
         private ElementImageLayout _imageLayout;
-        private DialogResult dialogResult;
+        private TextImageRelation _textImageRelation;
         private TextStyle _textStyle;
+        private DialogResult dialogResult;
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Button"/> class.
@@ -52,6 +57,10 @@ namespace Elements.Controls.Button
             _textStyle = new TextStyle();
         }
 
+        #endregion Public Constructors
+
+        #region Private Destructors
+
         /// <summary>
         /// Finalizes an instance of the <see cref="Button"/> class.
         /// </summary>
@@ -60,6 +69,10 @@ namespace Elements.Controls.Button
             Dispose(false);
         }
 
+        #endregion Private Destructors
+
+        #region Public Events
+
         /// <summary>
         /// Occurs when [text style changed].
         /// </summary>
@@ -67,7 +80,28 @@ namespace Elements.Controls.Button
         [Description("Occours when the text style of the control has changed.")]
         public event EventHandler TextStyleChanged;
 
-        private bool IsDefault { get; set; }
+        #endregion Public Events
+
+        #region Public Properties
+
+        /// <summary>
+        /// Gets or sets the state of the back color.
+        /// </summary>
+        /// <value>The state of the back color.</value>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public ControlColorState BackColorState
+        {
+            get
+            {
+                return _backColorState;
+            }
+
+            set
+            {
+                _backColorState = value;
+                Invalidate();
+            }
+        }
 
         /// <summary>
         /// Gets or sets the background image layout.
@@ -85,25 +119,6 @@ namespace Elements.Controls.Button
             set
             {
                 _imageLayout = value;
-                Invalidate();
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the state of the back color.
-        /// </summary>
-        /// <value>The state of the back color.</value>
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public ControlColorState BackColorState
-        {
-            get
-            {
-                return _backColorState;
-            }
-
-            set
-            {
-                _backColorState = value;
                 Invalidate();
             }
         }
@@ -233,17 +248,15 @@ namespace Elements.Controls.Button
             }
         }
 
-        /// <summary>
-        /// Invokes the text style changed event.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The event args.</param>
-        /// <exception cref="Exception">A delegate callback throws an exception.</exception>
-        protected virtual void OnTextStyleChanged(object sender, EventArgs e)
-        {
-            Invalidate();
-            TextStyleChanged?.Invoke(sender, e);
-        }
+        #endregion Public Properties
+
+        #region Private Properties
+
+        private bool IsDefault { get; set; }
+
+        #endregion Private Properties
+
+        #region Public Methods
 
         /// <summary>
         /// Notify s a control that this is the default button so that its appearance and behavior
@@ -268,6 +281,10 @@ namespace Elements.Controls.Button
                 OnClick(EventArgs.Empty);
             }
         }
+
+        #endregion Public Methods
+
+        #region Protected Methods
 
         /// <summary>
         /// Raises the <see cref="E:Click"/> event.
@@ -350,5 +367,19 @@ namespace Elements.Controls.Button
 
             base.OnPaint(e);
         }
+
+        /// <summary>
+        /// Invokes the text style changed event.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The event args.</param>
+        /// <exception cref="Exception">A delegate callback throws an exception.</exception>
+        protected virtual void OnTextStyleChanged(object sender, EventArgs e)
+        {
+            Invalidate();
+            TextStyleChanged?.Invoke(sender, e);
+        }
+
+        #endregion Protected Methods
     }
 }

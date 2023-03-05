@@ -1,15 +1,19 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Drawing.Design;
-using System.Text.RegularExpressions;
 
 namespace Elements.Controls.TextBox
 {
     internal class ComboBoxActionList : DesignerActionList
     {
+        #region Private Fields
+
         private ComboBox.ComboBox _control;
         private DesignerActionUIService _designerService;
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         public ComboBoxActionList(IComponent component) : base(component)
         {
@@ -17,12 +21,14 @@ namespace Elements.Controls.TextBox
             _designerService = (DesignerActionUIService)GetService(typeof(DesignerActionUIService));
         }
 
+        #endregion Public Constructors
+
+        #region Public Properties
+
         /// <summary>
         /// Gets or sets the text.
         /// </summary>
-        /// <value>
-        /// The text.
-        /// </value>
+        /// <value>The text.</value>
         [Description("Gets or sets the text.")]
         [Editor("System.Windows.Forms.Design.ListControlStringCollectionEditor, System.Design, Version = 4.0.0.0, Culture = neutral, PublicKeyToken = b03f5f7f11d50a3a", typeof(UITypeEditor))]
         [Localizable(false)]
@@ -42,6 +48,10 @@ namespace Elements.Controls.TextBox
             }
         }
 
+        #endregion Public Properties
+
+        #region Public Methods
+
         public override DesignerActionItemCollection GetSortedActionItems()
         {
             DesignerActionItemCollection items = new DesignerActionItemCollection
@@ -51,5 +61,7 @@ namespace Elements.Controls.TextBox
 
             return items;
         }
+
+        #endregion Public Methods
     }
 }

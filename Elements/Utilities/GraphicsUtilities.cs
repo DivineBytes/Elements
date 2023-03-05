@@ -1,12 +1,9 @@
-﻿using Elements.Controls;
-using Elements.Controls.ProgressIndicator;
-using Elements.Enumerators;
+﻿using Elements.Controls.ProgressIndicator;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace Elements.Utilities
 {
@@ -15,7 +12,9 @@ namespace Elements.Utilities
     /// </summary>
     public static class GraphicsUtilities
     {
-        /// <summary>Apply a gradient background image on the control.</summary>
+        /// <summary>
+        /// Apply a gradient background image on the control.
+        /// </summary>
         /// <param name="control">The control.</param>
         /// <param name="size">The size.</param>
         /// <param name="topLeft">The color for top-left.</param>
@@ -85,13 +84,15 @@ namespace Elements.Utilities
             }
         }
 
-        /// <summary>Draws the rounded rectangle with the specific values.</summary>
+        /// <summary>
+        /// Draws the rounded rectangle with the specific values.
+        /// </summary>
         /// <param name="x">The x.</param>
         /// <param name="y">The y.</param>
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
         /// <param name="rounding">The curve.</param>
-        /// <returns>The <see cref="GraphicsPath" />.</returns>
+        /// <returns>The <see cref="GraphicsPath"/>.</returns>
         public static GraphicsPath DrawRoundedRectangle(int x, int y, int width, int height, int rounding)
         {
             Rectangle _rectangle = new Rectangle(x, y, width, height);
@@ -99,10 +100,12 @@ namespace Elements.Utilities
             return _graphicsPath;
         }
 
-        /// <summary>Draws the rounded rectangle with the specified values.</summary>
+        /// <summary>
+        /// Draws the rounded rectangle with the specified values.
+        /// </summary>
         /// <param name="rectangle">The rectangle.</param>
         /// <param name="rounding">The rounding.</param>
-        /// <returns>The <see cref="GraphicsPath" />.</returns>
+        /// <returns>The <see cref="GraphicsPath"/>.</returns>
         public static GraphicsPath DrawRoundedRectangle(Rectangle rectangle, int rounding)
         {
             GraphicsPath _graphicsPath = new GraphicsPath();
@@ -113,14 +116,16 @@ namespace Elements.Utilities
             return _graphicsPath;
         }
 
-        /// <summary>Draws the rounded rectangle with the specified values.</summary>
+        /// <summary>
+        /// Draws the rounded rectangle with the specified values.
+        /// </summary>
         /// <param name="rectangle">The Rectangle to fill.</param>
         /// <param name="curve">The Rounding border radius.</param>
         /// <param name="topLeft">The top left of rectangle be round or not.</param>
         /// <param name="topRight">The top right of rectangle be round or not.</param>
         /// <param name="bottomLeft">The bottom left of rectangle be round or not.</param>
         /// <param name="bottomRight">The bottom right of rectangle be round or not.</param>
-        /// <returns>The <see cref="GraphicsPath" />.</returns>
+        /// <returns>The <see cref="GraphicsPath"/>.</returns>
         public static GraphicsPath DrawRoundedRectangle(Rectangle rectangle, int curve, bool topLeft = true, bool topRight = true, bool bottomLeft = true, bool bottomRight = true)
         {
             curve = curve * 2;
@@ -166,7 +171,9 @@ namespace Elements.Utilities
             return createRoundPath;
         }
 
-        /// <summary>Apply BackColor change on the container and it's child controls.</summary>
+        /// <summary>
+        /// Apply BackColor change on the container and it's child controls.
+        /// </summary>
         /// <param name="container">The container control.</param>
         /// <param name="backgroundColor">The container backgroundColor.</param>
         public static void ApplyContainerBackColorChange(Control container, Color backgroundColor)
@@ -185,7 +192,9 @@ namespace Elements.Utilities
             }
         }
 
-        /// <summary>Set's the container controls BackColor.</summary>
+        /// <summary>
+        /// Set's the container controls BackColor.
+        /// </summary>
         /// <param name="control">Current control.</param>
         /// <param name="backgroundColor">Container background color.</param>
         /// <param name="onControlRemoved">Control removed?</param>

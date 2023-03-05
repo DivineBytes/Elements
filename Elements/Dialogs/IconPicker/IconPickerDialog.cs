@@ -10,9 +10,35 @@ namespace Elements.Dialogs
     /// <summary>
     /// The <see cref="IconPickerDialog"/> class.
     /// </summary>
-    /// <seealso cref="System.Windows.Forms.CommonDialog" />
+    /// <seealso cref="System.Windows.Forms.CommonDialog"/>
     public class IconPickerDialog : CommonDialog
     {
+        #region Private Fields
+
+        private const int MAX_PATH = 260;
+
+        #endregion Private Fields
+
+        #region Public Properties
+
+        /// <summary>
+        /// Gets or sets the name of the file.
+        /// </summary>
+        /// <value>The name of the file.</value>
+        [DefaultValue(default(string))]
+        public string FileName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the index of the icon.
+        /// </summary>
+        /// <value>The index of the icon.</value>
+        [DefaultValue(0)]
+        public int IconIndex { get; set; }
+
+        #endregion Public Properties
+
+        #region Public Methods
+
         /// <summary>
         /// Shes the pick icon dialog.
         /// </summary>
@@ -25,25 +51,18 @@ namespace Elements.Dialogs
         [SuppressUnmanagedCodeSecurity]
         public static extern bool SHPickIconDialog(IntPtr hWnd, StringBuilder pszFilename, int cchFilenameMax, out int pnIconIndex);
 
-        private const int MAX_PATH = 260;
-
         /// <summary>
-        /// Gets or sets the name of the file.
+        /// Resets this instance.
         /// </summary>
-        /// <value>
-        /// The name of the file.
-        /// </value>
-        [DefaultValue(default(string))]
-        public string FileName { get; set; }
+        public override void Reset()
+        {
+            FileName = null;
+            IconIndex = 0;
+        }
 
-        /// <summary>
-        /// Gets or sets the index of the icon.
-        /// </summary>
-        /// <value>
-        /// The index of the icon.
-        /// </value>
-        [DefaultValue(0)]
-        public int IconIndex { get; set; }
+        #endregion Public Methods
+
+        #region Protected Methods
 
         /// <summary>
         /// Runs the dialog.
@@ -65,13 +84,6 @@ namespace Elements.Dialogs
             return ok;
         }
 
-        /// <summary>
-        /// Resets this instance.
-        /// </summary>
-        public override void Reset()
-        {
-            FileName = null;
-            IconIndex = 0;
-        }
+        #endregion Protected Methods
     }
 }

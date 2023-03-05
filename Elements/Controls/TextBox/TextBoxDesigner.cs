@@ -6,7 +6,13 @@ namespace Elements.Controls.TextBox
 {
     internal class TextBoxDesigner : ControlDesignerBase
     {
+        #region Private Fields
+
         private DesignerActionListCollection _actionListCollection;
+
+        #endregion Private Fields
+
+        #region Public Properties
 
         /// <summary>
         /// Gets the design-time action lists supported by the component associated with the designer.
@@ -24,11 +30,17 @@ namespace Elements.Controls.TextBox
             }
         }
 
+        #endregion Public Properties
+
+        #region Protected Methods
+
         protected override void PreFilterProperties(IDictionary properties)
         {
             //properties.Remove("ImeMode");
 
             base.PreFilterProperties(properties);
         }
+
+        #endregion Protected Methods
     }
 }

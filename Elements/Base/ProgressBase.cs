@@ -15,11 +15,17 @@ namespace Elements.Base
     [ToolboxItem(false)]
     public abstract class ProgressBase : ControlBase
     {
+        #region Private Fields
+
         private int _largeChange;
         private int _maximum;
         private int _minimum;
         private int _smallChange;
         private int _value;
+
+        #endregion Private Fields
+
+        #region Protected Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ProgressBase"/> class.
@@ -33,12 +39,20 @@ namespace Elements.Base
             _largeChange = 5;
         }
 
+        #endregion Protected Constructors
+
+        #region Public Events
+
         /// <summary>
         /// Occurs when [value changed].
         /// </summary>
         [Category(EventCategory.Action)]
         [Description("Occurs when the value of the Value property changes.")]
         public event EventHandler ValueChanged;
+
+        #endregion Public Events
+
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the large change.
@@ -184,6 +198,10 @@ namespace Elements.Base
             }
         }
 
+        #endregion Public Properties
+
+        #region Public Methods
+
         /// <summary>
         /// Decrement from the value.
         /// </summary>
@@ -263,6 +281,10 @@ namespace Elements.Base
             }
         }
 
+        #endregion Public Methods
+
+        #region Protected Methods
+
         /// <summary>
         /// Raises the <see cref="E:MouseEnter"/> event.
         /// </summary>
@@ -291,5 +313,7 @@ namespace Elements.Base
         {
             ValueChanged?.Invoke(this, e);
         }
+
+        #endregion Protected Methods
     }
 }

@@ -258,7 +258,6 @@ namespace Elements.Controls.TextBox
         /// </summary>
         /// <value>The border.</value>
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        //[EditorBrowsable(EditorBrowsableState.Always)]
         public virtual Border Border
         {
             get
@@ -499,6 +498,7 @@ namespace Elements.Controls.TextBox
                 Invalidate();
             }
         }
+
         /// <summary>
         /// Gets the length of text in the control.
         /// </summary>
@@ -796,6 +796,7 @@ namespace Elements.Controls.TextBox
 
             Border.Render(e.Graphics, _border, MouseState, controlGraphicsPath);
         }
+
         /// <summary>
         /// Raises the <see cref="E:Resize"/> event.
         /// </summary>
@@ -866,6 +867,7 @@ namespace Elements.Controls.TextBox
                 Invalidate();
             }
         }
+
         /// <summary>
         /// Handles the KeyDown event of the TextBox control.
         /// </summary>

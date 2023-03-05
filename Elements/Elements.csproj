@@ -61,7 +61,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Components\Gradient\GradientDesigner.cs" />
-    <Compile Include="Constants\Defaults.cs" />
+    <Compile Include="Constants\CategoryBase.cs" />
     <Compile Include="Constants\PropertyCategory.cs" />
     <Compile Include="Constants\EventCategory.cs" />
     <Compile Include="Controls\Button\Button.cs" />
@@ -192,7 +192,6 @@
     <Compile Include="Models\DebuggerDisplay.cs" />
     <Compile Include="Models\DebuggerDisplayFormat.cs" />
     <Compile Include="Models\HoverColorState.cs" />
-    <Compile Include="Models\Shape.cs" />
     <Compile Include="Models\TextStyle.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

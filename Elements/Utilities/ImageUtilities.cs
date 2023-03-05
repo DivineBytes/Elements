@@ -38,9 +38,11 @@ namespace Elements.Utilities
             return _bitmap;
         }
 
-        /// <summary>Filters the <see cref="Bitmap" /> using GrayScale.</summary>
+        /// <summary>
+        /// Filters the <see cref="Bitmap"/> using GrayScale.
+        /// </summary>
         /// <param name="bitmap">The bitmap image.</param>
-        /// <returns>The <see cref="Bitmap" />.</returns>
+        /// <returns>The <see cref="Bitmap"/>.</returns>
         public static Bitmap FilterGrayScale(this Bitmap bitmap)
         {
             // Constants

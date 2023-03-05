@@ -8,38 +8,22 @@ namespace Elements.Attributes
     [AttributeUsage(AttributeTargets.All)]
     public class DisplayNameAttribute : Attribute
     {
+        #region Public Fields
+
         /// <summary>
         /// The default property.
         /// </summary>
         public static readonly DisplayNameAttribute Default = new DisplayNameAttribute();
 
+        #endregion Public Fields
+
+        #region Private Fields
+
         private string _displayName;
 
-        /// <summary>
-        /// The display name.
-        /// </summary>
-        public virtual string DisplayName
-        {
-            get
-            {
-                return DisplayNameValue;
-            }
-        }
+        #endregion Private Fields
 
-        /// <summary>
-        /// The display name value.
-        /// </summary>
-        protected string DisplayNameValue
-        {
-            get
-            {
-                return _displayName;
-            }
-            set
-            {
-                _displayName = value;
-            }
-        }
+        #region Public Constructors
 
         /// <summary>
         /// The <see cref="DisplayNameAttribute"/>.
@@ -56,6 +40,44 @@ namespace Elements.Attributes
         {
             _displayName = displayName;
         }
+
+        #endregion Public Constructors
+
+        #region Public Properties
+
+        /// <summary>
+        /// The display name.
+        /// </summary>
+        public virtual string DisplayName
+        {
+            get
+            {
+                return DisplayNameValue;
+            }
+        }
+
+        #endregion Public Properties
+
+        #region Protected Properties
+
+        /// <summary>
+        /// The display name value.
+        /// </summary>
+        protected string DisplayNameValue
+        {
+            get
+            {
+                return _displayName;
+            }
+            set
+            {
+                _displayName = value;
+            }
+        }
+
+        #endregion Protected Properties
+
+        #region Public Methods
 
         /// <summary>
         /// The equals.
@@ -91,5 +113,7 @@ namespace Elements.Attributes
         {
             return Equals(Default);
         }
+
+        #endregion Public Methods
     }
 }

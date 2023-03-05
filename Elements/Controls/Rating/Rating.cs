@@ -11,9 +11,9 @@ using System.Windows.Forms;
 namespace Elements.Controls.Rating
 {
     /// <summary>
-    /// The <see cref="Rating" /> class.
+    /// The <see cref="Rating"/> class.
     /// </summary>
-    /// <seealso cref="Elements.Base.ControlBase" />
+    /// <seealso cref="Elements.Base.ControlBase"/>
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [DefaultEvent("RatingChanged")]
@@ -24,6 +24,8 @@ namespace Elements.Controls.Rating
     [ToolboxItem(true)]
     public class Rating : ControlBase
     {
+        #region Private Fields
+
         private readonly BufferedGraphicsContext _bufferedContext;
         private BufferedGraphics _bufferedGraphics;
         private int _maximum;
@@ -40,6 +42,10 @@ namespace Elements.Controls.Rating
         private Color starColor;
         private Color starDull;
         private Color starDullBorderColor;
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Rating"/> class.
@@ -69,6 +75,10 @@ namespace Elements.Controls.Rating
             UpdateGraphicsBuffer();
         }
 
+        #endregion Public Constructors
+
+        #region Public Events
+
         /// <summary>
         /// Occurs when [rating changed].
         /// </summary>
@@ -80,6 +90,10 @@ namespace Elements.Controls.Rating
         /// </summary>
         [Description("Occurs when a different number of stars are illuminated (does not include mouseleave un-ilum).")]
         public event EventHandler StarsPanned;
+
+        #endregion Public Events
+
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the width of the dull stroke.
@@ -400,6 +414,10 @@ namespace Elements.Controls.Rating
             }
         }
 
+        #endregion Public Properties
+
+        #region Private Properties
+
         /// <summary>
         /// Gets all of the spacing between the stars.
         /// </summary>
@@ -435,6 +453,10 @@ namespace Elements.Controls.Rating
                 return _maximum * borderWidth;
             }
         }
+
+        #endregion Private Properties
+
+        #region Protected Methods
 
         /// <summary>
         /// Raises the <see cref="E:MouseClick"/> event.
@@ -514,6 +536,10 @@ namespace Elements.Controls.Rating
             UpdateSize();
             UpdateGraphicsBuffer();
         }
+
+        #endregion Protected Methods
+
+        #region Private Methods
 
         /// <summary>
         /// Rounds precise numbers to a number no more precise than .5.
@@ -755,5 +781,7 @@ namespace Elements.Controls.Rating
             int width = (int)(TotalStarWidth + TotalSpacing + TotalStrokeWidth + 0.5);
             Size = new Size(width, height);
         }
+
+        #endregion Private Methods
     }
 }

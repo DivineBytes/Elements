@@ -12,6 +12,8 @@ namespace Elements.Controls.TabControl.TabStyleProviders
     [ToolboxItem(false)]
     public class TabStyleRoundedProvider : TabStyleProvider
     {
+        #region Public Constructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="TabStyleRoundedProvider"/> class.
         /// </summary>
@@ -22,6 +24,10 @@ namespace Elements.Controls.TabControl.TabStyleProviders
             // Must set after the _Radius as this is used in the calculations of the actual padding
             Padding = new Point(6, 3);
         }
+
+        #endregion Public Constructors
+
+        #region Public Methods
 
         /// <summary>
         /// Adds the tab border.
@@ -67,5 +73,7 @@ namespace Elements.Controls.TabControl.TabStyleProviders
                     break;
             }
         }
+
+        #endregion Public Methods
     }
 }

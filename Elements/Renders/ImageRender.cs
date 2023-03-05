@@ -11,12 +11,14 @@ namespace Elements.Renders
     /// </summary>
     public static class ImageRender
     {
-        /// <summary>Fills the background graphics path.</summary>
+        /// <summary>
+        /// Fills the background graphics path.
+        /// </summary>
         /// <param name="graphics">The graphics to draw on.</param>
         /// <param name="background">The background color.</param>
         /// <param name="rectangle">The coordinates of the rectangle to draw.</param>
         /// <param name="border">The border type.</param>
-        /// <returns>The <see cref="GraphicsPath" />.</returns>
+        /// <returns>The <see cref="GraphicsPath"/>.</returns>
         private static GraphicsPath CreateBackgroundFill(Graphics graphics, Color background, Rectangle rectangle, Border border)
         {
             GraphicsPath backgroundPath = Border.CreatePath(border, rectangle);
@@ -26,7 +28,9 @@ namespace Elements.Renders
             return backgroundPath;
         }
 
-        /// <summary>Draws the control background, with a BackColor and the specified BackgroundImage.</summary>
+        /// <summary>
+        /// Draws the control background, with a BackColor and the specified BackgroundImage.
+        /// </summary>
         /// <param name="graphics">The graphics to draw on.</param>
         /// <param name="backColor">The color to use for the background.</param>
         /// <param name="backgroundImage">The background image to use for the background.</param>
