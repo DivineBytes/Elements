@@ -83,6 +83,9 @@
     <Compile Include="Controls\Label\LabelOutline.cs" />
     <Compile Include="Controls\Label\LabelReflection.cs" />
     <Compile Include="Controls\Label\LabelShadow.cs" />
+    <Compile Include="Controls\ListView\ListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\ProgressBar\ProgressEventArgs.cs" />
     <Compile Include="Controls\RadialProgress\RadialProgress.cs" />
     <Compile Include="Controls\RadialProgress\RadialProgressDesigner.cs" />
