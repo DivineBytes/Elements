@@ -19,6 +19,7 @@ namespace Elements.Models
     [ComVisible(true)]
     [Description("The color states of a component.")]
     [DesignerCategory("code")]
+    [RefreshProperties(RefreshProperties.Repaint)]
     [ToolboxItem(false)]
     [TypeConverter(typeof(SettingsTypeConverter))]
     public class ColorState

@@ -53,6 +53,7 @@
     <Compile Include="Base\ContainedControlBase.cs" />
     <Compile Include="Base\NestedControlBase.cs" />
     <Compile Include="Base\ToggleBase.cs" />
+    <Compile Include="Base\ToggleCheckmarkBase.cs" />
     <Compile Include="Components\Badge\Badge.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -91,6 +92,8 @@
     <Compile Include="Controls\ProgressBar\ProgressEventArgs.cs" />
     <Compile Include="Controls\RadialProgress\RadialProgress.cs" />
     <Compile Include="Controls\RadialProgress\RadialProgressDesigner.cs" />
+    <Compile Include="Controls\RadioButton\RadioButtonDesigner.cs" />
+    <Compile Include="Controls\RadioButton\RadioButton.cs" />
     <Compile Include="Controls\Rating\RatingDesigner.cs" />
     <Compile Include="Controls\Rating\Rating.cs" />
     <Compile Include="Controls\Rating\StarGenerator.cs" />
@@ -108,10 +111,13 @@
     <Compile Include="Enumerators\Vertical.cs" />
     <Compile Include="Events\ToggleEventArgs.cs" />
     <Compile Include="Extensions\Extensions.cs" />
+    <Compile Include="Models\CheckOptions.cs" />
+    <Compile Include="Models\RectangleShape.cs" />
     <Compile Include="Models\Watermark.cs">
       <SubType>Elements</SubType>
     </Compile>
     <Compile Include="Renders\ControlRender.cs" />
+    <Compile Include="UITypeEditors\ColorEditor.cs" />
     <Compile Include="Utilities\DesignerUtilities.cs" />
     <Compile Include="Designer\ParentControlDesignerBase.cs" />
     <Compile Include="Enumerators\ImageTextRelation.cs" />
@@ -269,7 +275,6 @@
     <Folder Include="Controls\CheckBox\" />
     <Folder Include="Controls\ListBox\" />
     <Folder Include="Controls\NumericUpDown\" />
-    <Folder Include="Controls\RadioButton\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

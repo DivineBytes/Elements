@@ -12,6 +12,29 @@ namespace Elements.Utilities
     /// </summary>
     public static class GraphicsUtilities
     {
+        #region Public Methods
+
+        /// <summary>
+        /// Apply BackColor change on the container and it's child controls.
+        /// </summary>
+        /// <param name="container">The container control.</param>
+        /// <param name="backgroundColor">The container backgroundColor.</param>
+        public static void ApplyContainerBackColorChange(Control container, Color backgroundColor)
+        {
+            if (container == null)
+            {
+                return;
+            }
+
+            foreach (object control in container.Controls)
+            {
+                if (control != null)
+                {
+                    ((Control)control).BackColor = backgroundColor;
+                }
+            }
+        }
+
         /// <summary>
         /// Apply a gradient background image on the control.
         /// </summary>
@@ -32,55 +55,6 @@ namespace Elements.Utilities
 
                 Image _image = ImageUtilities.CreateGradient(size, topLeft, topRight, bottomLeft, bottomRight);
                 control.BackgroundImage = _image;
-            }
-        }
-
-        /// <summary>
-        /// Flip the size by orientation.
-        /// </summary>
-        /// <param name="orientation">The orientation.</param>
-        /// <param name="size">Current size.</param>
-        /// <returns>The <see cref="Size"/>.</returns>
-        public static Size FlipOrientationSize(Orientation orientation, Size size)
-        {
-            Size newSize = new Size(0, 0);
-
-            switch (orientation)
-            {
-                case Orientation.Horizontal:
-                    if (size.Width < size.Height)
-                    {
-                        newSize = new Size(size.Height, size.Width);
-                    }
-                    break;
-
-                case Orientation.Vertical:
-                    if (size.Width > size.Height)
-                    {
-                        newSize = new Size(size.Height, size.Width);
-                    }
-                    break;
-            }
-
-            return newSize;
-        }
-
-        /// <summary>
-        /// Retrieves the design mode state.
-        /// </summary>
-        /// <returns>The <see cref="bool"/>.</returns>
-        public static bool IsDesignMode()
-        {
-            bool isInDesignMode = (LicenseManager.UsageMode == LicenseUsageMode.Designtime) || Debugger.IsAttached;
-
-            if (isInDesignMode)
-            {
-                return true;
-            }
-
-            using (Process process = Process.GetCurrentProcess())
-            {
-                return process.ProcessName.ToLowerInvariant().Contains("devenv");
             }
         }
 
@@ -172,24 +146,65 @@ namespace Elements.Utilities
         }
 
         /// <summary>
-        /// Apply BackColor change on the container and it's child controls.
+        /// Flip the size by orientation.
         /// </summary>
-        /// <param name="container">The container control.</param>
-        /// <param name="backgroundColor">The container backgroundColor.</param>
-        public static void ApplyContainerBackColorChange(Control container, Color backgroundColor)
+        /// <param name="orientation">The orientation.</param>
+        /// <param name="size">Current size.</param>
+        /// <returns>The <see cref="Size"/>.</returns>
+        public static Size FlipOrientationSize(Orientation orientation, Size size)
         {
-            if (container == null)
+            Size newSize = new Size(0, 0);
+
+            switch (orientation)
             {
-                return;
+                case Orientation.Horizontal:
+                    if (size.Width < size.Height)
+                    {
+                        newSize = new Size(size.Height, size.Width);
+                    }
+                    break;
+
+                case Orientation.Vertical:
+                    if (size.Width > size.Height)
+                    {
+                        newSize = new Size(size.Height, size.Width);
+                    }
+                    break;
             }
 
-            foreach (object control in container.Controls)
+            return newSize;
+        }
+
+        /// <summary>
+        /// Retrieves the design mode state.
+        /// </summary>
+        /// <returns>The <see cref="bool"/>.</returns>
+        public static bool IsDesignMode()
+        {
+            bool isInDesignMode = (LicenseManager.UsageMode == LicenseUsageMode.Designtime) || Debugger.IsAttached;
+
+            if (isInDesignMode)
             {
-                if (control != null)
-                {
-                    ((Control)control).BackColor = backgroundColor;
-                }
+                return true;
             }
+
+            using (Process process = Process.GetCurrentProcess())
+            {
+                return process.ProcessName.ToLowerInvariant().Contains("devenv");
+            }
+        }
+
+        /// <summary>
+        /// Determines whether [is in bounds] [the specified location].
+        /// </summary>
+        /// <param name="location">The location.</param>
+        /// <param name="bounds">The bounds.</param>
+        /// <returns>
+        ///   <c>true</c> if [is in bounds] [the specified location]; otherwise, <c>false</c>.
+        /// </returns>
+        public static bool IsInBounds(Point location, Rectangle bounds)
+        {
+            return bounds.Contains(location);
         }
 
         /// <summary>
@@ -224,5 +239,7 @@ namespace Elements.Utilities
 
             control.BackColor = backColor;
         }
+
+        #endregion Public Methods
     }
 }

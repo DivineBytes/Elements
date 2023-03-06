@@ -3,9 +3,11 @@ using Elements.Delegates;
 using Elements.Enumerators;
 using Elements.Events;
 using Elements.TypeConverters;
+using Elements.UITypeEditors;
 using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.Drawing.Design;
 using System.Runtime.InteropServices;
 using System.Text;
 
@@ -19,6 +21,7 @@ namespace Elements.Models
     [ComVisible(true)]
     [Description("The hover color states of a component.")]
     [DesignerCategory("code")]
+    [RefreshProperties(RefreshProperties.Repaint)]
     [ToolboxItem(false)]
     [TypeConverter(typeof(SettingsTypeConverter))]
     public class HoverColorState : ColorState
