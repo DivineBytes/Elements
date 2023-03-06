@@ -276,5 +276,8 @@
     <Folder Include="Controls\ListBox\" />
     <Folder Include="Controls\NumericUpDown\" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\RadioButton\RadioButton.bmp" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
