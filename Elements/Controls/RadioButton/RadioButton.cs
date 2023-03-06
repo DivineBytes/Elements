@@ -1,14 +1,10 @@
 ﻿using Elements.Base;
-using Elements.Controls.RadialProgress;
 using Elements.Events;
 using Elements.Models;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Elements.Controls.RadioButton
@@ -16,7 +12,7 @@ namespace Elements.Controls.RadioButton
     /// <summary>
     /// The <see cref="RadioButton"/> class.
     /// </summary>
-    /// <seealso cref="Elements.Base.ToggleCheckmarkBase" />
+    /// <seealso cref="Elements.Base.ToggleCheckmarkBase"/>
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [DefaultEvent("ToggleChanged")]
@@ -27,17 +23,19 @@ namespace Elements.Controls.RadioButton
     [ToolboxItem(true)]
     public class RadioButton : ToggleCheckmarkBase
     {
-        /// <summary>Initializes a new instance of the <see cref="RadioButton" /> class.</summary>
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RadioButton"/> class.
+        /// </summary>
         public RadioButton()
         {
-            Cursor = Cursors.Hand;
             Size = new Size(125, 23);
 
             CheckOptions.BoxBorder.Rounding = 12;
+            CheckOptions.Style = CheckOptions.CheckStyle.Shape;
         }
 
         /// <summary>
-        /// Raises the <see cref="E:Click" /> event.
+        /// Raises the <see cref="E:Click"/> event.
         /// </summary>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected override void OnClick(EventArgs e)

@@ -2,9 +2,9 @@
 using System.Collections;
 using System.ComponentModel.Design;
 
-namespace Elements.Controls.RadioButton
+namespace Elements.Controls.CheckBox
 {
-    internal class RadioButtonDesigner : ControlDesignerBase
+    internal class CheckBoxDesigner : ControlDesignerBase
     {
         #region Private Fields
 
@@ -23,7 +23,7 @@ namespace Elements.Controls.RadioButton
             {
                 if (_actionListCollection == null)
                 {
-                    _actionListCollection = new DesignerActionListCollection { new RadioButtonActionList(Component) };
+                    _actionListCollection = new DesignerActionListCollection { new CheckBoxActionList(Component) };
                 }
 
                 return _actionListCollection;

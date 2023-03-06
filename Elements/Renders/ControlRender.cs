@@ -1,7 +1,6 @@
 ﻿using Elements.Enumerators;
 using Elements.Models;
 using Elements.Utilities;
-using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -118,7 +117,6 @@ namespace Elements.Renders
         /// </summary>
         /// <param name="graphics">The graphics to draw on.</param>
         /// <param name="checkOptions">The check options.</param>
-        /// <param name="rectangle">The rectangle that represents the dimensions of the check box.</param>
         /// <param name="state">The toggle state of the check mark.</param>
         /// <param name="enabled">The state to draw the check mark in.</param>
         /// <param name="color">The brush used to fill the background.</param>
@@ -128,9 +126,9 @@ namespace Elements.Renders
         /// <param name="font">The font.</param>
         /// <param name="foreColor">The fore Color.</param>
         /// <param name="textPoint">The text Point.</param>
-        public static void DrawCheckBox(Graphics graphics, CheckOptions checkOptions, Rectangle rectangle, bool state, bool enabled, Color color, Image backgroundImage, MouseStates mouseState, string text, Font font, Color foreColor, Point textPoint)
+        public static void DrawCheckBox(Graphics graphics, CheckOptions checkOptions, bool state, bool enabled, Color color, Image backgroundImage, MouseStates mouseState, string text, Font font, Color foreColor, Point textPoint)
         {
-            DrawCheckBox(graphics, checkOptions, rectangle, state, enabled, color, backgroundImage, mouseState);
+            DrawCheckBox(graphics, checkOptions, state, enabled, color, backgroundImage, mouseState);
             graphics.DrawString(text, font, new SolidBrush(foreColor), textPoint);
         }
 
@@ -139,138 +137,87 @@ namespace Elements.Renders
         /// </summary>
         /// <param name="graphics">The graphics to draw on.</param>
         /// <param name="checkOptions">The check options.</param>
-        /// <param name="rectangle">The rectangle that represents the dimensions of the check box.</param>
         /// <param name="checkState">The check State.</param>
         /// <param name="enabled">The state to draw the check mark in.</param>
         /// <param name="color">The background color.</param>
         /// <param name="backgroundImage">The background Image.</param>
         /// <param name="mouseStates">The mouse States.</param>
-        public static void DrawCheckBox(Graphics graphics, CheckOptions checkOptions, Rectangle rectangle, bool checkState, bool enabled, Color color, Image backgroundImage, MouseStates mouseStates)
+        public static void DrawCheckBox(Graphics graphics, CheckOptions checkOptions, bool checkState, bool enabled, Color color, Image backgroundImage, MouseStates mouseStates)
         {
-            GraphicsPath _boxGraphicsPath = checkOptions.BoxBorder.CreatePath(rectangle);
+            GraphicsPath _boxGraphicsPath = checkOptions.BoxBorder.CreatePath(checkOptions.Box);
 
             graphics.SetClip(_boxGraphicsPath);
-            ImageRender.Render(graphics, color, backgroundImage, rectangle, checkOptions.BoxBorder);
+            ImageRender.Render(graphics, color, backgroundImage, checkOptions.Box, checkOptions.BoxBorder);
 
             if (checkState)
             {
-                DrawCheckMark(graphics, checkOptions, rectangle, enabled);
+                DrawCheckMark(graphics, checkOptions);
             }
 
             Border.Render(graphics, checkOptions.BoxBorder, mouseStates, _boxGraphicsPath);
             graphics.ResetClip();
         }
 
-        /// <summary>Draws the checkmark.</summary>
+        /// <summary>
+        /// Draws the checkmark.
+        /// </summary>
         /// <param name="graphics">The specified graphics to draw on.</param>
         /// <param name="color">The color.</param>
         /// <param name="rectangle">The rectangle.</param>
         /// <param name="thickness">The thickness.</param>
         public static void DrawCheckmark(Graphics graphics, Color color, Rectangle rectangle, float thickness = 2)
         {
-            Point[] _locations = { new Point((rectangle.Width / 4) - 1, rectangle.Y + 4 + (rectangle.Height / 3)), new Point((rectangle.Width / 4) + 3, rectangle.Y + 7 + (rectangle.Height / 3)), new Point((rectangle.Width / 4) + 9, rectangle.Y + (rectangle.Height / 3)) };
+            Point[] _locations = {
+                new Point((rectangle.Width / 4) - 1, rectangle.Y + 4 + (rectangle.Height / 3)),
+                new Point((rectangle.Width / 4) + 3, rectangle.Y + 7 + (rectangle.Height / 3)),
+                new Point((rectangle.Width / 4) + 9, rectangle.Y + (rectangle.Height / 3)) };
 
             graphics.DrawLines(new Pen(color, thickness), _locations);
         }
 
         /// <summary>
-        ///     Draws a check mark control in the specified state, on the specified graphics surface, and within the specified
-        ///     bounds.
+        /// Draws a check mark control in the specified state, on the specified graphics surface,
+        /// and within the specified bounds.
         /// </summary>
         /// <param name="graphics">The graphics to draw on.</param>
         /// <param name="checkStyle">The check mark type.</param>
-        /// <param name="rectangle">The rectangle that represents the dimensions of the check box.</param>
-        /// <param name="enabled">The state to draw the check mark in.</param>
-        public static void DrawCheckMark(Graphics graphics, CheckOptions checkStyle, Rectangle rectangle, bool enabled)
+        public static void DrawCheckMark(Graphics graphics, CheckOptions checkStyle)
         {
-            //Size _characterSize = StringUtilities.MeasureText(checkStyle.Character.ToString(), checkStyle.Font, graphics);
+            Point location = new Point(0, 0);
 
-            //int _styleCount = checkStyle.Style.Count();
-            //var _defaultLocations = new Point[_styleCount];
-            //_defaultLocations[0] = new Point((rectangle.X + (rectangle.Width / 2)) - (_characterSize.Width / 2), (rectangle.Y + (rectangle.Height / 2)) - (_characterSize.Height / 2));
-            //_defaultLocations[1] = new Point((rectangle.X + (rectangle.Width / 2)) - (checkStyle.Bounds.Width / 2), (rectangle.Y + (rectangle.Height / 2)) - (checkStyle.Bounds.Height / 2));
-            //_defaultLocations[2] = new Point((rectangle.X + (rectangle.Width / 2)) - (checkStyle.Bounds.Width / 2), (rectangle.Y + (rectangle.Height / 2)) - (checkStyle.Bounds.Height / 2));
-            //_defaultLocations[3] = new Point((rectangle.X + (rectangle.Width / 2)) - (checkStyle.Bounds.Width / 2), (rectangle.Y + (rectangle.Height / 2)) - (checkStyle.Bounds.Height / 2));
+            if (checkStyle.AutoSize)
+            {
+                Size _characterSize = StringUtilities.MeasureText(checkStyle.Character.ToString(), checkStyle.Font, graphics);
+                location = new Point(checkStyle.Check.X + (checkStyle.Check.Width / 2) - (_characterSize.Width / 2), checkStyle.Check.Y + (checkStyle.Check.Height / 2) - (_characterSize.Height / 2));
+            }
+            else
+            {
+                location = checkStyle.Check.Location;
+            }
 
-            //Point _tempLocation;
-            //if (checkStyle.AutoSize)
-            //{
-            //    int styleIndex;
+            switch (checkStyle.Style)
+            {
+                case CheckOptions.CheckStyle.Check:
+                    DrawCheckmark(graphics, checkStyle.Color, checkStyle.Check, checkStyle.CheckBorder.Thickness);
+                    break;
 
-            //    switch (checkStyle.Style)
-            //    {
-            //        case CheckStyle.CheckType.Character:
-            //            {
-            //                styleIndex = 0;
-            //                break;
-            //            }
+                case CheckOptions.CheckStyle.Image:
+                    if (checkStyle.Image != null)
+                    {
+                        Rectangle _imageRectangle = new Rectangle(location, checkStyle.Box.Size);
+                        graphics.DrawImage(checkStyle.Image, _imageRectangle);
+                    }
+                    break;
 
-            //        case CheckStyle.CheckType.Image:
-            //            {
-            //                styleIndex = 1;
-            //                break;
-            //            }
+                case CheckOptions.CheckStyle.Shape:
+                    GraphicsPath shapePath = checkStyle.CheckBorder.CreatePath(checkStyle.Check);
+                    graphics.FillPath(new SolidBrush(checkStyle.Color), shapePath);
+                    break;
 
-            //        case CheckStyle.CheckType.Shape:
-            //            {
-            //                styleIndex = 2;
-            //                break;
-            //            }
-
-            //        case CheckStyle.CheckType.Checkmark:
-            //            {
-            //                styleIndex = 3;
-            //                break;
-            //            }
-
-            //        default:
-            //            {
-            //                throw new ArgumentOutOfRangeException();
-            //            }
-            //    }
-
-            //    _tempLocation = _defaultLocations[styleIndex];
-            //}
-            //else
-            //{
-            //    _tempLocation = checkStyle.Bounds.Location;
-            //}
-
-            //switch (checkStyle.Style)
-            //{
-            //    case CheckStyle.CheckType.Character:
-            //        {
-            //            graphics.DrawString(checkStyle.Character.ToString(), checkStyle.Font, new SolidBrush(checkStyle.CheckColor), _tempLocation);
-            //            break;
-            //        }
-
-            //    case CheckStyle.CheckType.Image:
-            //        {
-            //            Rectangle _imageRectangle = new Rectangle(_tempLocation, checkStyle.Bounds.Size);
-            //            graphics.DrawImage(checkStyle.Image, _imageRectangle);
-            //            break;
-            //        }
-
-            //    case CheckStyle.CheckType.Shape:
-            //        {
-            //Rectangle shapeRectangle = new Rectangle(_tempLocation, checkStyle.Rectangle.Size);
-
-                        GraphicsPath shapePath = checkStyle.CheckBorder.CreatePath(checkStyle.Check);
-            graphics.FillPath(new SolidBrush(checkStyle.Color), shapePath);
-                        //break;
-            //        }
-
-            //    case CheckStyle.CheckType.Checkmark:
-            //        {
-            //            DrawCheckmark(graphics, checkStyle.CheckColor, rectangle, checkStyle.Thickness);
-            //        }
-
-            //        break;
-            //    default:
-            //        {
-            //            throw new ArgumentOutOfRangeException();
-            //        }
-            //}
+                case CheckOptions.CheckStyle.Symbol:
+                    graphics.DrawString(checkStyle.Character.ToString(), checkStyle.Font, new SolidBrush(checkStyle.Color), location);
+                    break;
+            }
         }
 
         #endregion Public Methods

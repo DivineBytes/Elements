@@ -25,9 +25,9 @@ namespace Elements.Controls.TextBox
 
         #region Public Properties
 
-        [Category("Behaviour")]
-        [Description("Gets or sets a value indicating whether this is a multiline TextBox control.")]
         [DefaultValue(false)]
+        [Category(Constants.PropertyCategory.Behavior)]
+        [Description("Gets or sets a value indicating whether this is a multiline TextBox control.")]
         public virtual bool MultiLine
         {
             get

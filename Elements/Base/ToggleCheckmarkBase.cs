@@ -108,43 +108,9 @@ namespace Elements.Base
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this instance is box larger.
+        /// Raises the <see cref="E:Paint" /> event.
         /// </summary>
-        /// <value>
-        ///   <c>true</c> if this instance is box larger; otherwise, <c>false</c>.
-        /// </value>
-        [Browsable(false)]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool IsBoxLarger { get; set; }
-
-        protected override void OnMouseDown(MouseEventArgs e)
-        {
-            base.OnMouseDown(e);
-            MouseState = MouseStates.Pressed;
-            Invalidate();
-        }
-
-        protected override void OnMouseHover(EventArgs e)
-        {
-            base.OnMouseHover(e);
-            MouseState = MouseStates.Hover;
-            Invalidate();
-        }
-
-        protected override void OnMouseLeave(EventArgs e)
-        {
-            base.OnMouseLeave(e);
-            MouseState = MouseStates.Normal;
-            Invalidate();
-        }
-
-        protected override void OnMouseUp(MouseEventArgs e)
-        {
-            base.OnMouseUp(e);
-            MouseState = MouseStates.Hover;
-            Invalidate();
-        }
-
+        /// <param name="e">The <see cref="PaintEventArgs"/> instance containing the event data.</param>
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
@@ -165,7 +131,7 @@ namespace Elements.Base
             Point _textLocation = new Point(_checkOptions.Box.Right + _checkOptions.Spacing, (ClientRectangle.Height / 2) - (_textSize.Height / 2));
             Color _textColor = Enabled ? ForeColor : ForeColor;
 
-            ControlRender.DrawCheckBox(_graphics, _checkOptions, _checkOptions.Box, Checked, Enabled, _backColor, BackgroundImage, MouseState, Text, Font, _textColor, _textLocation);
+            ControlRender.DrawCheckBox(_graphics, _checkOptions, Checked, Enabled, _backColor, BackgroundImage, MouseState, Text, Font, _textColor, _textLocation);
             e.Graphics.ResetClip();
         }
     }

@@ -64,10 +64,14 @@
     </Compile>
     <Compile Include="Components\Gradient\GradientDesigner.cs" />
     <Compile Include="Constants\CategoryBase.cs" />
+    <Compile Include="Constants\DesignerCategory.cs" />
     <Compile Include="Constants\PropertyCategory.cs" />
     <Compile Include="Constants\EventCategory.cs" />
     <Compile Include="Controls\Button\Button.cs" />
     <Compile Include="Controls\Button\ButtonDesigner.cs" />
+    <Compile Include="Controls\CheckBox\CheckBox.cs" />
+    <Compile Include="Controls\CheckBox\CheckBoxDesigner.cs" />
+    <Compile Include="Controls\CheckBox\CheckBoxActionList.cs" />
     <Compile Include="Controls\ComboBox\ComboBoxButton.cs" />
     <Compile Include="Controls\ComboBox\ComboBox.cs">
       <SubType>Component</SubType>
@@ -92,6 +96,7 @@
     <Compile Include="Controls\ProgressBar\ProgressEventArgs.cs" />
     <Compile Include="Controls\RadialProgress\RadialProgress.cs" />
     <Compile Include="Controls\RadialProgress\RadialProgressDesigner.cs" />
+    <Compile Include="Controls\RadioButton\RadioButtonActionList.cs" />
     <Compile Include="Controls\RadioButton\RadioButtonDesigner.cs" />
     <Compile Include="Controls\RadioButton\RadioButton.cs" />
     <Compile Include="Controls\Rating\RatingDesigner.cs" />
@@ -272,12 +277,14 @@
     <EmbeddedResource Include="Resources\Logo512.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controls\CheckBox\" />
     <Folder Include="Controls\ListBox\" />
     <Folder Include="Controls\NumericUpDown\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Controls\RadioButton\RadioButton.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\CheckBox\CheckBox.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
