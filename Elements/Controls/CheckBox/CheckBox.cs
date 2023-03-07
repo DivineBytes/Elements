@@ -70,7 +70,7 @@ namespace Elements.Controls.CheckBox
         /// <value>The state of the check.</value>
         [DefaultValue(typeof(CheckState), "Unchecked")]
         [Category(PropertyCategory.Behavior)]
-        [Description("Checked")]
+        [Description("Check state.")]
         public CheckState CheckState
         {
             get
@@ -82,10 +82,11 @@ namespace Elements.Controls.CheckBox
             {
                 if (_checkState != value)
                 {
-                    // Store new values
                     _checkState = value;
+
                     bool newChecked = _checkState != CheckState.Unchecked;
                     bool checkedChanged = Checked != newChecked;
+
                     Checked = newChecked;
 
                     // Generate events
@@ -146,7 +147,7 @@ namespace Elements.Controls.CheckBox
         /// <exception cref="System.ArgumentOutOfRangeException"></exception>
         protected override void OnClick(EventArgs e)
         {
-            switch (CheckState)
+            switch (_checkState)
             {
                 case CheckState.Unchecked:
                     {
@@ -165,11 +166,6 @@ namespace Elements.Controls.CheckBox
                         CheckState = CheckState.Unchecked;
                         break;
                     }
-
-                default:
-                    {
-                        throw new ArgumentOutOfRangeException();
-                    }
             }
 
             base.OnClick(e);
@@ -183,7 +179,6 @@ namespace Elements.Controls.CheckBox
         protected override void OnToggleChanged(object sender, ToggleEventArgs e)
         {
             base.OnToggleChanged(sender, e);
-            _checkState = Checked ? CheckState.Checked : CheckState.Unchecked;
             OnCheckStateChanged(EventArgs.Empty);
             Invalidate();
         }

@@ -183,7 +183,7 @@ namespace Elements.Renders
         /// <param name="checkStyle">The check mark type.</param>
         public static void DrawCheckMark(Graphics graphics, CheckOptions checkStyle)
         {
-            Point location = new Point(0, 0);
+            Point location;
 
             if (checkStyle.AutoSize)
             {

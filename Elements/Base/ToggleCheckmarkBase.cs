@@ -18,7 +18,6 @@ namespace Elements.Base
     public class ToggleCheckmarkBase : ToggleBase
     {
         private CheckOptions _checkOptions;
-        private Size _textSize;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ToggleCheckmarkBase"/> class.
@@ -44,26 +43,6 @@ namespace Elements.Base
         }
 
         /// <summary>
-        /// Gets or sets the size of the text.
-        /// </summary>
-        /// <value>The size of the text.</value>
-        [Browsable(false)]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public Size TextSize
-        {
-            get
-            {
-                return _textSize;
-            }
-
-            set
-            {
-                _textSize = value;
-                Invalidate();
-            }
-        }
-
-        /// <summary>
         /// Gets or sets a value indicating whether this <see cref="ToggleCheckmarkBase"/> is checked.
         /// </summary>
         /// <value><c>true</c> if checked; otherwise, <c>false</c>.</value>
@@ -82,8 +61,7 @@ namespace Elements.Base
                 if (Toggle != value)
                 {
                     Toggle = value;
-                    OnToggleChanged(this, new Elements.Events.ToggleEventArgs(Toggle));
-                    //Invalidate();
+                    OnToggleChanged(this, new Events.ToggleEventArgs(Toggle));
                 }
             }
         }
@@ -127,7 +105,7 @@ namespace Elements.Base
 
             e.Graphics.SetClip(controlGraphicsPath);
 
-            _textSize = StringUtilities.MeasureText(Text, Font, _graphics);
+            Size _textSize = StringUtilities.MeasureText(Text, Font, _graphics);
             Point _textLocation = new Point(_checkOptions.Box.Right + _checkOptions.Spacing, (ClientRectangle.Height / 2) - (_textSize.Height / 2));
             Color _textColor = Enabled ? ForeColor : ForeColor;
 
