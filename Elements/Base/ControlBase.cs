@@ -12,8 +12,8 @@ namespace Elements.Base
     /// <summary>
     /// The <see cref="ControlBase"/> class.
     /// </summary>
-    /// <seealso cref="System.Windows.Forms.Control"/>
-    /// <seealso cref="System.ICloneable"/>
+    /// <seealso cref="Control"/>
+    /// <seealso cref="ICloneable"/>
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [DesignerCategory("code")]

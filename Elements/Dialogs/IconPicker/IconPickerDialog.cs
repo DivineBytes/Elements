@@ -10,7 +10,7 @@ namespace Elements.Dialogs
     /// <summary>
     /// The <see cref="IconPickerDialog"/> class.
     /// </summary>
-    /// <seealso cref="System.Windows.Forms.CommonDialog"/>
+    /// <seealso cref="CommonDialog"/>
     public class IconPickerDialog : CommonDialog
     {
         #region Private Fields

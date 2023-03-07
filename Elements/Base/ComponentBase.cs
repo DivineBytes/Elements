@@ -5,7 +5,7 @@ namespace Elements.Base
     /// <summary>
     /// The <see cref="ComponentBase"/> class.
     /// </summary>
-    /// <seealso cref="System.ComponentModel.Component"/>
+    /// <seealso cref="Component"/>
     /// <seealso cref="System.ICloneable"/>
     public abstract class ComponentBase : Component
     {

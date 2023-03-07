@@ -13,7 +13,7 @@ namespace Elements.Controls.CheckBox
     /// <summary>
     /// The <see cref="CheckBox"/> class.
     /// </summary>
-    /// <seealso cref="Elements.Base.ToggleCheckmarkBase"/>
+    /// <seealso cref="ToggleCheckmarkBase"/>
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [DefaultEvent("ToggleChanged")]
@@ -144,7 +144,7 @@ namespace Elements.Controls.CheckBox
         /// Raises the <see cref="E:Click"/> event.
         /// </summary>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        /// <exception cref="System.ArgumentOutOfRangeException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         protected override void OnClick(EventArgs e)
         {
             switch (_checkState)

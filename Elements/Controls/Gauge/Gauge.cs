@@ -15,7 +15,7 @@ namespace Elements.Controls.Gauge
     /// <summary>
     /// The <see cref="Gauge"/> class.
     /// </summary>
-    /// <seealso cref="Elements.Base.ProgressBase"/>
+    /// <seealso cref="ProgressBase"/>
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [DefaultEvent("Click")]

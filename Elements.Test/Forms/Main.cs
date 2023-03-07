@@ -24,5 +24,15 @@ namespace Elements.Test
 
 
         }
+
+        /// <summary>
+        /// Handles the Load event of the Main control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void Main_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

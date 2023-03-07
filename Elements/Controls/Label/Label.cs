@@ -12,7 +12,7 @@ namespace Elements.Controls.Label
     /// <summary>
     /// The <see cref="Label"/> class.
     /// </summary>
-    /// <seealso cref="Elements.Base.ControlBase"/>
+    /// <seealso cref="ControlBase"/>
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [DefaultEvent("Click")]

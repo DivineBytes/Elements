@@ -11,7 +11,7 @@ namespace Elements.Controls.TabControl
     /// <summary>
     /// The <see cref="TabStyleProvider"/> class.
     /// </summary>
-    /// <seealso cref="System.ComponentModel.Component"/>
+    /// <seealso cref="Component"/>
     [ToolboxItem(false)]
     public abstract class TabStyleProvider : Component
     {
@@ -395,7 +395,7 @@ namespace Elements.Controls.TabControl
         /// Gets or sets the opacity.
         /// </summary>
         /// <value>The opacity.</value>
-        /// <exception cref="System.ArgumentException">
+        /// <exception cref="ArgumentException">
         /// The opacity must be between 0 and 1 - value
         /// </exception>
         [Category("Appearance")]
@@ -427,7 +427,7 @@ namespace Elements.Controls.TabControl
         /// Gets or sets the overlap.
         /// </summary>
         /// <value>The overlap.</value>
-        /// <exception cref="System.ArgumentException">
+        /// <exception cref="ArgumentException">
         /// The tabs cannot have a negative overlap - value
         /// </exception>
         [Category("Appearance")]
@@ -494,7 +494,7 @@ namespace Elements.Controls.TabControl
         /// Gets or sets the radius.
         /// </summary>
         /// <value>The radius.</value>
-        /// <exception cref="System.ArgumentException">
+        /// <exception cref="ArgumentException">
         /// The radius must be greater than 1 - value
         /// </exception>
         [Category("Appearance")]

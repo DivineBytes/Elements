@@ -12,7 +12,7 @@ namespace Elements.Controls.ProgressIndicator
     /// <summary>
     /// The <see cref="ProgressIndicator"/> class.
     /// </summary>
-    /// <seealso cref="Elements.Base.ControlBase"/>
+    /// <seealso cref="ControlBase"/>
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [DefaultEvent("Click")]

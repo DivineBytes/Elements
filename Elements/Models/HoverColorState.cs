@@ -40,7 +40,7 @@ namespace Elements.Models
         /// Initializes a new instance of the <see cref="HoverColorState"/> class.
         /// </summary>
         /// <param name="hover">The hover.</param>
-        /// <exception cref="System.ArgumentNullException">
+        /// <exception cref="ArgumentNullException">
         /// disabled - Cannot be empty. or enabled - Cannot be empty.
         /// </exception>
         public HoverColorState(Color hover) : this()
@@ -59,7 +59,7 @@ namespace Elements.Models
         /// <param name="disabled">The disabled.</param>
         /// <param name="enabled">The enabled.</param>
         /// <param name="hover">The hover.</param>
-        /// <exception cref="System.ArgumentNullException">
+        /// <exception cref="ArgumentNullException">
         /// disabled - Cannot be empty. or enabled - Cannot be empty.
         /// </exception>
         public HoverColorState(Color disabled, Color enabled, Color hover) : base(disabled, enabled)

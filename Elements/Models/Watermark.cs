@@ -96,7 +96,7 @@ namespace Elements.Models
 
         /// <summary>
         /// Draws the Watermark Text in the client area of the <see
-        /// cref="System.Windows.Forms.Control"/> using the default font and color.
+        /// cref="Control"/> using the default font and color.
         /// </summary>
         /// <param name="graphics">The graphics.</param>
         /// <param name="backColor">Color of the back.</param>
@@ -172,7 +172,7 @@ namespace Elements.Models
 
         /// <summary>
         /// Draws the Watermark Text in the client area of the <see
-        /// cref="System.Windows.Forms.Control"/> using the default font and color.
+        /// cref="Control"/> using the default font and color.
         /// </summary>
         /// <param name="graphics">The graphics.</param>
         /// <param name="backColor">Color of the back.</param>

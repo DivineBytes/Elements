@@ -31,7 +31,7 @@ namespace Elements.Controls.ProgressBar
     /// derived class, if your derived class references objects that must be disposed of before an
     /// instance of your class is destroyed, you must override the <see
     /// cref="Dispose(System.Boolean)"/> method, and call <see
-    /// cref="System.ComponentModel.Component.Dispose()">Dispose()</see> on all objects that are
+    /// cref="Component.Dispose()">Dispose()</see> on all objects that are
     /// referenced in your class, before calling <c>Dispose(disposing)</c> on the base class.</note>
     /// </para>
     /// </remarks>
@@ -106,7 +106,7 @@ namespace Elements.Controls.ProgressBar
         /// lower values make the background darker; higher values make the background lighter.
         /// </para>
         /// </remarks>
-        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// <exception cref="ArgumentOutOfRangeException">
         /// The value assigned to the property is less than 0 or greater than 255.
         /// </exception>
         [Category("Appearance")]
@@ -260,7 +260,7 @@ namespace Elements.Controls.ProgressBar
         /// Gets or sets the value.
         /// </summary>
         /// <value>The value.</value>
-        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// <exception cref="ArgumentOutOfRangeException">
         /// Value - Provided value is out of the Minimum to Maximum range of values.
         /// </exception>
         [Bindable(true)]

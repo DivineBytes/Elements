@@ -14,7 +14,7 @@ namespace Elements.Base
     /// <summary>
     /// The <see cref="ToggleCheckmarkBase"/> class.
     /// </summary>
-    /// <seealso cref="Elements.Base.ToggleBase"/>
+    /// <seealso cref="ToggleBase"/>
     public class ToggleCheckmarkBase : ToggleBase
     {
         private CheckOptions _checkOptions;

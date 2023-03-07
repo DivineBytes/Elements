@@ -11,7 +11,7 @@ namespace Elements.Base
     /// <summary>
     /// The <see cref="NestedControlBase"/> class.
     /// </summary>
-    /// <seealso cref="Elements.Base.ContainedControlBase"/>
+    /// <seealso cref="ContainedControlBase"/>
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [Designer("System.Windows.Forms.Design.ParentControlDesigner, System.Design", typeof(IDesigner))]

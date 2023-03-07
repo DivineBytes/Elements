@@ -81,6 +81,10 @@
     <Compile Include="Controls\ComboBox\ComboBoxSeparator.cs" />
     <Compile Include="Controls\ComboBox\ComboBoxActionList.cs" />
     <Compile Include="Controls\ControlBox\Constants.cs" />
+    <Compile Include="Controls\DateTimePicker\DateTimePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DateTimePicker\DateTimePickerDesigner.cs" />
     <Compile Include="Controls\Gauge\GaugeDesigner.cs" />
     <Compile Include="Controls\GroupBox\GroupBoxDesigner.cs" />
     <Compile Include="Controls\GroupBox\GroupBox.cs" />
@@ -285,6 +289,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Controls\CheckBox\CheckBox.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\DateTimePicker\DateTimePicker.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

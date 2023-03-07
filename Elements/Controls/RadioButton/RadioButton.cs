@@ -12,7 +12,7 @@ namespace Elements.Controls.RadioButton
     /// <summary>
     /// The <see cref="RadioButton"/> class.
     /// </summary>
-    /// <seealso cref="Elements.Base.ToggleCheckmarkBase"/>
+    /// <seealso cref="ToggleCheckmarkBase"/>
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [DefaultEvent("ToggleChanged")]

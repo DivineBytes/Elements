@@ -8,7 +8,7 @@ namespace Elements.Base
     /// <summary>
     /// The <see cref="ToggleBase"/> class.
     /// </summary>
-    /// <seealso cref="Elements.Base.ControlBase"/>
+    /// <seealso cref="ControlBase"/>
     public class ToggleBase : ControlBase
     {
         #region Public Events

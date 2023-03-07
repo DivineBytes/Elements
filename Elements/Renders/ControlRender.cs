@@ -71,6 +71,31 @@ namespace Elements.Renders
         /// <summary>
         /// Renders a triangle.
         /// </summary>
+        /// <param name="graphics">The specified graphics to draw on.</param>
+        /// <param name="rectangle">The rectangle.</param>
+        /// <param name="color">The color.</param>
+        /// <param name="image">The image.</param>
+        /// <param name="direction">The direction.</param>
+        public static void RenderTriangle(Graphics graphics, Rectangle rectangle, Color color, Image image, Vertical direction)
+        {
+            if (image != null)
+            {
+                Rectangle imageRectangle = new Rectangle(
+                    rectangle.Right - image.Width - 2,
+                    rectangle.Top - image.Height / 2 + 2,
+                    image.Width, image.Height);
+
+                graphics.DrawImage(image, imageRectangle);
+            }
+            else
+            {
+                RenderTriangle(graphics, rectangle, color, direction);
+            }
+        }
+
+        /// <summary>
+        /// Renders a triangle.
+        /// </summary>
         /// <param name="graphics">The graphics to draw on.</param>
         /// <param name="rectangle">The button rectangle.</param>
         /// <param name="color">The color.</param>

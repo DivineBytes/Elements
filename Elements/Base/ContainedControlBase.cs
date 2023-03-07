@@ -10,7 +10,7 @@ namespace Elements.Base
     /// <summary>
     /// The <see cref="ContainedControlBase"/> class.
     /// </summary>
-    /// <seealso cref="Elements.Base.ControlBase"/>
+    /// <seealso cref="ControlBase"/>
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [DesignerCategory("code")]

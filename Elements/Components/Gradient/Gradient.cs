@@ -12,7 +12,7 @@ namespace Elements.Components.Gradient
     /// <summary>
     /// The <see cref="Gradient"/> class.
     /// </summary>
-    /// <seealso cref="Elements.Base.ComponentBase"/>
+    /// <seealso cref="ComponentBase"/>
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [DefaultEvent("Click")]

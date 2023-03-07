@@ -5,7 +5,7 @@ namespace Elements.Controls.ProgressBar
     /// <summary>
     /// The <see cref="ProgressEventArgs"/> class.
     /// </summary>
-    /// <seealso cref="System.EventArgs"/>
+    /// <seealso cref="EventArgs"/>
     public class ProgressEventArgs : EventArgs
     {
         #region Public Fields

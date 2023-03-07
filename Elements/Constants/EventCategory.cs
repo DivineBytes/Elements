@@ -3,7 +3,7 @@
     /// <summary>
     /// The <see cref="EventCategory" /> class.
     /// </summary>
-    /// <seealso cref="Elements.Constants.CategoryBase" />
+    /// <seealso cref="CategoryBase" />
 #pragma warning disable 1591
 
     public class EventCategory : CategoryBase

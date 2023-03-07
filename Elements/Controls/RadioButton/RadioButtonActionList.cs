@@ -7,7 +7,7 @@ namespace Elements.Controls.RadioButton
     {
         #region Private Fields
 
-        private Elements.Controls.RadioButton.RadioButton _control;
+        private RadioButton _control;
         private DesignerActionUIService _designerService;
 
         #endregion Private Fields
@@ -16,7 +16,7 @@ namespace Elements.Controls.RadioButton
 
         public RadioButtonActionList(IComponent component) : base(component)
         {
-            _control = (Elements.Controls.RadioButton.RadioButton)component;
+            _control = (RadioButton)component;
             _designerService = (DesignerActionUIService)GetService(typeof(DesignerActionUIService));
         }
 

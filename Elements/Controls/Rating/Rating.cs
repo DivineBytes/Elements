@@ -13,7 +13,7 @@ namespace Elements.Controls.Rating
     /// <summary>
     /// The <see cref="Rating"/> class.
     /// </summary>
-    /// <seealso cref="Elements.Base.ControlBase"/>
+    /// <seealso cref="ControlBase"/>
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [DefaultEvent("RatingChanged")]

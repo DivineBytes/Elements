@@ -89,7 +89,7 @@ namespace Elements.Controls.Label
         /// <param name="text">The text to draw.</param>
         /// <param name="font">The font to draw.</param>
         /// <param name="clientRectangle">The client rectangle.</param>
-        /// <exception cref="System.ArgumentOutOfRangeException">orientation</exception>
+        /// <exception cref="ArgumentOutOfRangeException">orientation</exception>
         public static void Render(LabelShadow labelShadow, Graphics graphics, Orientation orientation, string text, Font font, Rectangle clientRectangle)
         {
             // Create shadow into a bitmap

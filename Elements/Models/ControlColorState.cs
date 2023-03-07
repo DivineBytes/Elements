@@ -38,7 +38,7 @@ namespace Elements.Models
         /// Initializes a new instance of the <see cref="ControlColorState"/> class.
         /// </summary>
         /// <param name="pressed">The pressed.</param>
-        /// <exception cref="System.ArgumentNullException">
+        /// <exception cref="ArgumentNullException">
         /// disabled - Cannot be empty. or enabled - Cannot be empty.
         /// </exception>
         public ControlColorState(Color pressed) : this()
@@ -58,7 +58,7 @@ namespace Elements.Models
         /// <param name="enabled">The enabled.</param>
         /// <param name="hover">The hover.</param>
         /// <param name="pressed">The pressed.</param>
-        /// <exception cref="System.ArgumentNullException">hover - Cannot be empty.</exception>
+        /// <exception cref="ArgumentNullException">hover - Cannot be empty.</exception>
         public ControlColorState(Color disabled, Color enabled, Color hover, Color pressed) : base(disabled, enabled, hover)
         {
             if (pressed == Color.Empty)

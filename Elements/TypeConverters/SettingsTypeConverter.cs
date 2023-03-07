@@ -8,7 +8,7 @@ namespace Elements.TypeConverters
     /// <summary>
     /// The <see cref="SettingsTypeConverter"/> class.
     /// </summary>
-    /// <seealso cref="System.ComponentModel.ExpandableObjectConverter"/>
+    /// <seealso cref="ExpandableObjectConverter"/>
     public class SettingsTypeConverter : ExpandableObjectConverter
     {
         #region Public Methods

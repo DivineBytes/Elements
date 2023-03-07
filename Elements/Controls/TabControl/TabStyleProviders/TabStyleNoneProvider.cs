@@ -7,7 +7,7 @@ namespace Elements.Controls.TabControl.TabStyleProviders
     /// <summary>
     /// The <see cref="TabStyleNoneProvider"/> class.
     /// </summary>
-    /// <seealso cref="Elements.Controls.TabControl.TabStyleProvider"/>
+    /// <seealso cref="TabStyleProvider"/>
     [ToolboxItem(false)]
     public class TabStyleNoneProvider : TabStyleProvider
     {

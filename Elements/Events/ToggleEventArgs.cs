@@ -5,7 +5,7 @@ namespace Elements.Events
     /// <summary>
     /// The <see cref="ToggleEventArgs"/> class.
     /// </summary>
-    /// <seealso cref="System.EventArgs"/>
+    /// <seealso cref="EventArgs"/>
     public class ToggleEventArgs : EventArgs
     {
         #region Private Fields

@@ -8,7 +8,7 @@ namespace Elements.Controls.TabControl.TabStyleProviders
     /// <summary>
     /// The <see cref="TabStyleIE8Provider"/> class.
     /// </summary>
-    /// <seealso cref="Elements.Controls.TabControl.TabStyleProviders.TabStyleRoundedProvider"/>
+    /// <seealso cref="TabStyleRoundedProvider"/>
     [ToolboxItem(false)]
     public class TabStyleIE8Provider : TabStyleRoundedProvider
     {

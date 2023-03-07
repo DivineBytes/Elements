@@ -12,7 +12,7 @@ namespace Elements.Controls.Separator
     /// <summary>
     /// The <see cref="Separator"/> class.
     /// </summary>
-    /// <seealso cref="Elements.Base.ControlBase"/>
+    /// <seealso cref="ControlBase"/>
     [Category(Constants.PropertyCategory.Appearance)]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
@@ -173,7 +173,7 @@ namespace Elements.Controls.Separator
         /// Raises the <see cref="E:Paint"/> event.
         /// </summary>
         /// <param name="e">The <see cref="PaintEventArgs"/> instance containing the event data.</param>
-        /// <exception cref="System.ArgumentOutOfRangeException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);

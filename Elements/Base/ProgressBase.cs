@@ -8,7 +8,7 @@ namespace Elements.Base
     /// <summary>
     /// The <see cref="ProgressBase"/> class.
     /// </summary>
-    /// <seealso cref="Elements.Base.ControlBase"/>
+    /// <seealso cref="ControlBase"/>
     [DesignerCategory("code")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
@@ -58,7 +58,7 @@ namespace Elements.Base
         /// Gets or sets the large change.
         /// </summary>
         /// <value>The large change.</value>
-        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// <exception cref="ArgumentOutOfRangeException">
         /// LargeChange cannot be less than zero.
         /// </exception>
         [Bindable(true)]
@@ -142,7 +142,7 @@ namespace Elements.Base
         /// Gets or sets the small change.
         /// </summary>
         /// <value>The small change.</value>
-        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// <exception cref="ArgumentOutOfRangeException">
         /// SmallChange cannot be less than zero.
         /// </exception>
         [Bindable(true)]
@@ -170,7 +170,7 @@ namespace Elements.Base
         /// Gets or sets the value.
         /// </summary>
         /// <value>The value.</value>
-        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// <exception cref="ArgumentOutOfRangeException">
         /// Value - Provided value is out of the Minimum to Maximum range of values.
         /// </exception>
         [Bindable(true)]

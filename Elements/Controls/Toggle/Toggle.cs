@@ -17,7 +17,7 @@ namespace Elements.Controls.Toggle
     /// <summary>
     /// The <see cref="Controls.Toggle"/> class.
     /// </summary>
-    /// <seealso cref="Elements.Base.ControlBase"/>
+    /// <seealso cref="ControlBase"/>
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [DefaultEvent("ToggleChanged")]
@@ -207,7 +207,7 @@ namespace Elements.Controls.Toggle
         protected override void OnMouseUp(MouseEventArgs e)
         {
             base.OnMouseUp(e);
-            OnMouseStateChanged(this, new Events.MouseStateEventArgs(MouseStates.Hover));
+            OnMouseStateChanged(this, new MouseStateEventArgs(MouseStates.Hover));
             Toggled = !Toggled;
         }
 
@@ -288,7 +288,7 @@ namespace Elements.Controls.Toggle
         /// Draws the toggle text.
         /// </summary>
         /// <param name="graphics">The graphics.</param>
-        /// <exception cref="System.ArgumentOutOfRangeException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         private void DrawToggleText(Graphics graphics)
         {
             string _textProcessor = string.Empty;

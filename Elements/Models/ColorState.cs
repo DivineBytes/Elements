@@ -41,7 +41,7 @@ namespace Elements.Models
         /// </summary>
         /// <param name="disabled">The disabled color.</param>
         /// <param name="enabled">The normal color.</param>
-        /// <exception cref="System.ArgumentNullException">
+        /// <exception cref="ArgumentNullException">
         /// disabled - Cannot be empty. or enabled - Cannot be empty.
         /// </exception>
         public ColorState(Color disabled, Color enabled) : this()

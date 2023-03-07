@@ -457,7 +457,7 @@ namespace Elements.Controls.GroupBox
         /// </summary>
         /// <param name="textArea">The text area.</param>
         /// <returns></returns>
-        /// <exception cref="System.ArgumentOutOfRangeException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         private Rectangle ConfigureStyleTitleBox(Size textArea)
         {
             Size titleSize = new Size(Width, _titleBoxHeight);

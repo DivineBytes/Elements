@@ -14,7 +14,7 @@ namespace Elements.Components.Badge
     /// <summary>
     /// The <see cref="Badge"/> class.
     /// </summary>
-    /// <seealso cref="Elements.Base.ComponentBase"/>
+    /// <seealso cref="ComponentBase"/>
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [DefaultEvent("Click")]

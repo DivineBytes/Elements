@@ -7,7 +7,7 @@ namespace Elements.Models
     /// <summary>
     /// The <see cref="DebuggerDisplayFormat"/> class.
     /// </summary>
-    /// <seealso cref="System.IComparable"/>
+    /// <seealso cref="IComparable"/>
     [ComVisible(true)]
     [DebuggerDisplay(DebuggerDisplay.Default)]
     [Serializable]

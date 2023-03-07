@@ -9,7 +9,7 @@ namespace Elements.UITypeEditors
     /// <summary>
     /// The <see cref="ColorEditor"/> class.
     /// </summary>
-    /// <seealso cref="System.Drawing.Design.UITypeEditor"/>
+    /// <seealso cref="UITypeEditor"/>
     /// <remarks>Use this on a property: <c>[Editor(typeof(ColorEditor), typeof(UITypeEditor))]</c></remarks>
     public class ColorEditor : UITypeEditor
     {

@@ -7,7 +7,7 @@ namespace Elements.Events
     /// <summary>
     /// The <see cref="MouseStateEventArgs"/> class.
     /// </summary>
-    /// <seealso cref="System.EventArgs"/>
+    /// <seealso cref="EventArgs"/>
     public class MouseStateEventArgs : EventArgs
     {
         #region Private Fields
