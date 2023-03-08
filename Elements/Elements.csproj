@@ -97,6 +97,8 @@
     <Compile Include="Controls\ListView\ListView.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\NumericUpDown\NumericUpDown.cs" />
+    <Compile Include="Controls\NumericUpDown\NumericUpDownDesigner.cs" />
     <Compile Include="Controls\ProgressBar\ProgressEventArgs.cs" />
     <Compile Include="Controls\RadialProgress\RadialProgress.cs" />
     <Compile Include="Controls\RadialProgress\RadialProgressDesigner.cs" />
@@ -119,6 +121,7 @@
     <Compile Include="Controls\Toggle\ToggleTypes.cs" />
     <Compile Include="Enumerators\Vertical.cs" />
     <Compile Include="Events\ToggleEventArgs.cs" />
+    <Compile Include="Events\ValueChangedEventArgs.cs" />
     <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="Models\CheckOptions.cs" />
     <Compile Include="Models\RectangleShape.cs" />
@@ -282,7 +285,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controls\ListBox\" />
-    <Folder Include="Controls\NumericUpDown\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Controls\RadioButton\RadioButton.bmp" />
@@ -292,6 +294,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Controls\DateTimePicker\DateTimePicker.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\NumericUpDown\NumericUpDown.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

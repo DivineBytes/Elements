@@ -58,6 +58,13 @@ namespace Elements.Delegates
     /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     public delegate void TypeChangedEventHandler(object source, EventArgs e);
     /// <summary>
+    /// The <see cref="ValueChangedEventHandler"/>.
+    /// </summary>
+    /// <param name="source">The source.</param>
+    /// <param name="e">The <see cref="ValueChangedEventArgs"/> instance containing the event data.</param>
+    public delegate void ValueChangedEventHandler(object source, ValueChangedEventArgs e);
+
+    /// <summary>
     /// The <see cref="VisibleChangedEventHandler"/>.
     /// </summary>
     /// <param name="source">The source.</param>
