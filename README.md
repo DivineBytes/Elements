@@ -3,7 +3,7 @@
 <p align="center">Elements for WinForms allows you to rapidly deploy visually professional .NET applications with customizable components and controls.</p>
 
 <p align="center">
-<img src="Elements\Resources\Logo.png" alt="Logo" width="64" />
+<img src="Elements\Resources\Logo.png" alt="Logo512" width="64" />
 </p>
 
 <h2 align="center">🫶 Contributing 🫶</h2>
