@@ -1,5 +1,4 @@
 ﻿using Elements.Constants;
-using Elements.Controls.Tile;
 using Elements.Delegates;
 using Elements.Enumerators;
 using Elements.Events;
@@ -7,22 +6,19 @@ using Elements.Models;
 using Elements.Renders;
 using Elements.Utilities;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 
 namespace Elements.Controls.DateTimePicker
 {
     /// <summary>
-    /// The <see cref="DateTimePicker" /> class.
+    /// The <see cref="DateTimePicker"/> class.
     /// </summary>
-    /// <seealso cref="System.Windows.Forms.DateTimePicker" />
+    /// <seealso cref="System.Windows.Forms.DateTimePicker"/>
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [DefaultEvent("ToggleChanged")]
@@ -33,6 +29,8 @@ namespace Elements.Controls.DateTimePicker
     [ToolboxItem(true)]
     public class DateTimePicker : System.Windows.Forms.DateTimePicker
     {
+        #region Private Fields
+
         private ColorState _arrowColor;
         private Size _arrowSize;
         private ColorState _backColor;
@@ -43,7 +41,13 @@ namespace Elements.Controls.DateTimePicker
         private MouseStates _mouseState;
         private bool _showFocus;
 
-        /// <summary>Initializes a new instance of the <see cref="DateTimePicker" /> class.</summary>
+        #endregion Private Fields
+
+        #region Public Constructors
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DateTimePicker"/> class.
+        /// </summary>
         public DateTimePicker()
         {
             SetStyle(ControlStyles.SupportsTransparentBackColor | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint, true);
@@ -64,6 +68,10 @@ namespace Elements.Controls.DateTimePicker
             _focused = false;
         }
 
+        #endregion Public Constructors
+
+        #region Public Events
+
         /// <summary>
         /// Occurs when the mouse state changed.
         /// </summary>
@@ -71,12 +79,14 @@ namespace Elements.Controls.DateTimePicker
         [Description("Occours when the MouseState of the control has changed.")]
         public event MouseStateChangedEventHandler MouseStateChanged;
 
+        #endregion Public Events
+
+        #region Public Properties
+
         /// <summary>
         /// Gets or sets the color of the arrow.
         /// </summary>
-        /// <value>
-        /// The color of the arrow.
-        /// </value>
+        /// <value>The color of the arrow.</value>
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public ColorState ArrowColor
         {
@@ -95,9 +105,7 @@ namespace Elements.Controls.DateTimePicker
         /// <summary>
         /// Gets or sets the size of the arrow.
         /// </summary>
-        /// <value>
-        /// The size of the arrow.
-        /// </value>
+        /// <value>The size of the arrow.</value>
         [Category(PropertyCategory.Appearance)]
         [Description("Size")]
         public Size ArrowSize
@@ -116,9 +124,7 @@ namespace Elements.Controls.DateTimePicker
         /// <summary>
         /// Gets or sets the color of the back.
         /// </summary>
-        /// <value>
-        /// The color of the back.
-        /// </value>
+        /// <value>The color of the back.</value>
         [Browsable(true)]
         public new Color BackColor
         {
@@ -136,9 +142,7 @@ namespace Elements.Controls.DateTimePicker
         /// <summary>
         /// Gets or sets the state of the back color.
         /// </summary>
-        /// <value>
-        /// The state of the back color.
-        /// </value>
+        /// <value>The state of the back color.</value>
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public ColorState BackColorState
         {
@@ -157,9 +161,7 @@ namespace Elements.Controls.DateTimePicker
         /// <summary>
         /// Gets or sets the background image.
         /// </summary>
-        /// <value>
-        /// The background image.
-        /// </value>
+        /// <value>The background image.</value>
         [Browsable(true)]
         [Category(PropertyCategory.Appearance)]
         [Description("Image")]
@@ -180,9 +182,7 @@ namespace Elements.Controls.DateTimePicker
         /// <summary>
         /// Gets or sets the border.
         /// </summary>
-        /// <value>
-        /// The border.
-        /// </value>
+        /// <value>The border.</value>
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Category(PropertyCategory.Appearance)]
         public Border Border
@@ -202,9 +202,7 @@ namespace Elements.Controls.DateTimePicker
         /// <summary>
         /// Gets or sets the color of the fore.
         /// </summary>
-        /// <value>
-        /// The color of the fore.
-        /// </value>
+        /// <value>The color of the fore.</value>
         [Browsable(true)]
         public new Color ForeColor
         {
@@ -222,9 +220,7 @@ namespace Elements.Controls.DateTimePicker
         /// <summary>
         /// Gets or sets the image.
         /// </summary>
-        /// <value>
-        /// The image.
-        /// </value>
+        /// <value>The image.</value>
         [Category(PropertyCategory.Appearance)]
         [Description("Image")]
         public Image Image
@@ -244,9 +240,7 @@ namespace Elements.Controls.DateTimePicker
         /// <summary>
         /// Gets or sets the size of the image.
         /// </summary>
-        /// <value>
-        /// The size of the image.
-        /// </value>
+        /// <value>The size of the image.</value>
         [Category(PropertyCategory.Appearance)]
         [Description("Size")]
         public Size ImageSize
@@ -266,9 +260,7 @@ namespace Elements.Controls.DateTimePicker
         /// <summary>
         /// Gets a value indicating whether this instance is pressed.
         /// </summary>
-        /// <value>
-        ///   <c>true</c> if this instance is pressed; otherwise, <c>false</c>.
-        /// </value>
+        /// <value><c>true</c> if this instance is pressed; otherwise, <c>false</c>.</value>
         [Browsable(false)]
         public bool IsPressed
         {
@@ -279,11 +271,9 @@ namespace Elements.Controls.DateTimePicker
         }
 
         /// <summary>
-        /// Gets or sets the <see cref="MouseState" />.
+        /// Gets or sets the <see cref="MouseState"/>.
         /// </summary>
-        /// <value>
-        /// The state of the mouse.
-        /// </value>
+        /// <value>The state of the mouse.</value>
         [Category(PropertyCategory.Appearance)]
         [Description("Mouse State")]
         public MouseStates MouseState
@@ -308,9 +298,7 @@ namespace Elements.Controls.DateTimePicker
         /// <summary>
         /// Gets or sets a value indicating whether show focus.
         /// </summary>
-        /// <value>
-        ///   <c>true</c> if [show focus]; otherwise, <c>false</c>.
-        /// </value>
+        /// <value><c>true</c> if [show focus]; otherwise, <c>false</c>.</value>
         [DefaultValue(false)]
         [Category(PropertyCategory.Appearance)]
         [Description("Toggle")]
@@ -330,9 +318,7 @@ namespace Elements.Controls.DateTimePicker
         /// <summary>
         /// Gets or sets a value indicating whether show up down.
         /// </summary>
-        /// <value>
-        ///   <c>true</c> if [show up down]; otherwise, <c>false</c>.
-        /// </value>
+        /// <value><c>true</c> if [show up down]; otherwise, <c>false</c>.</value>
         [Browsable(false)]
         public new bool ShowUpDown
         {
@@ -350,9 +336,7 @@ namespace Elements.Controls.DateTimePicker
         /// <summary>
         /// Gets or sets a value indicating whether use selectable.
         /// </summary>
-        /// <value>
-        ///   <c>true</c> if [use selectable]; otherwise, <c>false</c>.
-        /// </value>
+        /// <value><c>true</c> if [use selectable]; otherwise, <c>false</c>.</value>
         [Browsable(false)]
         [Category(PropertyCategory.Behavior)]
         [DefaultValue(true)]
@@ -368,6 +352,10 @@ namespace Elements.Controls.DateTimePicker
                 SetStyle(ControlStyles.Selectable, value);
             }
         }
+
+        #endregion Public Properties
+
+        #region Public Methods
 
         /// <summary>
         /// Gets the size of the preferred.
@@ -390,8 +378,12 @@ namespace Elements.Controls.DateTimePicker
             return preferredSize;
         }
 
+        #endregion Public Methods
+
+        #region Protected Methods
+
         /// <summary>
-        /// Raises the <see cref="E:Enter" /> event.
+        /// Raises the <see cref="E:Enter"/> event.
         /// </summary>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected override void OnEnter(EventArgs e)
@@ -404,7 +396,7 @@ namespace Elements.Controls.DateTimePicker
         }
 
         /// <summary>
-        /// Raises the <see cref="E:GotFocus" /> event.
+        /// Raises the <see cref="E:GotFocus"/> event.
         /// </summary>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected override void OnGotFocus(EventArgs e)
@@ -416,7 +408,7 @@ namespace Elements.Controls.DateTimePicker
         }
 
         /// <summary>
-        /// Raises the <see cref="E:KeyDown" /> event.
+        /// Raises the <see cref="E:KeyDown"/> event.
         /// </summary>
         /// <param name="e">The <see cref="KeyEventArgs"/> instance containing the event data.</param>
         protected override void OnKeyDown(KeyEventArgs e)
@@ -431,7 +423,7 @@ namespace Elements.Controls.DateTimePicker
         }
 
         /// <summary>
-        /// Raises the <see cref="E:KeyUp" /> event.
+        /// Raises the <see cref="E:KeyUp"/> event.
         /// </summary>
         /// <param name="e">The <see cref="KeyEventArgs"/> instance containing the event data.</param>
         protected override void OnKeyUp(KeyEventArgs e)
@@ -442,7 +434,7 @@ namespace Elements.Controls.DateTimePicker
         }
 
         /// <summary>
-        /// Raises the <see cref="E:Leave" /> event.
+        /// Raises the <see cref="E:Leave"/> event.
         /// </summary>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected override void OnLeave(EventArgs e)
@@ -454,7 +446,7 @@ namespace Elements.Controls.DateTimePicker
         }
 
         /// <summary>
-        /// Raises the <see cref="E:LostFocus" /> event.
+        /// Raises the <see cref="E:LostFocus"/> event.
         /// </summary>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected override void OnLostFocus(EventArgs e)
@@ -466,7 +458,7 @@ namespace Elements.Controls.DateTimePicker
         }
 
         /// <summary>
-        /// Raises the <see cref="E:MouseDown" /> event.
+        /// Raises the <see cref="E:MouseDown"/> event.
         /// </summary>
         /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
         protected override void OnMouseDown(MouseEventArgs e)
@@ -481,7 +473,7 @@ namespace Elements.Controls.DateTimePicker
         }
 
         /// <summary>
-        /// Raises the <see cref="E:MouseEnter" /> event.
+        /// Raises the <see cref="E:MouseEnter"/> event.
         /// </summary>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected override void OnMouseEnter(EventArgs e)
@@ -493,7 +485,7 @@ namespace Elements.Controls.DateTimePicker
         }
 
         /// <summary>
-        /// Raises the <see cref="E:MouseHover" /> event.
+        /// Raises the <see cref="E:MouseHover"/> event.
         /// </summary>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected override void OnMouseHover(EventArgs e)
@@ -504,7 +496,7 @@ namespace Elements.Controls.DateTimePicker
         }
 
         /// <summary>
-        /// Raises the <see cref="E:MouseLeave" /> event.
+        /// Raises the <see cref="E:MouseLeave"/> event.
         /// </summary>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected override void OnMouseLeave(EventArgs e)
@@ -515,7 +507,9 @@ namespace Elements.Controls.DateTimePicker
             base.OnMouseLeave(e);
         }
 
-        /// <summary>Invokes the mouse state changed event.</summary>
+        /// <summary>
+        /// Invokes the mouse state changed event.
+        /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The event args.</param>
         protected virtual void OnMouseStateChanged(object sender, MouseStateEventArgs e)
@@ -525,7 +519,7 @@ namespace Elements.Controls.DateTimePicker
         }
 
         /// <summary>
-        /// Raises the <see cref="E:MouseUp" /> event.
+        /// Raises the <see cref="E:MouseUp"/> event.
         /// </summary>
         /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
         protected override void OnMouseUp(MouseEventArgs e)
@@ -537,7 +531,7 @@ namespace Elements.Controls.DateTimePicker
         }
 
         /// <summary>
-        /// Raises the <see cref="E:Paint" /> event.
+        /// Raises the <see cref="E:Paint"/> event.
         /// </summary>
         /// <param name="e">The <see cref="PaintEventArgs"/> instance containing the event data.</param>
         protected override void OnPaint(PaintEventArgs e)
@@ -558,7 +552,7 @@ namespace Elements.Controls.DateTimePicker
                 e.Graphics.SetClip(controlGraphicsPath);
                 ImageRender.Render(e.Graphics, backColorState, BackgroundImage, _clientRectangle, _border);
                 Border.Render(e.Graphics, _border, _mouseState, controlGraphicsPath);
-                Rectangle arrowRectangle = new Rectangle(Width - _arrowSize.Width - 5, (Height / 2) - (_arrowSize.Height / 2), _arrowSize.Width, _arrowSize.Height);             
+                Rectangle arrowRectangle = new Rectangle(Width - _arrowSize.Width - 5, (Height / 2) - (_arrowSize.Height / 2), _arrowSize.Width, _arrowSize.Height);
 
                 Color colorState = _arrowColor.GetColorState(Enabled, _mouseState);
                 ControlRender.RenderTriangle(e.Graphics, arrowRectangle, colorState, _image, Vertical.Down);
@@ -599,7 +593,7 @@ namespace Elements.Controls.DateTimePicker
         }
 
         /// <summary>
-        /// Raises the <see cref="E:ValueChanged" /> event.
+        /// Raises the <see cref="E:ValueChanged"/> event.
         /// </summary>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected override void OnValueChanged(EventArgs e)
@@ -607,5 +601,7 @@ namespace Elements.Controls.DateTimePicker
             base.OnValueChanged(e);
             Invalidate();
         }
+
+        #endregion Protected Methods
     }
 }
