@@ -51,7 +51,7 @@ namespace Elements.Controls.ControlBox
             _closeButton = new ControlBoxButton
             {
                 Location = new Point(ControlBoxButton.DefaultWidth * 3, 0),
-                OffsetLocation = new Point(1, 2),
+                OffsetLocation = new Point(0, 2),
                 Text = ControlBoxButtons.Close.GetDisplayName(),
 
                 BackColorState = new Models.ControlColorState(
@@ -95,7 +95,7 @@ namespace Elements.Controls.ControlBox
             _minimizeButton = new ControlBoxButton()
             {
                 Location = new Point(ControlBoxButton.DefaultWidth, 0),
-                OffsetLocation = new Point(2, 0),
+                OffsetLocation = new Point(1, 0),
                 Text = ControlBoxButtons.Minimize.GetDisplayName(),
 
                 BackColorState = new Models.ControlColorState(
