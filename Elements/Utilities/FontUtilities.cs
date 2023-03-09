@@ -108,11 +108,28 @@ namespace Elements.Utilities
 
             if (IsFontInstalled(Marlett))
             {
-                Font marlettFont = new Font(Marlett, size, style, unit);
+                Font marlettFont = GetFont(Marlett, size, style, unit);
                 graphics.DrawString(character.ToString(), marlettFont, new SolidBrush(color), location, format);
             }
         }
 
+        /// <summary>
+        /// Gets the <see cref="Font"/>.
+        /// </summary>
+        /// <param name="familyName">Name of the family.</param>
+        /// <param name="emSize">Size of the em.</param>
+        /// <param name="fontStyle">The font style.</param>
+        /// <param name="graphicsUnit">The graphics unit.</param>
+        /// <returns>The <see cref="Font"/>.</returns>
+        public static Font GetFont(string familyName, float emSize = 12, FontStyle fontStyle = FontStyle.Regular, GraphicsUnit graphicsUnit = GraphicsUnit.Pixel)
+        {
+            if (string.IsNullOrEmpty(familyName))
+            {
+                throw new ArgumentNullException(nameof(familyName), "Cannot be null or empty.");
+            }
+
+            return new Font(familyName, emSize, fontStyle, graphicsUnit);
+        }
         /// <summary>
         /// Determines whether the <see cref="Font"/> is installed on the system.
         /// </summary>

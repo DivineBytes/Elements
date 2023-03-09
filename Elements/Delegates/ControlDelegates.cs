@@ -17,6 +17,13 @@ namespace Elements.Delegates
     /// <param name="e">The <see cref="ColorEventArgs"/> instance containing the event data.</param>
     public delegate void ColorStateChangedEventHandler(object source, ColorEventArgs e);
     /// <summary>
+    /// The <see cref="ControlBoxEventHandler" />.
+    /// </summary>
+    /// <param name="sender">The sender.</param>
+    /// <param name="e">The <see cref="ControlBoxEventArgs" /> instance containing the event data.</param>
+    public delegate void ControlBoxEventHandler(object sender, ControlBoxEventArgs e);
+
+    /// <summary>
     /// The <see cref="MouseStateChangedEventHandler"/>.
     /// </summary>
     /// <param name="source">The source.</param>

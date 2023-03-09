@@ -80,7 +80,12 @@
     <Compile Include="Controls\ComboBox\ComboBoxDesigner.cs" />
     <Compile Include="Controls\ComboBox\ComboBoxSeparator.cs" />
     <Compile Include="Controls\ComboBox\ComboBoxActionList.cs" />
-    <Compile Include="Controls\ControlBox\Constants.cs" />
+    <Compile Include="Controls\ControlBox\ControlBox.cs" />
+    <Compile Include="Controls\ControlBox\ControlBoxButton.cs" />
+    <Compile Include="Controls\ControlBox\ControlBoxButtonDesigner.cs" />
+    <Compile Include="Controls\ControlBox\ControlBoxButtons.cs" />
+    <Compile Include="Controls\ControlBox\ControlBoxDesigner.cs" />
+    <Compile Include="Controls\ControlBox\ControlBoxType.cs" />
     <Compile Include="Controls\DateTimePicker\DateTimePicker.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -120,8 +125,10 @@
     <Compile Include="Controls\Toggle\ToggleOptions.cs" />
     <Compile Include="Controls\Toggle\ToggleTypes.cs" />
     <Compile Include="Enumerators\Vertical.cs" />
+    <Compile Include="Events\ControlBoxEventArgs.cs" />
     <Compile Include="Events\ToggleEventArgs.cs" />
     <Compile Include="Events\ValueChangedEventArgs.cs" />
+    <Compile Include="Extensions\ColorExtensions.cs" />
     <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="Models\CheckOptions.cs" />
     <Compile Include="Models\RectangleShape.cs" />
@@ -297,6 +304,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Controls\NumericUpDown\NumericUpDown.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\ControlBox\ControlBox.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

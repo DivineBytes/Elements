@@ -1,33 +1,38 @@
 ﻿namespace Elements.Controls.ControlBox
 {
     /// <summary>
-    /// The <see cref="Constants"/> class.
+    /// The <see cref="ControlBoxButtons"/> enum.
     /// </summary>
-    public static class Constants
+    public enum ControlBoxButtons
     {
         /// <summary>
         /// The Close.
         /// </summary>
-        public const char Close = 'r';
+        [Attributes.DisplayName("r")]
+        Close,
 
         /// <summary>
         /// The Help.
         /// </summary>
-        public const char Help = 's';
+        [Attributes.DisplayName("s")]
+        Help,
 
         /// <summary>
         /// The Maximize.
         /// </summary>
-        public const char Maximize = '1';
+        [Attributes.DisplayName("1")]
+        Maximize,
 
         /// <summary>
         /// The Minimize.
         /// </summary>
-        public const char Minimize = '0';
+        [Attributes.DisplayName("0")]
+        Minimize,
 
         /// <summary>
         /// The Restore.
         /// </summary>
-        public const char Restore = '2';
+        [Attributes.DisplayName("2")]
+        Restore
     }
 }
