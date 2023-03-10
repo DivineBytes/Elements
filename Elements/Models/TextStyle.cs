@@ -10,13 +10,21 @@ namespace Elements.Models
     /// <summary>
     /// The <see cref="TextStyle"/> class.
     /// </summary>
+    [Category(PropertyCategory.Appearance)]
+    [Description("The text style of the component.")]
     [TypeConverter(typeof(SettingsTypeConverter))]
     public class TextStyle
     {
+        #region Private Fields
+
         private StringAlignment textAlignment;
         private ControlColorState textColorState;
         private StringAlignment textLineAlignment;
         private TextRenderingHint textRenderingHint;
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TextStyle"/> class.
@@ -52,6 +60,10 @@ namespace Elements.Models
             textRenderingHint = renderingHint;
         }
 
+        #endregion Public Constructors
+
+        #region Public Properties
+
         /// <summary>
         /// Gets the state of the color.
         /// </summary>
@@ -76,7 +88,7 @@ namespace Elements.Models
         /// </summary>
         /// <value>The disabled.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Color")]
+        [Description(PropertyDescription.Color)]
         public Color Disabled
         {
             get
@@ -95,7 +107,7 @@ namespace Elements.Models
         /// </summary>
         /// <value>The enabled.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Color")]
+        [Description(PropertyDescription.Color)]
         public Color Enabled
         {
             get
@@ -114,7 +126,7 @@ namespace Elements.Models
         /// </summary>
         /// <value>The hover.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Color")]
+        [Description(PropertyDescription.Color)]
         public Color Hover
         {
             get
@@ -133,7 +145,7 @@ namespace Elements.Models
         /// </summary>
         /// <value>The pressed.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Color")]
+        [Description(PropertyDescription.Color)]
         public Color Pressed
         {
             get
@@ -168,7 +180,7 @@ namespace Elements.Models
         /// </summary>
         /// <value>The text alignment.</value>
         [Category(PropertyCategory.Behavior)]
-        [Description("Text alignment.")]
+        [Description(PropertyDescription.TextAlignment)]
         public StringAlignment TextAlignment
         {
             get
@@ -187,7 +199,7 @@ namespace Elements.Models
         /// </summary>
         /// <value>The text line alignment.</value>
         [Category(PropertyCategory.Behavior)]
-        [Description("Text line alignment.")]
+        [Description(PropertyDescription.TextAlignment)]
         public StringAlignment TextLineAlignment
         {
             get
@@ -206,7 +218,7 @@ namespace Elements.Models
         /// </summary>
         /// <value>The text rendering hint.</value>
         [Category(PropertyCategory.Behavior)]
-        [Description("Text rendering hint.")]
+        [Description(PropertyDescription.TextRenderingHint)]
         public TextRenderingHint TextRenderingHint
         {
             get
@@ -220,16 +232,9 @@ namespace Elements.Models
             }
         }
 
-        /// <summary>
-        /// Gets the state of the color.
-        /// </summary>
-        /// <param name="enabled">if set to <c>true</c> [enabled].</param>
-        /// <param name="state">The state.</param>
-        /// <returns>The <see cref="Color"/>.</returns>
-        public Color GetColorState(bool enabled, MouseStates state)
-        {
-            return GetColorState(this, enabled, state);
-        }
+        #endregion Public Properties
+
+        #region Public Methods
 
         /// <summary>
         /// Retrieves the color state.
@@ -265,5 +270,18 @@ namespace Elements.Models
 
             return _textColor;
         }
+
+        /// <summary>
+        /// Gets the state of the color.
+        /// </summary>
+        /// <param name="enabled">if set to <c>true</c> [enabled].</param>
+        /// <param name="state">The state.</param>
+        /// <returns>The <see cref="Color"/>.</returns>
+        public Color GetColorState(bool enabled, MouseStates state)
+        {
+            return GetColorState(this, enabled, state);
+        }
+
+        #endregion Public Methods
     }
 }

@@ -18,7 +18,7 @@ namespace Elements.Models
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [Description("The color states of a component.")]
-    [DesignerCategory("code")]
+    [DesignerCategory(DesignerCategory.Code)]
     [RefreshProperties(RefreshProperties.Repaint)]
     [ToolboxItem(false)]
     [TypeConverter(typeof(SettingsTypeConverter))]
@@ -48,12 +48,12 @@ namespace Elements.Models
         {
             if (disabled == Color.Empty)
             {
-                throw new ArgumentNullException(nameof(disabled), "Cannot be empty.");
+                throw new ArgumentNullException(nameof(disabled), ArgumentDescription.CannotBeEmpty);
             }
 
             if (enabled == Color.Empty)
             {
-                throw new ArgumentNullException(nameof(enabled), "Cannot be empty.");
+                throw new ArgumentNullException(nameof(enabled), ArgumentDescription.CannotBeEmpty);
             }
 
             _disabled = disabled;
@@ -64,14 +64,14 @@ namespace Elements.Models
         /// Occurs when [disabled color changed].
         /// </summary>
         [Category(EventCategory.PropertyChanged)]
-        [Description("Property event changed")]
+        [Description(EventDescription.ColorChanged)]
         public event ColorStateChangedEventHandler DisabledColorChanged;
 
         /// <summary>
         /// Occurs when [enabled color changed].
         /// </summary>
         [Category(EventCategory.PropertyChanged)]
-        [Description("Property event changed")]
+        [Description(EventDescription.ColorChanged)]
         public event ColorStateChangedEventHandler EnabledColorChanged;
 
         /// <summary>
@@ -80,7 +80,7 @@ namespace Elements.Models
         /// <value>The disabled.</value>
         [NotifyParentProperty(true)]
         [RefreshProperties(RefreshProperties.Repaint)]
-        [Description("Color")]
+        [Description(PropertyDescription.Color)]
         public Color Disabled
         {
             get
@@ -101,7 +101,7 @@ namespace Elements.Models
         /// <value>The enabled.</value>
         [NotifyParentProperty(true)]
         [RefreshProperties(RefreshProperties.Repaint)]
-        [Description("Color")]
+        [Description(PropertyDescription.Color)]
         public Color Enabled
         {
             get

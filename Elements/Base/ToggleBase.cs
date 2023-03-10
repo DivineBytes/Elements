@@ -17,7 +17,7 @@ namespace Elements.Base
         /// Occurs when the toggle changed.
         /// </summary>
         [Category(EventCategory.PropertyChanged)]
-        [Description("Occours when the toggle has been changed on the control.")]
+        [Description(EventDescription.ToggleChanged)]
         public event ToggleChangedEventHandler ToggleChanged;
 
         #endregion Public Events

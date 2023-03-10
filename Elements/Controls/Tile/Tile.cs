@@ -17,6 +17,7 @@ namespace Elements.Controls.Tile
     /// The <see cref="Tile"/> class.
     /// </summary>
     /// <seealso cref="ControlBase"/>
+    [Category(PropertyCategory.Appearance)]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [DefaultEvent("Click")]

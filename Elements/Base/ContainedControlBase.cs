@@ -13,7 +13,7 @@ namespace Elements.Base
     /// <seealso cref="ControlBase"/>
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
-    [DesignerCategory("code")]
+    [DesignerCategory(Constants.DesignerCategory.Code)]
     [ToolboxItem(false)]
     public abstract class ContainedControlBase : ControlBase
     {

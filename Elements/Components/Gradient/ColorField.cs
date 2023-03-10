@@ -27,7 +27,7 @@ namespace Elements.Components.Gradient
         /// <param name="topRight">The top right.</param>
         /// <param name="bottomLeft">The bottom left.</param>
         /// <param name="bottomRight">The bottom right.</param>
-        public ColorField(Color topLeft, Color topRight, Color bottomLeft, Color bottomRight)
+        public ColorField(Color topLeft, Color topRight, Color bottomLeft, Color bottomRight) : this()
         {
             TopLeft = topLeft;
             TopRight = topRight;

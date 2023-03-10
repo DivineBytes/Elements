@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Elements.Constants;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,7 @@ namespace Elements.Events
         {
             if (form == null)
             {
-                throw new ArgumentNullException(nameof(form), "Cannot be null.");
+                throw new ArgumentNullException(nameof(form), ArgumentDescription.CannotBeNull);
             }
 
             _form = form;

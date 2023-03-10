@@ -76,7 +76,7 @@ namespace Elements.Components.Badge
         /// Occurs when [click].
         /// </summary>
         [Category(EventCategory.PropertyChanged)]
-        [Description("Property Event Changed")]
+        [Description(EventDescription.PropertyChanged)]
         public event EventHandler Click
         {
             add
@@ -93,7 +93,7 @@ namespace Elements.Components.Badge
         /// Occurs when [text changed].
         /// </summary>
         [Category(EventCategory.PropertyChanged)]
-        [Description("Property Event Changed")]
+        [Description(EventDescription.PropertyChanged)]
         public event EventHandler TextChanged
         {
             add
@@ -114,8 +114,6 @@ namespace Elements.Components.Badge
         /// Gets or sets the state of the back color.
         /// </summary>
         /// <value>The state of the back color.</value>
-        [Category(PropertyCategory.Appearance)]
-        [Description("The back color state.")]
         public ControlColorState BackColorState
         {
             get
@@ -135,7 +133,7 @@ namespace Elements.Components.Badge
         /// </summary>
         /// <value>The control.</value>
         [Category(PropertyCategory.Behavior)]
-        [Description("The control to attach this component.")]
+        [Description(PropertyDescription.Control)]
         [NotifyParentProperty(true)]
         [RefreshProperties(RefreshProperties.Repaint)]
         public Control Control
@@ -170,7 +168,7 @@ namespace Elements.Components.Badge
         /// </summary>
         /// <value>The font.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("The font.")]
+        [Description(PropertyDescription.Font)]
         public Font Font
         {
             get
@@ -190,7 +188,7 @@ namespace Elements.Components.Badge
         /// </summary>
         /// <value>The location.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("The location.")]
+        [Description(PropertyDescription.Location)]
         public Point Location
         {
             get
@@ -210,7 +208,7 @@ namespace Elements.Components.Badge
         /// </summary>
         /// <value>The size.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("The size.")]
+        [Description(PropertyDescription.Size)]
         public Size Size
         {
             get
@@ -230,7 +228,7 @@ namespace Elements.Components.Badge
         /// </summary>
         /// <value>The text.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("The text.")]
+        [Description(PropertyDescription.Text)]
         public string Text
         {
             get
@@ -249,8 +247,7 @@ namespace Elements.Components.Badge
         /// Gets or sets the text style.
         /// </summary>
         /// <value>The text style.</value>
-        [Category(PropertyCategory.Appearance)]
-        [Description("The text style.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public TextStyle TextStyle
         {
             get
@@ -269,8 +266,7 @@ namespace Elements.Components.Badge
         /// Gets or sets the tile.
         /// </summary>
         /// <value>The tile.</value>
-        [Category(PropertyCategory.Appearance)]
-        [Description("The tile control.")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public Tile Tile
         {
             get
@@ -290,7 +286,7 @@ namespace Elements.Components.Badge
         /// </summary>
         /// <value><c>true</c> if enabled; otherwise, <c>false</c>.</value>
         [Category(PropertyCategory.Behavior)]
-        [Description("Toggles the visibility.")]
+        [Description(PropertyDescription.Visible)]
         [NotifyParentProperty(true)]
         [RefreshProperties(RefreshProperties.Repaint)]
         public bool Visible

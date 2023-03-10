@@ -9,9 +9,9 @@ namespace Elements.Base
     /// The <see cref="ProgressBase"/> class.
     /// </summary>
     /// <seealso cref="ControlBase"/>
-    [DesignerCategory("code")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
+    [DesignerCategory(DesignerCategory.Code)]
     [ToolboxItem(false)]
     public abstract class ProgressBase : ControlBase
     {
@@ -47,7 +47,7 @@ namespace Elements.Base
         /// Occurs when [value changed].
         /// </summary>
         [Category(EventCategory.Action)]
-        [Description("Occurs when the value of the Value property changes.")]
+        [Description(EventDescription.ValueChanged)]
         public event EventHandler ValueChanged;
 
         #endregion Public Events
@@ -63,7 +63,7 @@ namespace Elements.Base
         /// </exception>
         [Bindable(true)]
         [Category(PropertyCategory.Behavior)]
-        [Description("Gets or sets a value to be added to or subtracted from the Value property when the scroll box is moved a large distance.")]
+        [Description(PropertyDescription.LargeChange)]
         public int LargeChange
         {
             get
@@ -75,7 +75,7 @@ namespace Elements.Base
             {
                 if (value < 0)
                 {
-                    throw new ArgumentOutOfRangeException(LargeChange.ToString(), @"LargeChange cannot be less than zero.");
+                    throw new ArgumentOutOfRangeException(LargeChange.ToString(), ArgumentDescription.CannotBeLessThanZero);
                 }
 
                 _largeChange = value;
@@ -88,7 +88,7 @@ namespace Elements.Base
         /// <value>The maximum.</value>
         [Bindable(true)]
         [Category(PropertyCategory.Behavior)]
-        [Description("The upper bound of the range this ProgressBar is working on.")]
+        [Description(PropertyDescription.Maximum)]
         public int Maximum
         {
             get
@@ -116,7 +116,7 @@ namespace Elements.Base
         /// <value>The minimum.</value>
         [Bindable(true)]
         [Category(PropertyCategory.Behavior)]
-        [Description("The lower bound of the range this ProgressBar is working on.")]
+        [Description(PropertyDescription.Minimum)]
         public int Minimum
         {
             get
@@ -147,7 +147,7 @@ namespace Elements.Base
         /// </exception>
         [Bindable(true)]
         [Category(PropertyCategory.Behavior)]
-        [Description("Gets or sets the value added to or subtracted from the Value property when the scroll box is moved a small distance.")]
+        [Description(PropertyDescription.SmallChange)]
         public int SmallChange
         {
             get
@@ -159,7 +159,7 @@ namespace Elements.Base
             {
                 if (value < 0)
                 {
-                    throw new ArgumentOutOfRangeException(SmallChange.ToString(), @"SmallChange cannot be less than zero.");
+                    throw new ArgumentOutOfRangeException(SmallChange.ToString(), ArgumentDescription.CannotBeLessThanZero);
                 }
 
                 _smallChange = value;
@@ -175,7 +175,7 @@ namespace Elements.Base
         /// </exception>
         [Bindable(true)]
         [Category(PropertyCategory.Behavior)]
-        [Description("The current value for the ProgressBar, in the range specified by the minimum and maximum properties.")]
+        [Description(PropertyDescription.Value)]
         public int Value
         {
             get
@@ -189,7 +189,7 @@ namespace Elements.Base
                 {
                     if ((value < Minimum) || (value > Maximum))
                     {
-                        throw new ArgumentOutOfRangeException(nameof(Value), @"Provided value is out of the Minimum to Maximum range of values.");
+                        throw new ArgumentOutOfRangeException(nameof(Value), ArgumentDescription.OutOfRange);
                     }
 
                     _value = value;

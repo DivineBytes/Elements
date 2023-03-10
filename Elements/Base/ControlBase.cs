@@ -16,7 +16,7 @@ namespace Elements.Base
     /// <seealso cref="ICloneable"/>
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
-    [DesignerCategory("code")]
+    [DesignerCategory(DesignerCategory.Code)]
     [EditorBrowsable(EditorBrowsableState.Advanced)]
     [ToolboxItem(false)]
     public abstract class ControlBase : Control, ICloneable
@@ -59,7 +59,7 @@ namespace Elements.Base
         /// Occurs when [mouse state changed].
         /// </summary>
         [Category(EventCategory.Mouse)]
-        [Description("Occours when the MouseState of the control has changed.")]
+        [Description(EventDescription.MouseStateChanged)]
         public event MouseStateChangedEventHandler MouseStateChanged;
 
         #endregion Public Events
@@ -70,7 +70,7 @@ namespace Elements.Base
         /// Gets or sets the <see cref="MouseState"/>.
         /// </summary>
         [Category(PropertyCategory.Appearance)]
-        [Description("The mouse state.")]
+        [Description(PropertyDescription.MouseState)]
         public MouseStates MouseState
         {
             get

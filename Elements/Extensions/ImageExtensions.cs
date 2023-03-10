@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Elements.Constants;
+using System;
 using System.Drawing;
 using System.IO;
 
@@ -19,7 +20,7 @@ namespace Elements.Extensions
         {
             if (image == null)
             {
-                throw new ArgumentNullException(nameof(image), "Cannot be null.");
+                throw new ArgumentNullException(nameof(image), ArgumentDescription.CannotBeNull);
             }
 
             using (MemoryStream base64 = new MemoryStream())

@@ -15,7 +15,7 @@ namespace Elements.Base
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [Designer("System.Windows.Forms.Design.ParentControlDesigner, System.Design", typeof(IDesigner))]
-    [DesignerCategory("code")]
+    [DesignerCategory(Constants.DesignerCategory.Code)]
     [ToolboxItem(false)]
     public abstract class NestedControlBase : ContainedControlBase
     {

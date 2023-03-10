@@ -1,9 +1,7 @@
 ﻿using Elements.Constants;
-using Elements.Enumerators;
 using Elements.Models;
 using Elements.Renders;
 using Elements.Utilities;
-using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -46,9 +44,9 @@ namespace Elements.Base
         /// Gets or sets a value indicating whether this <see cref="ToggleCheckmarkBase"/> is checked.
         /// </summary>
         /// <value><c>true</c> if checked; otherwise, <c>false</c>.</value>
-        [DefaultValue(false)]
         [Category(PropertyCategory.Behavior)]
-        [Description("The checked status of the control.")]
+        [DefaultValue(false)]
+        [Description(PropertyDescription.Checked)]
         public bool Checked
         {
             get
@@ -86,7 +84,7 @@ namespace Elements.Base
         }
 
         /// <summary>
-        /// Raises the <see cref="E:Paint" /> event.
+        /// Raises the <see cref="E:Paint"/> event.
         /// </summary>
         /// <param name="e">The <see cref="PaintEventArgs"/> instance containing the event data.</param>
         protected override void OnPaint(PaintEventArgs e)

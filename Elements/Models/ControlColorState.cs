@@ -18,7 +18,7 @@ namespace Elements.Models
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [Description("The control color states of a component.")]
-    [DesignerCategory("code")]
+    [DesignerCategory(DesignerCategory.Code)]
     [RefreshProperties(RefreshProperties.Repaint)]
     [ToolboxItem(false)]
     [TypeConverter(typeof(SettingsTypeConverter))]
@@ -45,7 +45,7 @@ namespace Elements.Models
         {
             if (pressed == Color.Empty)
             {
-                throw new ArgumentNullException(nameof(pressed), "Cannot be empty.");
+                throw new ArgumentNullException(nameof(pressed), ArgumentDescription.CannotBeEmpty);
             }
 
             _pressed = pressed;
@@ -63,7 +63,7 @@ namespace Elements.Models
         {
             if (pressed == Color.Empty)
             {
-                throw new ArgumentNullException(nameof(hover), "Cannot be empty.");
+                throw new ArgumentNullException(nameof(hover), ArgumentDescription.CannotBeEmpty);
             }
 
             _pressed = pressed;
@@ -73,7 +73,7 @@ namespace Elements.Models
         /// Occurs when [pressed color changed].
         /// </summary>
         [Category(EventCategory.PropertyChanged)]
-        [Description("Property event changed")]
+        [Description(EventDescription.PropertyChanged)]
         public event ColorStateChangedEventHandler PressedColorChanged;
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace Elements.Models
         /// <value>The pressed.</value>
         [NotifyParentProperty(true)]
         [RefreshProperties(RefreshProperties.Repaint)]
-        [Description("Color")]
+        [Description(PropertyDescription.Color)]
         public Color Pressed
         {
             get

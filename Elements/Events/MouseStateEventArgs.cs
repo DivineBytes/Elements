@@ -43,7 +43,6 @@ namespace Elements.Events
         /// Gets or sets the mouse states.
         /// </summary>
         /// <value>The mouse states.</value>
-        [Description("The mouse state.")]
         public MouseStates MouseStates
         {
             get

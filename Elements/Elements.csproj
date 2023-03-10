@@ -63,8 +63,10 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Components\Gradient\GradientDesigner.cs" />
+    <Compile Include="Constants\ArgumentDescription.cs" />
     <Compile Include="Constants\CategoryBase.cs" />
     <Compile Include="Constants\DesignerCategory.cs" />
+    <Compile Include="Constants\EventDescription.cs" />
     <Compile Include="Constants\PropertyCategory.cs" />
     <Compile Include="Constants\EventCategory.cs" />
     <Compile Include="Constants\PropertyDescription.cs" />

@@ -101,7 +101,7 @@ namespace Elements.Components.Gradient
         [NotifyParentProperty(true)]
         [RefreshProperties(RefreshProperties.Repaint)]
         [Category(PropertyCategory.Appearance)]
-        [Description("Auto size")]
+        [Description(PropertyDescription.AutoSize)]
         public bool AutoSize
         {
             get
@@ -129,7 +129,7 @@ namespace Elements.Components.Gradient
         [NotifyParentProperty(true)]
         [RefreshProperties(RefreshProperties.Repaint)]
         [Category(PropertyCategory.Appearance)]
-        [Description("Color")]
+        [Description(PropertyDescription.Color)]
         public Color BottomLeft
         {
             get
@@ -152,7 +152,7 @@ namespace Elements.Components.Gradient
         [NotifyParentProperty(true)]
         [RefreshProperties(RefreshProperties.Repaint)]
         [Category(PropertyCategory.Appearance)]
-        [Description("Color")]
+        [Description(PropertyDescription.Color)]
         public Color BottomRight
         {
             get
@@ -176,7 +176,7 @@ namespace Elements.Components.Gradient
         [NotifyParentProperty(true)]
         [RefreshProperties(RefreshProperties.Repaint)]
         [Category(PropertyCategory.Behavior)]
-        [Description("The control to attach to this component.")]
+        [Description(PropertyDescription.Control)]
         public Control Control
         {
             get
@@ -204,7 +204,7 @@ namespace Elements.Components.Gradient
         /// </summary>
         [Browsable(true)]
         [Category(PropertyCategory.Appearance)]
-        [Description("Image")]
+        [Description(PropertyDescription.Image)]
         public Image Image
         {
             get
@@ -221,7 +221,7 @@ namespace Elements.Components.Gradient
         [NotifyParentProperty(true)]
         [RefreshProperties(RefreshProperties.Repaint)]
         [Category(PropertyCategory.Appearance)]
-        [Description("Color")]
+        [Description(PropertyDescription.Size)]
         public Size Size
         {
             get
@@ -249,7 +249,7 @@ namespace Elements.Components.Gradient
         [NotifyParentProperty(true)]
         [RefreshProperties(RefreshProperties.Repaint)]
         [Category(PropertyCategory.Appearance)]
-        [Description("Color")]
+        [Description(PropertyDescription.Color)]
         public Color TopLeft
         {
             get
@@ -272,7 +272,7 @@ namespace Elements.Components.Gradient
         [NotifyParentProperty(true)]
         [RefreshProperties(RefreshProperties.Repaint)]
         [Category(PropertyCategory.Appearance)]
-        [Description("Color")]
+        [Description(PropertyDescription.Color)]
         public Color TopRight
         {
             get

@@ -20,7 +20,7 @@ namespace Elements.Models
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
     [ComVisible(true)]
     [Description("The hover color states of a component.")]
-    [DesignerCategory("code")]
+    [DesignerCategory(DesignerCategory.Code)]
     [RefreshProperties(RefreshProperties.Repaint)]
     [ToolboxItem(false)]
     [TypeConverter(typeof(SettingsTypeConverter))]
@@ -66,7 +66,7 @@ namespace Elements.Models
         {
             if (hover == Color.Empty)
             {
-                throw new ArgumentNullException(nameof(hover), "Cannot be empty.");
+                throw new ArgumentNullException(nameof(hover), ArgumentDescription.CannotBeEmpty);
             }
 
             _hover = hover;
@@ -76,7 +76,7 @@ namespace Elements.Models
         /// Occurs when [hover color changed].
         /// </summary>
         [Category(EventCategory.PropertyChanged)]
-        [Description("Property event changed")]
+        [Description(EventDescription.PropertyChanged)]
         public event ColorStateChangedEventHandler HoverColorChanged;
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace Elements.Models
         /// <value>The hover.</value>
         [NotifyParentProperty(true)]
         [RefreshProperties(RefreshProperties.Repaint)]
-        [Description("Color")]
+        [Description(PropertyDescription.Color)]
         public Color Hover
         {
             get
@@ -117,7 +117,7 @@ namespace Elements.Models
         /// <param name="colorState">The color State.</param>
         /// <param name="enabled">The enabled toggle.</param>
         /// <param name="mouseState">The mouse state.</param>
-        /// <returns><see cref="Color"/></returns>
+        /// <returns>The <see cref="Color"/>.</returns>
         public static Color GetColorState(HoverColorState colorState, bool enabled, MouseStates mouseState)
         {
             Color _color = Color.Empty;
