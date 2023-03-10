@@ -124,7 +124,7 @@ namespace Elements.Controls.GroupBox
         /// </summary>
         /// <value>The box style.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("The groupbox style of the component.")]
+        [Description(PropertyDescription.GroupBoxStyle)]
         public GroupBoxStyle BoxStyle
         {
             get

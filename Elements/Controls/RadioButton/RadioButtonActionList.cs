@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Elements.Constants;
+using System.ComponentModel;
 using System.ComponentModel.Design;
 
 namespace Elements.Controls.RadioButton
@@ -24,9 +25,9 @@ namespace Elements.Controls.RadioButton
 
         #region Public Properties
 
-        [DefaultValue(false)]
         [Category(Constants.PropertyCategory.Behavior)]
-        [Description("Gets or sets a value indicating whether this control is checked.")]
+        [DefaultValue(false)]
+        [Description(PropertyDescription.Checked)]
         public virtual bool Checked
         {
             get

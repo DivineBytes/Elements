@@ -96,7 +96,7 @@ namespace Elements.Controls.ControlBox
         /// </summary>
         /// <value>The type of the box.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("The control box type which determines how its displayed.")]
+        [Description(PropertyDescription.ControlBoxStyle)]
         public ControlBoxType BoxType
         {
             get

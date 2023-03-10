@@ -75,7 +75,7 @@ namespace Elements.Controls.RadialProgress
         /// </summary>
         /// <value>The color of the back circle.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Back circle color")]
+        [Description(PropertyDescription.Color)]
         public Color BackCircleColor
         {
             get
@@ -94,9 +94,9 @@ namespace Elements.Controls.RadialProgress
         /// Gets or sets a value indicating whether [back circle visible].
         /// </summary>
         /// <value><c>true</c> if [back circle visible]; otherwise, <c>false</c>.</value>
-        [DefaultValue(true)]
         [Category(PropertyCategory.Appearance)]
-        [Description("Back circle visible")]
+        [DefaultValue(true)]
+        [Description(PropertyDescription.Visible)]
         public bool BackCircleVisible
         {
             get
@@ -116,7 +116,7 @@ namespace Elements.Controls.RadialProgress
         /// </summary>
         /// <value>The fore circle.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Fore circle color")]
+        [Description(PropertyDescription.Color)]
         public Color ForeCircle
         {
             get
@@ -137,7 +137,7 @@ namespace Elements.Controls.RadialProgress
         /// <value><c>true</c> if [fore circle visible]; otherwise, <c>false</c>.</value>
         [DefaultValue(true)]
         [Category(PropertyCategory.Appearance)]
-        [Description("Fore circle visible")]
+        [Description(PropertyDescription.Visible)]
         public bool ForeCircleVisible
         {
             get
@@ -157,7 +157,7 @@ namespace Elements.Controls.RadialProgress
         /// </summary>
         /// <value>The image.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("The image")]
+        [Description(PropertyDescription.Image)]
         public Image Image
         {
             get
@@ -177,7 +177,7 @@ namespace Elements.Controls.RadialProgress
         /// </summary>
         /// <value>The image location.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Image location")]
+        [Description(PropertyDescription.Location)]
         public Point ImageLocation
         {
             get
@@ -197,7 +197,7 @@ namespace Elements.Controls.RadialProgress
         /// </summary>
         /// <value>The size of the image.</value>
         [Category(PropertyCategory.Layout)]
-        [Description("Image size")]
+        [Description(PropertyDescription.Size)]
         public Size ImageSize
         {
             get
@@ -217,7 +217,7 @@ namespace Elements.Controls.RadialProgress
         /// </summary>
         /// <value>The line cap.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Type")]
+        [Description(PropertyDescription.LineCap)]
         public LineCap LineCap
         {
             get
