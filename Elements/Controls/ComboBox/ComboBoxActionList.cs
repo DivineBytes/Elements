@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Elements.Constants;
+using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Drawing.Design;
 
@@ -29,7 +30,7 @@ namespace Elements.Controls.TextBox
         /// Gets or sets the text.
         /// </summary>
         /// <value>The text.</value>
-        [Description("Gets or sets the text.")]
+        [Description(PropertyDescription.Items)]
         [Editor("System.Windows.Forms.Design.ListControlStringCollectionEditor, System.Design, Version = 4.0.0.0, Culture = neutral, PublicKeyToken = b03f5f7f11d50a3a", typeof(UITypeEditor))]
         [Localizable(false)]
         public virtual System.Windows.Forms.ComboBox.ObjectCollection Items

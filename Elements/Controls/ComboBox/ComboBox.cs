@@ -105,7 +105,7 @@ namespace Elements.Controls.ComboBox
         /// Occurs when [mouse state changed].
         /// </summary>
         [Category(EventCategory.Mouse)]
-        [Description("Occours when the MouseState of the control has changed.")]
+        [Description(EventDescription.MouseStateChanged)]
         public event MouseStateChangedEventHandler MouseStateChanged;
 
         #endregion Public Events
@@ -136,14 +136,13 @@ namespace Elements.Controls.ComboBox
         /// </summary>
         /// <value>The background image.</value>
         [Browsable(true)]
-        [Description("Image")]
+        [Description(PropertyDescription.Image)]
         public new Image BackgroundImage { get; set; }
 
         /// <summary>
         /// Gets or sets the border.
         /// </summary>
         /// <value>The border.</value>
-        [Category(PropertyCategory.Appearance)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public Border Border
         {
@@ -183,7 +182,7 @@ namespace Elements.Controls.ComboBox
         /// </summary>
         /// <value>The image list.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Image List")]
+        [Description(PropertyDescription.ImageList)]
         public ImageList ImageList
         {
             get
@@ -203,7 +202,7 @@ namespace Elements.Controls.ComboBox
         /// </summary>
         /// <value><c>true</c> if [image visible]; otherwise, <c>false</c>.</value>
         [Category(PropertyCategory.Behavior)]
-        [Description("Visible")]
+        [Description(PropertyDescription.Visible)]
         public bool ImageVisible
         {
             get
@@ -223,7 +222,7 @@ namespace Elements.Controls.ComboBox
         /// </summary>
         /// <value>The index.</value>
         [Category(PropertyCategory.Behavior)]
-        [Description("Start Index")]
+        [Description(PropertyDescription.Value)]
         public int Index
         {
             get
@@ -252,7 +251,7 @@ namespace Elements.Controls.ComboBox
         /// </summary>
         /// <value><c>true</c> if [item image visible]; otherwise, <c>false</c>.</value>
         [Category(PropertyCategory.Behavior)]
-        [Description("Visible")]
+        [Description(PropertyDescription.Visible)]
         public bool ItemImageVisible
         {
             get
@@ -272,7 +271,7 @@ namespace Elements.Controls.ComboBox
         /// </summary>
         /// <value>The menu item hover.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Color")]
+        [Description(PropertyDescription.Color)]
         public Color MenuItemHover
         {
             get
@@ -292,7 +291,7 @@ namespace Elements.Controls.ComboBox
         /// </summary>
         /// <value>The menu item normal.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Color")]
+        [Description(PropertyDescription.Color)]
         public Color MenuItemNormal
         {
             get
@@ -312,7 +311,7 @@ namespace Elements.Controls.ComboBox
         /// </summary>
         /// <value>The color of the menu text.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Color")]
+        [Description(PropertyDescription.Color)]
         public Color MenuTextColor
         {
             get
@@ -331,7 +330,7 @@ namespace Elements.Controls.ComboBox
         /// Gets or sets the <see cref="MouseState"/>.
         /// </summary>
         [Category(PropertyCategory.Appearance)]
-        [Description("The mouse state.")]
+        [Description(PropertyDescription.MouseState)]
         public MouseStates MouseState
         {
             get
@@ -373,6 +372,8 @@ namespace Elements.Controls.ComboBox
         /// Gets or sets the text image relation.
         /// </summary>
         /// <value>The text image relation.</value>
+        [Category(PropertyCategory.Appearance)]
+        [Description(PropertyDescription.TextImageRelation)]
         public TextImageRelation TextImageRelation
         {
             get

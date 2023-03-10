@@ -18,6 +18,7 @@
         public const string Maximum = "Indicates the maximum value.";
         public const string Minimum = "Indicates the minimum value.";
         public const string Image = "The image used to display.";
+        public const string ImageList = "The images list used to display.";
         public const string MouseState = "The state of the mouse on the control.";
         public const string Size = "The size of the control in pixels.";
         public const string SmallChange = "The small change value.";
@@ -29,6 +30,8 @@
         public const string Visible = "Determines whether the control is visible or hidden.";
         public const string ImageLayout = "Determines the element image layout.";
         public const string TextImageRelation = "Determines the text image relation.";
+        public const string Toggle = "Indicates whether the component is in the toggled state.";
+        public const string Items = "The items in the component.";
 
         #endregion Public Fields
     }

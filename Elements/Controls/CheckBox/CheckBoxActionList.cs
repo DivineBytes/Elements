@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Elements.Constants;
+using System.ComponentModel;
 using System.ComponentModel.Design;
 
 namespace Elements.Controls.CheckBox
@@ -25,8 +26,8 @@ namespace Elements.Controls.CheckBox
         #region Public Properties
 
         [DefaultValue(false)]
-        [Category(Constants.PropertyCategory.Behavior)]
-        [Description("Gets or sets a value indicating whether this control is checked.")]
+        [Category(PropertyCategory.Behavior)]
+        [Description(PropertyDescription.Checked)]
         public virtual bool Checked
         {
             get

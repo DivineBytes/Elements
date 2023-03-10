@@ -108,8 +108,8 @@ namespace Elements.Controls.CheckBox
         /// </summary>
         /// <value><c>true</c> if [three state]; otherwise, <c>false</c>.</value>
         [Category(PropertyCategory.Behavior)]
-        [Description("Toggle")]
         [DefaultValue(false)]
+        [Description(PropertyDescription.Toggle)]
         public bool ThreeState
         {
             get
