@@ -91,7 +91,7 @@ namespace Elements.Utilities
         /// Converts the <see cref="Color"/> to a HTML <see cref="string"/>.
         /// </summary>
         /// <param name="color">The color to convert to HTML.</param>
-        /// <returns>The <see cref="Color"/>.</returns>
+        /// <returns>The <see cref="string"/>.</returns>
         public static string ToHtml(this Color color)
         {
             if (color == Color.Empty)

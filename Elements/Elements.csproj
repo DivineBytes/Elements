@@ -67,6 +67,7 @@
     <Compile Include="Constants\DesignerCategory.cs" />
     <Compile Include="Constants\PropertyCategory.cs" />
     <Compile Include="Constants\EventCategory.cs" />
+    <Compile Include="Constants\PropertyDescription.cs" />
     <Compile Include="Controls\Button\Button.cs" />
     <Compile Include="Controls\Button\ButtonDesigner.cs" />
     <Compile Include="Controls\CheckBox\CheckBox.cs" />
@@ -129,7 +130,10 @@
     <Compile Include="Events\ToggleEventArgs.cs" />
     <Compile Include="Events\ValueChangedEventArgs.cs" />
     <Compile Include="Extensions\ColorExtensions.cs" />
+    <Compile Include="Extensions\ControlExtensions.cs" />
     <Compile Include="Extensions\Extensions.cs" />
+    <Compile Include="Extensions\GraphicsExtensions.cs" />
+    <Compile Include="Extensions\ImageExtensions.cs" />
     <Compile Include="Models\CheckOptions.cs" />
     <Compile Include="Models\RectangleShape.cs" />
     <Compile Include="Models\Watermark.cs">

@@ -1,4 +1,6 @@
-﻿using Elements.Models;
+﻿using Elements.Enumerators;
+using Elements.Extensions;
+using Elements.Models;
 using Elements.Test.Properties;
 using Elements.Utilities;
 using System;
@@ -21,7 +23,8 @@ namespace Elements.Test
             InitializeComponent();
 
             // Insert test code below...
-                  
+
+
         }
 
         /// <summary>

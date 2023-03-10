@@ -184,6 +184,11 @@ namespace Elements.Utilities
         /// <returns>The <see cref="string"/>.</returns>
         public static string RemoveWhiteSpaces(string text)
         {
+            if (string.IsNullOrEmpty(text))
+            {
+                throw new ArgumentNullException(nameof(text), "Cannot be null or empty.");
+            }
+
             return new string(text.Where(_char => !char.IsWhiteSpace(_char)).ToArray());
         }
 
@@ -194,6 +199,11 @@ namespace Elements.Utilities
         /// <returns>The <see cref="string"/>.</returns>
         public static string Reverse(string text)
         {
+            if (string.IsNullOrEmpty(text))
+            {
+                throw new ArgumentNullException(nameof(text), "Cannot be null or empty.");
+            }
+
             char[] _chars = text.ToCharArray();
             Array.Reverse(_chars);
             return new string(_chars);
