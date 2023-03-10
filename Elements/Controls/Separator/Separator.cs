@@ -1,4 +1,5 @@
 ﻿using Elements.Base;
+using Elements.Constants;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -58,8 +59,8 @@ namespace Elements.Controls.Separator
         /// Gets or sets the line.
         /// </summary>
         /// <value>The line.</value>
-        [Category("Appearance")]
-        [Description("Color")]
+        [Category(PropertyCategory.Appearance)]
+        [Description(PropertyDescription.Color)]
         public Color Line
         {
             get
@@ -83,8 +84,8 @@ namespace Elements.Controls.Separator
         /// Gets or sets the orientation.
         /// </summary>
         /// <value>The orientation.</value>
-        [Category("Behaviour")]
-        [Description("Orientation")]
+        [Category(PropertyCategory.Behavior)]
+        [Description(PropertyDescription.Orientation)]
         public Orientation Orientation
         {
             get
@@ -124,8 +125,8 @@ namespace Elements.Controls.Separator
         /// Gets or sets the shadow.
         /// </summary>
         /// <value>The shadow.</value>
-        [Category("Appearance")]
-        [Description("Color")]
+        [Category(PropertyCategory.Appearance)]
+        [Description(PropertyDescription.Color)]
         public Color Shadow
         {
             get
@@ -149,8 +150,8 @@ namespace Elements.Controls.Separator
         /// Gets or sets a value indicating whether [shadow visible].
         /// </summary>
         /// <value><c>true</c> if [shadow visible]; otherwise, <c>false</c>.</value>
-        [Category("Appearance")]
-        [Description("Visible")]
+        [Category(PropertyCategory.Appearance)]
+        [Description(PropertyDescription.Visible)]
         public bool ShadowVisible
         {
             get

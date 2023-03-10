@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Elements.Constants;
+using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Drawing.Design;
 
@@ -27,7 +28,7 @@ namespace Elements.Controls.TextBox
 
         [DefaultValue(false)]
         [Category(Constants.PropertyCategory.Behavior)]
-        [Description("Gets or sets a value indicating whether this is a multiline TextBox control.")]
+        [Description(PropertyDescription.MultiLine)]
         public virtual bool MultiLine
         {
             get

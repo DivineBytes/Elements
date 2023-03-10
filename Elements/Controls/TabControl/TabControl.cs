@@ -1,5 +1,6 @@
 ﻿#region Namespaces
 
+using Elements.Constants;
 using Elements.InteropServices;
 using System;
 using System.Collections.Generic;
@@ -65,19 +66,19 @@ namespace Elements.Controls.TabControl
         /// <summary>
         /// Occurs when [h scroll].
         /// </summary>
-        [Category("Action")]
+        [Category(EventCategory.Action)]
         public event ScrollEventHandler HScroll;
 
         /// <summary>
         /// Occurs when [tab closing].
         /// </summary>
-        [Category("Action")]
+        [Category(EventCategory.Action)]
         public event EventHandler<TabControlCancelEventArgs> TabClosing;
 
         /// <summary>
         /// Occurs when [tab image click].
         /// </summary>
-        [Category("Action")]
+        [Category(EventCategory.Action)]
         public event EventHandler<TabControlEventArgs> TabImageClick;
 
         #endregion Public Events
@@ -132,7 +133,8 @@ namespace Elements.Controls.TabControl
         /// Gets or sets the alignment.
         /// </summary>
         /// <value>The alignment.</value>
-        [Category("Appearance")]
+        [Category(PropertyCategory.Appearance)]
+        [Description(PropertyDescription.Alignment)]
         public new TabAlignment Alignment
         {
             get
@@ -239,7 +241,7 @@ namespace Elements.Controls.TabControl
         /// Gets or sets the display style.
         /// </summary>
         /// <value>The display style.</value>
-        [Category("Appearance")]
+        [Category(PropertyCategory.Appearance)]
         [DefaultValue(typeof(TabStyle), "Default")]
         [RefreshProperties(RefreshProperties.All)]
         public TabStyle DisplayStyle
@@ -264,7 +266,7 @@ namespace Elements.Controls.TabControl
         /// Gets or sets the display style provider.
         /// </summary>
         /// <value>The display style provider.</value>
-        [Category("Appearance")]
+        [Category(PropertyCategory.Appearance)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public TabStyleProvider DisplayStyleProvider
         {
@@ -325,7 +327,7 @@ namespace Elements.Controls.TabControl
         /// Gets or sets a value indicating whether this <see cref="TabControl"/> is multiline.
         /// </summary>
         /// <value><c>true</c> if multiline; otherwise, <c>false</c>.</value>
-        [Category("Appearance")]
+        [Category(PropertyCategory.Appearance)]
         [RefreshProperties(RefreshProperties.All)]
         public new bool Multiline
         {
@@ -881,8 +883,6 @@ namespace Elements.Controls.TabControl
                 // Add to current position
                 TabPages.Insert(insertPoint, dragTab);
                 SelectedTab = dragTab;
-
-                // deal with hidden tab handling?
             }
         }
 

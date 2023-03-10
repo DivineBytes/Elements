@@ -99,7 +99,7 @@ namespace Elements.Controls.Rating
         /// Gets or sets the width of the dull stroke.
         /// </summary>
         /// <value>The width of the dull stroke.</value>
-        [Description("The dull stroke width")]
+        [Description(PropertyDescription.Size)]
         [Category(PropertyCategory.Appearance)]
         [DefaultValue(3)]
         public float DullStrokeWidth
@@ -123,7 +123,7 @@ namespace Elements.Controls.Rating
         /// Gets or sets the maximum.
         /// </summary>
         /// <value>The maximum.</value>
-        [Description("The number of stars to display")]
+        [Description(PropertyDescription.Maximum)]
         [Category(PropertyCategory.Appearance)]
         [DefaultValue(5)]
         public int Maximum
@@ -163,9 +163,9 @@ namespace Elements.Controls.Rating
         /// Gets or sets the preset appearance of the star
         /// </summary>
         /// <value>The type of the rating.</value>
-        [Description("The star style to use")]
         [Category(PropertyCategory.Appearance)]
         [DefaultValue(StarType.Thick)]
+        [Description(PropertyDescription.StarType)]
         public StarType RatingType
         {
             get
@@ -184,9 +184,9 @@ namespace Elements.Controls.Rating
         /// Gets or sets the color of the star border.
         /// </summary>
         /// <value>The color of the star border.</value>
-        [Description("The color to use for the star borders when they are illuminated")]
         [Category(PropertyCategory.Appearance)]
         [DefaultValue(typeof(Color), "Gold")]
+        [Description(PropertyDescription.Color)]
         public Color StarBorderColor
         {
             get
@@ -205,9 +205,9 @@ namespace Elements.Controls.Rating
         /// Gets or sets the width of the border around the star (including the dull version)
         /// </summary>
         /// <value>The width of the star border.</value>
-        [Description("The width of the star border")]
         [Category(PropertyCategory.Appearance)]
         [DefaultValue(3f)]
+        [Description(PropertyDescription.Size)]
         public float StarBorderWidth
         {
             get
@@ -228,9 +228,9 @@ namespace Elements.Controls.Rating
         /// Gets or sets the color of the star.
         /// </summary>
         /// <value>The color of the star.</value>
-        [Description("The color to use for the star when they are illuminated")]
         [Category(PropertyCategory.Appearance)]
         [DefaultValue(typeof(Color), "Yellow")]
+        [Description(PropertyDescription.Color)]
         public Color StarColor
         {
             get
@@ -249,9 +249,9 @@ namespace Elements.Controls.Rating
         /// Gets or sets the color of the star dull border.
         /// </summary>
         /// <value>The color of the star dull border.</value>
-        [Description("The color to use for the star borders when they are not illuminated")]
         [Category(PropertyCategory.Appearance)]
         [DefaultValue(typeof(Color), "Gray")]
+        [Description(PropertyDescription.Color)]
         public Color StarDullBorderColor
         {
             get
@@ -270,9 +270,9 @@ namespace Elements.Controls.Rating
         /// Gets or sets the color of the star dull.
         /// </summary>
         /// <value>The color of the star dull.</value>
-        [Description("The color to use for the stars when they are not illuminated")]
         [Category(PropertyCategory.Appearance)]
         [DefaultValue(typeof(Color), "Silver")]
+        [Description(PropertyDescription.Color)]
         public Color StarDullColor
         {
             get
@@ -291,9 +291,9 @@ namespace Elements.Controls.Rating
         /// Gets or sets the star spacing.
         /// </summary>
         /// <value>The star spacing.</value>
-        [Description("The amount of space between each star")]
         [Category(PropertyCategory.Layout)]
         [DefaultValue(1)]
+        [Description(PropertyDescription.Spacing)]
         public int StarSpacing
         {
             get
@@ -313,9 +313,9 @@ namespace Elements.Controls.Rating
         /// Gets or sets the width of the star.
         /// </summary>
         /// <value>The width of the star.</value>
-        [Description("The width and height of the star in pixels (not including the border)")]
         [Category(PropertyCategory.Layout)]
         [DefaultValue(25)]
+        [Description(PropertyDescription.Size)]
         public int StarWidth
         {
             get
@@ -335,7 +335,7 @@ namespace Elements.Controls.Rating
         /// Gets or sets a value indicating whether [toggle half star].
         /// </summary>
         /// <value><c>true</c> if [toggle half star]; otherwise, <c>false</c>.</value>
-        [Description("Determines whether the user can rate with a half a star of specificity")]
+        [Description(PropertyDescription.Visible)]
         [Category(PropertyCategory.Behavior)]
         [DefaultValue(false)]
         public bool ToggleHalfStar
@@ -362,7 +362,7 @@ namespace Elements.Controls.Rating
         /// Gets or sets the value.
         /// </summary>
         /// <value>The value.</value>
-        [Description("The number of stars selected (Note: 0 is considered un-rated")]
+        [Description(PropertyDescription.Value)]
         [Category(PropertyCategory.Appearance)]
         [DefaultValue(0f)]
         public float Value

@@ -1,4 +1,5 @@
-﻿using Elements.Controls.TabControl.TabStyleProviders;
+﻿using Elements.Constants;
+using Elements.Controls.TabControl.TabStyleProviders;
 using System;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
@@ -163,7 +164,7 @@ namespace Elements.Controls.TabControl
         /// Gets or sets the color of the border.
         /// </summary>
         /// <value>The color of the border.</value>
-        [Category("Appearance")]
+        [Category(PropertyCategory.Appearance)]
         [DefaultValue(typeof(Color), "")]
         public Color BorderColor
         {
@@ -195,7 +196,7 @@ namespace Elements.Controls.TabControl
         /// Gets or sets the border color hot.
         /// </summary>
         /// <value>The border color hot.</value>
-        [Category("Appearance")]
+        [Category(PropertyCategory.Appearance)]
         [DefaultValue(typeof(Color), "")]
         public Color BorderColorHot
         {
@@ -227,7 +228,7 @@ namespace Elements.Controls.TabControl
         /// Gets or sets the border color selected.
         /// </summary>
         /// <value>The border color selected.</value>
-        [Category("Appearance")]
+        [Category(PropertyCategory.Appearance)]
         [DefaultValue(typeof(Color), "")]
         public Color BorderColorSelected
         {
@@ -259,7 +260,7 @@ namespace Elements.Controls.TabControl
         /// Gets or sets the color of the closer.
         /// </summary>
         /// <value>The color of the closer.</value>
-        [Category("Appearance")]
+        [Category(PropertyCategory.Appearance)]
         [DefaultValue(typeof(Color), "DarkGrey")]
         public Color CloserColor
         {
@@ -279,7 +280,7 @@ namespace Elements.Controls.TabControl
         /// Gets or sets the closer color active.
         /// </summary>
         /// <value>The closer color active.</value>
-        [Category("Appearance")]
+        [Category(PropertyCategory.Appearance)]
         [DefaultValue(typeof(Color), "Black")]
         public Color CloserColorActive
         {
@@ -318,7 +319,7 @@ namespace Elements.Controls.TabControl
         /// Gets or sets the color of the focus.
         /// </summary>
         /// <value>The color of the focus.</value>
-        [Category("Appearance")]
+        [Category(PropertyCategory.Appearance)]
         [DefaultValue(typeof(Color), "Orange")]
         public Color FocusColor
         {
@@ -338,7 +339,7 @@ namespace Elements.Controls.TabControl
         /// Gets or sets a value indicating whether [focus track].
         /// </summary>
         /// <value><c>true</c> if [focus track]; otherwise, <c>false</c>.</value>
-        [Category("Appearance")]
+        [Category(PropertyCategory.Appearance)]
         public bool FocusTrack
         {
             get
@@ -357,7 +358,7 @@ namespace Elements.Controls.TabControl
         /// Gets or sets a value indicating whether [hot track].
         /// </summary>
         /// <value><c>true</c> if [hot track]; otherwise, <c>false</c>.</value>
-        [Category("Appearance")]
+        [Category(PropertyCategory.Appearance)]
         public bool HotTrack
         {
             get
@@ -376,7 +377,7 @@ namespace Elements.Controls.TabControl
         /// Gets or sets the image align.
         /// </summary>
         /// <value>The image align.</value>
-        [Category("Appearance")]
+        [Category(PropertyCategory.Appearance)]
         public ContentAlignment ImageAlign
         {
             get
@@ -398,7 +399,7 @@ namespace Elements.Controls.TabControl
         /// <exception cref="ArgumentException">
         /// The opacity must be between 0 and 1 - value
         /// </exception>
-        [Category("Appearance")]
+        [Category(PropertyCategory.Appearance)]
         public float Opacity
         {
             get
@@ -430,7 +431,7 @@ namespace Elements.Controls.TabControl
         /// <exception cref="ArgumentException">
         /// The tabs cannot have a negative overlap - value
         /// </exception>
-        [Category("Appearance")]
+        [Category(PropertyCategory.Appearance)]
         public int Overlap
         {
             get
@@ -453,7 +454,7 @@ namespace Elements.Controls.TabControl
         /// Gets or sets the padding.
         /// </summary>
         /// <value>The padding.</value>
-        [Category("Appearance")]
+        [Category(PropertyCategory.Appearance)]
         public Point Padding
         {
             get
@@ -497,7 +498,7 @@ namespace Elements.Controls.TabControl
         /// <exception cref="ArgumentException">
         /// The radius must be greater than 1 - value
         /// </exception>
-        [Category("Appearance")]
+        [Category(PropertyCategory.Appearance)]
         [DefaultValue(1)]
         [Browsable(true)]
         public int Radius
@@ -524,7 +525,7 @@ namespace Elements.Controls.TabControl
         /// Gets or sets a value indicating whether [show tab closer].
         /// </summary>
         /// <value><c>true</c> if [show tab closer]; otherwise, <c>false</c>.</value>
-        [Category("Appearance")]
+        [Category(PropertyCategory.Appearance)]
         public bool ShowTabCloser
         {
             get
@@ -544,7 +545,7 @@ namespace Elements.Controls.TabControl
         /// Gets or sets the color of the text.
         /// </summary>
         /// <value>The color of the text.</value>
-        [Category("Appearance")]
+        [Category(PropertyCategory.Appearance)]
         [DefaultValue(typeof(Color), "")]
         public Color TextColor
         {
@@ -576,7 +577,7 @@ namespace Elements.Controls.TabControl
         /// Gets or sets the text color disabled.
         /// </summary>
         /// <value>The text color disabled.</value>
-        [Category("Appearance")]
+        [Category(PropertyCategory.Appearance)]
         [DefaultValue(typeof(Color), "")]
         public Color TextColorDisabled
         {
@@ -608,7 +609,7 @@ namespace Elements.Controls.TabControl
         /// Gets or sets the text color selected.
         /// </summary>
         /// <value>The text color selected.</value>
-        [Category("Appearance")]
+        [Category(PropertyCategory.Appearance)]
         [DefaultValue(typeof(Color), "")]
         public Color TextColorSelected
         {

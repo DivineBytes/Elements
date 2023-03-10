@@ -8,6 +8,8 @@
     {
         #region Public Fields
 
+        public const string AutoCompleteCustomSource = "The auto complete custom source.";
+        public const string Alignment = "The alignment of the component.";
         public const string AnimationSpeed = "The speed of the animation.";
         public const string AutoSize = "Enables automatic resizing.";
         public const string Checked = "Indicates whether the component is in the checked state.";
@@ -27,6 +29,7 @@
         public const string LargeChange = "The large change value.";
         public const string LineCap = "The line cap type.";
         public const string Location = "The coordinates of the control relative to the corner of the container.";
+        public const string MultiLine = "Indicates whether this is a multiline component.";
         public const string Maximum = "Indicates the maximum value.";
         public const string Minimum = "Indicates the minimum value.";
         public const string MouseState = "The state of the mouse on the control.";
@@ -45,6 +48,7 @@
         public const string Unknown = "Unknown.";
         public const string Value = "The current value in a specified range of minimum and maximum.";
         public const string Visible = "Determines whether the control is visible or hidden.";
+        public const string StarType = "Determines the start type.";
 
         #endregion Public Fields
     }

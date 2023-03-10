@@ -237,7 +237,7 @@ namespace Elements.Controls.RadialProgress
         /// </summary>
         /// <value><c>true</c> if [percentage visible]; otherwise, <c>false</c>.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Visible")]
+        [Description(PropertyDescription.Visible)]
         public bool PercentageVisible
         {
             get
@@ -258,7 +258,7 @@ namespace Elements.Controls.RadialProgress
         /// <value>The color of the progress.</value>
         [DefaultValue(typeof(Color), "Green")]
         [Category(PropertyCategory.Appearance)]
-        [Description("Color")]
+        [Description(PropertyDescription.Color)]
         public Color ProgressColor
         {
             get
@@ -279,7 +279,7 @@ namespace Elements.Controls.RadialProgress
         /// <value>The size of the progress.</value>
         [DefaultValue(5F)]
         [Category(PropertyCategory.Layout)]
-        [Description("Size")]
+        [Description(PropertyDescription.Size)]
         public float ProgressSize
         {
             get
@@ -299,7 +299,7 @@ namespace Elements.Controls.RadialProgress
         /// </summary>
         /// <value><c>true</c> if [text visible]; otherwise, <c>false</c>.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Visible")]
+        [Description(PropertyDescription.Visible)]
         public bool TextVisible
         {
             get
