@@ -109,9 +109,9 @@ namespace Elements.Controls.ProgressBar
         /// <exception cref="ArgumentOutOfRangeException">
         /// The value assigned to the property is less than 0 or greater than 255.
         /// </exception>
-        [Category("Appearance")]
+        [Category(PropertyCategory.Appearance)]
         [DefaultValue(0)]
-        [Description("Specifies the opacity of the white overlay brush which fades the background colors of the ProgressBar.")]
+        [Description(PropertyDescription.Fade)]
         public int Fade
         {
             get
@@ -265,7 +265,7 @@ namespace Elements.Controls.ProgressBar
         /// </exception>
         [Bindable(true)]
         [Category(PropertyCategory.Behavior)]
-        [Description("The current value for the ProgressBar, in the range specified by the minimum and maximum properties.")]
+        [Description(PropertyDescription.Value)]
         public new int Value
         {
             get

@@ -10,17 +10,17 @@
     {
 #if DEBUG
 
-        public const string Action = DefaultCategory;
-        public const string Appearance = DefaultCategory;
-        public const string Behavior = DefaultCategory;
-        public const string Data = DefaultCategory;
-        public const string DragDrop = DefaultCategory;
-        public const string Focus = DefaultCategory;
-        public const string Key = DefaultCategory;
-        public const string Layout = DefaultCategory;
-        public const string Misc = DefaultCategory;
-        public const string Mouse = DefaultCategory;
-        public const string PropertyChanged = DefaultCategory;
+        public const string Action = DefaultName;
+        public const string Appearance = DefaultName;
+        public const string Behavior = DefaultName;
+        public const string Data = DefaultName;
+        public const string DragDrop = DefaultName;
+        public const string Focus = DefaultName;
+        public const string Key = DefaultName;
+        public const string Layout = DefaultName;
+        public const string Misc = DefaultName;
+        public const string Mouse = DefaultName;
+        public const string PropertyChanged = DefaultName;
 
 #else
 

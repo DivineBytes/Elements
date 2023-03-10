@@ -9,6 +9,7 @@ using Elements.TypeConverters;
 using Elements.Utilities;
 using System;
 using System.ComponentModel;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
@@ -86,7 +87,7 @@ namespace Elements.Controls.NumericUpDown
         /// Occurs when the value changed.
         /// </summary>
         [Category(EventCategory.PropertyChanged)]
-        [Description("Property Event Changed")]
+        [Description(EventDescription.PropertyChanged)]
         public event ValueChangedEventHandler ValueChanged;
 
         #endregion Public Events
@@ -109,11 +110,6 @@ namespace Elements.Controls.NumericUpDown
 
             set
             {
-                if (value == _colorState)
-                {
-                    return;
-                }
-
                 _colorState = value;
                 Invalidate();
             }
@@ -147,7 +143,7 @@ namespace Elements.Controls.NumericUpDown
         /// The color of the button.
         /// </value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Color")]
+        [Description(PropertyDescription.Color)]
         public Color ButtonColor
         {
             get
@@ -169,7 +165,7 @@ namespace Elements.Controls.NumericUpDown
         /// The button font.
         /// </value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Font")]
+        [Description(PropertyDescription.Font)]
         public Font ButtonFont
         {
             get
@@ -191,7 +187,7 @@ namespace Elements.Controls.NumericUpDown
         /// The color of the button fore.
         /// </value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Color")]
+        [Description(PropertyDescription.Color)]
         public Color ButtonForeColor
         {
             get
@@ -213,7 +209,7 @@ namespace Elements.Controls.NumericUpDown
         /// The button orientation.
         /// </value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Alignment")]
+        [Description(PropertyDescription.Orientation)]
         public Orientation ButtonOrientation
         {
             get
@@ -235,7 +231,7 @@ namespace Elements.Controls.NumericUpDown
         /// The width of the button.
         /// </value>
         [Category(PropertyCategory.Layout)]
-        [Description("Size")]
+        [Description(PropertyDescription.Size)]
         public int ButtonWidth
         {
             get
@@ -319,7 +315,7 @@ namespace Elements.Controls.NumericUpDown
         ///   <c>true</c> if [read only]; otherwise, <c>false</c>.
         /// </value>
         [Category(PropertyCategory.Behavior)]
-        [Description("ReadOnly")]
+        [Description(PropertyDescription.ReadOnly)]
         public bool ReadOnly
         {
             get
@@ -341,7 +337,7 @@ namespace Elements.Controls.NumericUpDown
         /// The separator.
         /// </value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Color")]
+        [Description(PropertyDescription.Color)]
         public Color Separator
         {
             get

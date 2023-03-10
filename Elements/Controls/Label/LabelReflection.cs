@@ -1,4 +1,5 @@
-﻿using Elements.TypeConverters;
+﻿using Elements.Constants;
+using Elements.TypeConverters;
 using Elements.Utilities;
 using System.ComponentModel;
 using System.Drawing;
@@ -11,6 +12,7 @@ namespace Elements.Controls.Label
     /// <summary>
     /// The <see cref="LabelReflection"/> class.
     /// </summary>
+    [Category(PropertyCategory.Appearance)]
     [Description("The reflection settings.")]
     [TypeConverter(typeof(SettingsTypeConverter))]
     public class LabelReflection
@@ -35,20 +37,20 @@ namespace Elements.Controls.Label
         /// Gets or sets the color.
         /// </summary>
         /// <value>The color.</value>
-        [Description("The color.")]
+        [Description(PropertyDescription.Color)]
         public Color Color { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="LabelReflection"/> is enabled.
         /// </summary>
         /// <value><c>true</c> if enabled; otherwise, <c>false</c>.</value>
-        [Description("The enabled.")]
+        [Description(PropertyDescription.Enabled)]
         public bool Enabled { get; set; }
         /// <summary>
         /// Gets or sets the spacing.
         /// </summary>
         /// <value>The spacing.</value>
-        [Description("The spacing.")]
+        [Description(PropertyDescription.Spacing)]
         public float Spacing { get; set; }
 
         #endregion Public Properties

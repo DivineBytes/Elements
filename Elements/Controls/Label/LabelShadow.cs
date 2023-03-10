@@ -1,4 +1,5 @@
-﻿using Elements.TypeConverters;
+﻿using Elements.Constants;
+using Elements.TypeConverters;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -11,6 +12,7 @@ namespace Elements.Controls.Label
     /// <summary>
     /// The <see cref="LabelShadow"/> class.
     /// </summary>
+    [Category(PropertyCategory.Appearance)]
     [Description("The shadow settings.")]
     [TypeConverter(typeof(SettingsTypeConverter))]
     public class LabelShadow
@@ -38,42 +40,42 @@ namespace Elements.Controls.Label
         /// Gets or sets the color.
         /// </summary>
         /// <value>The color.</value>
-        [Description("The color.")]
+        [Description(PropertyDescription.Color)]
         public Color Color { get; set; }
 
         /// <summary>
         /// Gets or sets the depth.
         /// </summary>
         /// <value>The depth.</value>
-        [Description("The depth.")]
+        [Description(PropertyDescription.Depth)]
         public int Depth { get; set; }
 
         /// <summary>
         /// Gets or sets the direction.
         /// </summary>
         /// <value>The direction.</value>
-        [Description("The direction.")]
+        [Description(PropertyDescription.Direction)]
         public int Direction { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="LabelShadow"/> is enabled.
         /// </summary>
         /// <value><c>true</c> if enabled; otherwise, <c>false</c>.</value>
-        [Description("The enabled.")]
+        [Description(PropertyDescription.Enabled)]
         public bool Enabled { get; set; }
 
         /// <summary>
         /// Gets or sets the location.
         /// </summary>
         /// <value>The location.</value>
-        [Description("The location.")]
+        [Description(PropertyDescription.Location)]
         public Point Location { get; set; }
 
         /// <summary>
         /// Gets or sets the smoothness.
         /// </summary>
         /// <value>The smoothness.</value>
-        [Description("The smoothness.")]
+        [Description(PropertyDescription.Smoothness)]
         public float Smoothness { get; set; }
 
         #endregion Public Properties

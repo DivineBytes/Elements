@@ -6,8 +6,8 @@
     public abstract class CategoryBase
     {
         /// <summary>
-        /// The default category.
+        /// The default name.
         /// </summary>
-        public const string DefaultCategory = "Elements";
+        public const string DefaultName = "Elements";
     }
 }

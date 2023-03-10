@@ -85,7 +85,7 @@ namespace Elements.Controls.GroupBox
         /// </summary>
         /// <value>The background image layout.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Background Image Layout")]
+        [Description(PropertyDescription.ImageLayout)]
         public new ElementImageLayout BackgroundImageLayout
         {
             get
@@ -124,7 +124,7 @@ namespace Elements.Controls.GroupBox
         /// </summary>
         /// <value>The box style.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Box Style")]
+        [Description("The groupbox style of the component.")]
         public GroupBoxStyle BoxStyle
         {
             get
@@ -154,7 +154,7 @@ namespace Elements.Controls.GroupBox
         /// </summary>
         /// <value>The image.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Image")]
+        [Description(PropertyDescription.Image)]
         public Image Image
         {
             get
@@ -173,7 +173,7 @@ namespace Elements.Controls.GroupBox
         /// </summary>
         /// <value><c>true</c> if separator; otherwise, <c>false</c>.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Separator")]
+        [Description(PropertyDescription.Control)]
         public bool Separator
         {
             get
@@ -193,7 +193,7 @@ namespace Elements.Controls.GroupBox
         /// </summary>
         /// <value>The color of the separator.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Color")]
+        [Description(PropertyDescription.Color)]
         public Color SeparatorColor
         {
             get
@@ -213,7 +213,7 @@ namespace Elements.Controls.GroupBox
         /// </summary>
         /// <value>The separator shadow.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Color")]
+        [Description(PropertyDescription.Color)]
         public Color SeparatorShadow
         {
             get
@@ -233,7 +233,7 @@ namespace Elements.Controls.GroupBox
         /// </summary>
         /// <value>The text alignment.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Alignment")]
+        [Description(PropertyDescription.TextAlignment)]
         public StringAlignment TextAlignment
         {
             get
@@ -253,7 +253,7 @@ namespace Elements.Controls.GroupBox
         /// </summary>
         /// <value>The text image relation.</value>
         [Category(PropertyCategory.Behavior)]
-        [Description("Text Image Relation")]
+        [Description(PropertyDescription.TextImageRelation)]
         public TextImageRelation TextImageRelation
         {
             get
@@ -273,7 +273,7 @@ namespace Elements.Controls.GroupBox
         /// </summary>
         /// <value>The text line alignment.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Alignment")]
+        [Description(PropertyDescription.TextAlignment)]
         public StringAlignment TextLineAlignment
         {
             get
@@ -293,7 +293,7 @@ namespace Elements.Controls.GroupBox
         /// </summary>
         /// <value>The height of the title box.</value>
         [Category(PropertyCategory.Layout)]
-        [Description("Size")]
+        [Description(PropertyDescription.Size)]
         public int TitleBoxHeight
         {
             get

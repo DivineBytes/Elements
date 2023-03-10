@@ -1,4 +1,5 @@
-﻿using Elements.TypeConverters;
+﻿using Elements.Constants;
+using Elements.TypeConverters;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -9,6 +10,7 @@ namespace Elements.Controls.Label
     /// <summary>
     /// The <see cref="LabelOutline"/> class.
     /// </summary>
+    [Category(PropertyCategory.Appearance)]
     [Description("The outline settings.")]
     [TypeConverter(typeof(SettingsTypeConverter))]
     public class LabelOutline

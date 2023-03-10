@@ -50,10 +50,12 @@ namespace Elements.Controls.Gauge
             _thickness = 25;
             Maximum = 100;
 
+            const string FontFamilyName = "Segoe UI";
+
             _labelProgress = new System.Windows.Forms.Label
             {
                 AutoSize = true,
-                Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0),
+                Font = new Font(FontFamilyName, 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0),
                 Location = new Point(83, 34),
                 Margin = new Padding(6, 0, 6, 0),
                 Name = "labelProgress",
@@ -66,7 +68,7 @@ namespace Elements.Controls.Gauge
             _labelMinimum = new System.Windows.Forms.Label
             {
                 AutoSize = true,
-                Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0),
+                Font = new Font(FontFamilyName, 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0),
                 Location = new Point(26, 86),
                 Margin = new Padding(6, 0, 6, 0),
                 Name = "labelMinimum",
@@ -79,7 +81,7 @@ namespace Elements.Controls.Gauge
             _labelMaximum = new System.Windows.Forms.Label
             {
                 AutoSize = true,
-                Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0),
+                Font = new Font(FontFamilyName, 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0),
                 Location = new Point(145, 86),
                 Margin = new Padding(6, 0, 6, 0),
                 Name = "labelMaximum",
@@ -144,7 +146,7 @@ namespace Elements.Controls.Gauge
         /// </summary>
         /// <value><c>true</c> if [maximum visible]; otherwise, <c>false</c>.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Visible")]
+        [Description(PropertyDescription.Visible)]
         public bool MaximumVisible
         {
             get
@@ -179,7 +181,7 @@ namespace Elements.Controls.Gauge
         /// </summary>
         /// <value><c>true</c> if [minimum visible]; otherwise, <c>false</c>.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Visible")]
+        [Description(PropertyDescription.Visible)]
         public bool MinimumVisible
         {
             get
@@ -197,9 +199,9 @@ namespace Elements.Controls.Gauge
         /// Gets or sets the progress.
         /// </summary>
         /// <value>The progress.</value>
-        [DefaultValue(typeof(Color), "Green")]
         [Category(PropertyCategory.Appearance)]
-        [Description("Color")]
+        [DefaultValue(typeof(Color), "Green")]
+        [Description(PropertyDescription.Color)]
         public Color Progress
         {
             get
@@ -234,7 +236,7 @@ namespace Elements.Controls.Gauge
         /// </summary>
         /// <value><c>true</c> if [progress visible]; otherwise, <c>false</c>.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Visible")]
+        [Description(PropertyDescription.Visible)]
         public bool ProgressVisible
         {
             get
@@ -252,9 +254,9 @@ namespace Elements.Controls.Gauge
         /// Gets or sets the thickness.
         /// </summary>
         /// <value>The thickness.</value>
-        [DefaultValue(30)]
         [Category(PropertyCategory.Layout)]
-        [Description("Thickness")]
+        [DefaultValue(30)]
+        [Description(PropertyDescription.Thickness)]
         public int Thickness
         {
             get
@@ -273,8 +275,8 @@ namespace Elements.Controls.Gauge
         /// Gets or sets the value.
         /// </summary>
         /// <value>The value.</value>
-        [DefaultValue(0)]
         [Category(PropertyCategory.Behavior)]
+        [DefaultValue(0)]
         public new int Value
         {
             get

@@ -77,16 +77,16 @@ namespace Elements.Controls.ControlBox
                 Text = ControlBoxButtons.Maximize.GetDisplayName(),
 
                 BackColorState = new Models.ControlColorState(
-                Color.Transparent,
-                Color.Transparent,
-                Color.FromArgb(190, 186, 186),
-                Color.FromArgb(105, 105, 105)),
+                    Color.Transparent,
+                    Color.Transparent,
+                    Color.FromArgb(190, 186, 186),
+                    Color.FromArgb(105, 105, 105)),
 
                 ForeColorState = new Models.ControlColorState(
-                Color.FromArgb(105, 105, 105),
-                Color.FromArgb(128, 128, 128),
-                Color.FromArgb(128, 128, 128),
-                Color.FromArgb(128, 128, 128))
+                    Color.FromArgb(105, 105, 105),
+                    Color.FromArgb(128, 128, 128),
+                    Color.FromArgb(128, 128, 128),
+                    Color.FromArgb(128, 128, 128))
             };
 
             _maximizeButton.Click += OnMaximize;
@@ -99,16 +99,16 @@ namespace Elements.Controls.ControlBox
                 Text = ControlBoxButtons.Minimize.GetDisplayName(),
 
                 BackColorState = new Models.ControlColorState(
-                Color.Transparent,
-                Color.Transparent,
-                Color.FromArgb(190, 186, 186),
-                Color.FromArgb(105, 105, 105)),
+                    Color.Transparent,
+                    Color.Transparent,
+                    Color.FromArgb(190, 186, 186),
+                    Color.FromArgb(105, 105, 105)),
 
                 ForeColorState = new Models.ControlColorState(
-                Color.FromArgb(105, 105, 105),
-                Color.FromArgb(128, 128, 128),
-                Color.FromArgb(128, 128, 128),
-                Color.FromArgb(128, 128, 128))
+                    Color.FromArgb(105, 105, 105),
+                    Color.FromArgb(128, 128, 128),
+                    Color.FromArgb(128, 128, 128),
+                    Color.FromArgb(128, 128, 128))
             };
 
             _minimizeButton.Click += OnMinimize;
@@ -121,16 +121,16 @@ namespace Elements.Controls.ControlBox
                 Text = ControlBoxButtons.Help.GetDisplayName(),
 
                 BackColorState = new Models.ControlColorState(
-                Color.Transparent,
-                Color.Transparent,
-                Color.FromArgb(190, 186, 186),
-                Color.FromArgb(105, 105, 105)),
+                    Color.Transparent,
+                    Color.Transparent,
+                    Color.FromArgb(190, 186, 186),
+                    Color.FromArgb(105, 105, 105)),
 
                 ForeColorState = new Models.ControlColorState(
-                Color.FromArgb(105, 105, 105),
-                Color.FromArgb(128, 128, 128),
-                Color.FromArgb(128, 128, 128),
-                Color.FromArgb(128, 128, 128))
+                    Color.FromArgb(105, 105, 105),
+                    Color.FromArgb(128, 128, 128),
+                    Color.FromArgb(128, 128, 128),
+                    Color.FromArgb(128, 128, 128))
             };
 
             _helpButton.Click += OnHelp;
@@ -150,35 +150,35 @@ namespace Elements.Controls.ControlBox
         /// Occurs when the close click.
         /// </summary>
         [Category(EventCategory.PropertyChanged)]
-        [Description("Property Event Changed")]
+        [Description(EventDescription.PropertyChanged)]
         public event ControlBoxEventHandler CloseClick;
 
         /// <summary>
         /// Occurs when the help click.
         /// </summary>
         [Category(EventCategory.PropertyChanged)]
-        [Description("Property Event Changed")]
+        [Description(EventDescription.PropertyChanged)]
         public event ControlBoxEventHandler HelpClick;
 
         /// <summary>
         /// Occurs when the maximize click.
         /// </summary>
         [Category(EventCategory.PropertyChanged)]
-        [Description("Property Event Changed")]
+        [Description(EventDescription.PropertyChanged)]
         public event ControlBoxEventHandler MaximizeClick;
 
         /// <summary>
         /// Occurs when the minimize click.
         /// </summary>
         [Category(EventCategory.PropertyChanged)]
-        [Description("Property Event Changed")]
+        [Description(EventDescription.PropertyChanged)]
         public event ControlBoxEventHandler MinimizeClick;
 
         /// <summary>
         /// Occurs when the window restored.
         /// </summary>
         [Category(EventCategory.PropertyChanged)]
-        [Description("Property Event Changed")]
+        [Description(EventDescription.PropertyChanged)]
         public event ControlBoxEventHandler WindowRestored;
 
         #endregion Public Events

@@ -66,7 +66,7 @@ namespace Elements.Controls.Label
         /// </summary>
         /// <value>The disabled text.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("The disabled text color.")]
+        [Description(PropertyDescription.Text)]
         public Color DisabledText
         {
             get
@@ -85,7 +85,7 @@ namespace Elements.Controls.Label
         /// </summary>
         /// <value>The orientation.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("The text orientation.")]
+        [Description(PropertyDescription.Orientation)]
         public Orientation Orientation
         {
             get
@@ -105,7 +105,6 @@ namespace Elements.Controls.Label
         /// Gets or sets the outline.
         /// </summary>
         /// <value>The outline.</value>
-        [Category(PropertyCategory.Appearance)]
         public LabelOutline Outline
         {
             get
@@ -123,7 +122,6 @@ namespace Elements.Controls.Label
         /// Gets or sets the reflection.
         /// </summary>
         /// <value>The reflection.</value>
-        [Category(PropertyCategory.Appearance)]
         public LabelReflection Reflection
         {
             get
@@ -141,7 +139,6 @@ namespace Elements.Controls.Label
         /// Gets or sets the shadow.
         /// </summary>
         /// <value>The shadow.</value>
-        [Category(PropertyCategory.Appearance)]
         public LabelShadow Shadow
         {
             get
@@ -179,7 +176,7 @@ namespace Elements.Controls.Label
         /// </summary>
         /// <value>The text alignment.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("The text alignment.")]
+        [Description(PropertyDescription.TextAlignment)]
         public StringAlignment TextAlignment
         {
             get
@@ -199,7 +196,7 @@ namespace Elements.Controls.Label
         /// </summary>
         /// <value>The text line alignment.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("The text line alignment.")]
+        [Description(PropertyDescription.TextAlignment)]
         public StringAlignment TextLineAlignment
         {
             get

@@ -76,7 +76,7 @@ namespace Elements.Controls.DateTimePicker
         /// Occurs when the mouse state changed.
         /// </summary>
         [Category(EventCategory.Mouse)]
-        [Description("Occours when the MouseState of the control has changed.")]
+        [Description(EventDescription.MouseStateChanged)]
         public event MouseStateChangedEventHandler MouseStateChanged;
 
         #endregion Public Events
@@ -107,7 +107,7 @@ namespace Elements.Controls.DateTimePicker
         /// </summary>
         /// <value>The size of the arrow.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Size")]
+        [Description(PropertyDescription.Size)]
         public Size ArrowSize
         {
             get
@@ -164,7 +164,7 @@ namespace Elements.Controls.DateTimePicker
         /// <value>The background image.</value>
         [Browsable(true)]
         [Category(PropertyCategory.Appearance)]
-        [Description("Image")]
+        [Description(PropertyDescription.Image)]
         public new Image BackgroundImage
         {
             get
@@ -222,7 +222,7 @@ namespace Elements.Controls.DateTimePicker
         /// </summary>
         /// <value>The image.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Image")]
+        [Description(PropertyDescription.Image)]
         public Image Image
         {
             get
@@ -242,7 +242,7 @@ namespace Elements.Controls.DateTimePicker
         /// </summary>
         /// <value>The size of the image.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Size")]
+        [Description(PropertyDescription.Size)]
         public Size ImageSize
         {
             get
@@ -275,7 +275,7 @@ namespace Elements.Controls.DateTimePicker
         /// </summary>
         /// <value>The state of the mouse.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Mouse State")]
+        [Description(PropertyDescription.MouseState)]
         public MouseStates MouseState
         {
             get
@@ -299,9 +299,9 @@ namespace Elements.Controls.DateTimePicker
         /// Gets or sets a value indicating whether show focus.
         /// </summary>
         /// <value><c>true</c> if [show focus]; otherwise, <c>false</c>.</value>
-        [DefaultValue(false)]
         [Category(PropertyCategory.Appearance)]
-        [Description("Toggle")]
+        [DefaultValue(false)]
+        [Description(PropertyDescription.Toggle)]
         public bool ShowFocus
         {
             get
@@ -369,7 +369,7 @@ namespace Elements.Controls.DateTimePicker
 
             using (Graphics graphics = CreateGraphics())
             {
-                string measureText = Text.Length > 0 ? Text : "MeasureText";
+                string measureText = Text.Length > 0 ? Text : CategoryBase.DefaultName;
                 proposedSize = new Size(int.MaxValue, int.MaxValue);
                 preferredSize = TextRenderer.MeasureText(graphics, measureText, Font, proposedSize, TextFormatFlags.Left | TextFormatFlags.LeftAndRightPadding | TextFormatFlags.VerticalCenter);
                 preferredSize.Height += 10;

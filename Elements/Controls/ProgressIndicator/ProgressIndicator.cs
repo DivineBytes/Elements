@@ -1,4 +1,5 @@
 ﻿using Elements.Base;
+using Elements.Constants;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -73,8 +74,8 @@ namespace Elements.Controls.ProgressIndicator
         /// Gets or sets the color of the animation.
         /// </summary>
         /// <value>The color of the animation.</value>
-        [Category("Appearance")]
-        [Description("Color")]
+        [Category(PropertyCategory.Appearance)]
+        [Description(PropertyDescription.Color)]
         public Color AnimationColor
         {
             get
@@ -92,8 +93,8 @@ namespace Elements.Controls.ProgressIndicator
         /// Gets or sets the animation speed.
         /// </summary>
         /// <value>The animation speed.</value>
-        [Category("Behaviour")]
-        [Description("Animation Speed")]
+        [Category(PropertyCategory.Behavior)]
+        [Description(PropertyDescription.AnimationSpeed)]
         public int AnimationSpeed
         {
             get
@@ -111,8 +112,8 @@ namespace Elements.Controls.ProgressIndicator
         /// Gets or sets the color of the base.
         /// </summary>
         /// <value>The color of the base.</value>
-        [Category("Appearance")]
-        [Description("Color")]
+        [Category(PropertyCategory.Appearance)]
+        [Description(PropertyDescription.Color)]
         public Color BaseColor
         {
             get
@@ -130,9 +131,9 @@ namespace Elements.Controls.ProgressIndicator
         /// Gets or sets the circles.
         /// </summary>
         /// <value>The circles.</value>
+        [Category(PropertyCategory.Design)]
         [DefaultValue(45F)]
-        [Category("Layout")]
-        [Description("Amount")]
+        [Description(PropertyDescription.Value)]
         public float Circles
         {
             get
@@ -152,8 +153,8 @@ namespace Elements.Controls.ProgressIndicator
         /// Gets or sets the size of the circle.
         /// </summary>
         /// <value>The size of the circle.</value>
-        [Category("Layout")]
-        [Description("Size")]
+        [Category(PropertyCategory.Design)]
+        [Description(PropertyDescription.Size)]
         public Size CircleSize
         {
             get
@@ -172,9 +173,9 @@ namespace Elements.Controls.ProgressIndicator
         /// Gets or sets the diameter.
         /// </summary>
         /// <value>The diameter.</value>
+        [Category(PropertyCategory.Design)]
         [DefaultValue(7.5F)]
-        [Category("Layout")]
-        [Description("Diameter")]
+        [Description(PropertyDescription.Size)]
         public float Diameter
         {
             get

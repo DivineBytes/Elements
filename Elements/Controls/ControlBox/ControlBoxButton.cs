@@ -96,7 +96,7 @@ namespace Elements.Controls.ControlBox
         /// </summary>
         /// <value>The type of the box.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Box Type")]
+        [Description("The control box type which determines how its displayed.")]
         public ControlBoxType BoxType
         {
             get
@@ -135,7 +135,7 @@ namespace Elements.Controls.ControlBox
         /// </summary>
         /// <value>The image.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Image")]
+        [Description(PropertyDescription.Image)]
         public Image Image
         {
             get
@@ -155,7 +155,7 @@ namespace Elements.Controls.ControlBox
         /// </summary>
         /// <value>The offset location.</value>
         [Category(PropertyCategory.Layout)]
-        [Description("Point")]
+        [Description(PropertyDescription.Location)]
         public Point OffsetLocation
         {
             get
