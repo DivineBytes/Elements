@@ -216,7 +216,7 @@ namespace Elements.Controls.TextBox
         [Browsable(true)]
         [Category(PropertyCategory.Behavior)]
         [DefaultValue(typeof(AutoCompleteMode), "None")]
-        [Description("AutoCompleteMode")]
+        [Description(PropertyDescription.AutoCompleteMode)]
         [EditorBrowsable(EditorBrowsableState.Always)]
         public virtual AutoCompleteMode AutoCompleteMode
         {
@@ -238,7 +238,7 @@ namespace Elements.Controls.TextBox
         [Browsable(true)]
         [Category(PropertyCategory.Behavior)]
         [DefaultValue(typeof(AutoCompleteSource), "None")]
-        [Description("AutoCompleteSource")]
+        [Description(PropertyDescription.AutoCompleteSource)]
         [EditorBrowsable(EditorBrowsableState.Always)]
         public virtual AutoCompleteSource AutoCompleteSource
         {
@@ -277,7 +277,6 @@ namespace Elements.Controls.TextBox
         /// </summary>
         /// <value>The state of the color.</value>
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        [EditorBrowsable(EditorBrowsableState.Always)]
         public virtual ColorState ColorState
         {
             get
@@ -334,9 +333,8 @@ namespace Elements.Controls.TextBox
         /// <value>The maximum length.</value>
         [Browsable(true)]
         [Category(PropertyCategory.Behavior)]
-        [Description("Max Length")]
+        [Description(PropertyDescription.MaxLength)]
         [DefaultValue(32767)]
-        [EditorBrowsable(EditorBrowsableState.Always)]
         public virtual int MaxLength
         {
             get
@@ -355,7 +353,7 @@ namespace Elements.Controls.TextBox
         /// </summary>
         /// <value><c>true</c> if [multi line]; otherwise, <c>false</c>.</value>
         [Category(PropertyCategory.Behavior)]
-        [Description("MultiLine")]
+        [Description(PropertyDescription.MultiLine)]
         [DefaultValue(false)]
         public virtual bool MultiLine
         {
@@ -379,7 +377,7 @@ namespace Elements.Controls.TextBox
         [EditorBrowsable(EditorBrowsableState.Always)]
         [Browsable(true)]
         [Category(PropertyCategory.Behavior)]
-        [Description("Password Char")]
+        [Description(PropertyDescription.PasswordChar)]
         public virtual char PasswordChar
         {
             get
@@ -398,7 +396,7 @@ namespace Elements.Controls.TextBox
         /// </summary>
         /// <value><c>true</c> if [read only]; otherwise, <c>false</c>.</value>
         [Category(PropertyCategory.Behavior)]
-        [Description("ReadOnly")]
+        [Description(PropertyDescription.ReadOnly)]
         public virtual bool ReadOnly
         {
             get
@@ -417,7 +415,7 @@ namespace Elements.Controls.TextBox
         /// </summary>
         /// <value>The scroll bars.</value>
         [Category(PropertyCategory.Behavior)]
-        [Description("ScrollBars")]
+        [Description(PropertyDescription.ScrollBar)]
         public virtual ScrollBars ScrollBars
         {
             get
@@ -439,7 +437,7 @@ namespace Elements.Controls.TextBox
         [Browsable(true)]
         [Category(PropertyCategory.Appearance)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-        [Description("Text")]
+        [Description(PropertyDescription.Text)]
         [EditorBrowsable(EditorBrowsableState.Always)]
         [Editor("System.ComponentModel.Design.MultilineStringEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         [Localizable(false)]
@@ -464,7 +462,7 @@ namespace Elements.Controls.TextBox
         [EditorBrowsable(EditorBrowsableState.Always)]
         [Browsable(true)]
         [Category(PropertyCategory.Behavior)]
-        [Description("TextAlign")]
+        [Description(PropertyDescription.TextAlignment)]
         public virtual HorizontalAlignment TextAlign
         {
             get
@@ -520,7 +518,7 @@ namespace Elements.Controls.TextBox
         [EditorBrowsable(EditorBrowsableState.Always)]
         [Browsable(true)]
         [Category(PropertyCategory.Behavior)]
-        [Description("Use System Password Char")]
+        [Description(PropertyDescription.UseSystemPasswordChar)]
         public virtual bool UseSystemPasswordChar
         {
             get
@@ -562,7 +560,7 @@ namespace Elements.Controls.TextBox
         /// </summary>
         /// <value><c>true</c> if [word wrap]; otherwise, <c>false</c>.</value>
         [Category(PropertyCategory.Behavior)]
-        [Description("Word Wrap")]
+        [Description(PropertyDescription.WordWrap)]
         public virtual bool WordWrap
         {
             get

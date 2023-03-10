@@ -12,7 +12,7 @@ namespace Elements.Models
     /// The <see cref="Watermark"/> class.
     /// </summary>
     [Category(PropertyCategory.Appearance)]
-    [Description("The watermark.")]
+    [Description("The watermark settings.")]
     [DesignerCategory(PropertyCategory.Appearance)]
     [TypeConverter(typeof(SettingsTypeConverter))]
     public class Watermark
