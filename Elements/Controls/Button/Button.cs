@@ -77,7 +77,7 @@ namespace Elements.Controls.Button
         /// Occurs when [text style changed].
         /// </summary>
         [Category(EventCategory.PropertyChanged)]
-        [Description("Occours when the text style of the control has changed.")]
+        [Description(EventDescription.PropertyChanged)]
         public event EventHandler TextStyleChanged;
 
         #endregion Public Events
@@ -108,7 +108,7 @@ namespace Elements.Controls.Button
         /// </summary>
         /// <value>The background image layout.</value>
         [Category(PropertyCategory.Behavior)]
-        [Description("Image Layout")]
+        [Description(PropertyDescription.ImageLayout)]
         public new ElementImageLayout BackgroundImageLayout
         {
             get
@@ -128,7 +128,6 @@ namespace Elements.Controls.Button
         /// </summary>
         /// <value>The border.</value>
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        [Category(PropertyCategory.Appearance)]
         public Border Border
         {
             get
@@ -187,7 +186,7 @@ namespace Elements.Controls.Button
         /// </summary>
         /// <value>The image.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("Image")]
+        [Description(PropertyDescription.Image)]
         public Image Image
         {
             get
@@ -207,7 +206,7 @@ namespace Elements.Controls.Button
         /// </summary>
         /// <value>The text image relation.</value>
         [Category(PropertyCategory.Behavior)]
-        [Description("Text Image Relation")]
+        [Description(PropertyDescription.TextImageRelation)]
         public TextImageRelation TextImageRelation
         {
             get
@@ -225,8 +224,6 @@ namespace Elements.Controls.Button
         /// <summary>
         /// Gets or sets the <see cref="TextStyle"/>.
         /// </summary>
-        [Category(PropertyCategory.Appearance)]
-        [Description("Text Style")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         public TextStyle TextStyle

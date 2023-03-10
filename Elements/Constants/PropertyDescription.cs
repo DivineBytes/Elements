@@ -27,6 +27,8 @@
         public const string Unknown = "Unknown.";
         public const string Value = "The current value in a specified range of minimum and maximum.";
         public const string Visible = "Determines whether the control is visible or hidden.";
+        public const string ImageLayout = "Determines the element image layout.";
+        public const string TextImageRelation = "Determines the text image relation.";
 
         #endregion Public Fields
     }
