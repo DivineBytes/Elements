@@ -115,35 +115,35 @@ namespace Elements.Models
         /// Occurs when [color state changed].
         /// </summary>
         [Category(EventCategory.PropertyChanged)]
-        [Description("The color state.")]
+        [Description(EventDescription.ColorChanged)]
         public event ColorChangedEventHandler ColorStateChanged;
 
         /// <summary>
         /// Occurs when [rounding changed].
         /// </summary>
         [Category(EventCategory.PropertyChanged)]
-        [Description("The rounding.")]
+        [Description(EventDescription.PropertyChanged)]
         public event RoundingChangedEventHandler RoundingChanged;
 
         /// <summary>
         /// Occurs when [shape changed].
         /// </summary>
         [Category(EventCategory.PropertyChanged)]
-        [Description("The shape.")]
+        [Description(EventDescription.PropertyChanged)]
         public event ShapeChangedEventHandler ShapeChanged;
 
         /// <summary>
         /// Occurs when [thickness changed].
         /// </summary>
         [Category(EventCategory.PropertyChanged)]
-        [Description("The thickness.")]
+        [Description(EventDescription.PropertyChanged)]
         public event ThicknessChangedEventHandler ThicknessChanged;
 
         /// <summary>
         /// Occurs when [visible changed].
         /// </summary>
         [Category(EventCategory.PropertyChanged)]
-        [Description("The visible.")]
+        [Description(EventDescription.PropertyChanged)]
         public event VisibleChangedEventHandler VisibleChanged;
 
         #endregion Public Events

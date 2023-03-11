@@ -89,21 +89,21 @@ namespace Elements.Controls.Tile
         /// Occurs when [color changed].
         /// </summary>
         [Category(EventCategory.PropertyChanged)]
-        [Description("Property Event Changed")]
+        [Description(EventDescription.PropertyChanged)]
         public event ColorChangedEventHandler ColorChanged;
 
         /// <summary>
         /// Occurs when [shape changed].
         /// </summary>
         [Category(EventCategory.PropertyChanged)]
-        [Description("Property Event Changed")]
+        [Description(EventDescription.PropertyChanged)]
         public event ShapeChangedEventHandler ShapeChanged;
 
         /// <summary>
         /// Occurs when [type changed].
         /// </summary>
         [Category(EventCategory.PropertyChanged)]
-        [Description("Property Event Changed")]
+        [Description(EventDescription.PropertyChanged)]
         public event TypeChangedEventHandler TypeChanged;
 
         #endregion Public Events
@@ -134,7 +134,7 @@ namespace Elements.Controls.Tile
         /// </summary>
         /// <value>The background image layout.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("The background layout.")]
+        [Description(PropertyDescription.ImageLayout)]
         public new ElementImageLayout BackgroundImageLayout
         {
             get
@@ -153,7 +153,6 @@ namespace Elements.Controls.Tile
         /// Gets or sets the border.
         /// </summary>
         /// <value>The border.</value>
-        [Category(PropertyCategory.Appearance)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public Border Border
         {
@@ -173,7 +172,7 @@ namespace Elements.Controls.Tile
         /// </summary>
         /// <value>The image.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("The image.")]
+        [Description(PropertyDescription.Image)]
         public Image Image
         {
             get
@@ -193,7 +192,7 @@ namespace Elements.Controls.Tile
         /// </summary>
         /// <value>The background image layout.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("The image layout.")]
+        [Description(PropertyDescription.ImageLayout)]
         public ElementImageLayout ImageLayout
         {
             get
@@ -212,7 +211,7 @@ namespace Elements.Controls.Tile
         /// </summary>
         /// <value>The offset.</value>
         [Category(PropertyCategory.Layout)]
-        [Description("The offset.")]
+        [Description(PropertyDescription.Location)]
         public Point Offset
         {
             get
@@ -231,8 +230,6 @@ namespace Elements.Controls.Tile
         /// Gets or sets the text style.
         /// </summary>
         /// <value>The text style.</value>
-        [Category(PropertyCategory.Layout)]
-        [Description("The text style.")]
         public TextStyle TextStyle
         {
             get
@@ -250,6 +247,8 @@ namespace Elements.Controls.Tile
         /// Gets or sets the type.
         /// </summary>
         /// <value>The type.</value>
+        [Category(PropertyCategory.Appearance)]
+        [Description(PropertyDescription.Enum)]
         public TileType Type
         {
             get

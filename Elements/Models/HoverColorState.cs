@@ -47,7 +47,7 @@ namespace Elements.Models
         {
             if (hover == Color.Empty)
             {
-                throw new ArgumentNullException(nameof(hover), "Cannot be empty.");
+                throw new ArgumentNullException(nameof(hover), ArgumentDescription.CannotBeEmpty);
             }
 
             _hover = hover;

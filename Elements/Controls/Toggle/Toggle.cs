@@ -133,9 +133,9 @@ namespace Elements.Controls.Toggle
         /// Gets or sets a value indicating whether this <see cref="Toggle"/> is toggled.
         /// </summary>
         /// <value><c>true</c> if toggled; otherwise, <c>false</c>.</value>
-        [DefaultValue(false)]
         [Category(PropertyCategory.Behavior)]
-        [Description("Toggles the behaviour.")]
+        [DefaultValue(false)]
+        [Description(PropertyDescription.Toggle)]
         public bool Toggled
         {
             get

@@ -40,6 +40,7 @@
         public const string Orientation = "The orientation associated for the component.";
         public const string PasswordChar = "Indicates the character to display for password input for the single-line edit controls.";
         public const string ReadOnly = "Controls whether the text in the edit control can be changed or not.";
+        public const string Rectangle = "The rectangle location and size.";
         public const string ScrollBar = "Defines the behaviour of the scrolls bar of the control.";
         public const string Size = "The size of the component in pixels.";
         public const string SmallChange = "The small change value.";

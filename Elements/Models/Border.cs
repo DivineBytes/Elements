@@ -126,7 +126,7 @@ namespace Elements.Models
         /// Occurs when [hover visible changed].
         /// </summary>
         [Category(EventCategory.PropertyChanged)]
-        [Description("The visible.")]
+        [Description(EventDescription.PropertyChanged)]
         public event VisibleChangedEventHandler HoverVisibleChanged;
 
         #endregion Public Events

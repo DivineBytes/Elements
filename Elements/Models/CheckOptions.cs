@@ -87,9 +87,7 @@ namespace Elements.Models
         /// <summary>
         /// Gets or sets a value indicating whether automatic size.
         /// </summary>
-        /// <value>
-        ///   <c>true</c> if [automatic size]; otherwise, <c>false</c>.
-        /// </value>
+        /// <value><c>true</c> if [automatic size]; otherwise, <c>false</c>.</value>
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [NotifyParentProperty(true)]
         public bool AutoSize { get; set; }
@@ -99,7 +97,7 @@ namespace Elements.Models
         /// </summary>
         /// <value>The box.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("The box.")]
+        [Description(PropertyDescription.Rectangle)]
         [NotifyParentProperty(true)]
         [RefreshProperties(RefreshProperties.Repaint)]
         public Rectangle Box { get; set; }
@@ -125,7 +123,7 @@ namespace Elements.Models
         /// </summary>
         /// <value>The check.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("The check.")]
+        [Description(PropertyDescription.Rectangle)]
         [NotifyParentProperty(true)]
         [RefreshProperties(RefreshProperties.Repaint)]
         public Rectangle Check { get; set; }
@@ -143,7 +141,7 @@ namespace Elements.Models
         /// </summary>
         /// <value>The color.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("The color.")]
+        [Description(PropertyDescription.Color)]
         [NotifyParentProperty(true)]
         [RefreshProperties(RefreshProperties.Repaint)]
         public Color Color { get; set; }
@@ -159,18 +157,14 @@ namespace Elements.Models
         /// <summary>
         /// Gets or sets the font.
         /// </summary>
-        /// <value>
-        /// The font.
-        /// </value>
+        /// <value>The font.</value>
         [NotifyParentProperty(true)]
         public Font Font { get; set; }
 
         /// <summary>
         /// Gets or sets the image.
         /// </summary>
-        /// <value>
-        /// The image.
-        /// </value>
+        /// <value>The image.</value>
         [NotifyParentProperty(true)]
         public Image Image { get; set; }
 
@@ -179,7 +173,7 @@ namespace Elements.Models
         /// </summary>
         /// <value>The spacing.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("The spacing.")]
+        [Description(PropertyDescription.Spacing)]
         [NotifyParentProperty(true)]
         [RefreshProperties(RefreshProperties.Repaint)]
         public int Spacing { get; set; }
@@ -189,10 +183,11 @@ namespace Elements.Models
         /// </summary>
         /// <value>The style.</value>
         [Category(PropertyCategory.Appearance)]
-        [Description("The style.")]
+        [Description(PropertyDescription.Enum)]
         [NotifyParentProperty(true)]
         [RefreshProperties(RefreshProperties.Repaint)]
         public CheckStyle Style { get; set; }
+
         #endregion Public Properties
     }
 }
