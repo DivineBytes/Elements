@@ -58,6 +58,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Components\Badge\BadgeDesigner.cs" />
+    <Compile Include="Controls\Expander\Expander.cs" />
     <Compile Include="Components\Gradient\ColorField.cs" />
     <Compile Include="Components\Gradient\Gradient.cs">
       <SubType>Component</SubType>

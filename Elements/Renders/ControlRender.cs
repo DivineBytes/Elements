@@ -89,18 +89,31 @@ namespace Elements.Renders
             }
             else
             {
-                RenderTriangle(graphics, rectangle, color, direction);
+                RenderTriangle(graphics, color, rectangle, direction);
             }
         }
 
         /// <summary>
         /// Renders a triangle.
         /// </summary>
-        /// <param name="graphics">The graphics to draw on.</param>
-        /// <param name="rectangle">The button rectangle.</param>
+        /// <param name="graphics">The graphics.</param>
         /// <param name="color">The color.</param>
+        /// <param name="size">The size.</param>
         /// <param name="direction">The direction.</param>
-        public static void RenderTriangle(Graphics graphics, Rectangle rectangle, Color color, Vertical direction)
+        public static void RenderTriangle(Graphics graphics, Color color, Size size, Vertical direction)
+        {
+            Rectangle rect = new Rectangle(Point.Empty, size);
+            RenderTriangle(graphics, color, rect, direction);
+        }
+
+        /// <summary>
+        /// Renders a triangle.
+        /// </summary>
+        /// <param name="graphics">The graphics to draw on.</param>
+        /// <param name="color">The color.</param>
+        /// <param name="rectangle">The button rectangle.</param>
+        /// <param name="direction">The direction.</param>
+        public static void RenderTriangle(Graphics graphics, Color color, Rectangle rectangle, Vertical direction)
         {
             Point[] points = new Point[3];
 

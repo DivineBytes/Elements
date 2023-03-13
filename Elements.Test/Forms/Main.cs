@@ -1,4 +1,5 @@
-﻿using Elements.Enumerators;
+﻿using Elements.Controls.Expander;
+using Elements.Enumerators;
 using Elements.Extensions;
 using Elements.Models;
 using Elements.Test.Properties;
@@ -23,7 +24,6 @@ namespace Elements.Test
             InitializeComponent();
 
             // Insert test code below...
-
 
         }
 

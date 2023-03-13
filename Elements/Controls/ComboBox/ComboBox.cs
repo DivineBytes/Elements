@@ -70,7 +70,6 @@ namespace Elements.Controls.ComboBox
             Size = new Size(135, 26);
             ItemHeight = 24;
 
-            BackColor = SystemColors.Control;
             MinimumSize = new Size(0, 26);
             MaximumSize = new Size(0, 26);
 

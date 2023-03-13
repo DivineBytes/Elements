@@ -91,7 +91,7 @@ namespace Elements.Controls.ComboBox
                     {
                         _buttonImageSize = new Size(10, 6);
                         _buttonImageLocation = new Point(rectangle.X + (rectangle.Width / 2) - (_buttonImageSize.Width / 2), rectangle.Y + (rectangle.Height / 2) - (_buttonImageSize.Height / 2));
-                        ControlRender.RenderTriangle(graphics, new Rectangle(_buttonImageLocation, _buttonImageSize), Color, Vertical.Down);
+                        ControlRender.RenderTriangle(graphics, Color, new Rectangle(_buttonImageLocation, _buttonImageSize), Vertical.Down);
                         break;
                     }
 
