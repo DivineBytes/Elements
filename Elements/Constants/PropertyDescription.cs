@@ -4,6 +4,7 @@
     /// The <see cref="PropertyDescription"/> class.
     /// </summary>
 #pragma warning disable 1591
+
     public static class PropertyDescription
     {
         #region Public Fields
@@ -18,8 +19,10 @@
         public const string Color = "Gets or sets the color of the component.";
         public const string Control = "The control to attach to this component.";
         public const string ControlBoxStyle = "The control box type which determines how its displayed.";
+        public const string Cursor = "Represents the image used to paint the mouse pointer.";
         public const string Depth = "Indicates the depth of the graphic.";
         public const string Direction = "Indicates the direction of the graphic.";
+        public const string DragDirection = "Indicates the direction of the drag.";
         public const string Enabled = "Indicates whether the control is enabled.";
         public const string Enum = "The different types of enumerations.";
         public const string Fade = "Specifies the opacity of the white overlay brush which fades the background colors of the component.";
@@ -28,6 +31,7 @@
         public const string Image = "The image used to display.";
         public const string ImageLayout = "Determines the element image layout.";
         public const string ImageList = "The images list used to display.";
+        public const string IsDragging = "The current drag state of the control.";
         public const string Items = "The items in the component.";
         public const string LargeChange = "The large change value.";
         public const string LineCap = "The line cap type.";

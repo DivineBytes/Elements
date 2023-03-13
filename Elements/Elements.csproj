@@ -58,6 +58,10 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Components\Badge\BadgeDesigner.cs" />
+    <Compile Include="Components\Drag\Drag.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\Drag\DragDirection.cs" />
     <Compile Include="Controls\Expander\Expander.cs" />
     <Compile Include="Components\Gradient\ColorField.cs" />
     <Compile Include="Components\Gradient\Gradient.cs">
@@ -130,6 +134,8 @@
     <Compile Include="Controls\Toggle\ToggleTypes.cs" />
     <Compile Include="Enumerators\Vertical.cs" />
     <Compile Include="Events\ControlBoxEventArgs.cs" />
+    <Compile Include="Events\CursorChangedEventArgs.cs" />
+    <Compile Include="Events\DragControlEventArgs.cs" />
     <Compile Include="Events\ToggleEventArgs.cs" />
     <Compile Include="Events\ValueChangedEventArgs.cs" />
     <Compile Include="Extensions\ColorExtensions.cs" />
@@ -314,6 +320,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Controls\ControlBox\ControlBox.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Components\Drag\Drag.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

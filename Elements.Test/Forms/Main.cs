@@ -1,4 +1,5 @@
-﻿using Elements.Controls.Expander;
+﻿using Elements.Components.Drag;
+using Elements.Controls.Expander;
 using Elements.Enumerators;
 using Elements.Extensions;
 using Elements.Models;
@@ -17,14 +18,13 @@ namespace Elements.Test
     public partial class Main : Form
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Main"/> class.
+        /// Initializes a new instance of the <see cref="Main" /> class.
         /// </summary>
         public Main()
         {
             InitializeComponent();
 
             // Insert test code below...
-
         }
 
         /// <summary>

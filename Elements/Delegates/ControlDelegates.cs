@@ -27,6 +27,24 @@ namespace Elements.Delegates
     public delegate void ControlBoxEventHandler(object sender, ControlBoxEventArgs e);
 
     /// <summary>
+    /// The <see cref="ControlDragCursorChangedEventHandler"/>.
+    /// </summary>
+    /// <param name="e">The <see cref="CursorChangedEventArgs"/> instance containing the event data.</param>
+    public delegate void ControlDragCursorChangedEventHandler(CursorChangedEventArgs e);
+
+    /// <summary>
+    /// The <see cref="ControlDragEventHandler"/>.
+    /// </summary>
+    /// <param name="e">The <see cref="DragControlEventArgs"/> instance containing the event data.</param>
+    public delegate void ControlDragEventHandler(DragControlEventArgs e);
+
+    /// <summary>
+    /// The <see cref="ControlDragToggleEventHandler"/>.
+    /// </summary>
+    /// <param name="e">The <see cref="ToggleEventArgs"/> instance containing the event data.</param>
+    public delegate void ControlDragToggleEventHandler(ToggleEventArgs e);
+
+    /// <summary>
     /// The <see cref="MouseStateChangedEventHandler"/>.
     /// </summary>
     /// <param name="source">The source.</param>

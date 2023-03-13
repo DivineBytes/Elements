@@ -8,7 +8,10 @@
     {
         #region Public Fields
 
+        public const string ControlDragChanged = "Occurs when the control is being dragged.";
+        public const string ControlDragToggleChanged = "Occours when the control drag toggle has been changed.";
         public const string ColorChanged = "The color of this component, which is used to display the graphic.";
+        public const string CursorChanged = "Occurs when the cursor for the control has been changed.";
         public const string MouseStateChanged = "Occurs when the state of the mouse on the control changes.";
         public const string PropertyChanged = "Occurs when the property was triggered by an event that has caused a change.";
         public const string ToggleChanged = "Occurs when the toggle has been changed on the control.";
