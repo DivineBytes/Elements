@@ -62,6 +62,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Components\Drag\DragDirection.cs" />
+    <Compile Include="Components\ToolTip\ToolTipDesigner.cs" />
+    <Compile Include="Components\ToolTip\TipInfo.cs" />
+    <Compile Include="Components\ToolTip\ToolTip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\ToolTip\ToolTipType.cs" />
     <Compile Include="Controls\Expander\Expander.cs" />
     <Compile Include="Components\Gradient\ColorField.cs" />
     <Compile Include="Components\Gradient\Gradient.cs">
@@ -323,6 +329,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Components\Drag\Drag.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Components\ToolTip\ToolTip.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

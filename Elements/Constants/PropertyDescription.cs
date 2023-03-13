@@ -42,6 +42,7 @@
         public const string MouseState = "The state of the mouse on the control.";
         public const string MultiLine = "Indicates whether this is a multiline component.";
         public const string Orientation = "The orientation associated for the component.";
+        public const string Padding = "Represents padding or margin information associated with a user interface (UI) element.";
         public const string PasswordChar = "Indicates the character to display for password input for the single-line edit controls.";
         public const string ReadOnly = "Controls whether the text in the edit control can be changed or not.";
         public const string Rectangle = "The rectangle location and size.";
@@ -57,6 +58,7 @@
         public const string TextRenderingHint = "Specifies the quality of text rendering.";
         public const string Thickness = "The thickness of the component.";
         public const string Toggle = "Indicates whether the component is in the toggled state.";
+        public const string Type = "Indicates the type used by the component.";
         public const string Unknown = "Unknown.";
         public const string UseSystemPasswordChar = "Indicates if the text in the edit control should appear as the default password character.";
         public const string Value = "The current value in a specified range of minimum and maximum.";

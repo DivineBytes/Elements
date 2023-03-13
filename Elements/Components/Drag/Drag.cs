@@ -19,7 +19,7 @@ namespace Elements.Components.Drag
     [ComVisible(true)]
     [DefaultEvent("ControlDrag")]
     [DefaultProperty("Text")]
-    [Description("The drag component enables controls to be draggable.")]
+    [Description("The drag component enables a control to be draggable.")]
     [ToolboxBitmap(typeof(Drag), "Drag.bmp")]
     [ToolboxItem(true)]
     public class Drag : ComponentBase
